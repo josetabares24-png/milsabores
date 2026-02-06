@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { ArrowRight, Star } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
+import Logo from './Logo'
 
 export default function Hero() {
   const t = useTranslations('hero')
@@ -61,12 +62,22 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-8"
         >
+          {/* Logo - First thing visitors see */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="flex justify-center mb-4"
+          >
+            <Logo size="xl" showText={false} />
+          </motion.div>
+
           {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-2"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2"
           >
             {/* Google Rating Badge */}
             <a

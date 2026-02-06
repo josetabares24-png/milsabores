@@ -1,17 +1,29 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { ChefHat, Leaf, Wheat, Clock, MapPin, Phone } from 'lucide-react'
+import { ChefHat, Leaf, Wheat, Clock, MapPin, Phone, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 
 type Category = 'bagels' | 'toasts' | 'brunch' | 'salads' | 'burgers' | 'wraps' | 'bowls' | 'dulces' | 'eggs' | 'coffee' | 'drinks' | 'cocktails' | 'extras'
 
 export default function MenuPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'vegetarian' | 'vegan' | 'glutenFree'>('all')
-  const [activeCategory, setActiveCategory] = useState<Category | 'all'>('all')
+  const [expandedCategories, setExpandedCategories] = useState<Set<Category>>(new Set(['brunch']))
   const t = useTranslations('fullMenu')
+
+  const toggleCategory = (category: Category) => {
+    setExpandedCategories(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(category)) {
+        newSet.delete(category)
+      } else {
+        newSet.add(category)
+      }
+      return newSet
+    })
+  }
 
   const categories: Category[] = [
     'bagels',
@@ -258,7 +270,7 @@ export default function MenuPage() {
           </div>
         </motion.div>
 
-        {/* Category Filters */}
+        {/* Quick Jump Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -266,28 +278,17 @@ export default function MenuPage() {
           className="mb-10 pb-6 border-b-2 border-mango/10"
         >
           <h3 className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-3 text-center">
-            Categorías
+            Ir a categoría
           </h3>
           <div className="flex flex-wrap justify-center gap-2">
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                activeCategory === 'all'
-                  ? 'bg-gradient-to-r from-mango to-amber-500 text-white shadow-lg scale-105'
-                  : 'bg-white text-slate border-2 border-slate/10 hover:border-mango hover:scale-105'
-              }`}
-            >
-              Todos
-            </button>
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                  activeCategory === category
-                    ? 'bg-gradient-to-r from-mango to-amber-500 text-white shadow-lg scale-105'
-                    : 'bg-white text-slate border-2 border-slate/10 hover:border-mango hover:scale-105'
-                }`}
+                onClick={() => {
+                  setExpandedCategories(prev => new Set([...prev, category]))
+                  document.getElementById(`category-${category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }}
+                className="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-white text-slate border-2 border-slate/10 hover:border-mango hover:bg-mango/5"
               >
                 {t(`categories.${category}`)}
               </button>
@@ -295,11 +296,9 @@ export default function MenuPage() {
           </div>
         </motion.div>
 
-        {/* Menu Categories */}
-        <div className="space-y-12">
-          {categories
-            .filter((category) => activeCategory === 'all' || activeCategory === category)
-            .map((category, catIndex) => {
+        {/* Menu Categories - Accordion Style */}
+        <div className="space-y-4">
+          {categories.map((category, catIndex) => {
               const filteredItems = Object.keys(t.raw(category) || {}).filter((itemKey) => {
                 const item = t.raw(`${category}.${itemKey}`)
                 if (typeof item !== 'object') return false
@@ -307,103 +306,130 @@ export default function MenuPage() {
               })
 
               if (filteredItems.length === 0) return null
+              const isExpanded = expandedCategories.has(category)
 
               return (
               <motion.div
                 key={category}
+                id={`category-${category}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-                className="pb-8 border-b border-slate/10 last:border-0"
+                transition={{ duration: 0.5, delay: catIndex * 0.05 }}
+                className="bg-white rounded-2xl border-2 border-slate/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
-                {/* Category Header */}
-                <div className="mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate mb-2">
-                    {t(`categories.${category}`)}
-                  </h2>
-                  <div className="w-20 h-1.5 bg-gradient-to-r from-mango via-amber-500 to-peach rounded-full shadow-md"></div>
-                  {/* Customization note for brunch */}
-                  {category === 'brunch' && (
-                    <div className="mt-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
-                      <p className="text-slate/80 text-sm font-medium">
-                        {t('brunch.customization_note')}
-                      </p>
-                    </div>
-                  )}
-                  {/* Note for dulces */}
-                  {category === 'dulces' && (
-                    <div className="mt-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
-                      <p className="text-slate/80 text-sm font-medium">
-                        {t('dulces.note')}
-                      </p>
-                    </div>
-                  )}
-                  {/* Note for burgers */}
-                  {category === 'burgers' && (
-                    <div className="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
-                      <p className="text-amber-700 text-sm font-medium flex items-center gap-2">
-                        <Clock size={16} />
-                        {t('burgers_note')}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                {/* Category Header - Clickable */}
+                <button
+                  onClick={() => toggleCategory(category)}
+                  className="w-full p-5 flex items-center justify-between hover:bg-slate/5 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate text-left">
+                      {t(`categories.${category}`)}
+                    </h2>
+                    <span className="text-sm text-slate/50 font-medium">
+                      {filteredItems.length} items
+                    </span>
+                  </div>
+                  <ChevronDown
+                    size={28}
+                    className={`text-mango transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                  />
+                </button>
 
-                {/* Category Items */}
-                <div className="space-y-5">
-                  {filteredItems.map((itemKey, itemIndex) => {
-                    const item = t.raw(`${category}.${itemKey}`)
-
-                    // Check if this is the first item of a subsection
-                    const isFirstSaladas = category === 'dulces' && itemKey.startsWith('saladas_') &&
-                      !filteredItems.slice(0, itemIndex).some(k => k.startsWith('saladas_'))
-                    const isFirstMini = category === 'dulces' && itemKey.startsWith('mini_') &&
-                      !filteredItems.slice(0, itemIndex).some(k => k.startsWith('mini_'))
-
-                    return (
-                      <div key={itemKey}>
-                        {isFirstSaladas && (
-                          <div className="mt-6 mb-4 pt-6 border-t-2 border-mango/10">
-                            <h3 className="text-xl font-bold text-slate">
-                              {t('dulces.saladas_title')}
-                            </h3>
+                {/* Category Content - Collapsible */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 pt-2 border-t border-slate/10">
+                        {/* Category notes */}
+                        {category === 'brunch' && (
+                          <div className="mb-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
+                            <p className="text-slate/80 text-sm font-medium">
+                              {t('brunch.customization_note')}
+                            </p>
                           </div>
                         )}
-                        {isFirstMini && (
-                          <div className="mt-6 mb-4 pt-6 border-t-2 border-mango/10">
-                            <h3 className="text-xl font-bold text-slate">
-                              {t('dulces.mini_title')}
-                            </h3>
+                        {category === 'dulces' && (
+                          <div className="mb-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
+                            <p className="text-slate/80 text-sm font-medium">
+                              {t('dulces.note')}
+                            </p>
                           </div>
                         )}
-                        <div
-                          className="group flex items-start justify-between gap-6 p-5 rounded-2xl bg-white border-2 border-slate/5 hover:border-mango/30 hover:shadow-lg transition-all duration-300"
-                        >
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-start gap-3 mb-2">
-                              <h3 className="font-bold text-slate text-lg leading-tight">
-                                {t(`${category}.${itemKey}.name`)}
-                              </h3>
-                              {getDietaryBadges(category, itemKey)}
-                            </div>
-                            {item.desc && (
-                              <p className="text-slate/70 text-sm leading-relaxed">
-                                {t(`${category}.${itemKey}.desc`)}
-                              </p>
-                            )}
+                        {category === 'burgers' && (
+                          <div className="mb-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                            <p className="text-amber-700 text-sm font-medium flex items-center gap-2">
+                              <Clock size={16} />
+                              {t('burgers_note')}
+                            </p>
                           </div>
-                          {item.price && (
-                            <div className="flex-shrink-0">
-                              <span className="text-mango font-bold text-xl whitespace-nowrap">
-                                €{item.price}
-                              </span>
-                            </div>
-                          )}
+                        )}
+
+                        {/* Category Items */}
+                        <div className="space-y-3">
+                          {filteredItems.map((itemKey, itemIndex) => {
+                            const item = t.raw(`${category}.${itemKey}`)
+
+                            // Check if this is the first item of a subsection
+                            const isFirstSaladas = category === 'dulces' && itemKey.startsWith('saladas_') &&
+                              !filteredItems.slice(0, itemIndex).some(k => k.startsWith('saladas_'))
+                            const isFirstMini = category === 'dulces' && itemKey.startsWith('mini_') &&
+                              !filteredItems.slice(0, itemIndex).some(k => k.startsWith('mini_'))
+
+                            return (
+                              <div key={itemKey}>
+                                {isFirstSaladas && (
+                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-mango/10">
+                                    <h3 className="text-lg font-bold text-slate">
+                                      {t('dulces.saladas_title')}
+                                    </h3>
+                                  </div>
+                                )}
+                                {isFirstMini && (
+                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-mango/10">
+                                    <h3 className="text-lg font-bold text-slate">
+                                      {t('dulces.mini_title')}
+                                    </h3>
+                                  </div>
+                                )}
+                                <div
+                                  className="group flex items-start justify-between gap-4 p-4 rounded-xl bg-slate/5 hover:bg-mango/5 transition-all duration-200"
+                                >
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-start gap-2 mb-1">
+                                      <h3 className="font-bold text-slate text-base leading-tight">
+                                        {t(`${category}.${itemKey}.name`)}
+                                      </h3>
+                                      {getDietaryBadges(category, itemKey)}
+                                    </div>
+                                    {item.desc && (
+                                      <p className="text-slate/60 text-sm leading-relaxed">
+                                        {t(`${category}.${itemKey}.desc`)}
+                                      </p>
+                                    )}
+                                  </div>
+                                  {item.price && (
+                                    <div className="flex-shrink-0">
+                                      <span className="text-mango font-bold text-lg whitespace-nowrap">
+                                        €{item.price}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            )
+                          })}
                         </div>
                       </div>
-                    )
-                  })}
-                </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
               )
             })}
