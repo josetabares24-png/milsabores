@@ -1,0 +1,23 @@
+{
+  "name": "Mil Sabores Lisboa",
+  "short_name": "Mil Sabores",
+  "description": "Brunch e Gelados Artesanais no coração de Lisboa",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8ED",
+  "theme_color": "#F2B705",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "200x200",
+      "type": "image/svg+xml"
+    }
+  ]
+}

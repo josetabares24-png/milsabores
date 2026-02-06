@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git -C \"c:\\\\Users\\\\joset\\\\OneDrive\\\\Desktop\\\\mil-sabores-web\" log --oneline -10)",
+      "Bash(vercel:*)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:maps.app.goo.gl)",
+      "WebFetch(domain:www.google.com)",
+      "Bash(node scripts/optimize-images.js:*)",
+      "Bash(git push:*)",
+      "Bash(node update-ice-cream.js:*)",
+      "Bash(node:*)",
+      "Bash(git reset:*)",
+      "WebFetch(domain:mil-sabores-web.vercel.app)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npx vercel --prod --yes)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx vercel:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}

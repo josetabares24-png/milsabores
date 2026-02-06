@@ -1,0 +1,72 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="100" r="150" fill="#F2B705" opacity="0.1"/>
+  <circle cx="150" cy="530" r="200" fill="#8FAF6B" opacity="0.1"/>
+
+  <!-- Logo circle -->
+  <circle cx="300" cy="315" r="120" fill="url(#logoGradient)" />
+  <circle cx="300" cy="315" r="120" stroke="#F2B705" stroke-width="4" />
+
+  <!-- MS text in logo -->
+  <text
+    x="300"
+    y="355"
+    font-family="Quicksand, sans-serif"
+    font-size="90"
+    font-weight="700"
+    fill="white"
+    text-anchor="middle"
+  >
+    MS
+  </text>
+
+  <!-- Main text -->
+  <text
+    x="480"
+    y="280"
+    font-family="Quicksand, sans-serif"
+    font-size="72"
+    font-weight="700"
+    fill="#2C3E50"
+  >
+    Mil Sabores
+  </text>
+
+  <text
+    x="480"
+    y="340"
+    font-family="Quicksand, sans-serif"
+    font-size="48"
+    font-weight="600"
+    fill="#F2B705"
+  >
+    Lisboa
+  </text>
+
+  <!-- Subtitle -->
+  <text
+    x="480"
+    y="410"
+    font-family="Quicksand, sans-serif"
+    font-size="28"
+    font-weight="500"
+    fill="#546E7A"
+  >
+    Brunch &amp; Gelados Artesanais
+  </text>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8ED" />
+      <stop offset="100%" stop-color="#FFECD0" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2B705" />
+      <stop offset="100%" stop-color="#D4A004" />
+    </linearGradient>
+  </defs>
+</svg>

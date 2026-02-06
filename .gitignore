@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Next.js build output
+.next
+out
+
+# Vercel
+.vercel
+
+# Environment variables
+.env*.local
+.env
+
+# Debug
+npm-debug.log*
+
+# IDE
+.idea
+.vscode
+
+# OS
+.DS_Store
+Thumbs.db

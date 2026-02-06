@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle with gradient -->
+  <circle cx="100" cy="100" r="96" fill="url(#logoGradient)" />
+  <circle cx="100" cy="100" r="96" stroke="#F2B705" stroke-width="4" />
+
+  <!-- MS Monogram -->
+  <text
+    x="100"
+    y="130"
+    font-family="Quicksand, sans-serif"
+    font-size="72"
+    font-weight="700"
+    fill="white"
+    text-anchor="middle"
+  >
+    MS
+  </text>
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2B705" />
+      <stop offset="100%" stop-color="#D4A004" />
+    </linearGradient>
+  </defs>
+</svg>
