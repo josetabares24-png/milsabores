@@ -62,16 +62,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-8"
         >
-          {/* Logo - First thing visitors see */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="flex justify-center mb-4"
-          >
-            <Logo size="xl" showText={false} />
-          </motion.div>
-
           {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,6 +141,15 @@ export default function Hero() {
             {/* SEO-friendly H1 with visual styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
+              {/* Logo between title and location */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="flex justify-center my-4"
+              >
+                <Logo size="xl" showText={false} />
+              </motion.div>
               <span className="block text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-mango via-amber-500 to-orange-500 font-bold tracking-wide drop-shadow-sm mt-2">
                 {t('location')}
               </span>
