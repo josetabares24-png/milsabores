@@ -9,6 +9,7 @@ import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import FloatingActionButton from '@/components/FloatingActionButton'
 import SchemaMarkup from '@/components/SchemaMarkup'
+import CookieConsent from '@/components/CookieConsent'
 import '../globals.css'
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ export default async function LocaleLayout({
           rel="stylesheet"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#F2B705" />
+        <meta name="theme-color" content="#A8C5D9" />
       </head>
       <body className="font-quicksand">
         <SchemaMarkup locale={locale} />
@@ -64,6 +65,7 @@ export default async function LocaleLayout({
           <Footer />
           <BackToTop />
           <FloatingActionButton />
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

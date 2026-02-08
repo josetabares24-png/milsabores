@@ -87,6 +87,8 @@ export default function FloatingActionButton() {
         whileTap={{ scale: 0.95 }}
         animate={{ rotate: isOpen ? 45 : 0 }}
         transition={{ duration: 0.2 }}
+        aria-label={isOpen ? 'Cerrar acciones rápidas' : 'Abrir acciones rápidas'}
+        aria-expanded={isOpen}
       >
         {isOpen ? <X size={28} /> : <Calendar size={28} />}
       </motion.button>

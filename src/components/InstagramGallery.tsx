@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Instagram } from 'lucide-react'
+import Image from 'next/image'
 
 const instagramImages = [
   {
@@ -86,11 +87,16 @@ export default function InstagramGallery() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white shadow-lg hover:shadow-2xl"
+              aria-label={`Ver ${image.alt} en Instagram`}
             >
               {/* Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${image.url}')` }}
+              <Image
+                src={image.url}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
 
               {/* Overlay */}

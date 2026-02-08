@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import Tilt from 'react-parallax-tilt'
+import Image from 'next/image'
 
 interface MenuItem {
   id: number
@@ -87,9 +88,13 @@ export default function MenuSection() {
               >
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${item.image}')` }}
+                <Image
+                  src={item.image}
+                  alt={t(`items.${item.key}.name`)}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 

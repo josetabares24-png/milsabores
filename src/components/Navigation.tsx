@@ -51,7 +51,8 @@ export default function Navigation() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-slate p-2 hover:bg-pastel/10 rounded-lg transition-colors"
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
