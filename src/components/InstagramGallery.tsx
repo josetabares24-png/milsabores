@@ -51,7 +51,7 @@ export default function InstagramGallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-mango text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
@@ -94,12 +94,12 @@ export default function InstagramGallery() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-mango/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Instagram Icon */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl">
-                  <Instagram size={32} className="text-mango" />
+                  <Instagram size={32} className="text-pastel" />
                 </div>
               </div>
             </motion.a>

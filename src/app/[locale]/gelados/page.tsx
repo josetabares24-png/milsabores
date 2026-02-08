@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { IceCream, Sparkles, Leaf } from 'lucide-react'
 import Image from 'next/image'
 import { Link } from '@/i18n/routing'
+import Logo from '@/components/Logo'
 
 export default function GeladosPage() {
   const t = useTranslations('gelados')
@@ -25,11 +26,14 @@ export default function GeladosPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-6 py-3 rounded-full mb-6">
-            <IceCream className="text-mango" size={20} />
-            <span className="text-mango text-sm font-bold tracking-widest uppercase">
-              {t('eyebrow')}
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+              <IceCream className="text-pastel" size={20} />
+              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+                {t('eyebrow')}
+              </span>
+            </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
             {t('title')}
@@ -81,38 +85,38 @@ export default function GeladosPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-2">
               {t('sizes.title')}
             </h2>
-            <div className="w-20 h-1.5 bg-gradient-to-r from-mango to-amber-500 rounded-full mx-auto"></div>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-pastel to-amber-500 rounded-full mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* 1 Bola */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-transparent hover:border-mango/30 transition-all text-center">
-              <IceCream className="text-mango mx-auto mb-4" size={36} />
+            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-transparent hover:border-pastel/30 transition-all text-center">
+              <IceCream className="text-pastel mx-auto mb-4" size={36} />
               <h3 className="text-xl font-bold text-slate mb-2">{t('sizes.single.name')}</h3>
               <p className="text-slate/60 text-sm mb-4">{t('sizes.single.description')}</p>
-              <div className="text-3xl font-bold text-mango">{t('sizes.single.price')}</div>
+              <div className="text-3xl font-bold text-pastel">{t('sizes.single.price')}</div>
             </div>
 
             {/* 2 Bolas - Popular */}
-            <div className="relative bg-white rounded-3xl p-8 shadow-xl border-2 border-mango/30 text-center">
+            <div className="relative bg-white rounded-3xl p-8 shadow-xl border-2 border-pastel/30 text-center">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-mango text-white text-xs font-bold rounded-full">
+                <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-pastel text-white text-xs font-bold rounded-full">
                   <Sparkles size={12} />
                   {t('sizes.popular')}
                 </div>
               </div>
-              <IceCream className="text-mango mx-auto mb-4 mt-2" size={44} />
+              <IceCream className="text-pastel mx-auto mb-4 mt-2" size={44} />
               <h3 className="text-xl font-bold text-slate mb-2">{t('sizes.double.name')}</h3>
               <p className="text-slate/60 text-sm mb-4">{t('sizes.double.description')}</p>
-              <div className="text-3xl font-bold text-mango">{t('sizes.double.price')}</div>
+              <div className="text-3xl font-bold text-pastel">{t('sizes.double.price')}</div>
             </div>
 
             {/* 3 Bolas */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-transparent hover:border-mango/30 transition-all text-center">
-              <IceCream className="text-mango mx-auto mb-4" size={36} />
+            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-transparent hover:border-pastel/30 transition-all text-center">
+              <IceCream className="text-pastel mx-auto mb-4" size={36} />
               <h3 className="text-xl font-bold text-slate mb-2">{t('sizes.triple.name')}</h3>
               <p className="text-slate/60 text-sm mb-4">{t('sizes.triple.description')}</p>
-              <div className="text-3xl font-bold text-mango">{t('sizes.triple.price')}</div>
+              <div className="text-3xl font-bold text-pastel">{t('sizes.triple.price')}</div>
             </div>
           </div>
         </motion.div>
@@ -140,7 +144,7 @@ export default function GeladosPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
-                className="bg-white rounded-2xl p-5 shadow-md hover:shadow-lg transition-all text-center border-2 border-transparent hover:border-mango/20"
+                className="bg-white rounded-2xl p-5 shadow-md hover:shadow-lg transition-all text-center border-2 border-transparent hover:border-pastel/20"
               >
                 <h3 className="font-bold text-slate text-lg mb-1">
                   {t(`flavors.items.${flavor}.name`)}
@@ -179,7 +183,7 @@ export default function GeladosPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/menu"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-mango to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-mango/40 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-pastel/40 transition-all hover:scale-105"
             >
               Ver Menú Completo
             </Link>

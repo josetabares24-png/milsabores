@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Mail, MapPin, Clock, Phone, Instagram, CheckCircle2, AlertCircle, Star } from 'lucide-react'
 import { isValidEmail } from '@/lib/validation'
+import Logo from '@/components/Logo'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -88,7 +89,7 @@ export default function ContactPage() {
           </p>
           <button
             onClick={() => setIsSubmitted(false)}
-            className="inline-block px-10 py-4 bg-mango text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-mango/30 hover:scale-105"
+            className="inline-block px-10 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
           >
             {t('success.back')}
           </button>
@@ -107,11 +108,14 @@ export default function ContactPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-6 py-3 rounded-full mb-6">
-            <Mail className="text-mango" size={20} />
-            <span className="text-mango text-sm font-bold tracking-widest uppercase">
-              {t('eyebrow')}
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+              <Mail className="text-pastel" size={20} />
+              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+                {t('eyebrow')}
+              </span>
+            </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
             {t('title')}
@@ -143,7 +147,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder={t('form.name_placeholder')}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-mango outline-none transition-colors text-slate placeholder:text-slate/40"
+                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
                   />
                 </div>
 
@@ -160,7 +164,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder={t('form.email_placeholder')}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-mango outline-none transition-colors text-slate placeholder:text-slate/40"
+                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
                   />
                 </div>
 
@@ -175,7 +179,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-mango outline-none transition-colors text-slate bg-white"
+                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate bg-white"
                   >
                     <option value="" disabled>{t('form.subject_placeholder')}</option>
                     <option value="general">{t('form.subject_options.general')}</option>
@@ -201,7 +205,7 @@ export default function ContactPage() {
                     required
                     rows={6}
                     placeholder={t('form.message_placeholder')}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-mango outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
                   />
                 </div>
 
@@ -217,7 +221,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-gradient-to-r from-mango to-amber-500 text-white font-bold rounded-full hover:scale-105 transition-all shadow-xl shadow-mango/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full px-10 py-5 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>
@@ -234,7 +238,7 @@ export default function ContactPage() {
           >
             {/* Map */}
             <div className="relative h-[400px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-br from-mango/10 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-pastel/10 to-transparent z-10 pointer-events-none" />
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9894239267636!2d-9.139228123485994!3d38.71130547171585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19347eb7bcb3cb%3A0x9b5a5e5c5d5e5f5!2sRua%20da%20Prata%20152%2C%201100-420%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1706000000000!5m2!1sen!2spt"
                 width="100%"
@@ -278,10 +282,10 @@ export default function ContactPage() {
               </div>
 
               {/* Hours */}
-              <div className="bg-white border-2 border-mango/30 rounded-2xl p-6 hover:border-mango hover:shadow-lg transition-all group">
+              <div className="bg-white border-2 border-pastel/30 rounded-2xl p-6 hover:border-pastel hover:shadow-lg transition-all group">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-mango/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mango/30 transition-colors">
-                    <Clock size={24} className="text-mango" />
+                  <div className="w-12 h-12 bg-pastel/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-pastel/30 transition-colors">
+                    <Clock size={24} className="text-pastel" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-slate font-bold text-lg mb-2">

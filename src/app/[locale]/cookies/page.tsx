@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Cookie } from 'lucide-react'
 import { Link } from '@/i18n/routing'
+import Logo from '@/components/Logo'
 
 export default function CookiesPage() {
   return (
@@ -13,11 +14,14 @@ export default function CookiesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-6 py-3 rounded-full mb-6">
-            <Cookie className="text-mango" size={20} />
-            <span className="text-mango text-sm font-bold tracking-widest uppercase">
-              Legal
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+              <Cookie className="text-pastel" size={20} />
+              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+                Legal
+              </span>
+            </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate mb-8">
             Política de Cookies
@@ -96,13 +100,13 @@ export default function CookiesPage() {
               <h2 className="text-2xl font-bold text-slate mb-4">5. Más Información</h2>
               <p>
                 Para más información sobre cómo tratamos tus datos personales, consulta nuestra{' '}
-                <Link href="/privacidad" className="text-mango font-bold hover:underline">
+                <Link href="/privacidad" className="text-pastel font-bold hover:underline">
                   Política de Privacidad
                 </Link>.
               </p>
               <p className="mt-3">
                 Si tienes preguntas, contacta con nosotros en{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-mango font-bold hover:underline">
+                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel font-bold hover:underline">
                   milsaboreslx@gmail.com
                 </a>.
               </p>

@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 text-slate hover:text-mango transition-all font-medium rounded-full md:rounded-lg bg-white/80 md:bg-transparent border-2 border-mango/30 md:border-transparent hover:bg-mango/10 hover:border-mango/50 shadow-md md:shadow-none hover:shadow-lg"
+        className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 text-slate hover:text-pastel transition-all font-medium rounded-full md:rounded-lg bg-white/80 md:bg-transparent border-2 border-pastel/30 md:border-transparent hover:bg-pastel/10 hover:border-pastel/50 shadow-md md:shadow-none hover:shadow-lg"
         aria-label="Change language"
       >
         <Globe size={22} className="md:w-5 md:h-5" />
@@ -41,7 +41,7 @@ export default function LanguageSwitcher() {
           />
 
           {/* Dropdown */}
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-mango/20 overflow-hidden z-50 animate-fade-in">
+          <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-pastel/20 overflow-hidden z-50 animate-fade-in">
             {locales.map((locale) => (
               <button
                 key={locale}
@@ -49,8 +49,8 @@ export default function LanguageSwitcher() {
                 disabled={isPending}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
                   locale === currentLocale
-                    ? 'bg-mango text-white font-bold'
-                    : 'text-slate hover:bg-mango/10'
+                    ? 'bg-pastel text-white font-bold'
+                    : 'text-slate hover:bg-pastel/10'
                 } ${isPending ? 'opacity-50 cursor-wait' : ''}`}
               >
                 <span className="text-2xl">{localeFlags[locale]}</span>

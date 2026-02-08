@@ -39,7 +39,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-br from-mango/5 via-cream to-peach/5">
+    <section className="py-24 px-6 bg-gradient-to-br from-pastel/5 via-cream to-peach/5">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -49,7 +49,7 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-mango text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
@@ -85,7 +85,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={24} className="text-mango fill-mango" />
+                  <Star key={i} size={24} className="text-pastel fill-pastel" />
                 ))}
               </div>
 
@@ -116,14 +116,14 @@ export default function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white hover:bg-mango text-slate hover:text-white rounded-full shadow-xl hover:scale-110 transition-all flex items-center justify-center"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white hover:bg-pastel text-slate hover:text-white rounded-full shadow-xl hover:scale-110 transition-all flex items-center justify-center"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white hover:bg-mango text-slate hover:text-white rounded-full shadow-xl hover:scale-110 transition-all flex items-center justify-center"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white hover:bg-pastel text-slate hover:text-white rounded-full shadow-xl hover:scale-110 transition-all flex items-center justify-center"
             aria-label="Next testimonial"
           >
             <ChevronRight size={24} />
@@ -137,7 +137,7 @@ export default function Testimonials() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   currentIndex === index
-                    ? 'bg-mango w-8'
+                    ? 'bg-pastel w-8'
                     : 'bg-slate/20 hover:bg-slate/40'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}

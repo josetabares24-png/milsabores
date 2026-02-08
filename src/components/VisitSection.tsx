@@ -19,7 +19,7 @@ export default function VisitSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-mango text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
@@ -39,7 +39,7 @@ export default function VisitSection() {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-mango/10 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-pastel/10 to-transparent z-10 pointer-events-none" />
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9867347!2d-9.1368835!3d38.7117777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19347f4e7b6ebd%3A0x9c7e5f3e5e5e5e5e!2sR.%20da%20Prata%20152%2C%201100-419%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1234567890"
               width="100%"
@@ -75,10 +75,10 @@ export default function VisitSection() {
             </div>
 
             {/* Hours */}
-            <div className="bg-cream border-2 border-mango/30 rounded-2xl p-6 hover:border-mango hover:shadow-lg transition-all group">
+            <div className="bg-cream border-2 border-pastel/30 rounded-2xl p-6 hover:border-pastel hover:shadow-lg transition-all group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-mango/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-mango/30 transition-colors">
-                  <Clock size={24} className="text-mango" />
+                <div className="w-12 h-12 bg-pastel/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-pastel/30 transition-colors">
+                  <Clock size={24} className="text-pastel" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-slate font-bold text-lg mb-2">{t('hours_title')}</h3>
@@ -128,7 +128,7 @@ export default function VisitSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center bg-gradient-to-br from-mango/10 to-peach/10 rounded-3xl p-12 border-2 border-mango/20"
+          className="mt-16 text-center bg-gradient-to-br from-pastel/10 to-peach/10 rounded-3xl p-12 border-2 border-pastel/20"
         >
           <h3 className="text-3xl md:text-4xl font-bold text-slate mb-4">
             {t('reserve_title')}
@@ -139,13 +139,13 @@ export default function VisitSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+351213470214"
-              className="px-10 py-4 bg-mango text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-mango/30 hover:scale-105"
+              className="px-10 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
             >
               {t('cta_call')}
             </a>
             <Link
               href="/reservas"
-              className="px-10 py-4 bg-white text-slate font-bold rounded-full border-2 border-mango/30 hover:bg-mango hover:text-white hover:border-mango transition-all shadow-md"
+              className="px-10 py-4 bg-white text-slate font-bold rounded-full border-2 border-pastel/30 hover:bg-pastel hover:text-white hover:border-pastel transition-all shadow-md"
             >
               {t('cta_reserve')}
             </Link>

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Beer, Wine, Users, Camera, Calendar, Gift, Star, ArrowRight, Sparkles, Clock } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 export default function PromotionsPage() {
   const t = useTranslations('promotions')
@@ -28,9 +29,9 @@ export default function PromotionsPage() {
     {
       key: 'brunch_duo',
       icon: Users,
-      color: 'from-mango to-amber-500',
-      bgColor: 'bg-mango/10',
-      borderColor: 'border-mango/30',
+      color: 'from-pastel to-amber-500',
+      bgColor: 'bg-pastel/10',
+      borderColor: 'border-pastel/30',
       featured: true,
       showPrice: true,
     },
@@ -54,12 +55,15 @@ export default function PromotionsPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-mango/20 to-amber-500/20 rounded-full mb-6">
-            <Sparkles className="w-5 h-5 text-mango" />
-            <span className="text-mango font-bold text-sm uppercase tracking-wider">
-              {t('eyebrow')}
-            </span>
-            <Sparkles className="w-5 h-5 text-mango" />
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pastel/20 to-amber-500/20 rounded-full">
+              <Sparkles className="w-5 h-5 text-pastel" />
+              <span className="text-pastel font-bold text-sm uppercase tracking-wider">
+                {t('eyebrow')}
+              </span>
+              <Sparkles className="w-5 h-5 text-pastel" />
+            </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-slate mb-4">
             {t('title')}
@@ -86,7 +90,7 @@ export default function PromotionsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative group rounded-3xl ${offer.bgColor} border-2 ${offer.borderColor} p-6 hover:shadow-2xl transition-all duration-300 ${offer.featured ? 'md:col-span-2 lg:col-span-1 ring-4 ring-mango/30' : ''}`}
+                className={`relative group rounded-3xl ${offer.bgColor} border-2 ${offer.borderColor} p-6 hover:shadow-2xl transition-all duration-300 ${offer.featured ? 'md:col-span-2 lg:col-span-1 ring-4 ring-pastel/30' : ''}`}
               >
                 {/* Badge */}
                 <div className={`absolute -top-3 left-6 px-4 py-1.5 bg-gradient-to-r ${offer.color} text-white text-sm font-bold rounded-full shadow-lg`}>
@@ -120,7 +124,7 @@ export default function PromotionsPage() {
                   {/* Discount/Price */}
                   <div className="mb-4">
                     {offer.showPrice ? (
-                      <span className="text-4xl font-bold text-mango">
+                      <span className="text-4xl font-bold text-pastel">
                         {t(`offers.${offer.key}.price`)}
                       </span>
                     ) : (
@@ -168,12 +172,12 @@ export default function PromotionsPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6 + index * 0.05 }}
-                className="bg-white rounded-2xl p-5 border-2 border-slate/10 hover:border-mango hover:shadow-xl transition-all duration-300 text-center group"
+                className="bg-white rounded-2xl p-5 border-2 border-slate/10 hover:border-pastel hover:shadow-xl transition-all duration-300 text-center group"
               >
-                <div className="text-xs font-bold text-mango uppercase tracking-wider mb-2">
+                <div className="text-xs font-bold text-pastel uppercase tracking-wider mb-2">
                   {t(`weekly.${day}.day`)}
                 </div>
-                <h4 className="font-bold text-slate mb-1 group-hover:text-mango transition-colors">
+                <h4 className="font-bold text-slate mb-1 group-hover:text-pastel transition-colors">
                   {t(`weekly.${day}.offer`)}
                 </h4>
                 <p className="text-slate/60 text-xs">
@@ -189,7 +193,7 @@ export default function PromotionsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-mango via-amber-500 to-orange-500 p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pastel via-amber-500 to-orange-500 p-10 md:p-16 text-center"
         >
           {/* Background decorations */}
           <div className="absolute inset-0 opacity-20">
@@ -209,7 +213,7 @@ export default function PromotionsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <Link
                 href="/reservas"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-mango font-bold rounded-full hover:bg-slate hover:text-white transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-pastel font-bold rounded-full hover:bg-slate hover:text-white transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 {t('cta_reserve')}
                 <ArrowRight className="w-5 h-5" />

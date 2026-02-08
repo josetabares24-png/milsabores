@@ -7,9 +7,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'mango': '#F2B705',
-        'sage': '#A8B38E',
-        'peach': '#F2D4CC',
+        'pastel': '#A8C5D9',      // Azul pastel de marca (color principal)
+        'pastel-dark': '#7BA3BD', // Azul más oscuro para hover
+        'pastel-light': '#D4E4EE', // Azul más claro para fondos
+        'mango': '#F2B705',        // Amarillo (acento secundario)
+        'sage': '#9FAF7F',         // Verde oliva de marca
+        'peach': '#F5D5C8',        // Melocotón de marca
         'steel': '#7FA1C3',
         'slate': '#6B7280',
         'cream': '#FFF9F0',

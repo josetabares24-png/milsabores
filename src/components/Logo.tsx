@@ -6,7 +6,7 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   className?: string
   showText?: boolean
-  colorFilter?: 'none' | 'mango' | 'gold' | 'sepia' | 'grayscale' | 'warm' | 'cool'
+  colorFilter?: 'none' | 'mango' | 'gold' | 'sepia' | 'grayscale' | 'warm' | 'cool' | 'pastel'
 }
 
 export default function Logo({
@@ -31,6 +31,7 @@ export default function Logo({
     grayscale: 'grayscale(100%)',
     warm: 'sepia(30%) saturate(130%) brightness(105%)',
     cool: 'sepia(20%) saturate(80%) brightness(105%) hue-rotate(180deg)',
+    pastel: 'sepia(30%) saturate(150%) brightness(100%) hue-rotate(170deg)',
   }
 
   const currentSize = sizes[size]

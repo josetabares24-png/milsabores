@@ -18,7 +18,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-mango text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
@@ -76,9 +76,9 @@ export default function About() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {/* Feature 1 */}
-          <div className="text-center p-8 bg-gradient-to-br from-mango/5 to-peach/5 rounded-3xl border-2 border-mango/10 hover:border-mango/30 transition-all">
-            <div className="w-16 h-16 bg-mango/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Heart size={32} className="text-mango" />
+          <div className="text-center p-8 bg-gradient-to-br from-pastel/5 to-peach/5 rounded-3xl border-2 border-pastel/10 hover:border-pastel/30 transition-all">
+            <div className="w-16 h-16 bg-pastel/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Heart size={32} className="text-pastel" />
             </div>
             <h3 className="text-xl font-bold text-slate mb-3">{t('feature1_title')}</h3>
             <p className="text-slate/60">

@@ -53,7 +53,7 @@ export default function MenuSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-mango text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
@@ -83,7 +83,7 @@ export default function MenuSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative bg-white/80 backdrop-blur-lg rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-white/50 hover:border-mango/30"
+                className="group relative bg-white/80 backdrop-blur-lg rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-white/50 hover:border-pastel/30"
               >
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
@@ -95,7 +95,7 @@ export default function MenuSection() {
 
                 {/* Price Badge */}
                 <div className="absolute top-4 right-4 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
-                  <span className="text-mango font-bold text-lg">{item.price}</span>
+                  <span className="text-pastel font-bold text-lg">{item.price}</span>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ export default function MenuSection() {
         >
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-mango text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-mango/40 hover:scale-105"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-pastel/40 hover:scale-105"
           >
             {t('view_full')}
           </Link>

@@ -39,7 +39,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-mango text-white rounded-full shadow-xl shadow-mango/40 hover:bg-amber-500 hover:scale-110 transition-all flex items-center justify-center group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-pastel text-white rounded-full shadow-xl shadow-pastel/40 hover:bg-amber-500 hover:scale-110 transition-all flex items-center justify-center group"
           aria-label="Voltar ao topo"
         >
           <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />

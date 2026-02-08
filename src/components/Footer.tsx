@@ -26,19 +26,19 @@ export default function Footer() {
                 href="https://instagram.com/milsaboreslx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white hover:bg-mango/20 border-2 border-slate/10 hover:border-mango rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                className="w-10 h-10 bg-white hover:bg-pastel/20 border-2 border-slate/10 hover:border-pastel rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                 aria-label="Instagram"
               >
-                <Instagram size={18} className="text-slate hover:text-mango" />
+                <Instagram size={18} className="text-slate hover:text-pastel" />
               </a>
               <a
                 href="https://www.facebook.com/MilSaboreslx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white hover:bg-mango/20 border-2 border-slate/10 hover:border-mango rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                className="w-10 h-10 bg-white hover:bg-pastel/20 border-2 border-slate/10 hover:border-pastel rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                 aria-label="Facebook"
               >
-                <Facebook size={18} className="text-slate hover:text-mango" />
+                <Facebook size={18} className="text-slate hover:text-pastel" />
               </a>
             </div>
           </div>
@@ -48,27 +48,27 @@ export default function Footer() {
             <h4 className="text-slate font-bold text-lg mb-6">{t('links_title')}</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/menu" className="text-slate/60 hover:text-mango transition-colors text-sm font-medium">
+                <Link href="/menu" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('menu')}
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-slate/60 hover:text-mango transition-colors text-sm font-medium">
+                <Link href="/" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('about')}
                 </Link>
               </li>
               <li>
-                <Link href="/galeria" className="text-slate/60 hover:text-mango transition-colors text-sm font-medium">
+                <Link href="/galeria" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('gallery')}
                 </Link>
               </li>
               <li>
-                <Link href="/reservas" className="text-slate/60 hover:text-mango transition-colors text-sm font-medium">
+                <Link href="/reservas" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('reservations')}
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-slate/60 hover:text-mango transition-colors text-sm font-medium">
+                <Link href="/contacto" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('contact')}
                 </Link>
               </li>
@@ -122,17 +122,17 @@ export default function Footer() {
               © {new Date().getFullYear()} Mil Sabores Lisboa. {t('rights')}
             </p>
             <div className="flex flex-wrap gap-4 md:gap-6">
-              <Link href="/privacidad" className="text-slate/60 hover:text-mango transition-colors text-sm">
+              <Link href="/privacidad" className="text-slate/60 hover:text-pastel transition-colors text-sm">
                 {t('legal_privacy')}
               </Link>
-              <Link href="/cookies" className="text-slate/60 hover:text-mango transition-colors text-sm">
+              <Link href="/cookies" className="text-slate/60 hover:text-pastel transition-colors text-sm">
                 {t('legal_cookies')}
               </Link>
               <a
                 href="https://www.livroreclamacoes.pt/Inicio/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate/60 hover:text-mango transition-colors text-sm"
+                className="text-slate/60 hover:text-pastel transition-colors text-sm"
               >
                 {t('legal_reclamaciones')}
               </a>

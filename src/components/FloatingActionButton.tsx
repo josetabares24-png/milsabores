@@ -15,7 +15,7 @@ export default function FloatingActionButton() {
       icon: Calendar,
       label: t('reserve'),
       href: '/reservas',
-      color: 'from-mango to-amber-500',
+      color: 'from-pastel to-amber-500',
       delay: 0.1,
     },
     {
@@ -80,7 +80,7 @@ export default function FloatingActionButton() {
       {/* Main FAB Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full bg-gradient-to-r from-mango to-amber-500 text-white shadow-2xl hover:shadow-mango/50 flex items-center justify-center transition-all ${
+        className={`w-16 h-16 rounded-full bg-gradient-to-r from-pastel to-amber-500 text-white shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
           isOpen ? 'rotate-45' : ''
         }`}
         whileHover={{ scale: 1.1 }}

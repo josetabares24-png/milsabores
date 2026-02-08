@@ -29,9 +29,9 @@ export default function FeaturedDish() {
             className="order-2 lg:order-1"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-mango/20 rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-mango" />
-              <span className="text-mango font-bold text-sm uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-pastel/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-pastel" />
+              <span className="text-pastel font-bold text-sm uppercase tracking-wider">
                 {t('badge')}
               </span>
             </div>
@@ -51,7 +51,7 @@ export default function FeaturedDish() {
                 <span className="text-white/90 text-sm font-medium">{t('feature1')}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
-                <Star className="w-4 h-4 text-mango" fill="currentColor" />
+                <Star className="w-4 h-4 text-pastel" fill="currentColor" />
                 <span className="text-white/90 text-sm font-medium">{t('feature2')}</span>
               </div>
             </div>
@@ -60,11 +60,11 @@ export default function FeaturedDish() {
             <div className="flex flex-wrap items-center gap-6">
               <div>
                 <span className="text-white/60 text-sm">{t('from')}</span>
-                <div className="text-4xl font-bold text-mango">{t('price')}</div>
+                <div className="text-4xl font-bold text-pastel">{t('price')}</div>
               </div>
               <Link
                 href="/menu"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-mango to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-mango/40 transition-all duration-300 hover:scale-105 group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
               >
                 {t('cta')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -81,7 +81,7 @@ export default function FeaturedDish() {
             className="order-1 lg:order-2 relative"
           >
             {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-mango/30 to-amber-500/30 rounded-[3rem] blur-3xl transform -rotate-6" />
+            <div className="absolute inset-0 bg-gradient-to-r from-pastel/30 to-amber-500/30 rounded-[3rem] blur-3xl transform -rotate-6" />
 
             {/* Main image container */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/20">
@@ -101,7 +101,7 @@ export default function FeaturedDish() {
               <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-4 h-4 text-mango" fill="currentColor" />
+                    <Star key={star} className="w-4 h-4 text-pastel" fill="currentColor" />
                   ))}
                 </div>
                 <span className="text-slate font-bold text-sm">4.9</span>

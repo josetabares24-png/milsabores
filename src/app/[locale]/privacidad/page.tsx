@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Shield } from 'lucide-react'
 import { Link } from '@/i18n/routing'
+import Logo from '@/components/Logo'
 
 export default function PrivacyPage() {
   return (
@@ -13,11 +14,14 @@ export default function PrivacyPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-6 py-3 rounded-full mb-6">
-            <Shield className="text-mango" size={20} />
-            <span className="text-mango text-sm font-bold tracking-widest uppercase">
-              Legal
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+              <Shield className="text-pastel" size={20} />
+              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+                Legal
+              </span>
+            </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate mb-8">
             Política de Privacidad
@@ -99,7 +103,7 @@ export default function PrivacyPage() {
               </ul>
               <p className="mt-3">
                 Para ejercer cualquiera de estos derechos, escríbenos a{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-mango font-bold hover:underline">
+                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel font-bold hover:underline">
                   milsaboreslx@gmail.com
                 </a>.
               </p>
@@ -118,7 +122,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-slate mb-4">9. Cookies</h2>
               <p>
                 Utilizamos cookies para mejorar tu experiencia. Puedes consultar nuestra{' '}
-                <Link href="/cookies" className="text-mango font-bold hover:underline">
+                <Link href="/cookies" className="text-pastel font-bold hover:underline">
                   Política de Cookies
                 </Link>{' '}
                 para más información.
@@ -129,11 +133,11 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-slate mb-4">10. Contacto</h2>
               <p>
                 Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-mango font-bold hover:underline">
+                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel font-bold hover:underline">
                   milsaboreslx@gmail.com
                 </a>{' '}
                 o llamando al{' '}
-                <a href="tel:+351213470214" className="text-mango font-bold hover:underline">
+                <a href="tel:+351213470214" className="text-pastel font-bold hover:underline">
                   +351 21 347 0214
                 </a>.
               </p>

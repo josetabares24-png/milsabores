@@ -22,7 +22,7 @@ export default function NotFound() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-8"
         >
-          <h1 className="text-[150px] md:text-[200px] font-bold text-mango/20 leading-none">
+          <h1 className="text-[150px] md:text-[200px] font-bold text-pastel/20 leading-none">
             404
           </h1>
         </motion.div>
@@ -34,7 +34,7 @@ export default function NotFound() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-6"
         >
-          <span className="material-symbols-outlined text-8xl text-mango">
+          <span className="material-symbols-outlined text-8xl text-pastel">
             restaurant
           </span>
         </motion.div>
@@ -64,7 +64,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-mango text-white rounded-full font-semibold hover:bg-mango/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <span className="material-symbols-outlined">home</span>
             {t('common.404.home', { default: 'Voltar ao Início' })}
@@ -72,7 +72,7 @@ export default function NotFound() {
 
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-mango border-2 border-mango rounded-full font-semibold hover:bg-mango/5 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
           >
             <span className="material-symbols-outlined">restaurant_menu</span>
             {t('common.404.menu', { default: 'Ver Menu' })}

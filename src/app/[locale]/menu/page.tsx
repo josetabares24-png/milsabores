@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { ChefHat, Leaf, Wheat, Clock, MapPin, Phone, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/routing'
+import Logo from '@/components/Logo'
 
 type Category = 'bagels' | 'toasts' | 'brunch' | 'salads' | 'burgers' | 'wraps' | 'bowls' | 'dulces' | 'eggs' | 'coffee' | 'drinks' | 'cocktails' | 'extras'
 
@@ -176,11 +177,14 @@ export default function MenuPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-4 py-2 rounded-full mb-4">
-            <ChefHat className="text-mango" size={18} />
-            <span className="text-mango text-xs font-bold tracking-widest uppercase">
-              Menu
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-4">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-4 py-2 rounded-full">
+              <ChefHat className="text-pastel" size={18} />
+              <span className="text-pastel text-xs font-bold tracking-widest uppercase">
+                Menu
+              </span>
+            </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate mb-4">
             {t('title')}
@@ -201,7 +205,7 @@ export default function MenuPage() {
           className="flex flex-wrap justify-center gap-4 mb-8 text-sm"
         >
           <div className="flex items-center gap-2 text-slate/70">
-            <Clock size={16} className="text-mango" />
+            <Clock size={16} className="text-pastel" />
             <span>Seg-Dom · 7:00 - 19:00</span>
           </div>
           <div className="flex items-center gap-2 text-slate/70">
@@ -229,8 +233,8 @@ export default function MenuPage() {
               onClick={() => setActiveFilter('all')}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeFilter === 'all'
-                  ? 'bg-mango text-white shadow-md'
-                  : 'bg-slate/5 text-slate hover:bg-mango/10'
+                  ? 'bg-pastel text-white shadow-md'
+                  : 'bg-slate/5 text-slate hover:bg-pastel/10'
               }`}
             >
               {t('filters.all')}
@@ -275,7 +279,7 @@ export default function MenuPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-10 pb-6 border-b-2 border-mango/10"
+          className="mb-10 pb-6 border-b-2 border-pastel/10"
         >
           <h3 className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-3 text-center">
             Ir a categoría
@@ -288,7 +292,7 @@ export default function MenuPage() {
                   setExpandedCategories(prev => new Set([...prev, category]))
                   document.getElementById(`category-${category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }}
-                className="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-white text-slate border-2 border-slate/10 hover:border-mango hover:bg-mango/5"
+                className="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-white text-slate border-2 border-slate/10 hover:border-pastel hover:bg-pastel/5"
               >
                 {t(`categories.${category}`)}
               </button>
@@ -332,7 +336,7 @@ export default function MenuPage() {
                   </div>
                   <ChevronDown
                     size={28}
-                    className={`text-mango transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                    className={`text-pastel transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                   />
                 </button>
 
@@ -349,14 +353,14 @@ export default function MenuPage() {
                       <div className="px-5 pb-5 pt-2 border-t border-slate/10">
                         {/* Category notes */}
                         {category === 'brunch' && (
-                          <div className="mb-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
+                          <div className="mb-4 p-4 bg-pastel/10 rounded-xl border border-pastel/20">
                             <p className="text-slate/80 text-sm font-medium">
                               {t('brunch.customization_note')}
                             </p>
                           </div>
                         )}
                         {category === 'dulces' && (
-                          <div className="mb-4 p-4 bg-mango/10 rounded-xl border border-mango/20">
+                          <div className="mb-4 p-4 bg-pastel/10 rounded-xl border border-pastel/20">
                             <p className="text-slate/80 text-sm font-medium">
                               {t('dulces.note')}
                             </p>
@@ -385,21 +389,21 @@ export default function MenuPage() {
                             return (
                               <div key={itemKey}>
                                 {isFirstSaladas && (
-                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-mango/10">
+                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-pastel/10">
                                     <h3 className="text-lg font-bold text-slate">
                                       {t('dulces.saladas_title')}
                                     </h3>
                                   </div>
                                 )}
                                 {isFirstMini && (
-                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-mango/10">
+                                  <div className="mt-4 mb-3 pt-4 border-t-2 border-pastel/10">
                                     <h3 className="text-lg font-bold text-slate">
                                       {t('dulces.mini_title')}
                                     </h3>
                                   </div>
                                 )}
                                 <div
-                                  className="group flex items-start justify-between gap-4 p-4 rounded-xl bg-slate/5 hover:bg-mango/5 transition-all duration-200"
+                                  className="group flex items-start justify-between gap-4 p-4 rounded-xl bg-slate/5 hover:bg-pastel/5 transition-all duration-200"
                                 >
                                   <div className="flex-1 min-w-0">
                                     <div className="flex items-start gap-2 mb-1">
@@ -416,7 +420,7 @@ export default function MenuPage() {
                                   </div>
                                   {item.price && (
                                     <div className="flex-shrink-0">
-                                      <span className="text-mango font-bold text-lg whitespace-nowrap">
+                                      <span className="text-pastel font-bold text-lg whitespace-nowrap">
                                         €{item.price}
                                       </span>
                                     </div>
@@ -477,13 +481,13 @@ export default function MenuPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/reservas"
-              className="px-8 py-3 bg-gradient-to-r from-mango to-amber-500 text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
+              className="px-8 py-3 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
             >
               Reservar Mesa
             </Link>
             <a
               href="tel:+351213470214"
-              className="px-8 py-3 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-mango hover:bg-slate/5 transition-all"
+              className="px-8 py-3 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel hover:bg-slate/5 transition-all"
             >
               Llamar Ahora
             </a>

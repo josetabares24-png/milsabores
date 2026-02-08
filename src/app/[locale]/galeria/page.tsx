@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { X, ChevronLeft, ChevronRight, Instagram, Image as ImageIcon } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 type Category = 'all' | 'food' | 'drinks' | 'interior' | 'events'
 
@@ -96,11 +97,14 @@ export default function GalleryPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-mango/10 px-6 py-3 rounded-full mb-6">
-            <ImageIcon className="text-mango" size={20} />
-            <span className="text-mango text-sm font-bold tracking-widest uppercase">
-              {t('eyebrow')}
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Logo size="lg" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+              <ImageIcon className="text-pastel" size={20} />
+              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+                {t('eyebrow')}
+              </span>
+            </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
             {t('title')}
@@ -123,7 +127,7 @@ export default function GalleryPage() {
               onClick={() => setActiveCategory(category)}
               className={`px-8 py-4 rounded-full font-bold transition-all ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-mango to-amber-500 text-white shadow-xl shadow-mango/40 scale-105'
+                  ? 'bg-gradient-to-r from-pastel to-amber-500 text-white shadow-xl shadow-pastel/40 scale-105'
                   : 'bg-white text-slate hover:bg-white/80 hover:scale-105'
               }`}
             >
@@ -147,7 +151,7 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               onClick={() => setSelectedImage(image.id)}
-              className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white hover:border-mango/30 shadow-lg hover:shadow-2xl transition-all"
+              className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white hover:border-pastel/30 shadow-lg hover:shadow-2xl transition-all"
               style={{
                 gridRow: index % 7 === 0 ? 'span 2' : 'span 1',
               }}
@@ -156,10 +160,10 @@ export default function GalleryPage() {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url('${image.url}')` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-mango/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl">
-                  <ImageIcon size={32} className="text-mango" />
+                  <ImageIcon size={32} className="text-pastel" />
                 </div>
               </div>
             </motion.div>

@@ -37,7 +37,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-gradient-to-br from-mango/20 to-amber-400/10 rounded-full blur-3xl"
+          className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-gradient-to-br from-pastel/20 to-amber-400/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -141,7 +141,7 @@ export default function Hero() {
             {/* SEO-friendly H1 with visual styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-mango via-amber-500 to-orange-500 font-bold tracking-wide drop-shadow-sm mt-2">
+              <span className="block text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pastel via-amber-500 to-orange-500 font-bold tracking-wide drop-shadow-sm mt-2">
                 {t('location')}
               </span>
             </h1>
@@ -152,7 +152,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="flex justify-center mt-6"
             >
-              <Logo size="xl" showText={false} colorFilter="mango" />
+              <Logo size="xl" showText={false} colorFilter="pastel" />
             </motion.div>
             {/* Subtitle */}
             <p className="text-slate/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -173,7 +173,7 @@ export default function Hero() {
           >
             <Link
               href="/menu"
-              className="group relative px-10 py-5 bg-gradient-to-r from-mango to-amber-500 text-white font-bold rounded-full shadow-xl shadow-mango/40 hover:shadow-2xl hover:shadow-mango/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
+              className="group relative px-10 py-5 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full shadow-xl shadow-pastel/40 hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
             >
               <span className="relative z-10">{t('cta_menu')}</span>
               <ArrowRight size={22} className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -182,7 +182,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/reservas"
-              className="px-10 py-5 bg-white/90 backdrop-blur-xl text-slate font-bold rounded-full border-2 border-slate/10 hover:border-mango hover:bg-mango hover:text-white hover:scale-105 transition-all duration-300 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-mango/30 flex items-center justify-center text-lg"
+              className="px-10 py-5 bg-white/90 backdrop-blur-xl text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel hover:bg-pastel hover:text-white hover:scale-105 transition-all duration-300 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-pastel/30 flex items-center justify-center text-lg"
             >
               {t('cta_reserve')}
             </Link>
@@ -195,15 +195,15 @@ export default function Hero() {
             transition={{ delay: 0.7 }}
             className="flex flex-wrap justify-center gap-6 pt-12 text-slate/70 text-base font-medium"
           >
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-mango/30 transition-all duration-300">
-              <span className="material-symbols-outlined text-mango text-xl">schedule</span>
+            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
+              <span className="material-symbols-outlined text-pastel text-xl">schedule</span>
               <span>{t('hours_label')}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-mango/30 transition-all duration-300">
+            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
               <span className="material-symbols-outlined text-sage text-xl">location_on</span>
               <span>{t('location_label')}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-mango/30 transition-all duration-300">
+            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
               <span className="material-symbols-outlined text-steel text-xl">call</span>
               <span>{t('phone_label')}</span>
             </div>
@@ -223,9 +223,9 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 border-2 border-mango/40 rounded-full flex items-start justify-center p-2 bg-white/50 backdrop-blur-sm"
+            className="w-6 h-10 border-2 border-pastel/40 rounded-full flex items-start justify-center p-2 bg-white/50 backdrop-blur-sm"
           >
-            <div className="w-1.5 h-1.5 bg-mango rounded-full" />
+            <div className="w-1.5 h-1.5 bg-pastel rounded-full" />
           </motion.div>
         </div>
       </motion.div>
