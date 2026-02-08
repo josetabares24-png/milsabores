@@ -142,7 +142,10 @@ export default function Hero() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
               <span className="block text-xl md:text-2xl lg:text-3xl text-pastel font-bold tracking-wide drop-shadow-sm mt-2">
-                {t('location')}
+                {t('tagline')}
+              </span>
+              <span className="block text-sm md:text-base text-slate/50 font-medium tracking-[0.3em] uppercase mt-4">
+                {t('city')}
               </span>
             </h1>
             {/* Logo below title and location */}
