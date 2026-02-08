@@ -15,7 +15,7 @@ export default function CookiesPage() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Cookie className="text-pastel" size={20} />
               <span className="text-pastel text-sm font-bold tracking-widest uppercase">

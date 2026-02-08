@@ -141,7 +141,7 @@ export default function Hero() {
             {/* SEO-friendly H1 with visual styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pastel via-amber-500 to-orange-500 font-bold tracking-wide drop-shadow-sm mt-2">
+              <span className="block text-xl md:text-2xl lg:text-3xl text-pastel font-bold tracking-wide drop-shadow-sm mt-2">
                 {t('location')}
               </span>
             </h1>
@@ -173,7 +173,7 @@ export default function Hero() {
           >
             <Link
               href="/menu"
-              className="group relative px-10 py-5 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full shadow-xl shadow-pastel/40 hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
+              className="group relative px-10 py-5 bg-pastel text-white font-bold rounded-full shadow-xl shadow-pastel/40 hover:bg-pastel-dark hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
             >
               <span className="relative z-10">{t('cta_menu')}</span>
               <ArrowRight size={22} className="relative z-10 group-hover:translate-x-1 transition-transform" />

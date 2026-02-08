@@ -109,7 +109,7 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Mail className="text-pastel" size={20} />
               <span className="text-pastel text-sm font-bold tracking-widest uppercase">
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>

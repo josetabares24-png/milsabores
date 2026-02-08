@@ -178,7 +178,7 @@ export default function MenuPage() {
           className="text-center mb-8"
         >
           <div className="flex flex-col items-center gap-4 mb-4">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-4 py-2 rounded-full">
               <ChefHat className="text-pastel" size={18} />
               <span className="text-pastel text-xs font-bold tracking-widest uppercase">
@@ -481,7 +481,7 @@ export default function MenuPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/reservas"
-              className="px-8 py-3 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
+              className="px-8 py-3 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-lg hover:scale-105 transition-all"
             >
               Reservar Mesa
             </Link>

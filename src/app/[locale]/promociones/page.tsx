@@ -56,8 +56,8 @@ export default function PromotionsPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pastel/20 to-amber-500/20 rounded-full">
+            <Logo size="xl" colorFilter="pastel" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-pastel/20 rounded-full">
               <Sparkles className="w-5 h-5 text-pastel" />
               <span className="text-pastel font-bold text-sm uppercase tracking-wider">
                 {t('eyebrow')}
@@ -193,7 +193,7 @@ export default function PromotionsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pastel via-amber-500 to-orange-500 p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl bg-pastel p-10 md:p-16 text-center"
         >
           {/* Background decorations */}
           <div className="absolute inset-0 opacity-20">

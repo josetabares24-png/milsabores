@@ -41,7 +41,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="/reservas"
-              className="px-6 py-2.5 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="px-6 py-2.5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
             >
               {t('reservations')}
             </Link>

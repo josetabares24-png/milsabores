@@ -27,7 +27,7 @@ export default function GeladosPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <IceCream className="text-pastel" size={20} />
               <span className="text-pastel text-sm font-bold tracking-widest uppercase">
@@ -85,7 +85,7 @@ export default function GeladosPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-2">
               {t('sizes.title')}
             </h2>
-            <div className="w-20 h-1.5 bg-gradient-to-r from-pastel to-amber-500 rounded-full mx-auto"></div>
+            <div className="w-20 h-1.5 bg-pastel rounded-full mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -183,7 +183,7 @@ export default function GeladosPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/menu"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-pastel/40 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all hover:scale-105"
             >
               Ver Menú Completo
             </Link>

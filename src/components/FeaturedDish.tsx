@@ -64,7 +64,7 @@ export default function FeaturedDish() {
               </div>
               <Link
                 href="/menu"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pastel to-amber-500 text-white font-bold rounded-full hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
               >
                 {t('cta')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -81,7 +81,7 @@ export default function FeaturedDish() {
             className="order-1 lg:order-2 relative"
           >
             {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-pastel/30 to-amber-500/30 rounded-[3rem] blur-3xl transform -rotate-6" />
+            <div className="absolute inset-0 bg-pastel/30 rounded-[3rem] blur-3xl transform -rotate-6" />
 
             {/* Main image container */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/20">

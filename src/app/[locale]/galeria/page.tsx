@@ -98,7 +98,7 @@ export default function GalleryPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <ImageIcon className="text-pastel" size={20} />
               <span className="text-pastel text-sm font-bold tracking-widest uppercase">
@@ -127,7 +127,7 @@ export default function GalleryPage() {
               onClick={() => setActiveCategory(category)}
               className={`px-8 py-4 rounded-full font-bold transition-all ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-pastel to-amber-500 text-white shadow-xl shadow-pastel/40 scale-105'
+                  ? 'bg-pastel text-white shadow-xl shadow-pastel/40 scale-105'
                   : 'bg-white text-slate hover:bg-white/80 hover:scale-105'
               }`}
             >

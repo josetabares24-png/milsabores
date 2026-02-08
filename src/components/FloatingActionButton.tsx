@@ -15,14 +15,14 @@ export default function FloatingActionButton() {
       icon: Calendar,
       label: t('reserve'),
       href: '/reservas',
-      color: 'from-pastel to-amber-500',
+      color: 'bg-pastel',
       delay: 0.1,
     },
     {
       icon: Phone,
       label: t('call'),
       href: 'tel:+351213470214',
-      color: 'from-steel to-blue-500',
+      color: 'bg-steel',
       delay: 0.15,
       external: true,
     },
@@ -51,7 +51,7 @@ export default function FloatingActionButton() {
                     href={action.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-3 px-4 py-3 bg-gradient-to-r ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">
@@ -62,7 +62,7 @@ export default function FloatingActionButton() {
                 ) : (
                   <Link
                     href={action.href}
-                    className={`flex items-center gap-3 px-4 py-3 bg-gradient-to-r ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">
@@ -80,7 +80,7 @@ export default function FloatingActionButton() {
       {/* Main FAB Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full bg-gradient-to-r from-pastel to-amber-500 text-white shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
+        className={`w-16 h-16 rounded-full bg-pastel text-white shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
           isOpen ? 'rotate-45' : ''
         }`}
         whileHover={{ scale: 1.1 }}

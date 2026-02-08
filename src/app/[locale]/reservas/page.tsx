@@ -53,7 +53,7 @@ export default function ReservationsPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="lg" colorFilter="pastel" />
+            <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Calendar className="text-pastel" size={20} />
               <span className="text-pastel text-sm font-bold tracking-widest uppercase">
@@ -100,7 +100,7 @@ export default function ReservationsPage() {
           >
             <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
               {/* Premium Badge */}
-              <div className="absolute top-0 right-0 bg-gradient-to-br from-pastel to-amber-500 text-white px-6 py-2 rounded-bl-3xl shadow-lg">
+              <div className="absolute top-0 right-0 bg-pastel text-white px-6 py-2 rounded-bl-3xl shadow-lg">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                   <span className="text-sm font-bold">{t('form.limited_availability')}</span>
