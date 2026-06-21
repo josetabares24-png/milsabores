@@ -41,7 +41,7 @@ export default function LanguageSwitcher() {
           />
 
           {/* Dropdown */}
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-pastel/20 overflow-hidden z-50 animate-fade-in">
+          <div className="absolute left-0 md:left-auto md:right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-pastel/20 overflow-hidden z-50 animate-fade-in">
             {locales.map((locale) => (
               <button
                 key={locale}
