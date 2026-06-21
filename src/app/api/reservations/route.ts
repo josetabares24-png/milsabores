@@ -5,8 +5,8 @@ import { isValidEmail, isValidPhone } from '@/lib/validation'
 // Resend free tier uses onboarding@resend.dev as sender
 // Once you verify your domain in Resend, set RESEND_FROM_EMAIL=reservas@milsaboresbrunch.com
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
-// Free tier: only delivers to the Resend account email. After domain verification, change to milsaboreslx@gmail.com
-const RESTAURANT_EMAIL = process.env.RESTAURANT_EMAIL || 'josetabares24@gmail.com'
+// Free tier: only delivers to the Resend account email until the domain is verified in Resend.
+const RESTAURANT_EMAIL = process.env.RESTAURANT_EMAIL || 'josetabarespt@gmail.com'
 
 export async function POST(request: NextRequest) {
   try {
