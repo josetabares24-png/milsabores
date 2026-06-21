@@ -216,7 +216,7 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
     '@id': 'https://milsaboresbrunch.com/#organization',
     name: 'Mil Sabores Lisboa',
     url: 'https://milsaboresbrunch.com',
-    logo: 'https://milsaboresbrunch.com/logo.svg',
+    logo: 'https://milsaboresbrunch.com/icon-512.png',
     image: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
     description: locale === 'pt'
       ? 'Restaurante especializado em brunch e gelados artesanais em Lisboa'
