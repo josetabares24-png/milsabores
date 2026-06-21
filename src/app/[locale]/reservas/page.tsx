@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
-import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle } from 'lucide-react'
+import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus } from 'lucide-react'
 import Logo from '@/components/Logo'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
@@ -29,6 +29,26 @@ function useRecentBookings() {
   return message
 }
 
+function generateTimeSlots(open: string, close: string, stepMinutes = 30): string[] {
+  const toMinutes = (value: string) => {
+    const [h, m] = value.split(':').map(Number)
+    return h * 60 + m
+  }
+  const toTime = (mins: number) => {
+    const h = Math.floor(mins / 60).toString().padStart(2, '0')
+    const m = (mins % 60).toString().padStart(2, '0')
+    return `${h}:${m}`
+  }
+
+  const slots: string[] = []
+  for (let m = toMinutes(open); m <= toMinutes(close); m += stepMinutes) {
+    slots.push(toTime(m))
+  }
+  return slots
+}
+
+const TIME_SLOTS = generateTimeSlots(RESTAURANT.hours.openTime, RESTAURANT.hours.closeTime)
+
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
   const locale = useLocale()
@@ -46,11 +66,21 @@ export default function ReservationsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [showSpecialRequests, setShowSpecialRequests] = useState(false)
 
   const today = new Date().toISOString().split('T')[0]
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0]
+  const guestsCount = parseInt(formData.guests, 10) || 1
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const updateGuests = (delta: number) => {
+    setFormData((prev) => {
+      const next = Math.min(20, Math.max(1, (parseInt(prev.guests, 10) || 1) + delta))
+      return { ...prev, guests: String(next) }
+    })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -112,6 +142,7 @@ export default function ReservationsPage() {
           <button
             onClick={() => {
               setIsSubmitted(false)
+              setShowSpecialRequests(false)
               setFormData({ name: '', email: '', phone: '', date: '', time: '', guests: '2', specialRequests: '' })
             }}
             className="inline-block px-10 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
@@ -252,6 +283,30 @@ export default function ReservationsPage() {
                     <label htmlFor="date" className="block text-slate font-bold mb-2">
                       {t('form.date')} *
                     </label>
+                    <div className="flex gap-2 mb-2">
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, date: today })}
+                        className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
+                          formData.date === today
+                            ? 'bg-pastel text-white'
+                            : 'bg-slate/5 text-slate hover:bg-slate/10'
+                        }`}
+                      >
+                        {t('form.today')}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, date: tomorrow })}
+                        className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
+                          formData.date === tomorrow
+                            ? 'bg-pastel text-white'
+                            : 'bg-slate/5 text-slate hover:bg-slate/10'
+                        }`}
+                      >
+                        {t('form.tomorrow')}
+                      </button>
+                    </div>
                     <div className="relative">
                       <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
                       <input
@@ -273,60 +328,89 @@ export default function ReservationsPage() {
                       {t('form.time')} *
                     </label>
                     <div className="relative">
-                      <Clock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
-                      <input
-                        type="time"
+                      <Clock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30 pointer-events-none" size={20} />
+                      <select
                         id="time"
                         name="time"
                         value={formData.time}
                         onChange={handleChange}
                         required
-                        min={RESTAURANT.hours.openTime}
-                        max={RESTAURANT.hours.closeTime}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate"
-                      />
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate bg-white appearance-none"
+                      >
+                        <option value="" disabled>{t('form.time_placeholder')}</option>
+                        {TIME_SLOTS.map((slot) => (
+                          <option key={slot} value={slot}>{slot}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
                   {/* Guests */}
                   <div className="md:col-span-2">
-                    <label htmlFor="guests" className="block text-slate font-bold mb-2">
+                    <label className="block text-slate font-bold mb-2">
                       {t('form.guests')} *
                     </label>
-                    <div className="relative">
-                      <Users className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
-                      <input
-                        type="number"
-                        id="guests"
-                        name="guests"
-                        value={formData.guests}
-                        onChange={handleChange}
-                        required
-                        min={1}
-                        max={20}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate"
-                      />
+                    <div className="flex items-center justify-between gap-4 px-6 py-3 rounded-2xl border-2 border-slate/20">
+                      <div className="flex items-center gap-3 text-slate">
+                        <Users size={20} className="text-slate/30" />
+                        <span className="font-semibold">
+                          {guestsCount} {guestsCount === 1 ? t('form.person') : t('form.people')}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => updateGuests(-1)}
+                          disabled={guestsCount <= 1}
+                          aria-label="-"
+                          className="w-10 h-10 flex items-center justify-center rounded-full bg-slate/5 text-slate hover:bg-slate/10 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                        >
+                          <Minus size={18} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => updateGuests(1)}
+                          disabled={guestsCount >= 20}
+                          aria-label="+"
+                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel text-white hover:bg-pastel-dark disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                        >
+                          <Plus size={18} />
+                        </button>
+                      </div>
                     </div>
                   </div>
 
                   {/* Special Requests */}
                   <div className="md:col-span-2">
-                    <label htmlFor="specialRequests" className="block text-slate font-bold mb-2">
-                      {t('form.special_requests')}{' '}
-                      <span className="text-slate/40 font-normal">({t('form.optional')})</span>
-                    </label>
-                    <div className="relative">
-                      <MessageSquare className="absolute left-5 top-5 text-slate/30" size={20} />
-                      <textarea
-                        id="specialRequests"
-                        name="specialRequests"
-                        value={formData.specialRequests}
-                        onChange={handleChange}
-                        rows={4}
-                        placeholder={t('form.special_requests_placeholder')}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
-                      />
-                    </div>
+                    {showSpecialRequests ? (
+                      <>
+                        <label htmlFor="specialRequests" className="block text-slate font-bold mb-2">
+                          {t('form.special_requests')}{' '}
+                          <span className="text-slate/40 font-normal">({t('form.optional')})</span>
+                        </label>
+                        <div className="relative">
+                          <MessageSquare className="absolute left-5 top-5 text-slate/30" size={20} />
+                          <textarea
+                            id="specialRequests"
+                            name="specialRequests"
+                            value={formData.specialRequests}
+                            onChange={handleChange}
+                            rows={3}
+                            autoFocus
+                            placeholder={t('form.special_requests_placeholder')}
+                            className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setShowSpecialRequests(true)}
+                        className="text-pastel font-bold text-sm hover:underline"
+                      >
+                        + {t('form.special_requests')} ({t('form.optional')})
+                      </button>
+                    )}
                   </div>
                 </div>
 
