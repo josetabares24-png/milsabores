@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import { Menu, X } from 'lucide-react'
 import Logo from '@/components/Logo'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,6 +46,7 @@ export default function Navigation() {
             >
               {t('reservations')}
             </Link>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,6 +64,9 @@ export default function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden py-6 border-t border-pastel/10 animate-fade-in">
             <div className="flex flex-col gap-4">
+              <div className="self-start">
+                <LanguageSwitcher />
+              </div>
               <Link
                 href="/menu"
                 className="text-slate hover:text-pastel transition-colors font-medium py-2"

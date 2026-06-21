@@ -352,6 +352,11 @@
       "title": "Promociones Brunch Lisboa | Ofertas Especiales Mil Sabores Baixa",
       "description": "Ofertas exclusivas: Happy Hour 7-9AM -15%, Brunch para Dos €29.95, Estudiantes -10%. Promociones diarias en Mil Sabores, Rua da Prata, Baixa Lisboa.",
       "keywords": "promociones brunch lisboa, ofertas desayuno baixa, descuentos brunch centro lisboa, happy hour brunch lisboa"
+    },
+    "gelados": {
+      "title": "Gelato Artesanal en Lisboa | Mil Sabores - Helados Italianos en Baixa",
+      "description": "Gelato 100% artesanal elaborado a diario en Mil Sabores, Rua da Prata, Baixa Lisboa. Sabores como pistacho, açaí y pastel de nata. Sin conservantes ni colorantes.",
+      "keywords": "gelato lisboa, helado artesanal baixa, mejor gelato lisboa centro, heladería rua da prata, gelato italiano lisboa, helados naturales lisboa"
     }
   },
   "fullMenu": {
@@ -1175,6 +1180,18 @@
           "description": "Sabor del clásico portugués"
         }
       }
+    },
+    "badges": {
+      "natural": "100% Natural",
+      "fresh_daily": "Hecho Fresco Diariamente",
+      "unique_flavors": "8 Sabores Únicos"
+    },
+    "vegan_label": "Vegano",
+    "cta": {
+      "title": "¿Listo para probar?",
+      "subtitle": "Visítanos en Rua da Prata 152 y descubre por qué nuestro gelato es el favorito de Lisboa",
+      "view_menu": "Ver Menú Completo",
+      "directions": "Cómo Llegar"
     }
   },
   "promotions": {

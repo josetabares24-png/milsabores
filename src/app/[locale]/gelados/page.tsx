@@ -62,13 +62,13 @@ export default function GeladosPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
               <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-full text-slate text-sm font-medium">
-                100% Natural
+                {t('badges.natural')}
               </div>
               <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-full text-slate text-sm font-medium">
-                Hecho Fresco Diariamente
+                {t('badges.fresh_daily')}
               </div>
               <div className="px-4 py-2 bg-white/95 backdrop-blur-md rounded-full text-slate text-sm font-medium">
-                8 Sabores Únicos
+                {t('badges.unique_flavors')}
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function GeladosPage() {
                 {veganFlavors.includes(flavor) && (
                   <div className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
                     <Leaf size={10} />
-                    Vegan
+                    {t('vegan_label')}
                   </div>
                 )}
               </motion.div>
@@ -175,23 +175,23 @@ export default function GeladosPage() {
           className="text-center bg-white rounded-3xl p-12 shadow-lg"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-slate mb-4">
-            ¿Listo para probar?
+            {t('cta.title')}
           </h2>
           <p className="text-slate/60 text-lg mb-8 max-w-xl mx-auto">
-            Visítanos en Rua da Prata 152 y descubre por qué nuestro gelato es el favorito de Lisboa
+            {t('cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/menu"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all hover:scale-105"
             >
-              Ver Menú Completo
+              {t('cta.view_menu')}
             </Link>
             <Link
               href="/contacto"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate/10 text-slate font-bold rounded-full hover:bg-slate/20 transition-all"
             >
-              Cómo Llegar
+              {t('cta.directions')}
             </Link>
           </div>
         </motion.div>

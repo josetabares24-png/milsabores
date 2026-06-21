@@ -5,7 +5,7 @@ import { localizedUrl, buildAlternates } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'meta.menu' })
+  const t = await getTranslations({ locale, namespace: 'meta.gelados' })
 
   return {
     title: t('title'),
@@ -14,14 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: localizedUrl(locale, 'menu'),
+      url: localizedUrl(locale, 'gelados'),
       siteName: 'Mil Sabores Lisboa',
       images: [
         {
-          url: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
+          url: 'https://milsaboresbrunch.com/images/Mil Sabores/Copos Helado.webp',
           width: 1200,
           height: 630,
-          alt: 'Menú Mil Sabores Lisboa',
+          alt: 'Gelato Artesanal Mil Sabores Lisboa',
         },
       ],
       locale: ogLocales[locale as Locale],
@@ -31,13 +31,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp'],
+      images: ['https://milsaboresbrunch.com/images/Mil Sabores/Copos Helado.webp'],
     },
-    alternates: buildAlternates(locale, 'menu'),
+    alternates: buildAlternates(locale, 'gelados'),
   }
 }
 
-export default function MenuLayout({
+export default function GeladosLayout({
   children,
 }: {
   children: React.ReactNode

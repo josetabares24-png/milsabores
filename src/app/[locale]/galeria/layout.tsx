@@ -1,18 +1,11 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import Hero from '@/components/Hero'
-import FeaturedDish from '@/components/FeaturedDish'
-import About from '@/components/About'
-import MenuSection from '@/components/MenuSection'
-import Testimonials from '@/components/Testimonials'
-import InstagramGallery from '@/components/InstagramGallery'
-import VisitSection from '@/components/VisitSection'
 import { ogLocales, type Locale } from '@/i18n/config'
 import { localizedUrl, buildAlternates } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'meta.home' })
+  const t = await getTranslations({ locale, namespace: 'meta.gallery' })
 
   return {
     title: t('title'),
@@ -21,14 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: localizedUrl(locale),
+      url: localizedUrl(locale, 'galeria'),
       siteName: 'Mil Sabores Lisboa',
       images: [
         {
           url: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
           width: 1200,
           height: 630,
-          alt: 'Mil Sabores Lisboa Brunch',
+          alt: 'Galería Mil Sabores Lisboa',
         },
       ],
       locale: ogLocales[locale as Locale],
@@ -40,20 +33,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t('description'),
       images: ['https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp'],
     },
-    alternates: buildAlternates(locale),
+    alternates: buildAlternates(locale, 'galeria'),
   }
 }
 
-export default function Home() {
-  return (
-    <main>
-      <Hero />
-      <FeaturedDish />
-      <About />
-      <MenuSection />
-      <Testimonials />
-      <InstagramGallery />
-      <VisitSection />
-    </main>
-  )
+export default function GaleriaLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return children
 }

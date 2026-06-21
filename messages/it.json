@@ -1,0 +1,1290 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menù",
+    "gelados": "Gelati",
+    "promotions": "Offerte",
+    "about": "Chi Siamo",
+    "gallery": "Galleria",
+    "contact": "Contatti",
+    "reservations": "Prenota"
+  },
+  "featuredDish": {
+    "badge": "Piatto Forte",
+    "title": "Brunch Americano",
+    "description": "L'autentica colazione americana: pane tostato artigianale, 2 uova a piacere, avocado, bacon croccante e due pancake al miele. Con frutta fresca, succo d'arancia o limonata e caffè espresso.",
+    "feature1": "Ingredienti Freschi",
+    "feature2": "Più di 500 recensioni",
+    "from": "A partire da",
+    "price": "€17.95",
+    "cta": "Vedi nel Menù"
+  },
+  "hero": {
+    "title": "Mil Sabores",
+    "subtitle": "Goditi un brunch artigianale nel cuore di Lisbona, a pochi passi da Praça do Comércio, con opzioni dolci, salate e caffè di qualità.",
+    "badge": "★★★★★ Il Più Apprezzato a Lisbona",
+    "tagline": "Brunch e Gelato",
+    "city": "Lisbona",
+    "seo_h2": "Mil Sabores - Brunch Artigianale e Gelato Italiano a Baixa, Lisbona, Rua da Prata",
+    "cta_menu": "Vedi Menù Completo",
+    "cta_reserve": "Prenota un Tavolo",
+    "hours_label": "Lun-Dom · 7:00 - 19:00",
+    "location_label": "Rua da Prata 152, Lisbona",
+    "phone_label": "+351 21 347 0214",
+    "scroll": "Scorri"
+  },
+  "about": {
+    "eyebrow": "Chi Siamo",
+    "title": "La Nostra Storia",
+    "subtitle": "Mil Sabores è più di un ristorante: è un'esperienza gastronomica unica dove il brunch artigianale incontra l'autentico gelato italiano.",
+    "para1": "Situati in Rua da Prata, nel pieno centro della Baixa, offriamo",
+    "para1_bold1": "brunch tutto il giorno",
+    "para1_mid": "con ingredienti freschi, ricette artigianali e un",
+    "para1_bold2": "ambiente accogliente",
+    "para2": "Siamo lo spazio ideale sia per i",
+    "para2_bold": "lisbonesi che per i turisti",
+    "para2_mid": "che desiderano fare colazione a Lisbona vicino ai principali punti storici.",
+    "para3": "Dai pancake soffici alle tostas gourmet, passando per il caffè di qualità: ogni dettaglio è pensato per rendere la tua pausa memorabile.",
+    "feature1_title": "Fatto con Amore",
+    "feature1_desc": "Ogni piatto viene preparato con ingredienti freschi e tanta dedizione",
+    "feature2_title": "Qualità Premium",
+    "feature2_desc": "Prodotti selezionati e gelati artigianali autentici",
+    "feature3_title": "Ambiente Accogliente",
+    "feature3_desc": "Lo spazio perfetto per staccare dal ritmo della città"
+  },
+  "menu": {
+    "eyebrow": "Menù",
+    "title": "I Piatti Più Amati",
+    "subtitle": "Piatti artigianali fatti con amore",
+    "view_full": "Vedi Menù Completo",
+    "calories": "calorie",
+    "protein": "Proteine",
+    "carbs": "Carboidrati",
+    "fats": "Grassi",
+    "items": {
+      "tosta_salmon": {
+        "name": "Tosta al Salmone Affumicato",
+        "desc": "Pane artigianale, formaggio cremoso, rucola, pomodorini, salmone affumicato, noci, miele e salsa al sesamo"
+      },
+      "pancakes": {
+        "name": "Pancake con Formaggio Cremoso e Composta",
+        "desc": "Pancake soffici con formaggio cremoso dolce e composta di frutti rossi"
+      },
+      "poke": {
+        "name": "Poke Vegano",
+        "desc": "Quinoa, tofu, avocado, pomodorini, ananas al mirin, edamame e salsa al sesamo"
+      },
+      "tostada": {
+        "name": "Tosta con Avocado",
+        "desc": "Pane artigianale con purè di avocado fresco, pomodorini e mix di semi"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonianze",
+    "title": "Cosa Dicono i Nostri Clienti",
+    "subtitle": "Recensioni reali da Google Maps - 4.7★ su oltre 1.200 opinioni",
+    "items": {
+      "1": {
+        "text": "I pancake alla banana e Nutella sono incredibili! Le porzioni sono generose e tutto è preparato con ingredienti freschi. Il personale è gentilissimo e il servizio velocissimo. Posizione perfetta vicino a Praça do Comércio.",
+        "author": "Sarah Johnson",
+        "role": "Turista dagli USA"
+      },
+      "2": {
+        "text": "Colazione spettacolare con vista sulla chiesa di São Nicolau. La bowl di açaí era deliziosa e il caffè perfetto. Rapporto qualità-prezzo eccellente per trovarsi nel pieno centro di Lisbona. Torneremo di sicuro!",
+        "author": "Miguel Fernández",
+        "role": "Residente a Lisbona"
+      },
+      "3": {
+        "text": "La tosta con avocado e uovo in camicia è una delle migliori che abbia mai assaggiato. Personale attento e poliglotta. Il gelato artigianale come dolce è stato il tocco perfetto. Consigliatissimo!",
+        "author": "Laura Rossi",
+        "role": "Viaggiatrice dall'Italia"
+      },
+      "4": {
+        "text": "Cibo fresco, veloce e assolutamente delizioso. Il personale è premuroso e attento a ogni dettaglio. Le uova strapazzate con salmone sono spettacolari. Le presentazioni sono bellissime, si nota la grande cura nella qualità.",
+        "author": "João Pereira",
+        "role": "Cliente Abituale"
+      },
+      "5": {
+        "text": "Abbiamo scoperto questo posto per caso ed è stata la sorpresa più bella del nostro viaggio. Il menù offre tantissima varietà, dalle opzioni vegane ai classici. Tutto buonissimo e a un buon prezzo. La terrazza esterna è incantevole.",
+        "author": "Emma Schmidt",
+        "role": "Turista dalla Germania"
+      }
+    }
+  },
+  "instagram": {
+    "eyebrow": "Galleria",
+    "title": "Seguici su Instagram",
+    "subtitle": "Condividi i tuoi momenti",
+    "handle": "@milsaboreslx",
+    "cta": "Taggaci nelle tue foto e potresti apparire nella nostra galleria!"
+  },
+  "visit": {
+    "eyebrow": "Vienici a Trovare",
+    "title": "Ci Trovi nel Cuore di Lisbona",
+    "subtitle": "Ti aspettiamo nella Baixa, con vista sulla Igreja de São Nicolau",
+    "address_title": "Indirizzo",
+    "address": "Rua da Prata 152, 1100-619 Lisboa, Portugal",
+    "hours_title": "Orari",
+    "hours_weekday": "Lunedì - Venerdì: 7:00 - 18:30",
+    "hours_weekend": "Sabato e Domenica: 7:00 - 19:00",
+    "phone_title": "Telefono",
+    "phone": "+351 21 347 0214",
+    "email_title": "Email",
+    "email": "milsaboreslx@gmail.com",
+    "reserve_title": "Prenota il Tuo Tavolo",
+    "reserve_desc": "Assicurati un posto nel miglior brunch di Lisbona. Ti consigliamo di prenotare con anticipo, soprattutto nei weekend.",
+    "cta_call": "Chiama Ora",
+    "cta_reserve": "Prenota Online"
+  },
+  "footer": {
+    "description": "Il miglior brunch e gelato artigianale di Lisbona. Un'esperienza gastronomica unica nel cuore della città.",
+    "links_title": "Link Rapidi",
+    "contact_title": "Contatti",
+    "hours_title": "Orari",
+    "hours_weekday": "Lun-Ven: 7:00 - 18:30",
+    "hours_weekend": "Sab-Dom: 7:00 - 19:00",
+    "legal_privacy": "Privacy",
+    "legal_cookies": "Cookie",
+    "legal_reclamaciones": "Libro dei Reclami",
+    "rights": "Tutti i diritti riservati."
+  },
+  "common": {
+    "404": {
+      "title": "Ops! Pagina Non Trovata",
+      "message": "Sembra che questa pagina sia uscita a fare colazione. Torniamo al menù principale!",
+      "home": "Torna alla Home",
+      "menu": "Vedi il Menù"
+    },
+    "loading": "Caricamento...",
+    "back": "Indietro",
+    "next": "Avanti",
+    "submit": "Invia",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "error": {
+      "title": "Qualcosa È Andato Storto",
+      "message": "Siamo spiacenti, si è verificato un errore imprevisto. Per favore riprova.",
+      "retry": "Riprova",
+      "home": "Torna alla Home",
+      "support": "Se il problema persiste, contattaci:"
+    }
+  },
+  "reservations": {
+    "eyebrow": "Prenotazioni",
+    "title": "Prenota il Tuo Tavolo",
+    "subtitle": "Assicurati un posto nel miglior brunch di Lisbona",
+    "form": {
+      "name": "Nome Completo",
+      "name_placeholder": "Il tuo nome",
+      "email": "Email",
+      "email_placeholder": "tua.email@esempio.com",
+      "phone": "Telefono",
+      "phone_placeholder": "+351 912 345 678",
+      "invalid_email": "Inserisci un'email valida.",
+      "invalid_phone": "Inserisci un numero di telefono valido (es. +351 912 345 678).",
+      "date": "Data",
+      "today": "Oggi",
+      "tomorrow": "Domani",
+      "time": "Ora",
+      "time_placeholder": "Seleziona un orario",
+      "guests": "Numero di Persone",
+      "person": "persona",
+      "people": "persone",
+      "special_requests": "Richieste Speciali",
+      "special_requests_placeholder": "Hai qualche richiesta particolare?",
+      "optional": "facoltativo",
+      "limited_availability": "Disponibilità Limitata Oggi",
+      "confirmation_instant": "Conferma istantanea via email",
+      "recent_bookings": "12 persone hanno prenotato nell'ultima ora",
+      "submit": "Confermare la Prenotazione",
+      "submitting": "Invio in corso..."
+    },
+    "quick_actions": {
+      "title": "Preferisci Prenotare per Telefono?",
+      "subtitle": "Siamo qui per aiutarti",
+      "call": "Chiama Ora",
+      "whatsapp": "WhatsApp"
+    },
+    "info": {
+      "title": "Da Sapere",
+      "punctuality": {
+        "title": "Puntualità",
+        "text": "Per permettere a tutto il gruppo di godersi al meglio l'esperienza, chiediamo a tutti gli ospiti di arrivare all'orario indicato. I tavoli restano riservati per 15 minuti dopo l'orario prenotato."
+      },
+      "seating": {
+        "title": "Preferenza di tavolo",
+        "text": "Non possiamo garantire un tavolo o una posizione specifica, ma se lasci un commento nella tua prenotazione faremo il possibile per soddisfare la tua preferenza."
+      }
+    },
+    "policy": {
+      "title": "Politica di Cancellazione",
+      "items": {
+        "1": "Cancellazioni gratuite fino a 24 ore prima della prenotazione",
+        "2": "Ti preghiamo di avvisarci se non potrai venire",
+        "3": "Ti consigliamo di arrivare 10 minuti prima dell'orario prenotato",
+        "4": "Manteniamo il tuo tavolo riservato per 15 minuti dopo l'orario prenotato"
+      }
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "items": {
+        "1": {
+          "q": "Devo prenotare?",
+          "a": "Ti consigliamo di prenotare, soprattutto nei weekend. Durante la settimana, di solito c'è disponibilità anche senza prenotazione."
+        },
+        "2": {
+          "q": "Accettate gruppi numerosi?",
+          "a": "Sì! Per gruppi di 8 o più persone, ti preghiamo di contattarci direttamente per organizzare la sistemazione migliore."
+        },
+        "3": {
+          "q": "Avete opzioni vegetariane/vegane?",
+          "a": "Sì, abbiamo diverse opzioni vegetariane e vegane nel nostro menù. Informaci di eventuali restrizioni alimentari."
+        },
+        "4": {
+          "q": "Posso modificare o cancellare la prenotazione?",
+          "a": "Sì, puoi modificarla o cancellarla gratuitamente fino a 24 ore prima. Contattaci per telefono o via email."
+        }
+      }
+    },
+    "success": {
+      "title": "Prenotazione Confermata!",
+      "message": "Riceverai a breve un'email di conferma. Ti aspettiamo!",
+      "back": "Torna alla Home"
+    }
+  },
+  "gallery": {
+    "eyebrow": "Galleria",
+    "title": "Galleria di Momenti",
+    "subtitle": "Scopri l'esperienza Mil Sabores attraverso le nostre fotografie",
+    "categories": {
+      "all": "Tutti",
+      "food": "Cibo",
+      "drinks": "Bevande",
+      "interior": "Interni",
+      "events": "Eventi"
+    },
+    "view_on_instagram": "Vedi su Instagram",
+    "follow_us": "Seguici @milsaboreslx",
+    "close": "Chiudi"
+  },
+  "contact": {
+    "eyebrow": "Contatti",
+    "title": "Contattaci",
+    "subtitle": "Siamo qui per aiutarti. Inviaci un messaggio!",
+    "form": {
+      "name": "Nome Completo",
+      "name_placeholder": "Il tuo nome",
+      "email": "Email",
+      "email_placeholder": "tua.email@esempio.com",
+      "invalid_email": "Inserisci un'email valida.",
+      "subject": "Oggetto",
+      "subject_placeholder": "Seleziona un oggetto",
+      "subject_options": {
+        "general": "Richiesta Generale",
+        "proposal": "Proposta Commerciale",
+        "distributor": "Distribuzione",
+        "cv": "Invia CV / Candidatura",
+        "reservation": "Prenotazione",
+        "complaint": "Reclamo o Suggerimento",
+        "other": "Altro"
+      },
+      "message": "Messaggio",
+      "message_placeholder": "Scrivi qui il tuo messaggio...",
+      "submit": "Invia Messaggio",
+      "submitting": "Invio in corso..."
+    },
+    "info": {
+      "address": {
+        "title": "Indirizzo",
+        "line1": "Rua da Prata 152",
+        "line2": "1100-619 Lisboa, Portugal"
+      },
+      "hours": {
+        "title": "Orari",
+        "weekday": "Lunedì - Domenica: 7:00 - 19:00",
+        "weekend": ""
+      },
+      "contact_info": {
+        "title": "Informazioni di Contatto",
+        "phone": "+351 21 347 0214",
+        "email": "milsaboreslx@gmail.com"
+      },
+      "social": {
+        "title": "Social Network",
+        "instagram": "Instagram",
+        "tripadvisor": "TripAdvisor"
+      }
+    },
+    "success": {
+      "title": "Messaggio Inviato!",
+      "message": "Grazie per averci contattato. Ti risponderemo a breve!",
+      "back": "Torna Indietro"
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "Brunch a Baixa Lisbona | Mil Sabores - Rua da Prata | Colazione e Gelato Artigianale",
+      "description": "Il miglior brunch vicino a te a Lisbona. Mil Sabores in Rua da Prata 152, Baixa. Pancake, açaí bowl, uova alla benedict e gelato artigianale. Aperto 7-19. ★4.7 Google",
+      "keywords": "miglior brunch lisbona centro, brunch baixa lisbona, colazione rua da prata, brunch vicino a me lisbona, dove fare brunch a lisbona, gelato artigianale baixa, açaí bowl lisbona centro, pancake lisbona"
+    },
+    "menu": {
+      "title": "Menù Brunch Lisbona | Mil Sabores Baixa - Prezzi e Carta Completa",
+      "description": "Carta completa Mil Sabores: pancake da €6.50, bowl salutari, uova alla benedict, brunch per due €29.95. Opzioni vegane e senza glutine. Rua da Prata, Baixa Lisbona.",
+      "keywords": "menu brunch lisbona, carta mil sabores, prezzi brunch baixa, colazione vegetariana lisbona, brunch vegano centro lisbona, dove mangiare pancake a lisbona"
+    },
+    "reservations": {
+      "title": "Prenota Tavolo Brunch Lisbona | Mil Sabores Baixa - Conferma Immediata",
+      "description": "Prenota online in 30 secondi. Mil Sabores Brunch, Rua da Prata 152, Baixa Lisbona. Gruppi fino a 8 persone. Nessun deposito. Conferma istantanea via email.",
+      "keywords": "prenotare brunch lisbona, prenotare tavolo baixa, brunch con prenotazione lisbona, ristorante colazione centro lisbona"
+    },
+    "gallery": {
+      "title": "Foto Mil Sabores Lisbona | Galleria Instagram @milsaboreslx",
+      "description": "Scopri i nostri piatti in foto reali. Pancake, bowl, gelati artigianali. Interni accoglienti nella Baixa. Seguici su @milsaboreslx per le promozioni.",
+      "keywords": "foto brunch lisbona, instagram mil sabores, galleria ristorante baixa, foto cibo lisbona centro"
+    },
+    "contact": {
+      "title": "Contatti e Indicazioni | Mil Sabores Brunch Lisbona - Rua da Prata 152",
+      "description": "Come arrivare a Mil Sabores: Rua da Prata 152, 1100-619 Lisbona (vicino alla Igreja São Nicolau). Metro Baixa-Chiado. Tel: +351 21 347 0214. WiFi gratuito.",
+      "keywords": "indirizzo mil sabores lisbona, come arrivare baixa brunch, dove si trova rua da prata, contatti mil sabores, telefono brunch lisbona"
+    },
+    "promotions": {
+      "title": "Promozioni Brunch Lisbona | Offerte Speciali Mil Sabores Baixa",
+      "description": "Offerte esclusive: Happy Hour 7-9 -15%, Brunch per Due €29.95, Studenti -10%. Promozioni giornaliere da Mil Sabores, Rua da Prata, Baixa Lisbona.",
+      "keywords": "promozioni brunch lisbona, offerte colazione baixa, sconti brunch centro lisbona, happy hour lisbona centro"
+    },
+    "gelados": {
+      "title": "Gelato Artigianale a Lisbona | Mil Sabores - Gelato Italiano nella Baixa",
+      "description": "Gelato 100% artigianale preparato ogni giorno da Mil Sabores, Rua da Prata, Baixa Lisbona. Gusti come pistacchio, açaí e pastel de nata. Senza conservanti né coloranti.",
+      "keywords": "gelato lisbona, gelato artigianale baixa, miglior gelato lisbona centro, gelateria rua da prata, gelato italiano lisbona, gelateria artigianale centro lisbona"
+    }
+  },
+  "fullMenu": {
+    "title": "Il Nostro Menù",
+    "subtitle": "Fare brunch è molto più che fare colazione tardi: è prendersi una pausa, condividere, godersi il momento senza fretta.",
+    "intro": "Il nostro menù è pensato per tutti i gusti e per ogni occasione. Combiniamo opzioni dolci e salate, ricette artigianali e ingredienti freschi affinché ogni visita sia un'esperienza completa nel cuore di Lisbona.",
+    "filters": {
+      "all": "Tutti",
+      "vegetarian": "Vegetariano",
+      "vegan": "Vegano",
+      "glutenFree": "Senza Glutine"
+    },
+    "categories": {
+      "bagels": "Bagel",
+      "toasts": "Toast",
+      "brunch": "Brunch",
+      "salads": "Insalate",
+      "burgers": "Hamburger",
+      "wraps": "Wrap",
+      "bowls": "Bowl & Poke",
+      "dulces": "Pancake · Crepe · Waffle",
+      "eggs": "Uova",
+      "tapioca": "Tapioca",
+      "coffee": "Caffè",
+      "drinks": "Bevande",
+      "smoothies": "Smoothie",
+      "batidos": "Frappé",
+      "alcohol": "Bevande Alcoliche",
+      "cocktails": "Cocktail",
+      "brownie": "Brownie",
+      "extras": "Extra"
+    },
+    "burgers_note": "Hamburger disponibili a partire dalle 11:00",
+    "brunch": {
+      "customization_note": "Scegli come vuoi le uova: fritte, in camicia o strapazzate · Pane: integrale o rustico portoghese",
+      "mil_sabores": {
+        "name": "MIL SABORES",
+        "desc": "Pane tostato croccante con olio d'oliva e origano, avocado, uova a piacere, bacon croccante e funghi saltati con pomodoro. Con frutta fresca, succo d'arancia o limonata e caffè espresso.",
+        "price": "17.95"
+      },
+      "americano": {
+        "name": "AMERICAN CLASSIC",
+        "desc": "L'autentica colazione americana: pane tostato artigianale, 2 uova a piacere, avocado, bacon croccante e due pancake al miele. Con frutta fresca, succo d'arancia o limonata e caffè espresso.",
+        "price": "17.95"
+      },
+      "lisboa": {
+        "name": "BRUNCH LISBOA",
+        "desc": "Due uova a piacere con pane tostato mediterraneo, foglie verdi con vinaigrette agli agrumi, bacon croccante e l'iconico pastel de nata. Con frutta o yogurt con granola, succo e caffè espresso.",
+        "price": "17.95"
+      },
+      "vegano": {
+        "name": "VEGAN GOURMET",
+        "desc": "100% vegano: pane tostato artigianale con funghi portobello e pomodorini saltati, avocado, tofu strapazzato, riduzione al balsamico e foglie verdi. Con frutta fresca, succo e caffè espresso.",
+        "price": "17.95",
+        "vegan": true
+      },
+      "salmon": {
+        "name": "SALMONE AFFUMICATO",
+        "desc": "Due uova a piacere con pane tostato aromatico, salmone affumicato, foglie verdi con vinaigrette agli agrumi e pastel de nata. Con frutta o yogurt con granola, succo e caffè espresso.",
+        "price": "18.95"
+      },
+      "halloumi": {
+        "name": "HALLOUMI MEDITERRANEO",
+        "desc": "Pane tostato artigianale con uovo a piacere, avocado, quinoa tricolore e formaggio halloumi dorato alla griglia. Con frutta fresca, succo e caffè espresso.",
+        "price": "17.95"
+      },
+      "para_dos": {
+        "name": "PER DUE",
+        "desc": "Esperienza completa da condividere: 2 mini toast di avocado, 2 di banana con burro di arachidi, uova strapazzate, funghi e spinaci, 2 mini pancake, 2 macedonie e 2 yogurt con granola. Incluso 2 succhi e 2 caffè.",
+        "price": "29.95"
+      }
+    },
+    "dulces": {
+      "note": "Disponibile come Pancake, Crepe o Waffle · Tutti includono gelato artigianale a scelta",
+      "clasico": {
+        "name": "Classico",
+        "desc": "Con composta di frutti rossi o miele",
+        "price": "5.95"
+      },
+      "nutella": {
+        "name": "Nutella e Banana",
+        "desc": "Nutella, banana, fragola e zucchero a velo",
+        "price": "8.50"
+      },
+      "oreo": {
+        "name": "Oreo",
+        "desc": "Formaggio cremoso dolce e Oreo",
+        "price": "8.00"
+      },
+      "limon": {
+        "name": "Limone",
+        "desc": "Crema dolce al limone e crumble di biscotto",
+        "price": "8.00"
+      },
+      "fresa_queso": {
+        "name": "Fragola e Formaggio Cremoso",
+        "desc": "Composta di frutti rossi, formaggio cremoso e fragole fresche",
+        "price": "8.50"
+      },
+      "chocolate_blanco": {
+        "name": "Kinder Bueno",
+        "desc": "Cioccolato bianco, Kinder Bueno e panna montata",
+        "price": "8.50"
+      },
+      "banana_mel": {
+        "name": "Banana e Miele",
+        "desc": "Miele, banana, panna montata e semi di chia",
+        "price": "7.90"
+      },
+      "saladas_title": "Opzioni Salate",
+      "saladas_panqueca": {
+        "name": "Pancake Salato",
+        "desc": "2 pancake con bacon, uovo fritto, avocado e sciroppo d'acero",
+        "price": "9.95"
+      },
+      "saladas_crepe": {
+        "name": "Crepe ai Funghi",
+        "desc": "Crepe con formaggio cremoso, funghi e spinaci, riduzione al balsamico",
+        "price": "9.50"
+      },
+      "saladas_waffle": {
+        "name": "Waffle Iberico",
+        "desc": "Waffle con avocado, prosciutto iberico, uovo fritto e sciroppo d'acero",
+        "price": "11.95"
+      },
+      "mini_title": "Mini Pancake",
+      "mini_simple": {
+        "name": "Mini Pancake Classici",
+        "desc": "4 mini pancake con composta di frutti rossi o miele",
+        "price": "5.50"
+      },
+      "mini_pistacho": {
+        "name": "Mini Pancake al Pistacchio",
+        "desc": "4 mini pancake con crema di pistacchio e crumble di pistacchio",
+        "price": "6.50"
+      }
+    },
+    "burgers": {
+      "natura": {
+        "name": "Natura",
+        "desc": "Pane brioche, carne, formaggio, lattuga e pomodoro, con chips di patata dolce",
+        "price": "12.00"
+      },
+      "mil_sabores": {
+        "name": "Mil Sabores",
+        "desc": "Pane brioche, carne, formaggio, uovo fritto, pomodoro, lattuga, bacon, cipolla caramellata e maionese, servito con patatine fritte",
+        "price": "14.95"
+      },
+      "beyond_meat": {
+        "name": "Beyond Meat",
+        "desc": "Pane agli spinaci, Beyond Meat, cipolla caramellata, lattuga e maionese vegana, servito con patatine fritte",
+        "price": "12.00"
+      },
+      "pollo": {
+        "name": "Pollo",
+        "desc": "Pane brioche, pollo saltato, formaggio, pomodoro, mix di lattughe verdi, servito con patatine fritte",
+        "price": "12.00"
+      },
+      "portobello": {
+        "name": "Portobello",
+        "desc": "Pane alla barbabietola, portobello grigliato, chutney di pera, cipolla caramellata, maionese vegana, servito con patatine fritte",
+        "price": "12.00"
+      },
+      "mini": {
+        "name": "Mini Hamburger",
+        "desc": "3 mini hamburger più una bevanda (birra analcolica o bibita). Piccante: carne, formaggio, bacon, maionese, insalata e pomodoro",
+        "price": "12.95"
+      }
+    },
+    "wraps": {
+      "salmon": {
+        "name": "Wrap al Salmone Affumicato",
+        "desc": "Wrap con formaggio cremoso, salmone affumicato, miele, noci, rucola, pomodorini e riduzione di aceto balsamico, con chips di patata",
+        "price": "12.00"
+      },
+      "pollo": {
+        "name": "Wrap di Pollo",
+        "desc": "Pollo alla piastra, maionese, formaggio, pomodoro, mix di foglie verdi, avocado schiacciato e riduzione di aceto balsamico, con chips di patata",
+        "price": "11.00"
+      },
+      "vegetariano": {
+        "name": "Wrap Vegetariano",
+        "desc": "Purè di avocado, funghi e pomodorini saltati, foglie verdi con maionese vegana, mix di semi e riduzione di aceto balsamico, con chips di patata",
+        "price": "11.00"
+      }
+    },
+    "eggs": {
+      "fritos": {
+        "name": "Uova Fritte",
+        "desc": "2 uova fritte servite con pane e mix di foglie verdi",
+        "price": "6.95"
+      },
+      "escalfados": {
+        "name": "Uova in Camicia",
+        "desc": "2 uova in camicia servite con pane e mix di foglie verdi",
+        "price": "6.95"
+      },
+      "revueltos": {
+        "name": "Uova Strapazzate",
+        "desc": "2 uova strapazzate servite con pane e mix di foglie verdi",
+        "price": "6.95"
+      },
+      "revueltos_veganos": {
+        "name": "Strapazzate Vegane (Tofu)",
+        "desc": "Tofu strapazzato servito con pane e mix di foglie verdi",
+        "price": "7.80"
+      },
+      "tortilla_jamon": {
+        "name": "Omelette con Prosciutto e Formaggio",
+        "desc": "Omelette con prosciutto e formaggio, servita con pane e insalata",
+        "price": "9.50"
+      },
+      "tortilla_vegetales": {
+        "name": "Omelette di Verdure",
+        "desc": "Omelette con verdure fresche, servita con pane e insalata",
+        "price": "9.50"
+      }
+    },
+    "bowls": {
+      "acai": {
+        "name": "Bowl di Açaí",
+        "desc": "Crema di açaí frullata con guaranà, banana e frutti rossi, servita con granola e frutta di stagione",
+        "price": "8.50"
+      },
+      "yogur": {
+        "name": "Bowl di Yogurt",
+        "desc": "Yogurt naturale con granola e frutta di stagione",
+        "price": "7.50"
+      },
+      "frutas": {
+        "name": "Bowl di Frutta",
+        "desc": "Frutta di stagione",
+        "price": "7.50"
+      },
+      "poke_salmon": {
+        "name": "Poke di Salmone",
+        "desc": "Quinoa, salmone affumicato, pomodorini, ananas al mirin, avocado, edamame, cipolla fritta, salsa al sesamo",
+        "price": "12.95"
+      },
+      "poke_pollo": {
+        "name": "Poke di Pollo",
+        "desc": "Quinoa, pollo, avocado, pomodorini, ananas al mirin, edamame, cipolla fritta, salsa al sesamo",
+        "price": "11.95"
+      },
+      "vegan_poke": {
+        "name": "Vegan Poke",
+        "desc": "Quinoa, tofu, avocado, pomodorini, ananas al mirin, edamame, cipolla fritta, salsa al sesamo",
+        "price": "11.95"
+      }
+    },
+    "salads": {
+      "cesar": {
+        "name": "Insalata Caesar",
+        "desc": "Lattuga iceberg, pollo, acciughe, bacon, condimento Caesar, parmigiano e crostini",
+        "price": "12.95"
+      },
+      "salmon": {
+        "name": "Insalata al Salmone Affumicato",
+        "desc": "Salmone affumicato, rucola, avocado, barbabietola, pomodorini, cetriolo e mix di semi croccanti",
+        "price": "12.95"
+      },
+      "portuguesa": {
+        "name": "Insalata Portoghese",
+        "desc": "Baccalà, ceci, peperoni, cipolla rossa, olive, uovo sodo, foglie verdi, crostini, aglio e olio al limone",
+        "price": "12.95"
+      },
+      "italiana": {
+        "name": "Insalata Italiana",
+        "desc": "Rucola, mozzarella, pomodorini, prosciutto e olive, aceto balsamico",
+        "price": "9.90"
+      }
+    },
+    "tapioca": {
+      "vegana": {
+        "name": "Tapioca Vegana",
+        "desc": "Tapioca, pomodoro, funghi e spinaci saltati, maionese vegana allo Sriracha, servita con insalata, carota e ravanello. Condita con vinaigrette agli agrumi",
+        "price": "11.00"
+      },
+      "huevo": {
+        "name": "Tapioca con Uovo",
+        "desc": "Tapioca, funghi saltati, uova strapazzate, servita con insalata, carota e ravanello. Condita con vinaigrette agli agrumi",
+        "price": "11.00"
+      }
+    },
+    "bagels": {
+      "brekkie": {
+        "name": "Bagel Brekkie",
+        "desc": "Uovo strapazzato, bacon, avocado e mix di semi",
+        "price": "9.95"
+      },
+      "mozzarella": {
+        "name": "Bagel Mozzarella",
+        "desc": "Mozzarella fresca, avocado, pomodoro al basilico e mix di semi",
+        "price": "9.95"
+      },
+      "salmon": {
+        "name": "Bagel al Salmone",
+        "desc": "Formaggio cremoso, rucola, salmone affumicato e mix di semi",
+        "price": "11.00"
+      }
+    },
+    "toasts": {
+      "salmon_ahumado": {
+        "name": "Tosta al Salmone Affumicato",
+        "desc": "Pane, formaggio cremoso, rucola, pomodorini, salmone affumicato, noci, miele e salsa mil sabores al sesamo",
+        "price": "11.95",
+        "category": "tostada"
+      },
+      "aguacate": {
+        "name": "Tosta con Avocado",
+        "desc": "Pane, purè di avocado, pomodorini e mix di semi",
+        "price": "8.50",
+        "category": "tostada"
+      },
+      "capresa": {
+        "name": "Tosta Caprese",
+        "desc": "Pane, mozzarella fresca e fette di pomodoro aromatizzate con origano e basilico",
+        "price": "9.95",
+        "category": "tostada"
+      },
+      "mozzarella": {
+        "name": "Tosta alla Mozzarella",
+        "desc": "Pane, mozzarella sfilacciata, pomodorini, basilico, riduzione di aceto balsamico e mix di semi",
+        "price": "9.95",
+        "category": "tostada"
+      },
+      "queso_champinones": {
+        "name": "Tosta con Formaggio Cremoso, Funghi e Spinaci",
+        "desc": "Pane con formaggio cremoso, funghi e spinaci saltati, riduzione di aceto balsamico e mix di semi",
+        "price": "9.95",
+        "category": "tostada"
+      },
+      "jamon_iberico": {
+        "name": "Tosta al Prosciutto Iberico",
+        "desc": "Pane, formaggio cremoso, pomodorini canditi, prosciutto iberico ed erba cipollina",
+        "price": "9.95",
+        "category": "tostada"
+      },
+      "bacalao": {
+        "name": "Tosta al Baccalà",
+        "desc": "Pane, hummus di ceci, spinaci saltati, baccalà, pomodorini, uovo in camicia, olive e vinaigrette",
+        "price": "12.00",
+        "category": "tostada"
+      },
+      "portobello": {
+        "name": "Tosta al Portobello",
+        "desc": "Pane, portobello saltato, formaggio cremoso, rucola, pomodorini canditi, olio al tartufo, mix di semi e origano",
+        "price": "9.95",
+        "category": "tostada"
+      },
+      "vegan": {
+        "name": "Tosta Vegan",
+        "desc": "Pane, pomodoro e funghi saltati, avocado, riduzione al balsamico e mix di semi, servita con insalata",
+        "price": "11.95",
+        "category": "tostada"
+      },
+      "caco_aguacate": {
+        "name": "Caco con Avocado e Uovo",
+        "desc": "Caco tradizionale, due uova fritte, avocado, semi ed erba cipollina",
+        "price": "8.50",
+        "category": "caco"
+      },
+      "caco_salmon": {
+        "name": "Caco al Salmone Affumicato",
+        "desc": "Caco al nero di seppia, formaggio cremoso, rucola, capperi e salmone",
+        "price": "11.95",
+        "category": "caco"
+      },
+      "tostada_mediana": {
+        "name": "Toast Classico (Media)",
+        "desc": "Pane con prosciutto di tacchino affumicato, formaggio, pomodoro e origano",
+        "price": "4.50",
+        "category": "tostados"
+      },
+      "tostada_grande": {
+        "name": "Toast Classico (Grande)",
+        "desc": "Pane con prosciutto di tacchino affumicato, formaggio, pomodoro e origano",
+        "price": "5.50",
+        "category": "tostados"
+      },
+      "bocadillo_atun_mediana": {
+        "name": "Panino al Tonno (Medio)",
+        "desc": "Pane con tonno, maionese, cipolla rossa, lattuga, pomodoro e olive",
+        "price": "4.50",
+        "category": "tostados"
+      },
+      "bocadillo_atun_grande": {
+        "name": "Panino al Tonno (Grande)",
+        "desc": "Pane con tonno, maionese, cipolla rossa, lattuga, pomodoro e olive",
+        "price": "5.95",
+        "category": "tostados"
+      }
+    },
+    "coffee": {
+      "espresso": {
+        "name": "Espresso",
+        "price": "1.00"
+      },
+      "espresso_duplo": {
+        "name": "Espresso Doppio",
+        "price": "1.60"
+      },
+      "cortado": {
+        "name": "Cortado",
+        "price": "1.00"
+      },
+      "espresso_hielo": {
+        "name": "Espresso con Ghiaccio/Latte",
+        "price": "1.50"
+      },
+      "americano": {
+        "name": "Americano",
+        "price": "1.80"
+      },
+      "americano_hielo": {
+        "name": "Americano con Ghiaccio/Latte",
+        "price": "2.60"
+      },
+      "affogato": {
+        "name": "Affogato",
+        "price": "3.50"
+      },
+      "cappuccino": {
+        "name": "Cappuccino",
+        "price": "3.00"
+      },
+      "latte": {
+        "name": "Latte Macchiato",
+        "price": "3.00"
+      },
+      "matcha_latte": {
+        "name": "Matcha Latte",
+        "price": "3.50"
+      },
+      "flat_white": {
+        "name": "Flat White",
+        "price": "3.00"
+      },
+      "mocaccino": {
+        "name": "Mocaccino",
+        "desc": "Cioccolato ed espresso",
+        "price": "3.00"
+      },
+      "nut_cafe": {
+        "name": "Nut Café",
+        "desc": "Nutella, cioccolato ed espresso",
+        "price": "3.80"
+      },
+      "chocolate": {
+        "name": "Cioccolata Calda o Fredda",
+        "price": "3.50"
+      },
+      "latte_helado": {
+        "name": "Caffè Freddo al Latte",
+        "price": "3.50"
+      },
+      "te": {
+        "name": "Tè",
+        "price": "2.50"
+      },
+      "te_leche": {
+        "name": "Tè con Latte",
+        "price": "2.70"
+      },
+      "chai_latte": {
+        "name": "Chai Latte",
+        "price": "3.50"
+      },
+      "leche_vegetal": {
+        "name": "Latte Vegetale",
+        "price": "0.50"
+      },
+      "cafe_leche": {
+        "name": "Caffè con Latte",
+        "price": "2.20"
+      }
+    },
+    "drinks": {
+      "agua": {
+        "name": "Acqua Minerale 0,50 CL",
+        "price": "1.80"
+      },
+      "agua_gas": {
+        "name": "Acqua Frizzante",
+        "price": "2.00"
+      },
+      "refrescos": {
+        "name": "Bibite",
+        "price": "2.50"
+      },
+      "limonada": {
+        "name": "Limonata",
+        "price": "2.50"
+      },
+      "limonada_fresa": {
+        "name": "Limonata alla Fragola",
+        "price": "3.80"
+      },
+      "limonada_frappe": {
+        "name": "Limonata Frappé",
+        "price": "3.50"
+      },
+      "zumo_mix": {
+        "name": "Arancia, Carota e Barbabietola",
+        "price": "4.80"
+      },
+      "zumo_naranja_medio": {
+        "name": "Succo d'Arancia (Medio)",
+        "price": "3.00"
+      },
+      "zumo_naranja_grande": {
+        "name": "Succo d'Arancia (Grande)",
+        "price": "4.50"
+      }
+    },
+    "smoothies": {
+      "verde": {
+        "name": "Smoothie Verde",
+        "desc": "Limone, cetriolo, menta, spinaci e ananas",
+        "price": "5.00"
+      },
+      "pina": {
+        "name": "Smoothie all'Ananas",
+        "price": "5.00"
+      },
+      "fresa": {
+        "name": "Smoothie alla Fragola",
+        "price": "5.00"
+      },
+      "tropical": {
+        "name": "Smoothie Tropicale",
+        "desc": "Mango, ananas, frutto della passione",
+        "price": "5.00"
+      },
+      "acai": {
+        "name": "Smoothie di Açaí",
+        "desc": "Banana fresca e latte condensato",
+        "price": "5.95"
+      }
+    },
+    "batidos": {
+      "dulce": {
+        "name": "Frappé Dolce",
+        "desc": "Fragola e banana",
+        "price": "5.50"
+      },
+      "oreo": {
+        "name": "Frappé all'Oreo",
+        "price": "6.00"
+      },
+      "fresa": {
+        "name": "Frappé alla Fragola",
+        "price": "6.00"
+      },
+      "vainilla": {
+        "name": "Frappé alla Vaniglia",
+        "price": "6.00"
+      }
+    },
+    "alcohol": {
+      "cerveza_20": {
+        "name": "Birra 0,20 L",
+        "price": "2.00"
+      },
+      "cerveza_33": {
+        "name": "Birra 0,33 L",
+        "price": "3.00"
+      },
+      "cerveza_50": {
+        "name": "Birra 0,50 L",
+        "price": "3.00"
+      },
+      "super_bock": {
+        "name": "Super Bock 330 ML",
+        "price": "2.20"
+      },
+      "copa_sangria": {
+        "name": "Calice di Sangria",
+        "price": "4.00"
+      },
+      "jarra_sangria": {
+        "name": "Caraffa di Sangria (Rossa o Frizzante)",
+        "price": "18.00"
+      },
+      "vino_botella": {
+        "name": "Bottiglia di Vino 375ML",
+        "desc": "Rosso, bianco, rosé o verde",
+        "price": "7.00"
+      },
+      "copa_vino": {
+        "name": "Calice di Vino",
+        "price": "3.80"
+      }
+    },
+    "cocktails": {
+      "aperol_spritz": {
+        "name": "Aperol Spritz",
+        "desc": "Aperol, vino spumante, acqua tonica",
+        "price": "8.00"
+      },
+      "screwdriver": {
+        "name": "Screwdriver",
+        "desc": "Vodka e succo d'arancia",
+        "price": "6.00"
+      },
+      "splash": {
+        "name": "Splash",
+        "desc": "Amaretto e succo d'arancia",
+        "price": "6.00"
+      },
+      "garibaldi": {
+        "name": "Garibaldi",
+        "desc": "Campari e succo d'arancia",
+        "price": "6.00"
+      },
+      "mimosa": {
+        "name": "Mimosa",
+        "desc": "Vino spumante e succo d'arancia",
+        "price": "6.00"
+      },
+      "gin_tonico": {
+        "name": "Gin Tonic",
+        "desc": "Gin, acqua tonica, cetriolo o limone",
+        "price": "6.00"
+      },
+      "cuba_libre": {
+        "name": "Cuba Libre",
+        "desc": "Rum, coca-cola, limone, angostura",
+        "price": "6.00"
+      }
+    },
+    "brownie": {
+      "chocolate": {
+        "name": "Brownie al Cioccolato con Panna Montata",
+        "desc": "Brownie al cioccolato con noci e panna montata",
+        "price": "5.95"
+      }
+    },
+    "extras": {
+      "compota": {
+        "name": "Composta di frutti rossi",
+        "price": "0.95"
+      },
+      "mantequilla": {
+        "name": "Burro",
+        "price": "0.95"
+      },
+      "miel": {
+        "name": "Miele",
+        "price": "0.95"
+      },
+      "topping": {
+        "name": "Topping",
+        "price": "0.95"
+      },
+      "huevo_escalfado": {
+        "name": "Uovo in camicia",
+        "price": "1.80"
+      },
+      "huevo_revuelto": {
+        "name": "Uovo strapazzato",
+        "price": "1.80"
+      },
+      "huevo_frito": {
+        "name": "Uovo fritto",
+        "price": "1.80"
+      },
+      "queso": {
+        "name": "Formaggio",
+        "price": "1.80"
+      },
+      "tomate": {
+        "name": "Pomodoro",
+        "price": "1.80"
+      },
+      "espinaca": {
+        "name": "Spinaci",
+        "price": "1.80"
+      },
+      "champinones": {
+        "name": "Funghi",
+        "price": "1.80"
+      },
+      "fresa": {
+        "name": "Fragola",
+        "price": "1.80"
+      },
+      "platano": {
+        "name": "Banana",
+        "price": "1.80"
+      },
+      "pan": {
+        "name": "Pane",
+        "price": "1.80"
+      },
+      "crema_batida": {
+        "name": "Panna montata",
+        "price": "1.80"
+      },
+      "nutella": {
+        "name": "Nutella",
+        "price": "1.80"
+      },
+      "mantequilla_cacahuete": {
+        "name": "Burro di arachidi",
+        "price": "1.80"
+      },
+      "patata_chip": {
+        "name": "Chips di patata",
+        "price": "1.80"
+      },
+      "queso_crema_dulce": {
+        "name": "Formaggio cremoso dolce",
+        "price": "1.80"
+      },
+      "crema_limon": {
+        "name": "Crema al limone",
+        "price": "1.80"
+      },
+      "queso_crema": {
+        "name": "Formaggio cremoso",
+        "price": "1.80"
+      },
+      "maple_syrup": {
+        "name": "Sciroppo d'acero",
+        "price": "2.50"
+      },
+      "copa_yogur": {
+        "name": "Coppa di yogurt, granola e composta",
+        "price": "2.50"
+      },
+      "aguacate": {
+        "name": "Avocado",
+        "price": "3.80"
+      },
+      "jamon_iberico": {
+        "name": "Prosciutto Iberico",
+        "price": "3.80"
+      },
+      "tocineta": {
+        "name": "Bacon",
+        "price": "3.80"
+      },
+      "revueltos_veganos": {
+        "name": "Strapazzate vegane",
+        "price": "3.80"
+      },
+      "salmon_ahumado": {
+        "name": "Salmone affumicato",
+        "price": "4.50"
+      }
+    }
+  },
+  "gelados": {
+    "eyebrow": "Gelato Artigianale",
+    "title": "Gelato Artigianale",
+    "subtitle": "Gelato artigianale preparato ogni giorno nel nostro locale con ingredienti freschi e naturali. Senza conservanti, senza coloranti artificiali, solo puro gusto.",
+    "sizes": {
+      "title": "Formati e Prezzi",
+      "popular": "Il Più Popolare",
+      "single": {
+        "name": "1 Pallina",
+        "description": "Scegli 1 gusto",
+        "price": "€2.80"
+      },
+      "double": {
+        "name": "2 Palline",
+        "description": "Scegli 2 gusti",
+        "price": "€3.80"
+      },
+      "triple": {
+        "name": "3 Palline",
+        "description": "Scegli 3 gusti",
+        "price": "€5.00"
+      }
+    },
+    "flavors": {
+      "title": "Gusti Disponibili",
+      "subtitle": "Gelati artigianali preparati ogni giorno nel nostro locale",
+      "note": "I gusti disponibili possono variare in base alla stagione",
+      "items": {
+        "acai": {
+          "name": "Açaí",
+          "description": "Autentico açaí brasiliano",
+          "dietary": [
+            "vegan"
+          ]
+        },
+        "mango": {
+          "name": "Mango",
+          "description": "Mango tropicale dolce",
+          "dietary": [
+            "vegan"
+          ]
+        },
+        "pistacho": {
+          "name": "Pistacchio",
+          "description": "Pistacchio naturale"
+        },
+        "fresa": {
+          "name": "Fragola",
+          "description": "Fragole fresche",
+          "dietary": [
+            "vegan"
+          ]
+        },
+        "oreo": {
+          "name": "Oreo",
+          "description": "Cremoso con pezzi di Oreo"
+        },
+        "vainilla": {
+          "name": "Vaniglia",
+          "description": "Vaniglia classica"
+        },
+        "chocolate": {
+          "name": "Cioccolato",
+          "description": "Cioccolato intenso"
+        },
+        "pastel_de_nata": {
+          "name": "Pastel de Nata",
+          "description": "Il gusto del classico dolce portoghese"
+        }
+      }
+    },
+    "badges": {
+      "natural": "100% Naturale",
+      "fresh_daily": "Preparato Fresco Ogni Giorno",
+      "unique_flavors": "8 Gusti Unici"
+    },
+    "vegan_label": "Vegano",
+    "cta": {
+      "title": "Pronto per assaggiarlo?",
+      "subtitle": "Vienici a trovare in Rua da Prata 152 e scopri perché il nostro gelato è il preferito di Lisbona",
+      "view_menu": "Vedi il Menù Completo",
+      "directions": "Come Arrivare"
+    }
+  },
+  "promotions": {
+    "eyebrow": "Offerte Speciali",
+    "title": "Promozioni",
+    "subtitle": "Approfitta delle nostre offerte esclusive dalle 13:00 alle 18:00",
+    "time_badge": "13:00 - 18:00",
+    "time_note": "Offerte valide tutti i giorni dalle 13:00 alle 18:00",
+    "limited": "Tempo Limitato",
+    "new": "Novità",
+    "popular": "Popolare",
+    "cta_reserve": "Prenota Ora",
+    "cta_menu": "Vedi il Menù",
+    "terms": "Termini e condizioni",
+    "valid_until": "Valido fino al",
+    "offers": {
+      "beer_promo": {
+        "title": "Birra a €1.50",
+        "badge": "Promo",
+        "description": "Rinfresca il tuo pomeriggio",
+        "price": "€1.50",
+        "details": "Birra ben fresca a un prezzo speciale. Perfetta da accompagnare al pasto o semplicemente da gustare al sole di Lisbona.",
+        "terms": "Birra alla spina. Dalle 13:00 alle 18:00 tutti i giorni."
+      },
+      "cocktails": {
+        "title": "Cocktail a €5",
+        "badge": "Speciale",
+        "description": "Aperol · Cuba Libre · Gin Tonic",
+        "price": "€5.00",
+        "details": "I nostri cocktail classici a un prezzo speciale: Aperol Spritz, Cuba Libre e Gin Tonic. Il pomeriggio perfetto merita un brindisi!",
+        "terms": "Dalle 13:00 alle 18:00 tutti i giorni."
+      },
+      "brunch_duo": {
+        "title": "Brunch per Due",
+        "badge": "Best Seller",
+        "description": "L'esperienza completa",
+        "price": "€29.95",
+        "details": "2 mini toast di avocado, 2 di banana con burro di arachidi, uova strapazzate, funghi, 2 mini pancake, 2 macedonie, 2 yogurt con granola, 2 succhi e 2 caffè.",
+        "terms": "Prezzo per coppia. Disponibile tutti i giorni."
+      },
+      "instagram": {
+        "title": "Foto su Instagram",
+        "badge": "Gratis",
+        "description": "Condividi e vinci",
+        "discount": "CAFFÈ GRATIS",
+        "details": "Pubblica una foto del tuo piatto su Instagram menzionando @milsaboreslx e ti regaliamo un caffè espresso o un tè.",
+        "terms": "Mostra il post al cameriere. Profilo pubblico. Un caffè a tavolo."
+      }
+    },
+    "weekly": {
+      "title": "Le Nostre Offerte",
+      "monday": {
+        "day": "Birra",
+        "offer": "€1.50",
+        "desc": "Tutti i giorni"
+      },
+      "tuesday": {
+        "day": "Cocktail",
+        "offer": "€5.00",
+        "desc": "Aperol, Cuba Libre, Gin Tonic"
+      },
+      "wednesday": {
+        "day": "Brunch Duo",
+        "offer": "€29.95",
+        "desc": "L'esperienza completa per due"
+      },
+      "thursday": {
+        "day": "Instagram",
+        "offer": "Caffè Gratis",
+        "desc": "Condividi la tua foto @milsaboreslx"
+      },
+      "friday": {
+        "day": "WiFi",
+        "offer": "Gratis",
+        "desc": "Lavora mentre ti godi il momento"
+      },
+      "weekend": {
+        "day": "Gelato",
+        "offer": "Artigianale",
+        "desc": "8 gusti unici"
+      }
+    },
+    "newsletter": {
+      "title": "Ricevi offerte esclusive",
+      "subtitle": "Iscriviti e ottieni il 10% sulla tua prima visita",
+      "placeholder": "La tua email",
+      "button": "Iscriviti",
+      "success": "Grazie! Controlla la tua email."
+    }
+  },
+  "fab": {
+    "reserve": "Prenota un Tavolo",
+    "call": "Chiama Ora",
+    "whatsapp": "WhatsApp"
+  }
+}

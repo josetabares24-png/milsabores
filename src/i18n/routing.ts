@@ -2,10 +2,9 @@ import { defineRouting } from 'next-intl/routing'
 import { createNavigation } from 'next-intl/navigation'
 
 export const routing = defineRouting({
-  locales: ['es'],
-  defaultLocale: 'es',
-  localePrefix: 'never', // No mostrar /es en la URL
-  localeDetection: false // Solo español
+  locales: ['pt', 'en', 'es', 'fr', 'de', 'it'],
+  defaultLocale: 'pt',
+  localePrefix: 'as-needed' // pt (principal) sin prefijo, el resto con /en, /es, /fr, /de, /it
 })
 
 export const { Link, redirect, usePathname, useRouter, permanentRedirect } =

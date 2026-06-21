@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Mail, MapPin, Clock, Phone, Instagram, CheckCircle2, AlertCircle, Star } from 'lucide-react'
 import { isValidEmail } from '@/lib/validation'
 import Logo from '@/components/Logo'
@@ -20,6 +20,7 @@ export default function ContactPage() {
 
   const t = useTranslations('contact')
   const tCommon = useTranslations('common')
+  const locale = useLocale()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,9 +33,6 @@ export default function ContactPage() {
 
     setIsSubmitting(true)
     try {
-      // Get current locale from URL
-      const locale = window.location.pathname.split('/')[1] || 'pt'
-
       // Call API to send contact message
       const response = await fetch('/api/contact', {
         method: 'POST',

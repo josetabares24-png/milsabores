@@ -1,28 +1,75 @@
 import React from 'react'
+import { localizedUrl } from '@/lib/seo'
+import type { Locale } from '@/i18n/config'
 
 interface SchemaMarkupProps {
   locale: string
 }
 
+const restaurantDescriptions: Record<Locale, string> = {
+  pt: 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa.',
+  es: 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa.',
+  en: 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa.',
+  fr: 'Brunch et gelato artisanal au cœur de Lisbonne. Spécialités de pancakes, crêpes, gaufres, bowls healthy et authentique gelato italien à Baixa.',
+  de: 'Handwerklicher Brunch und Gelato im Herzen von Lissabon. Spezialisiert auf Pancakes, Crêpes, Waffeln, gesunde Bowls und authentisches italienisches Gelato in Baixa.',
+  it: 'Brunch e gelato artigianale nel cuore di Lisbona. Specialità di pancake, crêpe, waffle, bowl salutari e autentico gelato italiano a Baixa.',
+}
+
+const localBusinessDescriptions: Record<Locale, string> = {
+  pt: 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa. WiFi gratuito disponível.',
+  es: 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa. WiFi gratis disponible.',
+  en: 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa. Free WiFi available.',
+  fr: 'Brunch et gelato artisanal au cœur de Lisbonne. Spécialités de pancakes, crêpes, gaufres, bowls healthy et authentique gelato italien à Baixa. WiFi gratuit disponible.',
+  de: 'Handwerklicher Brunch und Gelato im Herzen von Lissabon. Spezialisiert auf Pancakes, Crêpes, Waffeln, gesunde Bowls und authentisches italienisches Gelato in Baixa. Kostenloses WiFi verfügbar.',
+  it: 'Brunch e gelato artigianale nel cuore di Lisbona. Specialità di pancake, crêpe, waffle, bowl salutari e autentico gelato italiano a Baixa. WiFi gratuito disponibile.',
+}
+
+const organizationDescriptions: Record<Locale, string> = {
+  pt: 'Restaurante especializado em brunch e gelados artesanais em Lisboa',
+  es: 'Restaurante especializado en brunch y helados artesanales en Lisboa',
+  en: 'Restaurant specializing in artisanal brunch and gelato in Lisbon',
+  fr: 'Restaurant spécialisé dans le brunch et le gelato artisanal à Lisbonne',
+  de: 'Restaurant spezialisiert auf handwerklichen Brunch und Gelato in Lissabon',
+  it: 'Ristorante specializzato in brunch e gelato artigianale a Lisbona',
+}
+
+const websiteDescriptions: Record<Locale, string> = {
+  pt: 'Website oficial do Mil Sabores Lisboa - Brunch e Gelados Artesanais',
+  es: 'Sitio web oficial de Mil Sabores Lisboa - Brunch y Helados Artesanales',
+  en: 'Official website of Mil Sabores Lisboa - Artisanal Brunch and Gelato',
+  fr: 'Site officiel de Mil Sabores Lisboa - Brunch et Gelato Artisanal',
+  de: 'Offizielle Website von Mil Sabores Lisboa - Handwerklicher Brunch und Gelato',
+  it: 'Sito ufficiale di Mil Sabores Lisboa - Brunch e Gelato Artigianale',
+}
+
+const inLanguageMap: Record<Locale, string> = {
+  pt: 'pt-PT',
+  es: 'es-ES',
+  en: 'en-US',
+  fr: 'fr-FR',
+  de: 'de-DE',
+  it: 'it-IT',
+}
+
 export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
+  const l = locale as Locale
+  const homeUrl = localizedUrl(locale)
+  const menuUrl = localizedUrl(locale, 'menu')
+
   const restaurantSchema = {
     '@context': 'https://schema.org',
     '@type': ['Restaurant', 'FoodEstablishment', 'CafeOrCoffeeShop'],
     '@id': 'https://milsaboresbrunch.com/#restaurant',
     name: 'Mil Sabores Lisboa',
     alternateName: 'Mil Sabores',
-    description: locale === 'pt'
-      ? 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa.'
-      : locale === 'es'
-      ? 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa.'
-      : 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa.',
+    description: restaurantDescriptions[l] ?? restaurantDescriptions.en,
     image: [
       'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
       'https://milsaboresbrunch.com/images/Mil Sabores/Crepe Limon.webp',
       'https://milsaboresbrunch.com/images/Mil Sabores/Poke Vegan.webp',
       'https://milsaboresbrunch.com/images/Mil Sabores/Mini Hamburguer.webp'
     ],
-    url: `https://milsaboresbrunch.com/${locale}`,
+    url: homeUrl,
     telephone: '+351213470214',
     email: 'milsaboreslx@gmail.com',
     priceRange: '€€',
@@ -54,9 +101,9 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
       }
     ],
     servesCuisine: ['Brunch', 'Dessert', 'Ice Cream', 'Gelato', 'Coffee', 'Italian', 'International', 'Healthy Food'],
-    hasMenu: `https://milsaboresbrunch.com/${locale}/menu`,
+    hasMenu: menuUrl,
     acceptsReservations: 'True',
-    menu: `https://milsaboresbrunch.com/${locale}/menu`,
+    menu: menuUrl,
     sameAs: [
       'https://www.instagram.com/milsaboreslx/',
       'https://www.facebook.com/MilSaboreslx',
@@ -150,14 +197,10 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Mil Sabores Lisboa',
-    description: locale === 'pt'
-      ? 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa. WiFi gratuito disponível.'
-      : locale === 'es'
-      ? 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa. WiFi gratis disponible.'
-      : 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa. Free WiFi available.',
+    description: localBusinessDescriptions[l] ?? localBusinessDescriptions.en,
     image: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
     '@id': 'https://milsaboresbrunch.com/#business',
-    url: `https://milsaboresbrunch.com/${locale}`,
+    url: homeUrl,
     telephone: '+351213470214',
     email: 'milsaboreslx@gmail.com',
     address: {
@@ -205,7 +248,7 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: `https://milsaboresbrunch.com/${locale}`
+        item: homeUrl
       }
     ]
   }
@@ -218,11 +261,7 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
     url: 'https://milsaboresbrunch.com',
     logo: 'https://milsaboresbrunch.com/icon-512.png',
     image: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
-    description: locale === 'pt'
-      ? 'Restaurante especializado em brunch e gelados artesanais em Lisboa'
-      : locale === 'es'
-      ? 'Restaurante especializado en brunch y helados artesanales en Lisboa'
-      : 'Restaurant specializing in artisanal brunch and gelato in Lisbon',
+    description: organizationDescriptions[l] ?? organizationDescriptions.en,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rua da Prata 152',
@@ -235,7 +274,7 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
       telephone: '+351213470214',
       contactType: 'Customer Service',
       email: 'milsaboreslx@gmail.com',
-      availableLanguage: ['Portuguese', 'English', 'Spanish']
+      availableLanguage: ['Portuguese', 'English', 'Spanish', 'French', 'German', 'Italian']
     },
     sameAs: [
       'https://www.instagram.com/milsaboreslx/',
@@ -250,20 +289,16 @@ export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
     '@id': 'https://milsaboresbrunch.com/#website',
     url: 'https://milsaboresbrunch.com',
     name: 'Mil Sabores Lisboa',
-    description: locale === 'pt'
-      ? 'Website oficial do Mil Sabores Lisboa - Brunch e Gelados Artesanais'
-      : locale === 'es'
-      ? 'Sitio web oficial de Mil Sabores Lisboa - Brunch y Helados Artesanales'
-      : 'Official website of Mil Sabores Lisboa - Artisanal Brunch and Gelato',
+    description: websiteDescriptions[l] ?? websiteDescriptions.en,
     publisher: {
       '@id': 'https://milsaboresbrunch.com/#organization'
     },
     potentialAction: {
       '@type': 'SearchAction',
-      target: `https://milsaboresbrunch.com/${locale}/menu?q={search_term_string}`,
+      target: `${menuUrl}?q={search_term_string}`,
       'query-input': 'required name=search_term_string'
     },
-    inLanguage: locale === 'pt' ? 'pt-PT' : locale === 'es' ? 'es' : 'en'
+    inLanguage: inLanguageMap[l] ?? inLanguageMap.en
   }
 
   return (

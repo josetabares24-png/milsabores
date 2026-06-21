@@ -35,6 +35,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const dateLocaleMap: Record<string, string> = {
+      pt: 'pt-PT',
+      es: 'es-ES',
+      en: 'en-US',
+      fr: 'fr-FR',
+      de: 'de-DE',
+      it: 'it-IT',
+    }
+
     // Translation texts based on locale
     const translations: Record<string, any> = {
       pt: {
@@ -176,7 +185,7 @@ export async function POST(request: NextRequest) {
                   </tr>
                   <tr>
                     <td style="padding: 8px 0; color: #64748B; font-weight: 600;">${t.date_label}:</td>
-                    <td style="padding: 8px 0; color: #2C3E50; font-weight: 600; text-align: right;">${new Date(date).toLocaleDateString(locale === 'pt' ? 'pt-PT' : locale === 'es' ? 'es-ES' : 'en-US')}</td>
+                    <td style="padding: 8px 0; color: #2C3E50; font-weight: 600; text-align: right;">${new Date(date).toLocaleDateString(dateLocaleMap[locale] || 'en-US')}</td>
                   </tr>
                   <tr>
                     <td style="padding: 8px 0; color: #64748B; font-weight: 600;">${t.time_label}:</td>
