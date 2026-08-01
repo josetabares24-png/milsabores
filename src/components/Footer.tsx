@@ -48,6 +48,11 @@ export default function Footer() {
             <h4 className="text-slate font-bold text-lg mb-6">{t('links_title')}</h4>
             <ul className="space-y-3">
               <li>
+                <Link href="/brunch-lisboa" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
+                  {t('brunch_link')}
+                </Link>
+              </li>
+              <li>
                 <Link href="/menu" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('menu')}
                 </Link>

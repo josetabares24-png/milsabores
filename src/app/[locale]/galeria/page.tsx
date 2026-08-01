@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { X, ChevronLeft, ChevronRight, Instagram, Image as ImageIcon } from 'lucide-react'
 import Logo from '@/components/Logo'
+import Image from 'next/image'
 
 type Category = 'all' | 'food' | 'drinks' | 'interior' | 'events'
 
@@ -78,11 +79,9 @@ export default function GalleryPage() {
     if (e.key === 'Escape') setSelectedImage(null)
   }
 
-  useState(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('keydown', handleKeyDown as any)
-      return () => window.removeEventListener('keydown', handleKeyDown as any)
-    }
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
   })
 
   const selectedImageData = filteredImages.find(img => img.id === selectedImage)
@@ -156,9 +155,12 @@ export default function GalleryPage() {
                 gridRow: index % 7 === 0 ? 'span 2' : 'span 1',
               }}
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${image.url}')` }}
+              <Image
+                src={image.url}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -186,7 +188,7 @@ export default function GalleryPage() {
             {t('follow_us')}
           </h3>
           <p className="text-slate/60 text-lg mb-8 max-w-2xl mx-auto">
-            Comparte tus momentos y aparece en nuestra galería
+            {t('share_cta')}
           </p>
           <a
             href="https://instagram.com/milsaboreslx"
@@ -245,17 +247,23 @@ export default function GalleryPage() {
             </button>
 
             {/* Image */}
-            <motion.img
+            <motion.div
               key={selectedImage}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              src={selectedImageData.url}
-              alt={selectedImageData.alt}
-              className="max-w-full max-h-[85vh] rounded-3xl shadow-2xl"
+              className="relative w-full max-w-5xl h-[85vh] rounded-3xl overflow-hidden shadow-2xl"
               onClick={(e) => e.stopPropagation()}
-            />
+            >
+              <Image
+                src={selectedImageData.url}
+                alt={selectedImageData.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+              />
+            </motion.div>
 
             {/* Image Counter */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full">

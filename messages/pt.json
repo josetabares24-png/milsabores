@@ -7,50 +7,56 @@
     "about": "Sobre Nós",
     "gallery": "Galeria",
     "contact": "Contacto",
-    "reservations": "Reservar"
+    "reservations": "Reservar",
+    "brunch": "Brunch Lisboa",
+    "open_menu": "Abrir menu",
+    "close_menu": "Fechar menu"
   },
   "featuredDish": {
     "badge": "Prato em Destaque",
     "title": "Brunch Americano",
     "description": "O autêntico pequeno-almoço americano: tosta artesanal, 2 ovos como preferir, abacate, bacon estaladiço e duas panquecas com mel. Com fruta fresca, sumo de laranja ou limonada e espresso.",
     "feature1": "Ingredientes Frescos",
-    "feature2": "Mais de 500 avaliações",
+    "feature2": "No menu de brunch",
     "from": "Desde",
     "price": "€17.95",
-    "cta": "Ver no Menu"
+    "cta": "Ver no Menu",
+    "image_alt": "Brunch Americano servido no Mil Sabores Lisboa"
   },
   "hero": {
-    "title": "Mil Sabores",
-    "subtitle": "Desfrute de um brunch artesanal no coração de Lisboa, a poucos passos da Praça do Comércio, com opções dulces, salgadas e café de especialidade.",
-    "badge": "★★★★★ Melhor Avaliado em Lisboa",
-    "tagline": "Brunch e Gelados",
+    "title": "Brunch artesanal no coração da Baixa de Lisboa",
+    "subtitle": "Na Rua da Prata, o Mil Sabores junta panquecas, crepes, waffles, bowls, café e gelados artesanais para uma pausa saborosa no centro de Lisboa.",
+    "badge": "Rua da Prata 152, Baixa",
+    "tagline": "Mil Sabores",
     "city": "Lisboa",
-    "seo_h2": "Mil Sabores - Brunch Artesanal e Gelato Italiano na Baixa, Lisboa, Rua da Prata",
+    "seo_h2": "Brunch em Lisboa na Rua da Prata, Baixa de Lisboa",
     "cta_menu": "Ver Menu Completo",
     "cta_reserve": "Fazer Reserva",
-    "hours_label": "Seg-Dom · 7:00 - 19:00",
+    "hours_label": "Seg-Sex · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
     "location_label": "Rua da Prata 152, Lisboa",
     "phone_label": "+351 21 347 0214",
-    "scroll": "Deslizar"
+    "scroll": "Deslizar",
+    "image_alt": "Mesa de brunch com panquecas, ovos, fruta e café no Mil Sabores Lisboa"
   },
   "about": {
     "eyebrow": "Sobre Nós",
     "title": "A Nossa História",
-    "subtitle": "Mil Sabores é mais do que um restaurante: é uma experiência gastronómica única onde o brunch artesanal encontra o autêntico gelato italiano.",
-    "para1": "Localizados na Rua da Prata, no coração da Baixa, oferecemos",
-    "para1_bold1": "brunch todo o dia",
-    "para1_mid": "com ingredientes frescos, receitas artesanais e um",
-    "para1_bold2": "ambiente acolhedor",
-    "para2": "Somos o espaço ideal tanto para",
-    "para2_bold": "locais como para turistas",
-    "para2_mid": "que querem tomar o pequeno-almoço em Lisboa perto dos principais pontos históricos.",
-    "para3": "Desde panquecas fofas a tostas gourmet e café de especialidade, cada detalhe é pensado para tornar a sua pausa memorável.",
+    "subtitle": "Mil Sabores é um espaço de brunch e gelados artesanais na Rua da Prata, pensado para uma pausa tranquila no centro de Lisboa.",
+    "para1": "Localizados na Rua da Prata, no coração da Baixa de Lisboa, servimos",
+    "para1_bold1": "brunch em Lisboa",
+    "para1_mid": "com panquecas, crepes, waffles, bowls, tostas, café e",
+    "para1_bold2": "gelados artesanais",
+    "para2": "A nossa carta é prática para quem procura",
+    "para2_bold": "pequeno-almoço ou brunch na Baixa",
+    "para2_mid": "com pratos doces e salgados para diferentes momentos do dia.",
+    "para3": "Entre uma visita ao centro histórico e um passeio pela Baixa, o Mil Sabores oferece uma experiência simples, cuidada e centrada no sabor.",
     "feature1_title": "Feito com Amor",
     "feature1_desc": "Cada prato é preparado com ingredientes frescos e muita dedicação",
-    "feature2_title": "Qualidade Premium",
-    "feature2_desc": "Produtos selecionados e gelados artesanais autênticos",
+    "feature2_title": "Carta Variada",
+    "feature2_desc": "Panquecas, crepes, waffles, bowls, tostas, café e gelados artesanais",
     "feature3_title": "Ambiente Acolhedor",
-    "feature3_desc": "O espaço perfeito para desligar do ritmo da cidade"
+    "feature3_desc": "O espaço perfeito para desligar do ritmo da cidade",
+    "image_alt": "Interior do Mil Sabores Lisboa na Rua da Prata"
   },
   "menu": {
     "eyebrow": "Menu",
@@ -80,38 +86,6 @@
       }
     }
   },
-  "testimonials": {
-    "eyebrow": "Testemunhos",
-    "title": "O Que Dizem os Nossos Clientes",
-    "subtitle": "Avaliações reais do Google Maps - 4.7★ de mais de 1.200 opiniões",
-    "items": {
-      "1": {
-        "text": "As panquecas de banana com Nutella são incríveis! As doses são generosas e tudo é feito com ingredientes frescos. O staff é super simpático e o serviço bem rápido. Localização perfeita perto da Praça do Comércio.",
-        "author": "Sarah Johnson",
-        "role": "Turista dos EUA"
-      },
-      "2": {
-        "text": "Pequeno-almoço espetacular com vista para a igreja de São Nicolau. O bowl de açaí estava delicioso e o café perfeito. Excelente relação qualidade-preço para estar no centro de Lisboa. Havemos de voltar!",
-        "author": "Miguel Fernández",
-        "role": "Local de Lisboa"
-      },
-      "3": {
-        "text": "A tosta de abacate com ovo escalfado foi uma das melhores que já provei. Staff atencioso que fala vários idiomas. O gelato artesanal de sobremesa foi o toque final perfeito. Muito recomendado!",
-        "author": "Laura Rossi",
-        "role": "Viajante de Itália"
-      },
-      "4": {
-        "text": "Comida fresca, rápida e absolutamente deliciosa. O staff é simpático e atento a todos os detalhes. Os ovos mexidos com salmão são espetaculares. As apresentações são lindíssimas, nota-se o cuidado com a qualidade.",
-        "author": "João Pereira",
-        "role": "Cliente Habitual"
-      },
-      "5": {
-        "text": "Descobrimos este lugar por acaso e foi a melhor surpresa da nossa viagem. O menu tem muitíssima variedade, desde opções vegan até clássicos. Tudo delicioso e a bom preço. O terraço exterior é encantador.",
-        "author": "Emma Schmidt",
-        "role": "Turista da Alemanha"
-      }
-    }
-  },
   "instagram": {
     "eyebrow": "Galeria",
     "title": "Siga-nos no Instagram",
@@ -133,12 +107,12 @@
     "email_title": "Email",
     "email": "milsaboreslx@gmail.com",
     "reserve_title": "Reserve a Sua Mesa",
-    "reserve_desc": "Garanta o seu lugar no melhor brunch de Lisboa. Recomendamos reservar com antecedência, sobretudo aos fins de semana.",
+    "reserve_desc": "Fale connosco ou use a página de reservas para planear a sua visita ao Mil Sabores, na Rua da Prata.",
     "cta_call": "Ligar Agora",
     "cta_reserve": "Reservar Online"
   },
   "footer": {
-    "description": "O melhor brunch e gelato artesanal de Lisboa. Uma experiência gastronómica única no coração da cidade.",
+    "description": "Brunch, café e gelados artesanais no coração da Baixa de Lisboa.",
     "links_title": "Links Rápidos",
     "contact_title": "Contacto",
     "hours_title": "Horário",
@@ -147,7 +121,8 @@
     "legal_privacy": "Privacidade",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Livro de Reclamações",
-    "rights": "Todos os direitos reservados."
+    "rights": "Todos os direitos reservados.",
+    "brunch_link": "Brunch na Baixa de Lisboa"
   },
   "common": {
     "404": {
@@ -173,7 +148,7 @@
   "reservations": {
     "eyebrow": "Reservas",
     "title": "Reserve a Sua Mesa",
-    "subtitle": "Garanta o seu lugar no melhor brunch de Lisboa",
+    "subtitle": "Planeie a sua visita ao Mil Sabores Lisboa",
     "form": {
       "name": "Nome Completo",
       "name_placeholder": "O seu nome",
@@ -194,9 +169,8 @@
       "special_requests": "Pedidos Especiais",
       "special_requests_placeholder": "Algum pedido especial?",
       "optional": "opcional",
-      "limited_availability": "Disponibilidade Limitada Hoje",
-      "confirmation_instant": "Confirmação instantânea por email",
-      "recent_bookings": "12 pessoas reservaram na última hora",
+      "limited_availability": "Reservas",
+      "confirmation_instant": "Planeie a sua visita ao Mil Sabores Lisboa",
       "submit": "Confirmar Reserva",
       "submitting": "A enviar..."
     },
@@ -266,7 +240,8 @@
     },
     "view_on_instagram": "Ver no Instagram",
     "follow_us": "Siga-nos @milsaboreslx",
-    "close": "Fechar"
+    "close": "Fechar",
+    "share_cta": "Partilhe os seus momentos e apareça na nossa galeria"
   },
   "contact": {
     "eyebrow": "Contacto",
@@ -314,7 +289,8 @@
         "title": "Redes Sociais",
         "instagram": "Instagram",
         "tripadvisor": "TripAdvisor"
-      }
+      },
+      "maps_cta": "Ver no Google Maps"
     },
     "success": {
       "title": "Mensagem Enviada!",
@@ -324,39 +300,51 @@
   },
   "meta": {
     "home": {
-      "title": "Brunch na Baixa de Lisboa | Mil Sabores - Rua da Prata | Pequeno-Almoço & Gelato Artesanal",
-      "description": "O melhor brunch perto de si em Lisboa. Mil Sabores na Rua da Prata 152, Baixa. Panquecas, açaí bowls, ovos benedict e gelato artesanal. Aberto das 7h às 19h. ★4.7 Google",
-      "keywords": "brunch baixa lisboa, brunch perto de mim lisboa, pequeno almoço rua da prata, melhor brunch baixa lisboa, brunch rua augusta, gelataria artesanal baixa, açaí bowl lisboa centro, panquecas lisboa"
+      "title": "Mil Sabores | Brunch na Baixa de Lisboa",
+      "description": "Descubra o Mil Sabores na Rua da Prata: brunch, panquecas, crepes, waffles, bowls, café e gelados artesanais no centro de Lisboa.",
+      "keywords": "brunch baixa lisboa, brunch perto de mim lisboa, pequeno almoço rua da prata, brunch rua augusta, gelataria artesanal baixa, açaí bowl lisboa centro, panquecas lisboa",
+      "imageAlt": "Brunch artesanal no Mil Sabores Lisboa"
     },
     "menu": {
-      "title": "Menu Brunch Lisboa | Mil Sabores Baixa - Preços e Carta Completa",
-      "description": "Carta completa Mil Sabores: panquecas desde €6.50, bowls saudáveis, ovos benedict, brunch para dois €29.95. Opções vegan e sem gluten. Rua da Prata, Baixa Lisboa.",
-      "keywords": "menu brunch lisboa, carta mil sabores, preços brunch baixa, pequeno almoço vegetariano lisboa, brunch vegan baixa lisboa, panquecas rua da prata"
+      "title": "Menu de Brunch em Lisboa | Mil Sabores",
+      "description": "Consulte o menu do Mil Sabores: brunch, panquecas, crepes, waffles, bowls, café, bebidas e gelados artesanais na Rua da Prata.",
+      "keywords": "menu brunch lisboa, carta mil sabores, preços brunch baixa, pequeno almoço vegetariano lisboa, brunch vegan baixa lisboa, panquecas rua da prata",
+      "imageAlt": "Menu de brunch do Mil Sabores Lisboa"
     },
     "reservations": {
-      "title": "Reservar Mesa Brunch Lisboa | Mil Sabores Baixa - Confirmação Imediata",
-      "description": "Reserve online em 30 segundos. Mil Sabores Brunch, Rua da Prata 152, Baixa Lisboa. Grupos até 8 pessoas. Sem sinal. Confirmação instantânea por email.",
-      "keywords": "reservar brunch lisboa, reservar mesa baixa lisboa, brunch com reserva lisboa, marcar mesa pequeno almoço lisboa"
+      "title": "Reservas | Mil Sabores Lisboa",
+      "description": "Reserve mesa no Mil Sabores Lisboa, na Rua da Prata, para brunch, café, panquecas, bowls e gelados artesanais na Baixa.",
+      "keywords": "reservar brunch lisboa, reservar mesa baixa lisboa, brunch com reserva lisboa, marcar mesa pequeno almoço lisboa",
+      "imageAlt": "Reservas no Mil Sabores Lisboa"
     },
     "gallery": {
-      "title": "Fotos Mil Sabores Lisboa | Galeria Instagram @milsaboreslx",
-      "description": "Descubra os nossos pratos em fotos reais. Panquecas, bowls, gelados artesanais. Interior acolhedor na Baixa. Siga-nos @milsaboreslx para promoções.",
-      "keywords": "fotos brunch lisboa, instagram mil sabores, galeria restaurante baixa, fotos comida lisboa centro"
+      "title": "Galeria | Mil Sabores Lisboa",
+      "description": "Veja fotografias de brunch, panquecas, tostas, bowls, bebidas e gelados artesanais do Mil Sabores na Baixa de Lisboa.",
+      "keywords": "fotos brunch lisboa, instagram mil sabores, galeria restaurante baixa, fotos comida lisboa centro",
+      "imageAlt": "Galeria do Mil Sabores Lisboa"
     },
     "contact": {
-      "title": "Contacto e Localização | Mil Sabores Brunch Lisboa - Rua da Prata 152",
-      "description": "Como chegar ao Mil Sabores: Rua da Prata 152, 1100-619 Lisboa (junto à Igreja São Nicolau). Metro Baixa-Chiado. Tel: +351 21 347 0214. WiFi gratuito.",
-      "keywords": "endereço mil sabores lisboa, como chegar baixa brunch, localização rua da prata, contacto mil sabores, telefone brunch lisboa"
+      "title": "Contacto e Localização | Mil Sabores Lisboa",
+      "description": "Encontre o Mil Sabores na Rua da Prata 152, Baixa de Lisboa. Consulte telefone, email, horário e ligação para Google Maps.",
+      "keywords": "endereço mil sabores lisboa, como chegar baixa brunch, localização rua da prata, contacto mil sabores, telefone brunch lisboa",
+      "imageAlt": "Contacto do Mil Sabores Lisboa"
     },
     "promotions": {
-      "title": "Promoções Brunch Lisboa | Ofertas Especiais Mil Sabores Baixa",
-      "description": "Ofertas exclusivas: Happy Hour 7h-9h -15%, Brunch para Dois €29.95, Estudantes -10%. Promoções diárias no Mil Sabores, Rua da Prata, Baixa Lisboa.",
-      "keywords": "promoções brunch lisboa, ofertas pequeno almoço baixa, descontos brunch lisboa centro, happy hour brunch lisboa"
+      "title": "Promoções | Mil Sabores Lisboa",
+      "description": "Consulte a página de promoções do Mil Sabores Lisboa e confirme ofertas disponíveis no restaurante da Rua da Prata.",
+      "keywords": "promoções brunch lisboa, ofertas pequeno almoço baixa, descontos brunch lisboa centro, happy hour brunch lisboa",
+      "imageAlt": "Promoções do Mil Sabores Lisboa"
     },
     "gelados": {
-      "title": "Gelato Artesanal em Lisboa | Mil Sabores - Gelados Italianos na Baixa",
-      "description": "Gelato 100% artesanal feito diariamente no Mil Sabores, Rua da Prata, Baixa Lisboa. Sabores como pistácio, açaí e pastel de nata. Sem conservantes nem corantes.",
-      "keywords": "gelato lisboa, gelado artesanal baixa, melhor gelataria lisboa centro, gelataria rua da prata, gelato italiano lisboa, gelados naturais lisboa"
+      "title": "Gelados Artesanais em Lisboa | Mil Sabores",
+      "description": "Conheça os gelados artesanais do Mil Sabores na Rua da Prata, na Baixa de Lisboa, para acompanhar brunch, café ou uma pausa doce.",
+      "keywords": "gelato lisboa, gelado artesanal baixa, melhor gelataria lisboa centro, gelataria rua da prata, gelato italiano lisboa, gelados naturais lisboa",
+      "imageAlt": "Gelados artesanais do Mil Sabores Lisboa"
+    },
+    "brunch": {
+      "title": "Brunch em Lisboa na Baixa | Mil Sabores",
+      "description": "Procura brunch na Baixa de Lisboa? Conheça o menu do Mil Sabores, com panquecas, crepes, waffles, bowls, café e gelados artesanais.",
+      "imageAlt": "Brunch em Lisboa na Baixa no Mil Sabores"
     }
   },
   "fullMenu": {
@@ -1108,7 +1096,16 @@
         "name": "Salmão fumado",
         "price": "4.50"
       }
-    }
+    },
+    "brunch_landing_cta": "Brunch em Lisboa",
+    "info_hours": "Seg-Sex · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
+    "dietary_title": "Filtrar por dieta",
+    "jump_title": "Ir para categoria",
+    "items_count": "itens",
+    "legend_title": "Legenda dietética",
+    "reserve_cta": "Reservar mesa",
+    "call_cta": "Ligar agora",
+    "allergy_note": "Se tiver alergias ou restrições alimentares, informe a nossa equipa."
   },
   "gelados": {
     "eyebrow": "Gelato Artesanal",
@@ -1226,7 +1223,7 @@
       },
       "brunch_duo": {
         "title": "Brunch para Dois",
-        "badge": "Best Seller",
+        "badge": "Brunch",
         "description": "A experiência completa",
         "price": "€29.95",
         "details": "2 mini-tostas de abacate, 2 de banana com manteiga de amendoim, ovos mexidos, cogumelos, 2 mini-panquecas, 2 saladas de fruta, 2 iogurtes com granola, 2 sumos e 2 cafés.",
@@ -1285,6 +1282,147 @@
   "fab": {
     "reserve": "Reservar Mesa",
     "call": "Ligar Agora",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "open_actions": "Abrir ações rápidas",
+    "close_actions": "Fechar ações rápidas"
+  },
+  "homeSeo": {
+    "intro": "O Mil Sabores Lisboa fica na Rua da Prata 152, na Baixa de Lisboa, e recebe quem procura brunch, pequeno-almoço, café ou gelados artesanais no centro da cidade. A carta reúne opções doces e salgadas como panquecas, crepes, waffles, bowls, tostas e bebidas para diferentes momentos do dia.",
+    "brunch": {
+      "eyebrow": "Brunch na Baixa",
+      "title": "Brunch na Baixa de Lisboa, sem sair do centro",
+      "p1": "Para quem procura brunch em Lisboa, a Baixa é uma zona prática para combinar uma refeição com um passeio pelo centro histórico. O Mil Sabores está na Rua da Prata, com uma carta pensada para pausas doces, salgadas e frescas ao longo do dia.",
+      "p2": "Na mesma visita pode consultar panquecas, crepes, waffles, bowls, tostas, café e gelados artesanais. A proposta é direta: uma experiência de brunch confortável, com menu online e localização fácil de encontrar.",
+      "p3": "A página de menu ajuda a escolher antes de chegar, enquanto o contacto e as indicações para Google Maps facilitam a visita. O foco é apenas o Mil Sabores, sem listas comparativas nem recomendações de outros restaurantes."
+    },
+    "location": {
+      "title": "Rua da Prata 152",
+      "text": "Estamos na Baixa de Lisboa, numa zona central para quem visita ou trabalha no centro. Consulte o menu, veja como chegar e confirme qualquer detalhe antes da visita."
+    },
+    "faq": {
+      "eyebrow": "Perguntas frequentes",
+      "title": "Antes de visitar o Mil Sabores",
+      "items": {
+        "1": {
+          "q": "Onde fica o Mil Sabores?",
+          "a": "O Mil Sabores fica na Rua da Prata 152, 1100-619 Lisboa, Portugal."
+        },
+        "2": {
+          "q": "Que tipo de brunch serve?",
+          "a": "A carta inclui panquecas, crepes, waffles, bowls, tostas, café e gelados artesanais."
+        },
+        "3": {
+          "q": "O menu está disponível online?",
+          "a": "Sim. A página de menu apresenta as categorias e pratos disponíveis no site."
+        },
+        "4": {
+          "q": "Qual é o horário?",
+          "a": "O horário visível no site é segunda a sexta das 7:00 às 18:30 e sábado e domingo das 7:00 às 19:00."
+        },
+        "5": {
+          "q": "É necessário reservar?",
+          "a": "O site tem uma página de reservas. Também pode contactar o restaurante para confirmar disponibilidade."
+        }
+      }
+    },
+    "ctas": {
+      "menu": "Ver menu de brunch",
+      "maps": "Como chegar ao Mil Sabores",
+      "contact": "Contactar o restaurante"
+    }
+  },
+  "brunchLanding": {
+    "breadcrumb": {
+      "home": "Início",
+      "current": "Brunch Lisboa"
+    },
+    "hero": {
+      "eyebrow": "Mil Sabores Lisboa",
+      "title": "Brunch em Lisboa na Baixa",
+      "subtitle": "Uma página para quem procura brunch, pequeno-almoço, panquecas, café e gelados artesanais no centro de Lisboa, sempre focada no Mil Sabores.",
+      "imageAlt": "Brunch com panquecas, ovos, fruta e café no Mil Sabores Lisboa"
+    },
+    "story": {
+      "p1": "Se está à procura de brunch em Lisboa, o Mil Sabores é uma opção no coração da Baixa, na Rua da Prata 152. A localização é prática para quem passa pelo centro, visita a zona histórica ou quer fazer uma pausa antes de continuar o dia.",
+      "p2": "A experiência combina pratos de brunch com uma carta variada de panquecas, crepes, waffles, bowls, tostas, café e gelados artesanais. A ideia é simples: sentar, escolher algo doce ou salgado e aproveitar uma refeição descontraída no centro de Lisboa.",
+      "p3": "Esta página reúne a informação essencial para quem pesquisa brunch em Lisboa, brunch na Baixa, pequeno-almoço em Lisboa ou panquecas em Lisboa. O conteúdo fala apenas do Mil Sabores, porque o objetivo é ajudar a decidir se este restaurante corresponde ao que procura.",
+      "p4": "Para escolhas mais completas, o menu online é o melhor ponto de partida. Nele pode ver categorias de brunch, opções doces, bowls, bebidas, café e gelados. Alguns itens têm indicação de dieta no próprio menu, mas qualquer restrição alimentar deve ser confirmada diretamente com a equipa.",
+      "p5": "A Rua da Prata coloca o Mil Sabores numa zona central e fácil de localizar. O site inclui contacto, telefone, email, página de reservas e ligação para Google Maps, para que possa confirmar detalhes práticos antes da visita.",
+      "p6": "O horário visível no site é segunda a sexta das 7:00 às 18:30 e sábado e domingo das 7:00 às 19:00. Como qualquer informação operacional pode mudar, recomenda-se confirmar diretamente quando a visita depender de um horário específico."
+    },
+    "products": {
+      "eyebrow": "O que encontrar",
+      "title": "Produtos do brunch no Mil Sabores",
+      "subtitle": "A carta combina opções doces, salgadas e frescas para diferentes momentos do dia.",
+      "items": {
+        "1": {
+          "title": "Panquecas, crepes e waffles",
+          "text": "Opções doces presentes no menu, úteis para quem procura panquecas em Lisboa ou uma pausa mais demorada na Baixa."
+        },
+        "2": {
+          "title": "Tostas, bagels e bowls",
+          "text": "Pratos salgados e bowls aparecem na carta para quem prefere uma refeição de brunch mais completa."
+        },
+        "3": {
+          "title": "Café e bebidas",
+          "text": "O café faz parte da experiência de pequeno-almoço e brunch, com bebidas para acompanhar a refeição."
+        },
+        "4": {
+          "title": "Gelados artesanais",
+          "text": "O Mil Sabores também trabalha gelados artesanais, uma alternativa fresca para depois do brunch ou durante a tarde."
+        }
+      }
+    },
+    "visit": {
+      "title": "Brunch na Rua da Prata",
+      "text": "O restaurante está na Baixa de Lisboa. Use o mapa ou a página de contacto para obter indicações e confirmar detalhes antes de visitar.",
+      "addressLabel": "Morada",
+      "hoursLabel": "Horário",
+      "hours": "Seg-Sex 7:00-18:30; Sáb-Dom 7:00-19:00"
+    },
+    "menu": {
+      "title": "Consultar o menu antes de visitar",
+      "text": "A página de menu organiza a carta por categorias, incluindo brunch, pratos doces, bowls, café, bebidas e gelados. É o melhor caminho para escolher com calma e evitar expectativas baseadas em informação desatualizada."
+    },
+    "faq": {
+      "title": "Perguntas frequentes sobre brunch em Lisboa",
+      "items": {
+        "1": {
+          "q": "Onde fica o Mil Sabores?",
+          "a": "Na Rua da Prata 152, 1100-619 Lisboa, Portugal, na zona da Baixa."
+        },
+        "2": {
+          "q": "Serve pequeno-almoço e brunch?",
+          "a": "O site apresenta o Mil Sabores como espaço de brunch, com opções doces, salgadas, café e gelados artesanais."
+        },
+        "3": {
+          "q": "Posso ver o menu online?",
+          "a": "Sim. A página de menu está disponível no site e liga diretamente a partir desta página."
+        },
+        "4": {
+          "q": "É possível reservar?",
+          "a": "Sim. Existe uma página de reservas no site, além de telefone e email de contacto."
+        },
+        "5": {
+          "q": "Há opções vegetarianas ou veganas?",
+          "a": "O menu inclui filtros e alguns itens identificados por dieta. Confirme sempre restrições ou alergias diretamente com a equipa."
+        }
+      }
+    },
+    "ctas": {
+      "menu": "Ver menu de brunch",
+      "maps": "Como chegar",
+      "reserve": "Reservar mesa"
+    }
+  },
+  "cookieConsent": {
+    "title": "Utilizamos cookies",
+    "text": "Usamos cookies para melhorar a sua experiência. Ao continuar a navegar, aceita a nossa",
+    "cookies": "Política de Cookies",
+    "and": "e",
+    "privacy": "Política de Privacidade",
+    "decline": "Recusar",
+    "accept": "Aceitar",
+    "close": "Fechar banner de cookies"
   }
 }

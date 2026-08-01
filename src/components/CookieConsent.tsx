@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Cookie, X } from 'lucide-react'
 import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 const COOKIE_CONSENT_KEY = 'mil-sabores-cookie-consent'
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
+  const t = useTranslations('cookieConsent')
 
   useEffect(() => {
     // Check if user has already consented
@@ -50,16 +52,16 @@ export default function CookieConsent() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-slate mb-1">
-                  Utilizamos cookies
+                  {t('title')}
                 </h3>
                 <p className="text-slate/70 text-sm leading-relaxed">
-                  Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra{' '}
+                  {t('text')}{' '}
                   <Link href="/cookies" className="text-pastel font-semibold hover:underline">
-                    Política de Cookies
+                    {t('cookies')}
                   </Link>{' '}
-                  y{' '}
+                  {t('and')}{' '}
                   <Link href="/privacidad" className="text-pastel font-semibold hover:underline">
-                    Política de Privacidad
+                    {t('privacy')}
                   </Link>.
                 </p>
               </div>
@@ -69,16 +71,16 @@ export default function CookieConsent() {
                 <button
                   onClick={declineCookies}
                   className="flex-1 md:flex-none px-5 py-2.5 text-slate/70 font-medium hover:text-slate transition-colors text-sm"
-                  aria-label="Rechazar cookies"
+                  aria-label={t('decline')}
                 >
-                  Rechazar
+                  {t('decline')}
                 </button>
                 <button
                   onClick={acceptCookies}
                   className="flex-1 md:flex-none px-6 py-2.5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-all shadow-lg shadow-pastel/30 text-sm"
-                  aria-label="Aceptar cookies"
+                  aria-label={t('accept')}
                 >
-                  Aceptar
+                  {t('accept')}
                 </button>
               </div>
 
@@ -86,7 +88,7 @@ export default function CookieConsent() {
               <button
                 onClick={declineCookies}
                 className="absolute top-3 right-3 md:hidden p-2 text-slate/40 hover:text-slate transition-colors"
-                aria-label="Cerrar banner de cookies"
+                aria-label={t('close')}
               >
                 <X size={20} />
               </button>

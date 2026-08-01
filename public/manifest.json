@@ -1,14 +1,14 @@
 {
   "name": "Mil Sabores Lisboa",
   "short_name": "Mil Sabores",
-  "description": "Brunch artesanal y helado italiano en el corazon de Lisboa. Rua da Prata 152, Baixa.",
+  "description": "Brunch artesanal e gelados artesanais no coracao de Lisboa. Rua da Prata 152, Baixa.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FAF8F5",
   "theme_color": "#A8C5D9",
   "orientation": "portrait-primary",
   "scope": "/",
-  "lang": "es",
+  "lang": "pt-PT",
   "categories": ["food", "restaurant", "brunch"],
   "icons": [
     {
@@ -30,28 +30,28 @@
       "sizes": "1200x800",
       "type": "image/webp",
       "form_factor": "wide",
-      "label": "Brunch Americano - Plato estrella"
+      "label": "Brunch Americano no Mil Sabores"
     }
   ],
   "shortcuts": [
     {
       "name": "Ver Menu",
       "short_name": "Menu",
-      "description": "Ver la carta completa",
+      "description": "Ver o menu completo",
       "url": "/menu",
       "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
     },
     {
-      "name": "Reservar Mesa",
+      "name": "Reservar mesa",
       "short_name": "Reservar",
-      "description": "Hacer una reserva",
+      "description": "Fazer uma reserva",
       "url": "/reservas",
       "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
     },
     {
       "name": "Contacto",
       "short_name": "Contacto",
-      "description": "Informacion de contacto",
+      "description": "Informacao de contacto",
       "url": "/contacto",
       "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
     }

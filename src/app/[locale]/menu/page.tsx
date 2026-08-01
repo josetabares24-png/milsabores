@@ -149,17 +149,17 @@ export default function MenuPage() {
     return (
       <div className="flex gap-2">
         {tags.includes('vegetarian') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage text-xs font-bold rounded-lg border border-sage/30 shadow-sm" title="Vegetariano">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage text-xs font-bold rounded-lg border border-sage/30 shadow-sm" title={t('filters.vegetarian')}>
             <Leaf size={12} /> V
           </span>
         )}
         {tags.includes('vegan') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg border border-green-200 shadow-sm" title="Vegano">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg border border-green-200 shadow-sm" title={t('filters.vegan')}>
             🌿 VG
           </span>
         )}
         {tags.includes('glutenFree') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-lg border border-amber-200 shadow-sm" title="Sin Gluten">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-lg border border-amber-200 shadow-sm" title={t('filters.glutenFree')}>
             <Wheat size={12} /> GF
           </span>
         )}
@@ -206,7 +206,7 @@ export default function MenuPage() {
         >
           <div className="flex items-center gap-2 text-slate/70">
             <Clock size={16} className="text-pastel" />
-            <span>Seg-Dom · 7:00 - 19:00</span>
+            <span>{t('info_hours')}</span>
           </div>
           <div className="flex items-center gap-2 text-slate/70">
             <MapPin size={16} className="text-sage" />
@@ -226,7 +226,7 @@ export default function MenuPage() {
           className="mb-6"
         >
           <h3 className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-3 text-center">
-            Filtrar por dieta
+            {t('dietary_title')}
           </h3>
           <div className="flex flex-wrap justify-center gap-2">
             <button
@@ -282,7 +282,7 @@ export default function MenuPage() {
           className="mb-10 pb-6 border-b-2 border-pastel/10"
         >
           <h3 className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-3 text-center">
-            Ir a categoría
+            {t('jump_title')}
           </h3>
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
@@ -331,7 +331,7 @@ export default function MenuPage() {
                       {t(`categories.${category}`)}
                     </h2>
                     <span className="text-sm text-slate/50 font-medium">
-                      {filteredItems.length} items
+                      {filteredItems.length} {t('items_count')}
                     </span>
                   </div>
                   <ChevronDown
@@ -447,26 +447,26 @@ export default function MenuPage() {
           className="mt-12 p-8 bg-gradient-to-br from-slate/5 to-slate/10 rounded-2xl border-2 border-slate/10 shadow-lg"
         >
           <h3 className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-5">
-            Leyenda Dietética
+            {t('legend_title')}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage text-xs font-bold rounded-lg border border-sage/30 shadow-sm">
                 <Leaf size={12} /> V
               </span>
-              <span className="text-slate/70 font-medium">Vegetariano</span>
+              <span className="text-slate/70 font-medium">{t('filters.vegetarian')}</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg border border-green-200 shadow-sm">
                 🌿 VG
               </span>
-              <span className="text-slate/70 font-medium">Vegano</span>
+              <span className="text-slate/70 font-medium">{t('filters.vegan')}</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-lg border border-amber-200 shadow-sm">
                 <Wheat size={12} /> GF
               </span>
-              <span className="text-slate/70 font-medium">Sin Gluten</span>
+              <span className="text-slate/70 font-medium">{t('filters.glutenFree')}</span>
             </div>
           </div>
         </motion.div>
@@ -480,20 +480,26 @@ export default function MenuPage() {
         >
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
+              href="/brunch-lisboa"
+              className="px-8 py-3 bg-white text-slate font-bold rounded-full border-2 border-pastel/30 hover:bg-pastel hover:text-white transition-all"
+            >
+              {t('brunch_landing_cta')}
+            </Link>
+            <Link
               href="/reservas"
               className="px-8 py-3 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-lg hover:scale-105 transition-all"
             >
-              Reservar Mesa
+              {t('reserve_cta')}
             </Link>
             <a
               href="tel:+351213470214"
               className="px-8 py-3 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel hover:bg-slate/5 transition-all"
             >
-              Llamar Ahora
+              {t('call_cta')}
             </a>
           </div>
           <p className="text-slate/50 text-xs mt-4 italic">
-            Si tienes alergias o restricciones dietéticas, por favor informa a nuestro personal
+            {t('allergy_note')}
           </p>
         </motion.div>
       </div>

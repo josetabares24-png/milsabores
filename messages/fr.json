@@ -7,50 +7,56 @@
     "about": "À Propos",
     "gallery": "Galerie",
     "contact": "Contact",
-    "reservations": "Réserver"
+    "reservations": "Réserver",
+    "brunch": "Brunch Lisbonne",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu"
   },
   "featuredDish": {
     "badge": "Plat Vedette",
     "title": "Brunch Américain",
     "description": "L'authentique petit-déjeuner américain : pain artisanal grillé, 2 œufs à votre goût, avocat, bacon croustillant et deux pancakes au miel. Servi avec fruits frais, jus d'orange ou citronnade et espresso.",
     "feature1": "Ingrédients Frais",
-    "feature2": "Plus de 500 avis",
+    "feature2": "Sur la carte brunch",
     "from": "Dès",
     "price": "€17.95",
-    "cta": "Voir au Menu"
+    "cta": "Voir au Menu",
+    "image_alt": "Brunch Americano servi chez Mil Sabores Lisbonne"
   },
   "hero": {
-    "title": "Mil Sabores",
-    "subtitle": "Savourez un brunch artisanal au cœur de Lisbonne, à deux pas de la Praça do Comércio, avec des options sucrées, salées et un café de spécialité.",
-    "badge": "★★★★★ Le Mieux Noté de Lisbonne",
-    "tagline": "Brunch et Glaces",
+    "title": "Brunch artisanal au cœur de la Baixa de Lisbonne",
+    "subtitle": "Sur la Rua da Prata, Mil Sabores réunit pancakes, crêpes, gaufres, bowls, café et gelato artisanal pour une pause au centre de Lisbonne.",
+    "badge": "Rua da Prata 152, Baixa",
+    "tagline": "Mil Sabores",
     "city": "Lisbonne",
-    "seo_h2": "Mil Sabores - Brunch Artisanal et Gelato Italien à Baixa, Lisbonne, Rua da Prata",
+    "seo_h2": "Brunch à Lisbonne sur la Rua da Prata, Baixa",
     "cta_menu": "Voir le Menu Complet",
     "cta_reserve": "Réserver une Table",
-    "hours_label": "Lun-Dim · 7h00 - 19h00",
+    "hours_label": "Lun-Ven · 7:00-18:30 / Sam-Dim · 7:00-19:00",
     "location_label": "Rua da Prata 152, Lisbonne",
     "phone_label": "+351 21 347 0214",
-    "scroll": "Défiler"
+    "scroll": "Défiler",
+    "image_alt": "Table de brunch avec pancakes, œufs, fruits et café chez Mil Sabores Lisbonne"
   },
   "about": {
     "eyebrow": "À Propos",
     "title": "Notre Histoire",
-    "subtitle": "Mil Sabores est bien plus qu'un restaurant : c'est une expérience gastronomique unique où le brunch artisanal rencontre l'authentique gelato italien.",
-    "para1": "Situés sur la Rua da Prata, en plein cœur de Baixa, nous proposons un",
-    "para1_bold1": "brunch servi toute la journée",
-    "para1_mid": "avec des ingrédients frais, des recettes artisanales et une",
-    "para1_bold2": "ambiance chaleureuse",
-    "para2": "Nous sommes l'endroit idéal aussi bien pour les",
-    "para2_bold": "habitants de Lisbonne que pour les touristes",
-    "para2_mid": "qui souhaitent prendre leur petit-déjeuner à Lisbonne, près des principaux sites historiques.",
-    "para3": "Des pancakes moelleux aux toasts gourmets en passant par le café de spécialité, chaque détail est pensé pour que votre pause soit mémorable.",
+    "subtitle": "Mil Sabores est une adresse de brunch et de gelato artisanal sur la Rua da Prata, pensée pour une pause détendue au centre de Lisbonne.",
+    "para1": "Located on Rua da Prata, in the heart of Lisbon’s Baixa, we serve",
+    "para1_bold1": "brunch à Lisbonne",
+    "para1_mid": "with pancakes, crepes, waffles, bowls, toasts, coffee and",
+    "para1_bold2": "artisanal gelato",
+    "para2": "The menu works well for visitors looking for",
+    "para2_bold": "breakfast or brunch in Baixa",
+    "para2_mid": "with sweet and savoury choices for different times of day.",
+    "para3": "Entre les visites dans le centre de Lisbonne et une promenade dans la Baixa, Mil Sabores propose une expérience simple et soignée, centrée sur le goût.",
     "feature1_title": "Fait avec Amour",
     "feature1_desc": "Chaque plat est préparé avec des ingrédients frais et beaucoup de soin",
-    "feature2_title": "Qualité Premium",
-    "feature2_desc": "Produits sélectionnés et gelatos artisanaux authentiques",
+    "feature2_title": "Carte variée",
+    "feature2_desc": "Pancakes, crêpes, gaufres, bowls, toasts, café et gelato artisanal",
     "feature3_title": "Ambiance Chaleureuse",
-    "feature3_desc": "L'endroit parfait pour se déconnecter du rythme de la ville"
+    "feature3_desc": "L'endroit parfait pour se déconnecter du rythme de la ville",
+    "image_alt": "Intérieur de Mil Sabores Lisbonne sur la Rua da Prata"
   },
   "menu": {
     "eyebrow": "Menu",
@@ -80,38 +86,6 @@
       }
     }
   },
-  "testimonials": {
-    "eyebrow": "Témoignages",
-    "title": "Ce Que Disent Nos Clients",
-    "subtitle": "Avis authentiques de Google Maps - 4,7★ sur plus de 1 200 avis",
-    "items": {
-      "1": {
-        "text": "Les pancakes banane et Nutella sont incroyables ! Les portions sont généreuses et tout est préparé avec des ingrédients frais. Le personnel est super accueillant et le service très rapide. Emplacement parfait, à deux pas de la Praça do Comércio.",
-        "author": "Sarah Johnson",
-        "role": "Touriste des États-Unis"
-      },
-      "2": {
-        "text": "Petit-déjeuner spectaculaire avec vue sur l'église de São Nicolau. Le bowl d'açaí était délicieux et le café parfait. Excellent rapport qualité-prix pour être en plein centre de Lisbonne. On reviendra, c'est certain !",
-        "author": "Miguel Fernández",
-        "role": "Habitant de Lisbonne"
-      },
-      "3": {
-        "text": "Le toast à l'avocat avec œuf poché était l'un des meilleurs que j'aie jamais goûtés. Personnel attentionné parlant plusieurs langues. Le gelato artisanal en dessert a été la touche finale parfaite. Vivement recommandé !",
-        "author": "Laura Rossi",
-        "role": "Voyageuse d'Italie"
-      },
-      "4": {
-        "text": "Une cuisine fraîche, rapide et absolument délicieuse. Le personnel est chaleureux et attentif au moindre détail. Les œufs brouillés au saumon sont spectaculaires. Les présentations sont superbes, on sent que la qualité est une priorité.",
-        "author": "João Pereira",
-        "role": "Client Fidèle"
-      },
-      "5": {
-        "text": "Nous avons découvert cet endroit par hasard et ce fut la plus belle surprise de notre voyage. Le menu offre énormément de variété, des options végan aux classiques. Tout était délicieux et à bon prix. La terrasse extérieure est charmante.",
-        "author": "Emma Schmidt",
-        "role": "Touriste d'Allemagne"
-      }
-    }
-  },
   "instagram": {
     "eyebrow": "Galerie",
     "title": "Suivez-Nous sur Instagram",
@@ -133,12 +107,12 @@
     "email_title": "Email",
     "email": "milsaboreslx@gmail.com",
     "reserve_title": "Réservez Votre Table",
-    "reserve_desc": "Assurez-vous une place pour le meilleur brunch de Lisbonne. Nous recommandons de réserver à l'avance, surtout le week-end.",
+    "reserve_desc": "Contactez-nous ou utilisez la page de réservation pour planifier votre visite chez Mil Sabores, Rua da Prata.",
     "cta_call": "Appeler Maintenant",
     "cta_reserve": "Réserver en Ligne"
   },
   "footer": {
-    "description": "Le meilleur brunch et gelato artisanal de Lisbonne. Une expérience gastronomique unique au cœur de la ville.",
+    "description": "Brunch, café et gelato artisanal au cœur de la Baixa de Lisbonne.",
     "links_title": "Liens Rapides",
     "contact_title": "Contact",
     "hours_title": "Horaires",
@@ -147,7 +121,8 @@
     "legal_privacy": "Confidentialité",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Livre de Réclamations",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "brunch_link": "Brunch dans la Baixa de Lisbonne"
   },
   "common": {
     "404": {
@@ -173,7 +148,7 @@
   "reservations": {
     "eyebrow": "Réservations",
     "title": "Réservez Votre Table",
-    "subtitle": "Assurez-vous une place pour le meilleur brunch de Lisbonne",
+    "subtitle": "Planifiez votre visite chez Mil Sabores Lisbonne",
     "form": {
       "name": "Nom Complet",
       "name_placeholder": "Votre nom",
@@ -194,9 +169,8 @@
       "special_requests": "Demandes Particulières",
       "special_requests_placeholder": "Une demande particulière ?",
       "optional": "facultatif",
-      "limited_availability": "Disponibilité Limitée Aujourd'hui",
-      "confirmation_instant": "Confirmation instantanée par email",
-      "recent_bookings": "12 personnes ont réservé au cours de la dernière heure",
+      "limited_availability": "Réservations",
+      "confirmation_instant": "Planifiez votre visite chez Mil Sabores Lisbonne",
       "submit": "Confirmer la Réservation",
       "submitting": "Envoi en cours..."
     },
@@ -266,7 +240,8 @@
     },
     "view_on_instagram": "Voir sur Instagram",
     "follow_us": "Suivez-nous @milsaboreslx",
-    "close": "Fermer"
+    "close": "Fermer",
+    "share_cta": "Partagez vos moments et apparaissez dans notre galerie"
   },
   "contact": {
     "eyebrow": "Contact",
@@ -314,7 +289,8 @@
         "title": "Réseaux Sociaux",
         "instagram": "Instagram",
         "tripadvisor": "TripAdvisor"
-      }
+      },
+      "maps_cta": "Voir sur Google Maps"
     },
     "success": {
       "title": "Message Envoyé !",
@@ -324,39 +300,51 @@
   },
   "meta": {
     "home": {
-      "title": "Brunch à Baixa Lisbonne | Mil Sabores - Rua da Prata | Petit-Déjeuner & Gelato Artisanal",
-      "description": "Le meilleur brunch près de vous à Lisbonne. Mil Sabores, Rua da Prata 152, Baixa. Pancakes, bowls d'açaï, œufs Bénédicte et gelato artisanal. Ouvert de 7h à 19h. ★4,7 Google",
-      "keywords": "meilleur brunch lisbonne centre, brunch pres de baixa lisbonne, restaurant petit dejeuner lisbonne, brunch rua da prata, ou bruncher a lisbonne, gelato artisanal lisbonne centre ville, bowl acai lisbonne, pancakes lisbonne baixa"
+      "title": "Mil Sabores | Brunch dans la Baixa de Lisbonne",
+      "description": "Visitez Mil Sabores sur la Rua da Prata pour brunch, pancakes, crêpes, gaufres, bowls, café et gelato artisanal au centre de Lisbonne.",
+      "keywords": "meilleur brunch lisbonne centre, brunch pres de baixa lisbonne, restaurant petit dejeuner lisbonne, brunch rua da prata, ou bruncher a lisbonne, gelato artisanal lisbonne centre ville, bowl acai lisbonne, pancakes lisbonne baixa",
+      "imageAlt": "Brunch artisanal chez Mil Sabores Lisbonne"
     },
     "menu": {
-      "title": "Menu Brunch Lisbonne | Mil Sabores Baixa - Prix et Carte Complète",
-      "description": "La carte complète de Mil Sabores : pancakes dès 6,50 €, bowls healthy, œufs Bénédicte, brunch pour deux à 29,95 €. Options végan et sans gluten. Rua da Prata, Baixa Lisbonne.",
-      "keywords": "menu brunch lisbonne, carte mil sabores, prix brunch baixa lisbonne, petit dejeuner vegetarien lisbonne, brunch vegan lisbonne centre, pancakes rua da prata"
+      "title": "Carte Brunch à Lisbonne | Mil Sabores",
+      "description": "Consultez la carte Mil Sabores : brunch, pancakes, crêpes, gaufres, bowls, café, boissons et gelato artisanal sur Rua da Prata.",
+      "keywords": "menu brunch lisbonne, carte mil sabores, prix brunch baixa lisbonne, petit dejeuner vegetarien lisbonne, brunch vegan lisbonne centre, pancakes rua da prata",
+      "imageAlt": "Carte brunch de Mil Sabores Lisbonne"
     },
     "reservations": {
-      "title": "Réserver une Table Brunch Lisbonne | Mil Sabores Baixa - Confirmation Immédiate",
-      "description": "Réservez en ligne en 30 secondes. Mil Sabores Brunch, Rua da Prata 152, Baixa Lisbonne. Groupes jusqu'à 8 personnes. Sans dépôt. Confirmation instantanée par email.",
-      "keywords": "reserver brunch lisbonne, reserver table baixa lisbonne, brunch avec reservation lisbonne, reserver petit dejeuner centre lisbonne"
+      "title": "Réservations | Mil Sabores Lisbonne",
+      "description": "Réservez une table chez Mil Sabores Lisbonne, Rua da Prata, pour brunch, café, pancakes, bowls et gelato artisanal dans la Baixa.",
+      "keywords": "reserver brunch lisbonne, reserver table baixa lisbonne, brunch avec reservation lisbonne, reserver petit dejeuner centre lisbonne",
+      "imageAlt": "Réservations chez Mil Sabores Lisbonne"
     },
     "gallery": {
-      "title": "Photos Mil Sabores Lisbonne | Galerie Instagram @milsaboreslx",
-      "description": "Découvrez nos plats en photos réelles. Pancakes, bowls, gelatos artisanaux. Intérieur chaleureux à Baixa. Suivez-nous @milsaboreslx pour nos promotions.",
-      "keywords": "photos brunch lisbonne, instagram mil sabores, galerie restaurant baixa, photos restaurant lisbonne centre"
+      "title": "Galerie | Mil Sabores Lisbonne",
+      "description": "Découvrez des photos de brunch, pancakes, toasts, bowls, boissons et gelato artisanal de Mil Sabores dans la Baixa de Lisbonne.",
+      "keywords": "photos brunch lisbonne, instagram mil sabores, galerie restaurant baixa, photos restaurant lisbonne centre",
+      "imageAlt": "Galerie Mil Sabores Lisbonne"
     },
     "contact": {
-      "title": "Contact et Localisation | Mil Sabores Brunch Lisbonne - Rua da Prata 152",
-      "description": "Comment se rendre à Mil Sabores : Rua da Prata 152, 1100-619 Lisbonne (à côté de l'Igreja São Nicolau). Métro Baixa-Chiado. Tél : +351 21 347 0214. WiFi gratuit.",
-      "keywords": "adresse mil sabores lisbonne, comment aller a baixa brunch, localisation rua da prata, contact mil sabores, telephone brunch lisbonne"
+      "title": "Contact et Localisation | Mil Sabores Lisbonne",
+      "description": "Trouvez Mil Sabores au 152 Rua da Prata, Baixa de Lisbonne. Consultez téléphone, email, horaires et lien Google Maps.",
+      "keywords": "adresse mil sabores lisbonne, comment aller a baixa brunch, localisation rua da prata, contact mil sabores, telephone brunch lisbonne",
+      "imageAlt": "Contact Mil Sabores Lisbonne"
     },
     "promotions": {
-      "title": "Promotions Brunch Lisbonne | Offres Spéciales Mil Sabores Baixa",
-      "description": "Offres exclusives : Happy Hour 7h-9h -15%, Brunch pour Deux à 29,95 €, Étudiants -10%. Promotions quotidiennes chez Mil Sabores, Rua da Prata, Baixa Lisbonne.",
-      "keywords": "promotions brunch lisbonne, offres petit dejeuner baixa, reductions brunch centre lisbonne, happy hour brunch lisbonne"
+      "title": "Offres | Mil Sabores Lisbonne",
+      "description": "Consultez la page des offres Mil Sabores Lisbonne et confirmez les promotions disponibles au restaurant de Rua da Prata.",
+      "keywords": "promotions brunch lisbonne, offres petit dejeuner baixa, reductions brunch centre lisbonne, happy hour brunch lisbonne",
+      "imageAlt": "Offres Mil Sabores Lisbonne"
     },
     "gelados": {
-      "title": "Gelato Artisanal à Lisbonne | Mil Sabores - Glaces Italiennes à Baixa",
-      "description": "Gelato 100% artisanal préparé chaque jour chez Mil Sabores, Rua da Prata, Baixa Lisbonne. Parfums pistache, açaï et pastel de nata. Sans conservateurs ni colorants.",
-      "keywords": "gelato lisbonne, glace artisanale baixa, meilleur gelato lisbonne centre, glacier rua da prata, gelato italien lisbonne, glace artisanale lisbonne centre ville"
+      "title": "Gelato Artisanal à Lisbonne | Mil Sabores",
+      "description": "Découvrez le gelato artisanal de Mil Sabores sur Rua da Prata, dans la Baixa de Lisbonne, pour brunch, café ou pause sucrée.",
+      "keywords": "gelato lisbonne, glace artisanale baixa, meilleur gelato lisbonne centre, glacier rua da prata, gelato italien lisbonne, glace artisanale lisbonne centre ville",
+      "imageAlt": "Gelato artisanal Mil Sabores Lisbonne"
+    },
+    "brunch": {
+      "title": "Brunch à Lisbonne dans la Baixa | Mil Sabores",
+      "description": "Vous cherchez un brunch au centre de Lisbonne ? Découvrez Mil Sabores, Rua da Prata, avec pancakes, crêpes, gaufres, bowls, café et gelato.",
+      "imageAlt": "Brunch à Lisbonne dans la Baixa chez Mil Sabores"
     }
   },
   "fullMenu": {
@@ -1108,7 +1096,16 @@
         "name": "Saumon fumé",
         "price": "4.50"
       }
-    }
+    },
+    "brunch_landing_cta": "Brunch à Lisbonne",
+    "info_hours": "Lun-Ven · 7:00-18:30 / Sam-Dim · 7:00-19:00",
+    "dietary_title": "Filtrer par régime",
+    "jump_title": "Aller à une catégorie",
+    "items_count": "éléments",
+    "legend_title": "Légende diététique",
+    "reserve_cta": "Réserver une table",
+    "call_cta": "Appeler maintenant",
+    "allergy_note": "Si vous avez des allergies ou restrictions alimentaires, informez notre équipe."
   },
   "gelados": {
     "eyebrow": "Gelato Artisanal",
@@ -1226,7 +1223,7 @@
       },
       "brunch_duo": {
         "title": "Brunch pour Deux",
-        "badge": "Best-Seller",
+        "badge": "Brunch",
         "description": "L'expérience complète",
         "price": "€29.95",
         "details": "2 mini toasts à l'avocat, 2 mini toasts banane et beurre de cacahuète, œufs brouillés, champignons, 2 mini pancakes, 2 salades de fruits, 2 yaourts au granola, 2 jus et 2 cafés.",
@@ -1285,6 +1282,147 @@
   "fab": {
     "reserve": "Réserver une Table",
     "call": "Appeler Maintenant",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "open_actions": "Ouvrir les actions rapides",
+    "close_actions": "Fermer les actions rapides"
+  },
+  "homeSeo": {
+    "intro": "Mil Sabores Lisbonne se trouve Rua da Prata 152, dans la Baixa, et accueille ceux qui cherchent un brunch, un petit-déjeuner, un café ou un gelato artisanal au centre-ville. La carte réunit des options sucrées et salées comme pancakes, crêpes, gaufres, bowls, toasts et boissons.",
+    "brunch": {
+      "eyebrow": "Brunch dans la Baixa",
+      "title": "Brunch dans la Baixa de Lisbonne, au centre",
+      "p1": "Pour chercher un brunch à Lisbonne, la Baixa est une zone pratique à combiner avec une promenade dans le centre historique. Mil Sabores est situé Rua da Prata, avec une carte pensée pour des pauses sucrées, salées et fraîches.",
+      "p2": "Lors d’une même visite, vous pouvez consulter pancakes, crêpes, gaufres, bowls, toasts, café et gelato artisanal. La proposition est simple : une expérience de brunch confortable, un menu en ligne et une adresse facile à trouver.",
+      "p3": "La page menu aide à choisir avant d’arriver, tandis que la page contact et Google Maps facilitent la visite. Le contenu reste centré sur Mil Sabores, sans listes comparatives ni recommandations d’autres restaurants."
+    },
+    "location": {
+      "title": "Rua da Prata 152",
+      "text": "Nous sommes dans la Baixa de Lisbonne, une zone centrale pour visiteurs et habitants. Consultez le menu, vérifiez l’itinéraire et confirmez les détails pratiques avant votre visite."
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Avant de visiter Mil Sabores",
+      "items": {
+        "1": {
+          "q": "Où se trouve Mil Sabores ?",
+          "a": "Mil Sabores se trouve Rua da Prata 152, 1100-619 Lisbonne, Portugal."
+        },
+        "2": {
+          "q": "Quel type de brunch sert-il ?",
+          "a": "La carte comprend pancakes, crêpes, gaufres, bowls, toasts, café et gelato artisanal."
+        },
+        "3": {
+          "q": "Le menu est-il disponible en ligne ?",
+          "a": "Oui. La page menu présente les catégories et plats disponibles sur le site."
+        },
+        "4": {
+          "q": "Quels sont les horaires ?",
+          "a": "Les horaires visibles sur le site sont lundi à vendredi 7:00-18:30 et samedi à dimanche 7:00-19:00."
+        },
+        "5": {
+          "q": "Faut-il réserver ?",
+          "a": "Le site dispose d’une page de réservations. Vous pouvez aussi contacter le restaurant pour confirmer la disponibilité."
+        }
+      }
+    },
+    "ctas": {
+      "menu": "Voir le menu brunch",
+      "maps": "Itinéraire vers Mil Sabores",
+      "contact": "Contacter le restaurant"
+    }
+  },
+  "brunchLanding": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "current": "Brunch Lisbonne"
+    },
+    "hero": {
+      "eyebrow": "Mil Sabores Lisbonne",
+      "title": "Brunch à Lisbonne dans la Baixa",
+      "subtitle": "Une page pour ceux qui cherchent brunch, petit-déjeuner, pancakes, café et gelato artisanal au centre de Lisbonne.",
+      "imageAlt": "Brunch avec pancakes, œufs, fruits et café chez Mil Sabores Lisbonne"
+    },
+    "story": {
+      "p1": "Si vous cherchez un brunch à Lisbonne, Mil Sabores est une option au cœur de la Baixa, Rua da Prata 152. L’emplacement est pratique pour visiter le centre, parcourir les rues historiques ou faire une pause avant de continuer la journée.",
+      "p2": "L’expérience associe plats de brunch et carte variée de pancakes, crêpes, gaufres, bowls, toasts, café et gelato artisanal. L’idée est simple : s’asseoir, choisir une option sucrée ou salée et profiter d’un repas détendu au centre de Lisbonne.",
+      "p3": "Cette page rassemble les informations utiles pour les recherches liées au brunch à Lisbonne, au petit-déjeuner dans la Baixa ou aux pancakes à Lisbonne. Elle parle uniquement de Mil Sabores afin de vous aider à décider si cette adresse correspond à votre visite.",
+      "p4": "Pour choisir plus précisément, le menu en ligne est le meilleur point de départ. Il présente les catégories brunch, options sucrées, bowls, boissons, café et gelato. Certaines indications diététiques existent dans le menu, mais toute allergie ou restriction doit être confirmée avec l’équipe.",
+      "p5": "Rua da Prata place Mil Sabores dans une zone centrale et facile à localiser. Le site inclut contact, téléphone, email, page de réservations et lien Google Maps pour confirmer les détails pratiques avant de venir.",
+      "p6": "Les horaires visibles sur le site sont lundi à vendredi de 7:00 à 18:30 et samedi à dimanche de 7:00 à 19:00. Comme les informations opérationnelles peuvent changer, mieux vaut confirmer directement si votre visite dépend d’un horaire précis."
+    },
+    "products": {
+      "eyebrow": "À découvrir",
+      "title": "Produits brunch chez Mil Sabores",
+      "subtitle": "La carte associe options sucrées, salées et fraîches pour différents moments de la journée.",
+      "items": {
+        "1": {
+          "title": "Pancakes, crêpes et gaufres",
+          "text": "Des options sucrées du menu pour une pause brunch dans la Baixa de Lisbonne."
+        },
+        "2": {
+          "title": "Toasts, bagels et bowls",
+          "text": "Des plats salés et bowls pour ceux qui préfèrent un brunch plus complet."
+        },
+        "3": {
+          "title": "Café et boissons",
+          "text": "Le café accompagne l’expérience petit-déjeuner et brunch, avec des boissons pour compléter le repas."
+        },
+        "4": {
+          "title": "Gelato artisanal",
+          "text": "Mil Sabores sert aussi du gelato artisanal, une option fraîche après le brunch ou l’après-midi."
+        }
+      }
+    },
+    "visit": {
+      "title": "Brunch sur la Rua da Prata",
+      "text": "Le restaurant se trouve dans la Baixa de Lisbonne. Utilisez le plan ou la page contact pour obtenir l’itinéraire et confirmer les détails.",
+      "addressLabel": "Adresse",
+      "hoursLabel": "Horaires",
+      "hours": "Lun-Ven 7:00-18:30; Sam-Dim 7:00-19:00"
+    },
+    "menu": {
+      "title": "Consulter le menu avant la visite",
+      "text": "La page menu organise la carte par catégories : brunch, desserts, bowls, café, boissons et gelato. C’est le meilleur moyen de choisir calmement et d’éviter les informations dépassées."
+    },
+    "faq": {
+      "title": "Questions fréquentes sur le brunch à Lisbonne",
+      "items": {
+        "1": {
+          "q": "Où se trouve Mil Sabores ?",
+          "a": "Rua da Prata 152, 1100-619 Lisbonne, Portugal, dans la Baixa."
+        },
+        "2": {
+          "q": "Sert-il petit-déjeuner et brunch ?",
+          "a": "Le site présente Mil Sabores comme un espace brunch avec options sucrées, salées, café et gelato artisanal."
+        },
+        "3": {
+          "q": "Puis-je voir le menu en ligne ?",
+          "a": "Oui. La page menu est disponible sur le site et liée depuis cette page."
+        },
+        "4": {
+          "q": "Peut-on réserver ?",
+          "a": "Oui. Le site propose une page de réservations, ainsi que téléphone et email de contact."
+        },
+        "5": {
+          "q": "Y a-t-il des options végétariennes ou véganes ?",
+          "a": "Le menu comprend des filtres et certaines indications diététiques. Confirmez toujours restrictions ou allergies avec l’équipe."
+        }
+      }
+    },
+    "ctas": {
+      "menu": "Voir le menu brunch",
+      "maps": "Itinéraire",
+      "reserve": "Réserver une table"
+    }
+  },
+  "cookieConsent": {
+    "title": "Nous utilisons des cookies",
+    "text": "Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre",
+    "cookies": "Politique de cookies",
+    "and": "et notre",
+    "privacy": "Politique de confidentialité",
+    "decline": "Refuser",
+    "accept": "Accepter",
+    "close": "Fermer le bandeau cookies"
   }
 }

@@ -19,7 +19,6 @@ export default function ContactPage() {
   const [error, setError] = useState('')
 
   const t = useTranslations('contact')
-  const tCommon = useTranslations('common')
   const locale = useLocale()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -255,7 +254,7 @@ export default function ContactPage() {
                 className="absolute bottom-4 right-4 z-20 px-6 py-3 bg-white/95 backdrop-blur-md text-slate font-bold rounded-full shadow-xl hover:bg-white hover:scale-105 transition-all border-2 border-white/50"
               >
                 <MapPin size={18} className="inline mr-2" />
-                Ver en Google Maps
+                {t('info.maps_cta')}
               </a>
             </div>
 

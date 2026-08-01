@@ -1,59 +1,34 @@
 import { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
 import Hero from '@/components/Hero'
 import FeaturedDish from '@/components/FeaturedDish'
 import About from '@/components/About'
 import MenuSection from '@/components/MenuSection'
-import Testimonials from '@/components/Testimonials'
 import InstagramGallery from '@/components/InstagramGallery'
 import VisitSection from '@/components/VisitSection'
-import { ogLocales, type Locale } from '@/i18n/config'
-import { localizedUrl, buildAlternates } from '@/lib/seo'
+import HomeSeoSections from '@/components/HomeSeoSections'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import { buildPageMetadata } from '@/lib/metadata'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'meta.home' })
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    keywords: t('keywords'),
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      url: localizedUrl(locale),
-      siteName: 'Mil Sabores Lisboa',
-      images: [
-        {
-          url: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
-          width: 1200,
-          height: 630,
-          alt: 'Mil Sabores Lisboa Brunch',
-        },
-      ],
-      locale: ogLocales[locale as Locale],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('title'),
-      description: t('description'),
-      images: ['https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp'],
-    },
-    alternates: buildAlternates(locale),
-  }
+  return buildPageMetadata(locale, 'home')
 }
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+
   return (
     <main>
+      <SchemaMarkup locale={locale} page="home" />
       <Hero />
+      <HomeSeoSections variant="intro" />
       <FeaturedDish />
       <About />
       <MenuSection />
-      <Testimonials />
+      <HomeSeoSections variant="brunch" />
       <InstagramGallery />
       <VisitSection />
+      <HomeSeoSections variant="faq" />
     </main>
   )
 }

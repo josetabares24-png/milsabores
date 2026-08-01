@@ -38,7 +38,7 @@ export default function FloatingActionButton() {
             exit={{ opacity: 0 }}
             className="absolute bottom-20 right-0 flex flex-col gap-3 items-end"
           >
-            {actions.map((action, index) => (
+            {actions.map((action) => (
               <motion.div
                 key={action.label}
                 initial={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -87,7 +87,7 @@ export default function FloatingActionButton() {
         whileTap={{ scale: 0.95 }}
         animate={{ rotate: isOpen ? 45 : 0 }}
         transition={{ duration: 0.2 }}
-        aria-label={isOpen ? 'Cerrar acciones rápidas' : 'Abrir acciones rápidas'}
+        aria-label={isOpen ? t('close_actions') : t('open_actions')}
         aria-expanded={isOpen}
       >
         {isOpen ? <X size={28} /> : <Calendar size={28} />}

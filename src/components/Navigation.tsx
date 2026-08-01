@@ -22,6 +22,9 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
+            <Link href="/brunch-lisboa" className="text-slate hover:text-pastel transition-colors font-medium">
+              {t('brunch')}
+            </Link>
             <Link href="/menu" className="text-slate hover:text-pastel transition-colors font-medium">
               {t('menu')}
             </Link>
@@ -53,7 +56,7 @@ export default function Navigation() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-slate p-2 hover:bg-pastel/10 rounded-lg transition-colors"
-            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={isMenuOpen ? t('close_menu') : t('open_menu')}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -67,6 +70,13 @@ export default function Navigation() {
               <div className="self-start">
                 <LanguageSwitcher />
               </div>
+              <Link
+                href="/brunch-lisboa"
+                className="text-slate hover:text-pastel transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('brunch')}
+              </Link>
               <Link
                 href="/menu"
                 className="text-slate hover:text-pastel transition-colors font-medium py-2"
