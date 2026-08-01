@@ -107,8 +107,8 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
   const pageUrl = localizedUrl(locale, path)
   const homeUrl = localizedUrl(locale)
   const menuUrl = localizedUrl(locale, 'menu')
-  const restaurantId = 'https://milsaboresbrunch.com/#restaurant'
-  const websiteId = 'https://milsaboresbrunch.com/#website'
+  const restaurantId = 'https://www.milsaboresbrunch.com/#restaurant'
+  const websiteId = 'https://www.milsaboresbrunch.com/#website'
   const webpageId = `${pageUrl}#webpage`
 
   const restaurant = {
@@ -166,7 +166,7 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
   const website = {
     '@type': 'WebSite',
     '@id': websiteId,
-    url: 'https://milsaboresbrunch.com',
+    url: 'https://www.milsaboresbrunch.com',
     name: 'Mil Sabores Lisboa',
     inLanguage,
     publisher: {

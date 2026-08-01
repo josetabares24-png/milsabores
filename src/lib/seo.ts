@@ -1,6 +1,6 @@
 import { locales, defaultLocale, type Locale } from '@/i18n/config'
 
-export const baseUrl = 'https://milsaboresbrunch.com'
+export const baseUrl = 'https://www.milsaboresbrunch.com'
 
 export const hreflangLocales: Record<Locale, string> = {
   pt: 'pt-PT',
