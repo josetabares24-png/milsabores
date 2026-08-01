@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Translation texts based on locale
-    const translations: Record<string, any> = {
+    const translations: Record<string, Record<string, string>> = {
       pt: {
         subject_prefix: '📧 Mensagem Recebida',
         greeting: 'Olá',

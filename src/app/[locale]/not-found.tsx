@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { motion } from 'framer-motion'
+import { CakeSlice, Coffee, Home, IceCream, Menu as MenuIcon, Utensils } from 'lucide-react'
 
 export default function NotFound() {
   const t = useTranslations()
@@ -34,9 +35,7 @@ export default function NotFound() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-6"
         >
-          <span className="material-symbols-outlined text-8xl text-pastel">
-            restaurant
-          </span>
+          <Utensils className="text-pastel mx-auto" size={88} />
         </motion.div>
 
         {/* Text */}
@@ -66,7 +65,7 @@ export default function NotFound() {
             href="/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <span className="material-symbols-outlined">home</span>
+            <Home size={20} />
             {t('common.404.home', { default: 'Voltar ao Início' })}
           </Link>
 
@@ -74,7 +73,7 @@ export default function NotFound() {
             href="/menu"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
           >
-            <span className="material-symbols-outlined">restaurant_menu</span>
+            <MenuIcon size={20} />
             {t('common.404.menu', { default: 'Ver Menu' })}
           </Link>
         </motion.div>
@@ -86,15 +85,9 @@ export default function NotFound() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-16 flex justify-center gap-8 text-4xl opacity-20"
         >
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0s' }}>
-            cake
-          </span>
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0.2s' }}>
-            icecream
-          </span>
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0.4s' }}>
-            coffee
-          </span>
+          <CakeSlice className="animate-bounce" style={{ animationDelay: '0s' }} size={40} />
+          <IceCream className="animate-bounce" style={{ animationDelay: '0.2s' }} size={40} />
+          <Coffee className="animate-bounce" style={{ animationDelay: '0.4s' }} size={40} />
         </motion.div>
       </motion.div>
     </div>

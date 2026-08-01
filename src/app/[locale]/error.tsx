@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
+import { AlertTriangle, Home, RotateCcw } from 'lucide-react'
+import { Link } from '@/i18n/routing'
 
 export default function Error({
   error,
@@ -34,9 +36,7 @@ export default function Error({
           className="mb-8"
         >
           <div className="w-24 h-24 mx-auto bg-red-100 rounded-full flex items-center justify-center">
-            <span className="material-symbols-outlined text-6xl text-red-500">
-              error
-            </span>
+            <AlertTriangle className="text-red-500" size={48} />
           </div>
         </motion.div>
 
@@ -81,17 +81,17 @@ export default function Error({
             onClick={reset}
             className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <span className="material-symbols-outlined">refresh</span>
+            <RotateCcw size={20} />
             {t('error.retry', { default: 'Tentar Novamente' })}
           </button>
 
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
           >
-            <span className="material-symbols-outlined">home</span>
+            <Home size={20} />
             {t('error.home', { default: 'Voltar ao Início' })}
-          </a>
+          </Link>
         </motion.div>
 
         {/* Support Link */}

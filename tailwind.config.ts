@@ -18,8 +18,8 @@ const config: Config = {
         'cream': '#FFF9F0',
       },
       fontFamily: {
-        'quicksand': ['"Quicksand"', 'system-ui', 'sans-serif'],
-        'script': ['"Pacifico"', 'cursive'],
+        'quicksand': ['var(--font-quicksand)', 'system-ui', 'sans-serif'],
+        'script': ['var(--font-pacifico)', 'cursive'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

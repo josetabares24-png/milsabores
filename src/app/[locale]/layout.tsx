@@ -1,18 +1,33 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
+import { Quicksand, Pacifico } from 'next/font/google'
 import { routing } from '@/i18n/routing'
-import { locales } from '@/i18n/config'
+import { locales, type Locale } from '@/i18n/config'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import FloatingActionButton from '@/components/FloatingActionButton'
-import SchemaMarkup from '@/components/SchemaMarkup'
 import CookieConsent from '@/components/CookieConsent'
 import '../globals.css'
 
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-quicksand',
+  display: 'swap',
+})
+
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-pacifico',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
+  manifest: '/manifest.json',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -24,6 +39,10 @@ export const metadata: Metadata = {
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#A8C5D9',
 }
 
 export function generateStaticParams() {
@@ -39,28 +58,15 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound()
   }
 
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-          rel="stylesheet"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#A8C5D9" />
-      </head>
+    <html lang={locale} className={`${quicksand.variable} ${pacifico.variable}`}>
       <body className="font-quicksand">
-        <SchemaMarkup locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <Navigation />
           {children}

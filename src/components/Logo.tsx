@@ -10,10 +10,8 @@ interface LogoProps {
 }
 
 export default function Logo({
-  variant = 'full',
   size = 'md',
   className = '',
-  showText = true,
   colorFilter = 'none'
 }: LogoProps) {
   const sizes = {

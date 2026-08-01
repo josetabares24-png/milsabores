@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Heart, Award, Users } from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   const t = useTranslations('about')
@@ -60,9 +61,12 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/images/Mil Sabores/IMG_3818.webp')" }}
+            <Image
+              src="/images/Mil Sabores/IMG_3818.webp"
+              alt={t('image_alt')}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
             />
           </motion.div>
         </div>

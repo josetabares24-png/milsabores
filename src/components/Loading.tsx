@@ -1,3 +1,5 @@
+import { CakeSlice, Coffee, IceCream, Utensils } from 'lucide-react'
+
 export default function Loading() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-peach/20">
@@ -15,9 +17,7 @@ export default function Loading() {
 
             {/* Center icon */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="material-symbols-outlined text-5xl text-pastel animate-pulse">
-                restaurant
-              </span>
+              <Utensils className="text-pastel animate-pulse" size={48} />
             </div>
           </div>
         </div>
@@ -34,15 +34,9 @@ export default function Loading() {
 
         {/* Decorative food icons */}
         <div className="mt-8 flex justify-center gap-6 text-3xl opacity-30">
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0s' }}>
-            cake
-          </span>
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0.1s' }}>
-            icecream
-          </span>
-          <span className="material-symbols-outlined animate-bounce" style={{ animationDelay: '0.2s' }}>
-            coffee
-          </span>
+          <CakeSlice className="animate-bounce" style={{ animationDelay: '0s' }} size={32} />
+          <IceCream className="animate-bounce" style={{ animationDelay: '0.1s' }} size={32} />
+          <Coffee className="animate-bounce" style={{ animationDelay: '0.2s' }} size={32} />
         </div>
       </div>
     </div>
