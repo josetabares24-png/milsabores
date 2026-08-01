@@ -1,33 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus } from 'lucide-react'
 import Logo from '@/components/Logo'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
-
-function useRecentBookings() {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    const hour = new Date().getHours()
-    // More bookings during peak hours (10-14), fewer early/late
-    const baseCount = hour >= 10 && hour <= 14 ? 8 : hour >= 8 && hour <= 17 ? 5 : 3
-    const count = baseCount + Math.floor(Math.random() * 7)
-
-    const messages = [
-      `${count} personas reservaron en las ultimas 2 horas`,
-      `${count} reservas confirmadas hoy`,
-      `${count} mesas reservadas para hoy`,
-      `${count} personas ya reservaron esta semana`,
-    ]
-    setMessage(messages[Math.floor(Math.random() * messages.length)])
-  }, [])
-
-  return message
-}
 
 function generateTimeSlots(open: string, close: string, stepMinutes = 30): string[] {
   const toMinutes = (value: string) => {
@@ -47,12 +26,11 @@ function generateTimeSlots(open: string, close: string, stepMinutes = 30): strin
   return slots
 }
 
-const TIME_SLOTS = generateTimeSlots(RESTAURANT.hours.openTime, RESTAURANT.hours.closeTime)
+const TIME_SLOTS = generateTimeSlots(RESTAURANT.hours.openTime, RESTAURANT.hours.weekdayCloseTime)
 
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
   const locale = useLocale()
-  const recentBookings = useRecentBookings()
 
   const [formData, setFormData] = useState({
     name: '',
@@ -181,27 +159,6 @@ export default function ReservationsPage() {
           </p>
         </motion.div>
 
-        {/* Urgency Notification */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-          className="max-w-2xl mx-auto mb-8"
-        >
-          <div className="bg-gradient-to-r from-sage/20 via-sage/10 to-sage/20 border-2 border-sage/30 rounded-2xl p-4 flex items-center justify-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <div className="w-3 h-3 bg-sage rounded-full"></div>
-                <div className="absolute inset-0 w-3 h-3 bg-sage rounded-full animate-ping"></div>
-              </div>
-              <Users className="text-sage" size={20} />
-            </div>
-            <p className="text-sage font-semibold text-sm md:text-base">
-              {recentBookings}
-            </p>
-          </div>
-        </motion.div>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Reservation Form */}
           <motion.div
@@ -211,15 +168,7 @@ export default function ReservationsPage() {
             className="lg:col-span-2"
           >
             <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
-              {/* Premium Badge */}
-              <div className="absolute top-0 right-0 bg-pastel text-white px-6 py-2 rounded-bl-3xl shadow-lg">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                  <span className="text-sm font-bold">{t('form.limited_availability')}</span>
-                </div>
-              </div>
-
-              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="md:col-span-2">
@@ -431,10 +380,6 @@ export default function ReservationsPage() {
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>
 
-                <p className="flex items-center justify-center gap-2 text-slate/50 text-sm">
-                  <Mail size={16} />
-                  {t('form.confirmation_instant')}
-                </p>
               </form>
             </div>
           </motion.div>

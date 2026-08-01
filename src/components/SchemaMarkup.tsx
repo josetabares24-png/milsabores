@@ -1,328 +1,253 @@
-import React from 'react'
+import { RESTAURANT } from '@/config/restaurant'
+import { type Locale } from '@/i18n/config'
 import { localizedUrl } from '@/lib/seo'
-import type { Locale } from '@/i18n/config'
+
+type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery' | 'contact' | 'gelados' | 'promotions'
 
 interface SchemaMarkupProps {
   locale: string
-}
-
-const restaurantDescriptions: Record<Locale, string> = {
-  pt: 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa.',
-  es: 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa.',
-  en: 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa.',
-  fr: 'Brunch et gelato artisanal au cœur de Lisbonne. Spécialités de pancakes, crêpes, gaufres, bowls healthy et authentique gelato italien à Baixa.',
-  de: 'Handwerklicher Brunch und Gelato im Herzen von Lissabon. Spezialisiert auf Pancakes, Crêpes, Waffeln, gesunde Bowls und authentisches italienisches Gelato in Baixa.',
-  it: 'Brunch e gelato artigianale nel cuore di Lisbona. Specialità di pancake, crêpe, waffle, bowl salutari e autentico gelato italiano a Baixa.',
-}
-
-const localBusinessDescriptions: Record<Locale, string> = {
-  pt: 'Brunch e gelados artesanais no coração de Lisboa. Especialidades em panquecas, crepes, waffles, bowls saudáveis e autêntico gelato italiano na Baixa. WiFi gratuito disponível.',
-  es: 'Brunch y helados artesanales en el corazón de Lisboa. Especialidades en panquecas, crepes, waffles, bowls saludables y auténtico gelato italiano en Baixa. WiFi gratis disponible.',
-  en: 'Artisanal brunch and gelato in the heart of Lisbon. Specializing in pancakes, crepes, waffles, healthy bowls and authentic Italian gelato in Baixa. Free WiFi available.',
-  fr: 'Brunch et gelato artisanal au cœur de Lisbonne. Spécialités de pancakes, crêpes, gaufres, bowls healthy et authentique gelato italien à Baixa. WiFi gratuit disponible.',
-  de: 'Handwerklicher Brunch und Gelato im Herzen von Lissabon. Spezialisiert auf Pancakes, Crêpes, Waffeln, gesunde Bowls und authentisches italienisches Gelato in Baixa. Kostenloses WiFi verfügbar.',
-  it: 'Brunch e gelato artigianale nel cuore di Lisbona. Specialità di pancake, crêpe, waffle, bowl salutari e autentico gelato italiano a Baixa. WiFi gratuito disponibile.',
-}
-
-const organizationDescriptions: Record<Locale, string> = {
-  pt: 'Restaurante especializado em brunch e gelados artesanais em Lisboa',
-  es: 'Restaurante especializado en brunch y helados artesanales en Lisboa',
-  en: 'Restaurant specializing in artisanal brunch and gelato in Lisbon',
-  fr: 'Restaurant spécialisé dans le brunch et le gelato artisanal à Lisbonne',
-  de: 'Restaurant spezialisiert auf handwerklichen Brunch und Gelato in Lissabon',
-  it: 'Ristorante specializzato in brunch e gelato artigianale a Lisbona',
-}
-
-const websiteDescriptions: Record<Locale, string> = {
-  pt: 'Website oficial do Mil Sabores Lisboa - Brunch e Gelados Artesanais',
-  es: 'Sitio web oficial de Mil Sabores Lisboa - Brunch y Helados Artesanales',
-  en: 'Official website of Mil Sabores Lisboa - Artisanal Brunch and Gelato',
-  fr: 'Site officiel de Mil Sabores Lisboa - Brunch et Gelato Artisanal',
-  de: 'Offizielle Website von Mil Sabores Lisboa - Handwerklicher Brunch und Gelato',
-  it: 'Sito ufficiale di Mil Sabores Lisboa - Brunch e Gelato Artigianale',
+  page: SchemaPage
+  path?: string
 }
 
 const inLanguageMap: Record<Locale, string> = {
   pt: 'pt-PT',
-  es: 'es-ES',
-  en: 'en-US',
-  fr: 'fr-FR',
-  de: 'de-DE',
-  it: 'it-IT',
+  en: 'en',
+  es: 'es',
+  fr: 'fr',
+  de: 'de',
+  it: 'it',
 }
 
-export default function SchemaMarkup({ locale }: SchemaMarkupProps) {
+const pageNames: Record<SchemaPage, Record<Locale, string>> = {
+  home: {
+    pt: 'Mil Sabores Lisboa',
+    en: 'Mil Sabores Lisbon',
+    es: 'Mil Sabores Lisboa',
+    fr: 'Mil Sabores Lisbonne',
+    de: 'Mil Sabores Lissabon',
+    it: 'Mil Sabores Lisbona',
+  },
+  brunch: {
+    pt: 'Brunch em Lisboa na Baixa',
+    en: 'Brunch in Lisbon Baixa',
+    es: 'Brunch en Lisboa en la Baixa',
+    fr: 'Brunch à Lisbonne dans la Baixa',
+    de: 'Brunch in Lissabons Baixa',
+    it: 'Brunch a Lisbona nella Baixa',
+  },
+  menu: {
+    pt: 'Menu Mil Sabores',
+    en: 'Mil Sabores Menu',
+    es: 'Menú Mil Sabores',
+    fr: 'Carte Mil Sabores',
+    de: 'Mil Sabores Speisekarte',
+    it: 'Menu Mil Sabores',
+  },
+  reservations: {
+    pt: 'Reservas Mil Sabores',
+    en: 'Mil Sabores Reservations',
+    es: 'Reservas Mil Sabores',
+    fr: 'Réservations Mil Sabores',
+    de: 'Mil Sabores Reservierungen',
+    it: 'Prenotazioni Mil Sabores',
+  },
+  gallery: {
+    pt: 'Galeria Mil Sabores',
+    en: 'Mil Sabores Gallery',
+    es: 'Galería Mil Sabores',
+    fr: 'Galerie Mil Sabores',
+    de: 'Mil Sabores Galerie',
+    it: 'Galleria Mil Sabores',
+  },
+  contact: {
+    pt: 'Contacto Mil Sabores',
+    en: 'Mil Sabores Contact',
+    es: 'Contacto Mil Sabores',
+    fr: 'Contact Mil Sabores',
+    de: 'Mil Sabores Kontakt',
+    it: 'Contatti Mil Sabores',
+  },
+  gelados: {
+    pt: 'Gelados artesanais Mil Sabores',
+    en: 'Mil Sabores artisanal gelato',
+    es: 'Gelados artesanales Mil Sabores',
+    fr: 'Gelato artisanal Mil Sabores',
+    de: 'Handgemachtes Gelato Mil Sabores',
+    it: 'Gelato artigianale Mil Sabores',
+  },
+  promotions: {
+    pt: 'Promoções Mil Sabores',
+    en: 'Mil Sabores offers',
+    es: 'Promociones Mil Sabores',
+    fr: 'Offres Mil Sabores',
+    de: 'Mil Sabores Angebote',
+    it: 'Promozioni Mil Sabores',
+  },
+}
+
+const descriptions: Record<Locale, string> = {
+  pt: 'Brunch, panquecas, crepes, waffles, bowls, café e gelados artesanais na Rua da Prata, na Baixa de Lisboa.',
+  en: 'Brunch, pancakes, crepes, waffles, bowls, coffee and artisanal gelato on Rua da Prata in Lisbon Baixa.',
+  es: 'Brunch, panquecas, crepes, waffles, bowls, café y gelados artesanales en Rua da Prata, en la Baixa de Lisboa.',
+  fr: 'Brunch, pancakes, crêpes, gaufres, bowls, café et gelato artisanal sur la Rua da Prata, dans la Baixa de Lisbonne.',
+  de: 'Brunch, Pancakes, Crêpes, Waffeln, Bowls, Kaffee und handgemachtes Gelato in der Rua da Prata in Lissabons Baixa.',
+  it: 'Brunch, pancake, crêpe, waffle, bowl, caffè e gelato artigianale in Rua da Prata, nella Baixa di Lisbona.',
+}
+
+const menuSections = ['Bagels', 'Tostas', 'Brunch', 'Saladas', 'Bowls', 'Panquecas', 'Crepes', 'Waffles', 'Café', 'Gelados artesanais']
+
+function safeJson(data: unknown) {
+  return JSON.stringify(data).replace(/</g, '\\u003c')
+}
+
+export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupProps) {
   const l = locale as Locale
+  const inLanguage = inLanguageMap[l] ?? inLanguageMap.pt
+  const pageUrl = localizedUrl(locale, path)
   const homeUrl = localizedUrl(locale)
   const menuUrl = localizedUrl(locale, 'menu')
+  const restaurantId = 'https://milsaboresbrunch.com/#restaurant'
+  const websiteId = 'https://milsaboresbrunch.com/#website'
+  const webpageId = `${pageUrl}#webpage`
 
-  const restaurantSchema = {
-    '@context': 'https://schema.org',
-    '@type': ['Restaurant', 'FoodEstablishment', 'CafeOrCoffeeShop'],
-    '@id': 'https://milsaboresbrunch.com/#restaurant',
+  const restaurant = {
+    '@type': ['Restaurant', 'CafeOrCoffeeShop'],
+    '@id': restaurantId,
     name: 'Mil Sabores Lisboa',
     alternateName: 'Mil Sabores',
-    description: restaurantDescriptions[l] ?? restaurantDescriptions.en,
+    description: descriptions[l] ?? descriptions.pt,
+    url: homeUrl,
     image: [
-      'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
-      'https://milsaboresbrunch.com/images/Mil Sabores/Crepe Limon.webp',
-      'https://milsaboresbrunch.com/images/Mil Sabores/Poke Vegan.webp',
-      'https://milsaboresbrunch.com/images/Mil Sabores/Mini Hamburguer.webp'
+      localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
+      localizedUrl('pt', '/images/Mil Sabores/Crepe Limon.webp'),
+      localizedUrl('pt', '/images/Mil Sabores/Copos Helado.webp'),
     ],
-    url: homeUrl,
-    telephone: '+351213470214',
-    email: 'milsaboreslx@gmail.com',
-    priceRange: '€€',
+    telephone: RESTAURANT.phoneClean,
+    email: RESTAURANT.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Rua da Prata 152',
-      addressLocality: 'Lisboa',
-      addressRegion: 'Lisboa',
-      postalCode: '1100-619',
-      addressCountry: 'PT'
+      streetAddress: RESTAURANT.address.street,
+      postalCode: RESTAURANT.address.postalCode,
+      addressLocality: RESTAURANT.address.city,
+      addressCountry: 'PT',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 38.711305,
-      longitude: -9.1370277
+      latitude: RESTAURANT.coordinates.lat,
+      longitude: RESTAURANT.coordinates.lng,
     },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '07:00',
-        closes: '18:30'
+        closes: '18:30',
       },
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Saturday', 'Sunday'],
         opens: '07:00',
-        closes: '19:00'
-      }
+        closes: '19:00',
+      },
     ],
-    servesCuisine: ['Brunch', 'Dessert', 'Ice Cream', 'Gelato', 'Coffee', 'Italian', 'International', 'Healthy Food'],
-    hasMenu: menuUrl,
-    acceptsReservations: 'True',
-    menu: menuUrl,
+    servesCuisine: ['Brunch', 'Coffee', 'Gelato', 'International'],
+    hasMenu: {
+      '@id': `${menuUrl}#menu`,
+    },
+    acceptsReservations: true,
     sameAs: [
-      'https://www.instagram.com/milsaboreslx/',
-      'https://www.facebook.com/MilSaboreslx',
-      'https://www.tripadvisor.es/Restaurant_Review-g189158-d21297136-Reviews-Mil_Sabores-Lisbon_Lisbon_District_Central_Portugal.html',
-      'https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A'
+      RESTAURANT.social.instagram.url,
+      RESTAURANT.social.tripadvisor.url,
+      RESTAURANT.social.google.url,
     ],
-    paymentAccepted: 'Cash, Credit Card, Debit Card',
-    currenciesAccepted: 'EUR',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.7',
-      reviewCount: '200',
-      bestRating: '5',
-      worstRating: '1'
-    },
-    amenityFeature: [
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Free WiFi',
-        value: true
-      },
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Wheelchair Accessible',
-        value: true
-      },
-      {
-        '@type': 'LocationFeatureSpecification',
-        name: 'Outdoor Seating',
-        value: false
-      }
-    ],
-    smokingAllowed: false,
-    hasMenuSection: [
-      {
-        '@type': 'MenuSection',
-        name: 'Brunch',
-        description: 'Pancakes, Crepes, Waffles, Bagels, Eggs, Toasts',
-        hasMenuItem: [
-          {
-            '@type': 'MenuItem',
-            name: 'Banana Nutella Pancakes',
-            description: 'Fluffy pancakes with fresh banana and Nutella',
-            offers: {
-              '@type': 'Offer',
-              price: '8.50',
-              priceCurrency: 'EUR'
-            }
-          }
-        ]
-      },
-      {
-        '@type': 'MenuSection',
-        name: 'Gelato Artesanal',
-        description: 'Authentic Italian gelato made fresh daily',
-        hasMenuItem: [
-          {
-            '@type': 'MenuItem',
-            name: 'Gelato - 1 Bola',
-            offers: {
-              '@type': 'Offer',
-              price: '3.50',
-              priceCurrency: 'EUR'
-            }
-          }
-        ]
-      },
-      {
-        '@type': 'MenuSection',
-        name: 'Bowls Saudáveis',
-        description: 'Healthy bowls with fresh ingredients',
-        hasMenuItem: [
-          {
-            '@type': 'MenuItem',
-            name: 'Açaí Bowl',
-            description: 'Açaí topped with fresh fruits and granola',
-            offers: {
-              '@type': 'Offer',
-              price: '9.50',
-              priceCurrency: 'EUR'
-            },
-            suitableForDiet: ['https://schema.org/VegetarianDiet', 'https://schema.org/VeganDiet']
-          }
-        ]
-      }
-    ],
-    knowsAbout: ['Brunch', 'Gelato', 'Italian Cuisine', 'Healthy Food', 'Coffee']
   }
 
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Mil Sabores Lisboa',
-    description: localBusinessDescriptions[l] ?? localBusinessDescriptions.en,
-    image: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
-    '@id': 'https://milsaboresbrunch.com/#business',
-    url: homeUrl,
-    telephone: '+351213470214',
-    email: 'milsaboreslx@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Rua da Prata 152',
-      addressLocality: 'Lisboa',
-      addressRegion: 'Lisboa',
-      postalCode: '1100-619',
-      addressCountry: 'PT'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 38.711305,
-      longitude: -9.1370277
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '07:00',
-        closes: '18:30'
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday', 'Sunday'],
-        opens: '07:00',
-        closes: '19:00'
-      }
-    ],
-    priceRange: '€€',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.7',
-      reviewCount: '200',
-      bestRating: '5',
-      worstRating: '1'
-    }
-  }
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: homeUrl
-      }
-    ]
-  }
-
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': 'https://milsaboresbrunch.com/#organization',
-    name: 'Mil Sabores Lisboa',
-    url: 'https://milsaboresbrunch.com',
-    logo: 'https://milsaboresbrunch.com/icon-512.png',
-    image: 'https://milsaboresbrunch.com/images/Mil Sabores/Brunch Americano.webp',
-    description: organizationDescriptions[l] ?? organizationDescriptions.en,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Rua da Prata 152',
-      addressLocality: 'Lisboa',
-      postalCode: '1100-619',
-      addressCountry: 'PT'
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+351213470214',
-      contactType: 'Customer Service',
-      email: 'milsaboreslx@gmail.com',
-      availableLanguage: ['Portuguese', 'English', 'Spanish', 'French', 'German', 'Italian']
-    },
-    sameAs: [
-      'https://www.instagram.com/milsaboreslx/',
-      'https://www.tripadvisor.es/Restaurant_Review-g189158-d21297136-Reviews-Mil_Sabores-Lisbon_Lisbon_District_Central_Portugal.html',
-      'https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A'
-    ]
-  }
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
+  const website = {
     '@type': 'WebSite',
-    '@id': 'https://milsaboresbrunch.com/#website',
+    '@id': websiteId,
     url: 'https://milsaboresbrunch.com',
     name: 'Mil Sabores Lisboa',
-    description: websiteDescriptions[l] ?? websiteDescriptions.en,
+    inLanguage,
     publisher: {
-      '@id': 'https://milsaboresbrunch.com/#organization'
+      '@id': restaurantId,
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${menuUrl}?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
+  }
+
+  const webpage: Record<string, unknown> = {
+    '@type': page === 'contact' ? 'ContactPage' : page === 'gallery' ? 'CollectionPage' : 'WebPage',
+    '@id': webpageId,
+    url: pageUrl,
+    name: pageNames[page][l] ?? pageNames[page].pt,
+    description: descriptions[l] ?? descriptions.pt,
+    inLanguage,
+    isPartOf: {
+      '@id': websiteId,
     },
-    inLanguage: inLanguageMap[l] ?? inLanguageMap.en
+    about: {
+      '@id': restaurantId,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: page === 'gelados'
+        ? localizedUrl('pt', '/images/Mil Sabores/Copos Helado.webp')
+        : localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
+    },
+  }
+
+  if (page === 'home') {
+    webpage.mainEntity = { '@id': restaurantId }
+  }
+
+  const graph: unknown[] = [restaurant, website, webpage]
+
+  if (page === 'menu') {
+    graph.push({
+      '@type': 'Menu',
+      '@id': `${menuUrl}#menu`,
+      name: pageNames.menu[l] ?? pageNames.menu.pt,
+      url: menuUrl,
+      inLanguage,
+      hasMenuSection: menuSections.map((name) => ({
+        '@type': 'MenuSection',
+        name,
+      })),
+      provider: {
+        '@id': restaurantId,
+      },
+    })
+  }
+
+  if (page !== 'home') {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: pageNames.home[l] ?? pageNames.home.pt,
+          item: homeUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: pageNames[page][l] ?? pageNames[page].pt,
+          item: pageUrl,
+        },
+      ],
+    })
   }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: safeJson({
+          '@context': 'https://schema.org',
+          '@graph': graph,
+        }),
+      }}
+    />
   )
 }

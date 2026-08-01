@@ -32,11 +32,12 @@ export const RESTAURANT = {
 
   // Hours
   hours: {
-    weekday: '7:00 - 19:00',
+    weekday: '7:00 - 18:30',
     weekend: '7:00 - 19:00',
-    label: 'Lun-Dom · 7:00 - 19:00',
+    label: 'Seg-Sex · 7:00 - 18:30 / Sáb-Dom · 7:00 - 19:00',
     openTime: '07:00',
-    closeTime: '19:00',
+    weekdayCloseTime: '18:30',
+    weekendCloseTime: '19:00',
   },
 
   // Social Media
@@ -47,37 +48,14 @@ export const RESTAURANT = {
     },
     tripadvisor: {
       url: 'https://www.tripadvisor.es/Restaurant_Review-g189158-d21297136-Reviews-Mil_Sabores-Lisbon_Lisbon_District_Central_Portugal.html',
-      rating: 4.5,
     },
     google: {
       url: 'https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A',
-      rating: 4.7,
-      reviewCount: 1200,
     },
   },
 
-  // Ratings
-  ratings: {
-    google: 4.7,
-    tripadvisor: 4.5,
-    reviewCount: 1200,
-  },
-
-  // Price range
-  priceRange: '€€',
-  currency: 'EUR',
-
   // Cuisine types
   cuisineTypes: ['Brunch', 'Cafe', 'Gelato', 'Portuguese', 'International'],
-
-  // Special diets
-  dietaryOptions: ['Vegetarian', 'Vegan', 'Gluten-Free'],
-
-  // Payment methods
-  paymentMethods: ['Cash', 'Credit Card', 'Debit Card', 'MB Way'],
-
-  // Amenities
-  amenities: ['WiFi', 'Outdoor Seating', 'Wheelchair Accessible'],
 } as const
 
 // Type for the restaurant config

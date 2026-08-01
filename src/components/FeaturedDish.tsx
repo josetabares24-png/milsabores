@@ -87,31 +87,15 @@ export default function FeaturedDish() {
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/20">
               <Image
                 src="/images/Mil Sabores/Brunch Americano.webp"
-                alt="Plato estrella - Brunch Americano"
+                alt={t('image_alt')}
                 width={600}
                 height={500}
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="w-full h-[400px] md:h-[500px] object-cover"
-                priority
               />
 
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-              {/* Rating badge */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-4 h-4 text-pastel" fill="currentColor" />
-                  ))}
-                </div>
-                <span className="text-slate font-bold text-sm">4.9</span>
-                <span className="text-slate/60 text-sm">(500+ reviews)</span>
-              </div>
-
-              {/* Best seller badge */}
-              <div className="absolute top-6 right-6 px-4 py-2 bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-sm rounded-full shadow-lg animate-pulse">
-                #1 Best Seller
-              </div>
             </div>
           </motion.div>
         </div>
