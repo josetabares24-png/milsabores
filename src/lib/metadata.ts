@@ -4,7 +4,6 @@ import { ogLocales, type Locale } from '@/i18n/config'
 import { buildAlternates, localizedUrl } from '@/lib/seo'
 
 const defaultImage = '/images/Mil Sabores/Brunch Americano.webp'
-const gelatoImage = '/images/Mil Sabores/Copos Helado.webp'
 
 export const pagePaths = {
   home: '',
@@ -12,9 +11,6 @@ export const pagePaths = {
   menu: 'menu',
   reservations: 'reservas',
   gallery: 'galeria',
-  contact: 'contacto',
-  gelados: 'gelados',
-  promotions: 'promociones',
 } as const
 
 export type MetaPage = keyof typeof pagePaths
@@ -25,9 +21,6 @@ const pageImages: Record<MetaPage, string> = {
   menu: defaultImage,
   reservations: defaultImage,
   gallery: defaultImage,
-  contact: defaultImage,
-  gelados: gelatoImage,
-  promotions: defaultImage,
 }
 
 export async function buildPageMetadata(locale: string, page: MetaPage): Promise<Metadata> {

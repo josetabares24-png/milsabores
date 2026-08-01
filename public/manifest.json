@@ -52,7 +52,7 @@
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Informacao de contacto",
-      "url": "/contacto",
+      "url": "/reservas#contacto",
       "icons": [{ "src": "/icon-192.png", "sizes": "96x96" }]
     }
   ],

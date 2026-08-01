@@ -58,6 +58,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/menu#gelados" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
+                  {tNav('gelados')}
+                </Link>
+              </li>
+              <li>
                 <Link href="/" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('about')}
                 </Link>
@@ -73,7 +78,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
+                <Link href="/reservas#contacto" className="text-slate/60 hover:text-pastel transition-colors text-sm font-medium">
                   {tNav('contact')}
                 </Link>
               </li>

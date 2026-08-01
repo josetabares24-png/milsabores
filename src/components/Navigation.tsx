@@ -22,26 +22,11 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/brunch-lisboa" className="text-slate hover:text-pastel transition-colors font-medium">
-              {t('brunch')}
+            <Link href="/" className="text-slate hover:text-pastel transition-colors font-medium">
+              {t('home')}
             </Link>
             <Link href="/menu" className="text-slate hover:text-pastel transition-colors font-medium">
               {t('menu')}
-            </Link>
-            <Link href="/gelados" className="text-slate hover:text-pastel transition-colors font-medium">
-              {t('gelados')}
-            </Link>
-            <Link href="/promociones" className="relative text-slate hover:text-pastel transition-colors font-medium">
-              {t('promotions')}
-              <span className="absolute -top-2 -right-3 px-1.5 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded-full animate-pulse">
-                %
-              </span>
-            </Link>
-            <Link href="/galeria" className="text-slate hover:text-pastel transition-colors font-medium">
-              {t('gallery')}
-            </Link>
-            <Link href="/contacto" className="text-slate hover:text-pastel transition-colors font-medium">
-              {t('contact')}
             </Link>
             <Link
               href="/reservas"
@@ -71,11 +56,11 @@ export default function Navigation() {
                 <LanguageSwitcher />
               </div>
               <Link
-                href="/brunch-lisboa"
+                href="/"
                 className="text-slate hover:text-pastel transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t('brunch')}
+                {t('home')}
               </Link>
               <Link
                 href="/menu"
@@ -83,37 +68,6 @@ export default function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('menu')}
-              </Link>
-              <Link
-                href="/gelados"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('gelados')}
-              </Link>
-              <Link
-                href="/promociones"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2 flex items-center gap-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('promotions')}
-                <span className="px-1.5 py-0.5 bg-rose-500 text-white text-[10px] font-bold rounded-full">
-                  %
-                </span>
-              </Link>
-              <Link
-                href="/galeria"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('gallery')}
-              </Link>
-              <Link
-                href="/contacto"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('contact')}
               </Link>
               <Link
                 href="/reservas"

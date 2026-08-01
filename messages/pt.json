@@ -147,8 +147,8 @@
   },
   "reservations": {
     "eyebrow": "Reservas",
-    "title": "Reserve a Sua Mesa",
-    "subtitle": "Planeie a sua visita ao Mil Sabores Lisboa",
+    "title": "Reservas e Contacto",
+    "subtitle": "Planeie a sua visita ao Mil Sabores Lisboa ou fale connosco para pedidos especiais.",
     "form": {
       "name": "Nome Completo",
       "name_placeholder": "O seu nome",
@@ -312,8 +312,8 @@
       "imageAlt": "Menu de brunch do Mil Sabores Lisboa"
     },
     "reservations": {
-      "title": "Reservas | Mil Sabores Lisboa",
-      "description": "Reserve mesa no Mil Sabores Lisboa, na Rua da Prata, para brunch, café, panquecas, bowls e gelados artesanais na Baixa.",
+      "title": "Reservas e Contacto | Mil Sabores Lisboa",
+      "description": "Reserve mesa ou contacte o Mil Sabores Lisboa, na Rua da Prata, para brunch, café, panquecas, bowls e gelados artesanais.",
       "keywords": "reservar brunch lisboa, reservar mesa baixa lisboa, brunch com reserva lisboa, marcar mesa pequeno almoço lisboa",
       "imageAlt": "Reservas no Mil Sabores Lisboa"
     },
@@ -350,7 +350,7 @@
   "fullMenu": {
     "title": "O Nosso Menu",
     "subtitle": "Fazer brunch é muito mais do que tomar o pequeno-almoço tarde: é fazer uma pausa, partilhar, saborear sem pressa.",
-    "intro": "O nosso menu foi pensado para todos os gostos e todos os momentos. Combinamos opções dulces e salgadas, receitas artesanais e ingredientes frescos para que cada visita seja uma experiência completa no coração de Lisboa.",
+    "intro": "O nosso menu foi pensado para todos os gostos e todos os momentos. Combinamos opções doces e salgadas, receitas artesanais e ingredientes frescos para que cada visita seja uma experiência completa no coração de Lisboa.",
     "filters": {
       "all": "Todos",
       "vegetarian": "Vegetariano",

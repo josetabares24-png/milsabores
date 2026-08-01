@@ -147,8 +147,8 @@
   },
   "reservations": {
     "eyebrow": "Reservas",
-    "title": "Reserva Tu Mesa",
-    "subtitle": "Planifica tu visita a Mil Sabores Lisboa",
+    "title": "Reservas y contacto",
+    "subtitle": "Planifica tu visita a Mil Sabores Lisboa o contáctanos para consultas especiales.",
     "form": {
       "name": "Nombre Completo",
       "name_placeholder": "Tu nombre",
@@ -312,8 +312,8 @@
       "imageAlt": "Menú de brunch de Mil Sabores Lisboa"
     },
     "reservations": {
-      "title": "Reservas | Mil Sabores Lisboa",
-      "description": "Reserva mesa en Mil Sabores Lisboa, en Rua da Prata, para brunch, café, panquecas, bowls y gelados artesanales en la Baixa.",
+      "title": "Reservas y contacto | Mil Sabores Lisboa",
+      "description": "Reserva mesa o contacta con Mil Sabores Lisboa, en Rua da Prata, para brunch, café, panquecas, bowls y gelados artesanales.",
       "keywords": "reservar brunch lisboa, reservar mesa baixa, brunch con reserva lisboa, desayuno reservar centro lisboa",
       "imageAlt": "Reservas en Mil Sabores Lisboa"
     },

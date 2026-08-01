@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
-import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus } from 'lucide-react'
+import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus, MapPin, Instagram, Star } from 'lucide-react'
 import Logo from '@/components/Logo'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
@@ -30,6 +30,7 @@ const TIME_SLOTS = generateTimeSlots(RESTAURANT.hours.openTime, RESTAURANT.hours
 
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
+  const tContact = useTranslations('contact')
   const locale = useLocale()
 
   const [formData, setFormData] = useState({
@@ -45,6 +46,14 @@ export default function ReservationsPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
   const [showSpecialRequests, setShowSpecialRequests] = useState(false)
+  const [contactData, setContactData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const [isContactSubmitting, setIsContactSubmitting] = useState(false)
+  const [isContactSubmitted, setIsContactSubmitted] = useState(false)
+  const [contactError, setContactError] = useState('')
 
   const today = new Date().toISOString().split('T')[0]
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0]
@@ -52,6 +61,10 @@ export default function ReservationsPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setContactData({ ...contactData, [e.target.name]: e.target.value })
   }
 
   const updateGuests = (delta: number) => {
@@ -96,6 +109,45 @@ export default function ReservationsPage() {
       setError(err instanceof Error ? err.message : 'No se pudo procesar la reserva. Llama al +351 21 347 0214.')
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setContactError('')
+
+    if (!isValidEmail(contactData.email)) {
+      setContactError(tContact('form.invalid_email'))
+      return
+    }
+
+    setIsContactSubmitting(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...contactData,
+          subject: 'other',
+          locale,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setIsContactSubmitted(true)
+      setContactData({ name: '', email: '', message: '' })
+    } catch (err) {
+      console.error('Error submitting contact message:', err)
+      setContactError(err instanceof Error ? err.message : 'Failed to send message. Please try emailing us directly.')
+    } finally {
+      setIsContactSubmitting(false)
     }
   }
 
@@ -446,6 +498,161 @@ export default function ReservationsPage() {
             </div>
           </motion.div>
         </div>
+
+        <section className="mt-20 rounded-3xl bg-white p-8 shadow-lg border-2 border-slate/10" aria-labelledby="visit-info-title">
+          <h2 id="visit-info-title" className="text-3xl md:text-4xl font-bold text-slate text-center mb-10">
+            {tContact('title')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <article className="rounded-2xl border-2 border-pastel/20 bg-pastel/5 p-6">
+              <Clock className="text-pastel mb-4" size={28} />
+              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.hours.title')}</h3>
+              <p className="text-slate/70 text-sm">{tContact('info.hours.weekday')}</p>
+              <p className="text-slate/70 text-sm">{tContact('info.hours.weekend')}</p>
+            </article>
+            <article className="rounded-2xl border-2 border-sage/20 bg-sage/5 p-6">
+              <MapPin className="text-sage mb-4" size={28} />
+              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.address.title')}</h3>
+              <p className="text-slate/70 text-sm">
+                {tContact('info.address.line1')}
+                <br />
+                {tContact('info.address.line2')}
+              </p>
+              <a
+                href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex text-sm font-bold text-sage hover:underline"
+              >
+                {tContact('info.maps_cta')}
+              </a>
+            </article>
+            <article className="rounded-2xl border-2 border-steel/20 bg-steel/5 p-6">
+              <Phone className="text-steel mb-4" size={28} />
+              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.contact_info.title')}</h3>
+              <a href={`tel:${RESTAURANT.phoneClean}`} className="block text-slate/70 text-sm hover:text-steel">
+                {RESTAURANT.phone}
+              </a>
+              <a href={`mailto:${RESTAURANT.email}`} className="block text-slate/70 text-sm hover:text-steel">
+                {RESTAURANT.email}
+              </a>
+            </article>
+            <article className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-6">
+              <Instagram className="text-purple-600 mb-4" size={28} />
+              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.social.title')}</h3>
+              <a
+                href={RESTAURANT.social.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-slate/70 text-sm hover:text-purple-700"
+              >
+                {tContact('info.social.instagram')}
+              </a>
+              <a
+                href={RESTAURANT.social.tripadvisor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-1 text-slate/70 text-sm hover:text-purple-700"
+              >
+                <Star size={14} />
+                {tContact('info.social.tripadvisor')}
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <section id="contacto" className="scroll-mt-32 mt-20" aria-labelledby="contacto-title">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
+            <div>
+              <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold text-slate mb-4">
+                {tContact('title')}
+              </h2>
+              <p className="text-slate/70 leading-relaxed">
+                {tContact('subtitle')}
+              </p>
+              <div className="mt-6 space-y-3 text-sm text-slate/70">
+                <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-steel">
+                  <Phone size={18} />
+                  {RESTAURANT.phone}
+                </a>
+                <a href={`mailto:${RESTAURANT.email}`} className="flex items-center gap-2 hover:text-steel">
+                  <Mail size={18} />
+                  {RESTAURANT.email}
+                </a>
+              </div>
+            </div>
+            <div className="bg-white rounded-3xl shadow-lg p-8 border-2 border-slate/10">
+              {isContactSubmitted ? (
+                <div className="text-center py-8">
+                  <CheckCircle2 className="mx-auto mb-4 text-sage" size={44} />
+                  <h3 className="text-2xl font-bold text-slate mb-3">{tContact('success.title')}</h3>
+                  <p className="text-slate/70">{tContact('success.message')}</p>
+                </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-5">
+                  <div>
+                    <label htmlFor="contact-name" className="block text-slate font-bold mb-2">
+                      {tContact('form.name')} *
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-name"
+                      name="name"
+                      value={contactData.name}
+                      onChange={handleContactChange}
+                      required
+                      placeholder={tContact('form.name_placeholder')}
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="block text-slate font-bold mb-2">
+                      {tContact('form.email')} *
+                    </label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      name="email"
+                      value={contactData.email}
+                      onChange={handleContactChange}
+                      required
+                      placeholder={tContact('form.email_placeholder')}
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-message" className="block text-slate font-bold mb-2">
+                      {tContact('form.message')} *
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      value={contactData.message}
+                      onChange={handleContactChange}
+                      required
+                      rows={5}
+                      placeholder={tContact('form.message_placeholder')}
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                    />
+                  </div>
+                  {contactError && (
+                    <div className="flex items-center gap-3 p-4 bg-red-50 border-2 border-red-200 rounded-2xl">
+                      <AlertCircle className="text-red-500 flex-shrink-0" size={20} />
+                      <p className="text-red-700 text-sm">{contactError}</p>
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={isContactSubmitting}
+                    className="w-full px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-all shadow-xl shadow-pastel/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isContactSubmitting ? tContact('form.submitting') : tContact('form.submit')}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </section>
 
         {/* FAQ Section */}
         <motion.div

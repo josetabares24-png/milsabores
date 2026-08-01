@@ -147,8 +147,8 @@
   },
   "reservations": {
     "eyebrow": "Réservations",
-    "title": "Réservez Votre Table",
-    "subtitle": "Planifiez votre visite chez Mil Sabores Lisbonne",
+    "title": "Réservations et contact",
+    "subtitle": "Planifiez votre visite chez Mil Sabores Lisbonne ou contactez-nous pour une demande spéciale.",
     "form": {
       "name": "Nom Complet",
       "name_placeholder": "Votre nom",
@@ -312,8 +312,8 @@
       "imageAlt": "Carte brunch de Mil Sabores Lisbonne"
     },
     "reservations": {
-      "title": "Réservations | Mil Sabores Lisbonne",
-      "description": "Réservez une table chez Mil Sabores Lisbonne, Rua da Prata, pour brunch, café, pancakes, bowls et gelato artisanal dans la Baixa.",
+      "title": "Réservations et contact | Mil Sabores Lisbonne",
+      "description": "Réservez une table ou contactez Mil Sabores Lisbonne, Rua da Prata, pour brunch, café, pancakes, bowls et gelato artisanal.",
       "keywords": "reserver brunch lisbonne, reserver table baixa lisbonne, brunch avec reservation lisbonne, reserver petit dejeuner centre lisbonne",
       "imageAlt": "Réservations chez Mil Sabores Lisbonne"
     },

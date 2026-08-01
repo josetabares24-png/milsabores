@@ -7,10 +7,7 @@ const pages = [
   { path: 'brunch-lisboa', changeFrequency: 'weekly', priority: 0.9 },
   { path: 'menu', changeFrequency: 'weekly', priority: 0.9 },
   { path: 'reservas', changeFrequency: 'monthly', priority: 0.8 },
-  { path: 'contacto', changeFrequency: 'monthly', priority: 0.8 },
-  { path: 'gelados', changeFrequency: 'monthly', priority: 0.8 },
   { path: 'galeria', changeFrequency: 'monthly', priority: 0.7 },
-  { path: 'promociones', changeFrequency: 'monthly', priority: 0.6 },
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {

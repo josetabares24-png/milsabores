@@ -89,7 +89,7 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
         </div>
         <div className="text-center mt-10">
           <Link
-            href="/contacto"
+            href="/reservas#contacto"
             className="inline-flex px-8 py-4 bg-white text-slate font-bold rounded-full border-2 border-pastel/30 hover:bg-pastel hover:text-white transition-colors"
           >
             {t('ctas.contact')}

@@ -2,7 +2,7 @@ import { RESTAURANT } from '@/config/restaurant'
 import { type Locale } from '@/i18n/config'
 import { localizedUrl } from '@/lib/seo'
 
-type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery' | 'contact' | 'gelados' | 'promotions'
+type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery'
 
 interface SchemaMarkupProps {
   locale: string
@@ -45,12 +45,12 @@ const pageNames: Record<SchemaPage, Record<Locale, string>> = {
     it: 'Menu Mil Sabores',
   },
   reservations: {
-    pt: 'Reservas Mil Sabores',
-    en: 'Mil Sabores Reservations',
-    es: 'Reservas Mil Sabores',
-    fr: 'Réservations Mil Sabores',
-    de: 'Mil Sabores Reservierungen',
-    it: 'Prenotazioni Mil Sabores',
+    pt: 'Reservas e contacto Mil Sabores',
+    en: 'Mil Sabores Reservations and Contact',
+    es: 'Reservas y contacto Mil Sabores',
+    fr: 'Réservations et contact Mil Sabores',
+    de: 'Mil Sabores Reservierung und Kontakt',
+    it: 'Prenotazioni e contatti Mil Sabores',
   },
   gallery: {
     pt: 'Galeria Mil Sabores',
@@ -59,30 +59,6 @@ const pageNames: Record<SchemaPage, Record<Locale, string>> = {
     fr: 'Galerie Mil Sabores',
     de: 'Mil Sabores Galerie',
     it: 'Galleria Mil Sabores',
-  },
-  contact: {
-    pt: 'Contacto Mil Sabores',
-    en: 'Mil Sabores Contact',
-    es: 'Contacto Mil Sabores',
-    fr: 'Contact Mil Sabores',
-    de: 'Mil Sabores Kontakt',
-    it: 'Contatti Mil Sabores',
-  },
-  gelados: {
-    pt: 'Gelados artesanais Mil Sabores',
-    en: 'Mil Sabores artisanal gelato',
-    es: 'Gelados artesanales Mil Sabores',
-    fr: 'Gelato artisanal Mil Sabores',
-    de: 'Handgemachtes Gelato Mil Sabores',
-    it: 'Gelato artigianale Mil Sabores',
-  },
-  promotions: {
-    pt: 'Promoções Mil Sabores',
-    en: 'Mil Sabores offers',
-    es: 'Promociones Mil Sabores',
-    fr: 'Offres Mil Sabores',
-    de: 'Mil Sabores Angebote',
-    it: 'Promozioni Mil Sabores',
   },
 }
 
@@ -95,7 +71,7 @@ const descriptions: Record<Locale, string> = {
   it: 'Brunch, pancake, crêpe, waffle, bowl, caffè e gelato artigianale in Rua da Prata, nella Baixa di Lisbona.',
 }
 
-const menuSections = ['Bagels', 'Tostas', 'Brunch', 'Saladas', 'Bowls', 'Panquecas', 'Crepes', 'Waffles', 'Café', 'Gelados artesanais']
+const menuSections = ['Bagels', 'Tostas', 'Brunch', 'Saladas', 'Bowls', 'Panquecas', 'Crepes', 'Waffles', 'Café', 'Gelados artesanais', 'Promoções']
 
 function safeJson(data: unknown) {
   return JSON.stringify(data).replace(/</g, '\\u003c')
@@ -175,7 +151,7 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
   }
 
   const webpage: Record<string, unknown> = {
-    '@type': page === 'contact' ? 'ContactPage' : page === 'gallery' ? 'CollectionPage' : 'WebPage',
+    '@type': page === 'reservations' ? 'ContactPage' : page === 'gallery' ? 'CollectionPage' : 'WebPage',
     '@id': webpageId,
     url: pageUrl,
     name: pageNames[page][l] ?? pageNames[page].pt,
@@ -189,9 +165,7 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
     },
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: page === 'gelados'
-        ? localizedUrl('pt', '/images/Mil Sabores/Copos Helado.webp')
-        : localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
+      url: localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
     },
   }
 
