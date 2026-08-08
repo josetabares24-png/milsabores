@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Instagram } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const instagramImages = [
   {
@@ -62,16 +63,23 @@ export default function InstagramGallery() {
             {t('subtitle')} {t('handle')}
           </p>
 
-          {/* Instagram Button */}
-          <a
-            href="https://instagram.com/milsaboreslx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-xl shadow-purple-500/40"
-          >
-            <Instagram size={22} />
-            <span>{t('handle')}</span>
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/galeria"
+              className="inline-flex items-center justify-center px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-transform shadow-xl shadow-pastel/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/30"
+            >
+              {t('view_gallery')}
+            </Link>
+            <a
+              href="https://instagram.com/milsaboreslx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-xl shadow-purple-500/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pink-300/40"
+            >
+              <Instagram size={22} />
+              <span>{t('handle')}</span>
+            </a>
+          </div>
         </motion.div>
 
         {/* Gallery Grid */}
