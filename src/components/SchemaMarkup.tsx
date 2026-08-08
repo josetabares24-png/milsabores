@@ -83,7 +83,9 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
   const pageUrl = localizedUrl(locale, path)
   const homeUrl = localizedUrl(locale)
   const menuUrl = localizedUrl(locale, 'menu')
+  const logoUrl = localizedUrl('pt', '/icon-512.png')
   const restaurantId = 'https://www.milsaboresbrunch.com/#restaurant'
+  const logoId = 'https://www.milsaboresbrunch.com/#logo'
   const websiteId = 'https://www.milsaboresbrunch.com/#website'
   const webpageId = `${pageUrl}#webpage`
 
@@ -94,7 +96,17 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
     alternateName: 'Mil Sabores',
     description: descriptions[l] ?? descriptions.pt,
     url: homeUrl,
+    logo: {
+      '@type': 'ImageObject',
+      '@id': logoId,
+      url: logoUrl,
+      contentUrl: logoUrl,
+      width: 512,
+      height: 512,
+      caption: 'Mil Sabores Lisboa',
+    },
     image: [
+      logoUrl,
       localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
       localizedUrl('pt', '/images/Mil Sabores/Crepe Limon.webp'),
       localizedUrl('pt', '/images/Mil Sabores/Copos Helado.webp'),
