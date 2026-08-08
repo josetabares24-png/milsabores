@@ -32,7 +32,7 @@
     "seo_h2": "Brunch en Lisboa en Rua da Prata, Baixa",
     "cta_menu": "Ver Menú Completo",
     "cta_reserve": "Hacer Reserva",
-    "hours_label": "Lun-Vie · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
+    "hours_label": "Lun-Jue · 7:00-19:00 / Vie-Dom · 7:00-20:00",
     "location_label": "Rua da Prata 152, Lisboa",
     "phone_label": "+351 21 347 0214",
     "scroll": "Desplazar",
@@ -101,8 +101,8 @@
     "address_title": "Dirección",
     "address": "Rua da Prata 152, 1100-619 Lisboa, Portugal",
     "hours_title": "Horario",
-    "hours_weekday": "Lunes a Viernes: 7:00 - 18:30",
-    "hours_weekend": "Sábado y Domingo: 7:00 - 19:00",
+    "hours_weekday": "Lunes a Jueves: 7:00 - 19:00",
+    "hours_weekend": "Viernes a Domingo: 7:00 - 20:00",
     "phone_title": "Teléfono",
     "phone": "+351 21 347 0214",
     "email_title": "Email",
@@ -117,8 +117,8 @@
     "links_title": "Enlaces Rápidos",
     "contact_title": "Contacto",
     "hours_title": "Horario",
-    "hours_weekday": "Lun-Vie: 7:00 - 18:30",
-    "hours_weekend": "Sáb-Dom: 7:00 - 19:00",
+    "hours_weekday": "Lun-Jue: 7:00 - 19:00",
+    "hours_weekend": "Vie-Dom: 7:00 - 20:00",
     "legal_privacy": "Privacidad",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Libro de Reclamaciones",
@@ -278,7 +278,8 @@
       },
       "hours": {
         "title": "Horario",
-        "weekday": "Lunes a Domingo: 7:00 - 19:00",
+        "weekday": "Lunes a Jueves: 7:00 - 19:00",
+        "weekend": "Viernes a Domingo: 7:00 - 20:00",
         "weekend": ""
       },
       "contact_info": {
@@ -1099,7 +1100,7 @@
       }
     },
     "brunch_landing_cta": "Brunch en Lisboa",
-    "info_hours": "Lun-Vie · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
+    "info_hours": "Lun-Jue · 7:00-19:00 / Vie-Dom · 7:00-20:00",
     "dietary_title": "Filtrar por dieta",
     "jump_title": "Ir a categoría",
     "items_count": "ítems",
@@ -1318,7 +1319,7 @@
         },
         "4": {
           "q": "¿Cuál es el horario?",
-          "a": "El horario visible en la web es lunes a viernes de 7:00 a 18:30 y sábado y domingo de 7:00 a 19:00."
+          "a": "El horario visible en la web es lunes a jueves de 7:00 a 19:00 y viernes a domingo de 7:00 a 20:00."
         },
         "5": {
           "q": "¿Es necesario reservar?",
@@ -1349,7 +1350,7 @@
       "p3": "Esta página reúne información esencial para búsquedas como brunch Lisboa, desayuno en Lisboa, brunch en Baixa o panquecas en Lisboa. Habla solo de Mil Sabores porque el objetivo es ayudarte a decidir si este restaurante encaja con lo que buscas.",
       "p4": "Para elegir con más detalle, el menú online es el mejor punto de partida. Muestra categorías de brunch, opciones dulces, bowls, bebidas, café y gelados. Algunos productos tienen indicación dietética, pero cualquier alergia o restricción debe confirmarse con el equipo.",
       "p5": "Rua da Prata sitúa a Mil Sabores en una zona central y fácil de encontrar. La web incluye contacto, teléfono, email, página de reservas y enlace a Google Maps para confirmar los detalles prácticos antes de visitar.",
-      "p6": "El horario visible en la web es de lunes a viernes de 7:00 a 18:30 y sábado y domingo de 7:00 a 19:00. Como los datos operativos pueden cambiar, conviene confirmar directamente si la visita depende de una hora concreta."
+      "p6": "El horario visible en la web es de lunes a jueves de 7:00 a 19:00 y viernes a domingo de 7:00 a 20:00. Como los datos operativos pueden cambiar, conviene confirmar directamente si la visita depende de una hora concreta."
     },
     "products": {
       "eyebrow": "Qué encontrarás",
@@ -1379,7 +1380,7 @@
       "text": "El restaurante está en la Baixa de Lisboa. Usa el mapa o la página de contacto para obtener indicaciones y confirmar detalles.",
       "addressLabel": "Dirección",
       "hoursLabel": "Horario",
-      "hours": "Lun-Vie 7:00-18:30; Sáb-Dom 7:00-19:00"
+      "hours": "Lun-Jue 7:00-19:00; Vie-Dom 7:00-20:00"
     },
     "menu": {
       "title": "Consultar el menú antes de visitar",

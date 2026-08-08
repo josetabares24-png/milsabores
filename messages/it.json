@@ -32,7 +32,7 @@
     "seo_h2": "Brunch a Lisbona in Rua da Prata, Baixa",
     "cta_menu": "Vedi Menù Completo",
     "cta_reserve": "Prenota un Tavolo",
-    "hours_label": "Lun-Ven · 7:00-18:30 / Sab-Dom · 7:00-19:00",
+    "hours_label": "Lun-Gio · 7:00-19:00 / Ven-Dom · 7:00-20:00",
     "location_label": "Rua da Prata 152, Lisbona",
     "phone_label": "+351 21 347 0214",
     "scroll": "Scorri",
@@ -101,8 +101,8 @@
     "address_title": "Indirizzo",
     "address": "Rua da Prata 152, 1100-619 Lisboa, Portugal",
     "hours_title": "Orari",
-    "hours_weekday": "Lunedì - Venerdì: 7:00 - 18:30",
-    "hours_weekend": "Sabato e Domenica: 7:00 - 19:00",
+    "hours_weekday": "Lunedì - Giovedì: 7:00 - 19:00",
+    "hours_weekend": "Venerdì - Domenica: 7:00 - 20:00",
     "phone_title": "Telefono",
     "phone": "+351 21 347 0214",
     "email_title": "Email",
@@ -117,8 +117,8 @@
     "links_title": "Link Rapidi",
     "contact_title": "Contatti",
     "hours_title": "Orari",
-    "hours_weekday": "Lun-Ven: 7:00 - 18:30",
-    "hours_weekend": "Sab-Dom: 7:00 - 19:00",
+    "hours_weekday": "Lun-Gio: 7:00 - 19:00",
+    "hours_weekend": "Ven-Dom: 7:00 - 20:00",
     "legal_privacy": "Privacy",
     "legal_cookies": "Cookie",
     "legal_reclamaciones": "Libro dei Reclami",
@@ -278,8 +278,8 @@
       },
       "hours": {
         "title": "Orari",
-        "weekday": "Lunedì - Domenica: 7:00 - 19:00",
-        "weekend": ""
+        "weekday": "Lunedì - Giovedì: 7:00 - 19:00",
+        "weekend": "Venerdì - Domenica: 7:00 - 20:00"
       },
       "contact_info": {
         "title": "Informazioni di Contatto",
@@ -1099,7 +1099,7 @@
       }
     },
     "brunch_landing_cta": "Brunch a Lisbona",
-    "info_hours": "Lun-Ven · 7:00-18:30 / Sab-Dom · 7:00-19:00",
+    "info_hours": "Lun-Gio · 7:00-19:00 / Ven-Dom · 7:00-20:00",
     "dietary_title": "Filtra per dieta",
     "jump_title": "Vai alla categoria",
     "items_count": "voci",
@@ -1318,7 +1318,7 @@
         },
         "4": {
           "q": "Quali sono gli orari?",
-          "a": "Gli orari visibili sul sito sono lunedì-venerdì 7:00-18:30 e sabato-domenica 7:00-19:00."
+          "a": "Gli orari visibili sul sito sono lunedì-giovedì 7:00-19:00 e venerdì-domenica 7:00-20:00."
         },
         "5": {
           "q": "È necessario prenotare?",
@@ -1349,7 +1349,7 @@
       "p3": "Questa pagina raccoglie informazioni essenziali per ricerche come brunch Lisbona, colazione Lisbona, brunch Baixa Lisbona o pancake Lisbona. Parla solo di Mil Sabores per aiutarti a capire se questo ristorante corrisponde a ciò che cerchi.",
       "p4": "Per scegliere meglio, il menu online è il punto di partenza più utile. Presenta categorie brunch, opzioni dolci, bowl, bevande, caffè e gelato. Alcuni elementi hanno indicazioni dietetiche, ma allergie o restrizioni vanno sempre confermate con il team.",
       "p5": "Rua da Prata colloca Mil Sabores in una zona centrale e facile da trovare. Il sito include contatti, telefono, email, pagina prenotazioni e link a Google Maps per confermare dettagli pratici prima della visita.",
-      "p6": "Gli orari visibili sul sito sono lunedì-venerdì dalle 7:00 alle 18:30 e sabato-domenica dalle 7:00 alle 19:00. Poiché le informazioni operative possono cambiare, è consigliabile confermare direttamente se la visita dipende da un orario specifico."
+      "p6": "Gli orari visibili sul sito sono lunedì-giovedì dalle 7:00 alle 19:00 e venerdì-domenica dalle 7:00 alle 20:00. Poiché le informazioni operative possono cambiare, è consigliabile confermare direttamente se la visita dipende da un orario specifico."
     },
     "products": {
       "eyebrow": "Cosa trovare",
@@ -1379,7 +1379,7 @@
       "text": "Il ristorante è nella Baixa di Lisbona. Usa la mappa o la pagina contatti per ottenere indicazioni e confermare dettagli.",
       "addressLabel": "Indirizzo",
       "hoursLabel": "Orari",
-      "hours": "Lun-Ven 7:00-18:30; Sab-Dom 7:00-19:00"
+      "hours": "Lun-Gio 7:00-19:00; Ven-Dom 7:00-20:00"
     },
     "menu": {
       "title": "Consulta il menu prima della visita",

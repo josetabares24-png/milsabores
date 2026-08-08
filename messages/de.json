@@ -32,7 +32,7 @@
     "seo_h2": "Brunch in Lissabon in der Rua da Prata, Baixa",
     "cta_menu": "Komplette Speisekarte ansehen",
     "cta_reserve": "Jetzt reservieren",
-    "hours_label": "Mo-Fr · 7:00-18:30 / Sa-So · 7:00-19:00",
+    "hours_label": "Mo-Do · 7:00-19:00 / Fr-So · 7:00-20:00",
     "location_label": "Rua da Prata 152, Lissabon",
     "phone_label": "+351 21 347 0214",
     "scroll": "Scrollen",
@@ -101,8 +101,8 @@
     "address_title": "Adresse",
     "address": "Rua da Prata 152, 1100-619 Lissabon, Portugal",
     "hours_title": "Öffnungszeiten",
-    "hours_weekday": "Montag bis Freitag: 7:00 - 18:30",
-    "hours_weekend": "Samstag und Sonntag: 7:00 - 19:00",
+    "hours_weekday": "Montag bis Donnerstag: 7:00 - 19:00",
+    "hours_weekend": "Freitag bis Sonntag: 7:00 - 20:00",
     "phone_title": "Telefon",
     "phone": "+351 21 347 0214",
     "email_title": "E-Mail",
@@ -117,8 +117,8 @@
     "links_title": "Schnellzugriff",
     "contact_title": "Kontakt",
     "hours_title": "Öffnungszeiten",
-    "hours_weekday": "Mo-Fr: 7:00 - 18:30",
-    "hours_weekend": "Sa-So: 7:00 - 19:00",
+    "hours_weekday": "Mo-Do: 7:00 - 19:00",
+    "hours_weekend": "Fr-So: 7:00 - 20:00",
     "legal_privacy": "Datenschutz",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Beschwerdebuch",
@@ -278,8 +278,8 @@
       },
       "hours": {
         "title": "Öffnungszeiten",
-        "weekday": "Montag bis Sonntag: 7:00 - 19:00",
-        "weekend": ""
+        "weekday": "Montag bis Donnerstag: 7:00 - 19:00",
+        "weekend": "Freitag bis Sonntag: 7:00 - 20:00"
       },
       "contact_info": {
         "title": "Kontaktinformationen",
@@ -1099,7 +1099,7 @@
       }
     },
     "brunch_landing_cta": "Brunch in Lissabon",
-    "info_hours": "Mo-Fr · 7:00-18:30 / Sa-So · 7:00-19:00",
+    "info_hours": "Mo-Do · 7:00-19:00 / Fr-So · 7:00-20:00",
     "dietary_title": "Nach Ernährung filtern",
     "jump_title": "Zur Kategorie",
     "items_count": "Artikel",
@@ -1318,7 +1318,7 @@
         },
         "4": {
           "q": "Wie sind die Öffnungszeiten?",
-          "a": "Auf der Website sichtbar: Montag bis Freitag 7:00-18:30, Samstag und Sonntag 7:00-19:00."
+          "a": "Auf der Website sichtbar: Montag bis Donnerstag 7:00-19:00 und Freitag bis Sonntag 7:00-20:00."
         },
         "5": {
           "q": "Muss man reservieren?",
@@ -1349,7 +1349,7 @@
       "p3": "Diese Seite bündelt wesentliche Informationen für Suchanfragen wie Brunch Lissabon, Frühstück Lissabon, Brunch Baixa Lissabon oder Pancakes Lissabon. Sie spricht nur über Mil Sabores, damit Sie entscheiden können, ob dieses Restaurant zu Ihrer Suche passt.",
       "p4": "Für eine genauere Auswahl ist das Online-Menü der beste Ausgangspunkt. Es zeigt Brunch-Kategorien, süße Optionen, Bowls, Getränke, Kaffee und Gelato. Einige Elemente sind nach Ernährung gekennzeichnet, doch Allergien oder Einschränkungen sollten direkt mit dem Team bestätigt werden.",
       "p5": "Die Rua da Prata platziert Mil Sabores in einer zentralen, leicht auffindbaren Gegend. Die Website enthält Kontakt, Telefon, E-Mail, Reservierungsseite und Google-Maps-Link zur Bestätigung praktischer Details vor dem Besuch.",
-      "p6": "Die sichtbaren Öffnungszeiten sind Montag bis Freitag von 7:00 bis 18:30 und Samstag bis Sonntag von 7:00 bis 19:00. Da betriebliche Informationen sich ändern können, empfiehlt sich eine direkte Bestätigung, wenn Ihr Besuch von einer bestimmten Uhrzeit abhängt."
+      "p6": "Die sichtbaren Öffnungszeiten sind Montag bis Donnerstag von 7:00 bis 19:00 und Freitag bis Sonntag von 7:00 bis 20:00. Da betriebliche Informationen sich ändern können, empfiehlt sich eine direkte Bestätigung, wenn Ihr Besuch von einer bestimmten Uhrzeit abhängt."
     },
     "products": {
       "eyebrow": "Was Sie finden",
@@ -1379,7 +1379,7 @@
       "text": "Das Restaurant liegt in Lissabons Baixa. Nutzen Sie Karte oder Kontaktseite für Anfahrt und Details.",
       "addressLabel": "Adresse",
       "hoursLabel": "Öffnungszeiten",
-      "hours": "Mo-Fr 7:00-18:30; Sa-So 7:00-19:00"
+      "hours": "Mo-Do 7:00-19:00; Fr-So 7:00-20:00"
     },
     "menu": {
       "title": "Menü vor dem Besuch ansehen",

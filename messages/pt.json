@@ -32,7 +32,7 @@
     "seo_h2": "Brunch em Lisboa na Rua da Prata, Baixa de Lisboa",
     "cta_menu": "Ver Menu Completo",
     "cta_reserve": "Fazer Reserva",
-    "hours_label": "Seg-Sex · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
+    "hours_label": "Seg-Qui · 7:00-19:00 / Sex-Dom · 7:00-20:00",
     "location_label": "Rua da Prata 152, Lisboa",
     "phone_label": "+351 21 347 0214",
     "scroll": "Deslizar",
@@ -101,8 +101,8 @@
     "address_title": "Endereço",
     "address": "Rua da Prata 152, 1100-619 Lisboa, Portugal",
     "hours_title": "Horário",
-    "hours_weekday": "Segunda a Sexta: 7:00 - 18:30",
-    "hours_weekend": "Sábado e Domingo: 7:00 - 19:00",
+    "hours_weekday": "Segunda a Quinta: 7:00 - 19:00",
+    "hours_weekend": "Sexta a Domingo: 7:00 - 20:00",
     "phone_title": "Telefone",
     "phone": "+351 21 347 0214",
     "email_title": "Email",
@@ -117,8 +117,8 @@
     "links_title": "Links Rápidos",
     "contact_title": "Contacto",
     "hours_title": "Horário",
-    "hours_weekday": "Seg-Sex: 7:00 - 18:30",
-    "hours_weekend": "Sáb-Dom: 7:00 - 19:00",
+    "hours_weekday": "Seg-Qui: 7:00 - 19:00",
+    "hours_weekend": "Sex-Dom: 7:00 - 20:00",
     "legal_privacy": "Privacidade",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Livro de Reclamações",
@@ -278,7 +278,8 @@
       },
       "hours": {
         "title": "Horário",
-        "weekday": "Segunda a Domingo: 7:00 - 19:00",
+        "weekday": "Segunda a Quinta: 7:00 - 19:00",
+        "weekend": "Sexta a Domingo: 7:00 - 20:00",
         "weekend": ""
       },
       "contact_info": {
@@ -1099,7 +1100,7 @@
       }
     },
     "brunch_landing_cta": "Brunch em Lisboa",
-    "info_hours": "Seg-Sex · 7:00-18:30 / Sáb-Dom · 7:00-19:00",
+    "info_hours": "Seg-Qui · 7:00-19:00 / Sex-Dom · 7:00-20:00",
     "dietary_title": "Filtrar por dieta",
     "jump_title": "Ir para categoria",
     "items_count": "itens",
@@ -1318,7 +1319,7 @@
         },
         "4": {
           "q": "Qual é o horário?",
-          "a": "O horário visível no site é segunda a sexta das 7:00 às 18:30 e sábado e domingo das 7:00 às 19:00."
+          "a": "O horário visível no site é segunda a quinta das 7:00 às 19:00 e sexta a domingo das 7:00 às 20:00."
         },
         "5": {
           "q": "É necessário reservar?",
@@ -1349,7 +1350,7 @@
       "p3": "Esta página reúne a informação essencial para quem pesquisa brunch em Lisboa, brunch na Baixa, pequeno-almoço em Lisboa ou panquecas em Lisboa. O conteúdo fala apenas do Mil Sabores, porque o objetivo é ajudar a decidir se este restaurante corresponde ao que procura.",
       "p4": "Para escolhas mais completas, o menu online é o melhor ponto de partida. Nele pode ver categorias de brunch, opções doces, bowls, bebidas, café e gelados. Alguns itens têm indicação de dieta no próprio menu, mas qualquer restrição alimentar deve ser confirmada diretamente com a equipa.",
       "p5": "A Rua da Prata coloca o Mil Sabores numa zona central e fácil de localizar. O site inclui contacto, telefone, email, página de reservas e ligação para Google Maps, para que possa confirmar detalhes práticos antes da visita.",
-      "p6": "O horário visível no site é segunda a sexta das 7:00 às 18:30 e sábado e domingo das 7:00 às 19:00. Como qualquer informação operacional pode mudar, recomenda-se confirmar diretamente quando a visita depender de um horário específico."
+      "p6": "O horário visível no site é segunda a quinta das 7:00 às 19:00 e sexta a domingo das 7:00 às 20:00. Como qualquer informação operacional pode mudar, recomenda-se confirmar diretamente quando a visita depender de um horário específico."
     },
     "products": {
       "eyebrow": "O que encontrar",
@@ -1379,7 +1380,7 @@
       "text": "O restaurante está na Baixa de Lisboa. Use o mapa ou a página de contacto para obter indicações e confirmar detalhes antes de visitar.",
       "addressLabel": "Morada",
       "hoursLabel": "Horário",
-      "hours": "Seg-Sex 7:00-18:30; Sáb-Dom 7:00-19:00"
+      "hours": "Seg-Qui 7:00-19:00; Sex-Dom 7:00-20:00"
     },
     "menu": {
       "title": "Consultar o menu antes de visitar",

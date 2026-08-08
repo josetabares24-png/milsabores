@@ -32,12 +32,12 @@ export const RESTAURANT = {
 
   // Hours
   hours: {
-    weekday: '7:00 - 18:30',
-    weekend: '7:00 - 19:00',
-    label: 'Seg-Sex · 7:00 - 18:30 / Sáb-Dom · 7:00 - 19:00',
+    weekday: '7:00 - 19:00',
+    weekend: '7:00 - 20:00',
+    label: 'Seg-Qui · 7:00 - 19:00 / Sex-Dom · 7:00 - 20:00',
     openTime: '07:00',
-    weekdayCloseTime: '18:30',
-    weekendCloseTime: '19:00',
+    weekdayCloseTime: '19:00',
+    weekendCloseTime: '20:00',
   },
 
   // Social Media

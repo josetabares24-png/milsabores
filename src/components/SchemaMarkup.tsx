@@ -116,15 +116,15 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
         opens: '07:00',
-        closes: '18:30',
+        closes: '19:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday', 'Sunday'],
+        dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
         opens: '07:00',
-        closes: '19:00',
+        closes: '20:00',
       },
     ],
     servesCuisine: ['Brunch', 'Coffee', 'Gelato', 'International'],

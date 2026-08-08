@@ -26,7 +26,13 @@ function generateTimeSlots(open: string, close: string, stepMinutes = 30): strin
   return slots
 }
 
-const TIME_SLOTS = generateTimeSlots(RESTAURANT.hours.openTime, RESTAURANT.hours.weekdayCloseTime)
+function getCloseTimeForDate(date: string) {
+  if (!date) return RESTAURANT.hours.weekdayCloseTime
+  const day = new Date(`${date}T00:00:00`).getDay()
+  return day === 5 || day === 6 || day === 0
+    ? RESTAURANT.hours.weekendCloseTime
+    : RESTAURANT.hours.weekdayCloseTime
+}
 
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
@@ -58,9 +64,14 @@ export default function ReservationsPage() {
   const today = new Date().toISOString().split('T')[0]
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0]
   const guestsCount = parseInt(formData.guests, 10) || 1
+  const timeSlots = generateTimeSlots(RESTAURANT.hours.openTime, getCloseTimeForDate(formData.date))
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleDateChange = (date: string) => {
+    setFormData({ ...formData, date, time: '' })
   }
 
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -287,7 +298,7 @@ export default function ReservationsPage() {
                     <div className="flex gap-2 mb-2">
                       <button
                         type="button"
-                        onClick={() => setFormData({ ...formData, date: today })}
+                        onClick={() => handleDateChange(today)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === today
                             ? 'bg-pastel text-white'
@@ -298,7 +309,7 @@ export default function ReservationsPage() {
                       </button>
                       <button
                         type="button"
-                        onClick={() => setFormData({ ...formData, date: tomorrow })}
+                        onClick={() => handleDateChange(tomorrow)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === tomorrow
                             ? 'bg-pastel text-white'
@@ -315,7 +326,7 @@ export default function ReservationsPage() {
                         id="date"
                         name="date"
                         value={formData.date}
-                        onChange={handleChange}
+                        onChange={(event) => handleDateChange(event.target.value)}
                         required
                         min={today}
                         className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate"
@@ -339,7 +350,7 @@ export default function ReservationsPage() {
                         className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate bg-white appearance-none"
                       >
                         <option value="" disabled>{t('form.time_placeholder')}</option>
-                        {TIME_SLOTS.map((slot) => (
+                        {timeSlots.map((slot) => (
                           <option key={slot} value={slot}>{slot}</option>
                         ))}
                       </select>

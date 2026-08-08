@@ -32,7 +32,7 @@
     "seo_h2": "Brunch à Lisbonne sur la Rua da Prata, Baixa",
     "cta_menu": "Voir le Menu Complet",
     "cta_reserve": "Réserver une Table",
-    "hours_label": "Lun-Ven · 7:00-18:30 / Sam-Dim · 7:00-19:00",
+    "hours_label": "Lun-Jeu · 7:00-19:00 / Ven-Dim · 7:00-20:00",
     "location_label": "Rua da Prata 152, Lisbonne",
     "phone_label": "+351 21 347 0214",
     "scroll": "Défiler",
@@ -101,8 +101,8 @@
     "address_title": "Adresse",
     "address": "Rua da Prata 152, 1100-619 Lisbonne, Portugal",
     "hours_title": "Horaires",
-    "hours_weekday": "Du lundi au vendredi : 7h00 - 18h30",
-    "hours_weekend": "Samedi et dimanche : 7h00 - 19h00",
+    "hours_weekday": "Du lundi au jeudi : 7h00 - 19h00",
+    "hours_weekend": "Du vendredi au dimanche : 7h00 - 20h00",
     "phone_title": "Téléphone",
     "phone": "+351 21 347 0214",
     "email_title": "Email",
@@ -117,8 +117,8 @@
     "links_title": "Liens Rapides",
     "contact_title": "Contact",
     "hours_title": "Horaires",
-    "hours_weekday": "Lun-Ven : 7h00 - 18h30",
-    "hours_weekend": "Sam-Dim : 7h00 - 19h00",
+    "hours_weekday": "Lun-Jeu : 7h00 - 19h00",
+    "hours_weekend": "Ven-Dim : 7h00 - 20h00",
     "legal_privacy": "Confidentialité",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Livre de Réclamations",
@@ -278,8 +278,8 @@
       },
       "hours": {
         "title": "Horaires",
-        "weekday": "Du lundi au dimanche : 7h00 - 19h00",
-        "weekend": ""
+        "weekday": "Du lundi au jeudi : 7h00 - 19h00",
+        "weekend": "Du vendredi au dimanche : 7h00 - 20h00"
       },
       "contact_info": {
         "title": "Coordonnées",
@@ -1099,7 +1099,7 @@
       }
     },
     "brunch_landing_cta": "Brunch à Lisbonne",
-    "info_hours": "Lun-Ven · 7:00-18:30 / Sam-Dim · 7:00-19:00",
+    "info_hours": "Lun-Jeu · 7:00-19:00 / Ven-Dim · 7:00-20:00",
     "dietary_title": "Filtrer par régime",
     "jump_title": "Aller à une catégorie",
     "items_count": "éléments",
@@ -1318,7 +1318,7 @@
         },
         "4": {
           "q": "Quels sont les horaires ?",
-          "a": "Les horaires visibles sur le site sont lundi à vendredi 7:00-18:30 et samedi à dimanche 7:00-19:00."
+          "a": "Les horaires visibles sur le site sont lundi à jeudi 7:00-19:00 et vendredi à dimanche 7:00-20:00."
         },
         "5": {
           "q": "Faut-il réserver ?",
@@ -1349,7 +1349,7 @@
       "p3": "Cette page rassemble les informations utiles pour les recherches liées au brunch à Lisbonne, au petit-déjeuner dans la Baixa ou aux pancakes à Lisbonne. Elle parle uniquement de Mil Sabores afin de vous aider à décider si cette adresse correspond à votre visite.",
       "p4": "Pour choisir plus précisément, le menu en ligne est le meilleur point de départ. Il présente les catégories brunch, options sucrées, bowls, boissons, café et gelato. Certaines indications diététiques existent dans le menu, mais toute allergie ou restriction doit être confirmée avec l’équipe.",
       "p5": "Rua da Prata place Mil Sabores dans une zone centrale et facile à localiser. Le site inclut contact, téléphone, email, page de réservations et lien Google Maps pour confirmer les détails pratiques avant de venir.",
-      "p6": "Les horaires visibles sur le site sont lundi à vendredi de 7:00 à 18:30 et samedi à dimanche de 7:00 à 19:00. Comme les informations opérationnelles peuvent changer, mieux vaut confirmer directement si votre visite dépend d’un horaire précis."
+      "p6": "Les horaires visibles sur le site sont lundi à jeudi de 7:00 à 19:00 et vendredi à dimanche de 7:00 à 20:00. Comme les informations opérationnelles peuvent changer, mieux vaut confirmer directement si votre visite dépend d’un horaire précis."
     },
     "products": {
       "eyebrow": "À découvrir",
@@ -1379,7 +1379,7 @@
       "text": "Le restaurant se trouve dans la Baixa de Lisbonne. Utilisez le plan ou la page contact pour obtenir l’itinéraire et confirmer les détails.",
       "addressLabel": "Adresse",
       "hoursLabel": "Horaires",
-      "hours": "Lun-Ven 7:00-18:30; Sam-Dim 7:00-19:00"
+      "hours": "Lun-Jeu 7:00-19:00; Ven-Dim 7:00-20:00"
     },
     "menu": {
       "title": "Consulter le menu avant la visite",
