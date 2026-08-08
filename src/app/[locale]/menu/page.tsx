@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import {
   Beer,
   Camera,
   ChefHat,
+  ChevronDown,
   Clock,
   Gift,
   IceCream,
@@ -51,13 +52,6 @@ const categories: Category[] = [
   'cocktails',
   'extras',
 ]
-
-const anchorLinks = [
-  { href: '#category-brunch', label: 'brunch' },
-  { href: '#category-dulces', label: 'dulces' },
-  { href: '#category-bowls', label: 'bowls' },
-  { href: '#category-drinks', label: 'drinks' },
-] as const
 
 const dietaryTags: Record<string, ('vegetarian' | 'vegan' | 'glutenFree')[]> = {
   brunch_mil_sabores: [],
@@ -152,9 +146,29 @@ const promotions = [
 
 export default function MenuPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'vegetarian' | 'vegan' | 'glutenFree'>('all')
+  const [expandedCategories, setExpandedCategories] = useState<Set<Category>>(new Set(['brunch']))
   const t = useTranslations('fullMenu')
   const tGelados = useTranslations('gelados')
   const tPromotions = useTranslations('promotions')
+
+  const toggleCategory = (category: Category) => {
+    setExpandedCategories((prev) => {
+      const next = new Set(prev)
+      if (next.has(category)) {
+        next.delete(category)
+      } else {
+        next.add(category)
+      }
+      return next
+    })
+  }
+
+  const openAndScrollToCategory = (category: Category) => {
+    setExpandedCategories((prev) => new Set([...prev, category]))
+    requestAnimationFrame(() => {
+      document.getElementById(`category-${category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
 
   const filterItems = (category: Category, itemKey: string) => {
     if (activeFilter === 'all') return true
@@ -224,10 +238,15 @@ export default function MenuPage() {
 
         <nav aria-label={t('jump_title')} className="sticky top-20 z-30 mb-8 rounded-2xl border-2 border-slate/10 bg-white/95 p-3 shadow-lg backdrop-blur">
           <div className="flex gap-2 overflow-x-auto pb-1">
-            {anchorLinks.map((item) => (
-              <a key={item.href} href={item.href} className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5">
-                {t(`categories.${item.label}`)}
-              </a>
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => openAndScrollToCategory(category)}
+                className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5"
+              >
+                {t(`categories.${category}`)}
+              </button>
             ))}
             <a href="#gelados" className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5">
               {tGelados('title')}
@@ -258,7 +277,7 @@ export default function MenuPage() {
           </div>
         </section>
 
-        <div id="menu" className="space-y-8">
+        <div id="menu" className="space-y-4">
           {categories.map((category, catIndex) => {
             const rawCategory = t.raw(category) || {}
             const filteredItems = Object.keys(rawCategory).filter((itemKey) => {
@@ -267,6 +286,7 @@ export default function MenuPage() {
             })
 
             if (filteredItems.length === 0) return null
+            const isExpanded = expandedCategories.has(category)
 
             return (
               <motion.section
@@ -275,77 +295,105 @@ export default function MenuPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: catIndex * 0.03 }}
-                className="scroll-mt-32 rounded-2xl border-2 border-slate/10 bg-white p-5 shadow-sm"
+                className="scroll-mt-32 overflow-hidden rounded-2xl border-2 border-slate/10 bg-white shadow-sm transition-shadow hover:shadow-md"
                 aria-labelledby={`heading-${category}`}
               >
-                <div className="mb-5 flex flex-col gap-2 border-b border-slate/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
-                  <h2 id={`heading-${category}`} className="text-2xl md:text-3xl font-bold text-slate">
-                    {t(`categories.${category}`)}
-                  </h2>
-                  <span className="text-sm font-medium text-slate/50">
-                    {filteredItems.length} {t('items_count')}
+                <button
+                  type="button"
+                  onClick={() => toggleCategory(category)}
+                  aria-expanded={isExpanded}
+                  aria-controls={`panel-${category}`}
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-slate/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/20"
+                >
+                  <span className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
+                    <h2 id={`heading-${category}`} className="text-2xl font-bold text-slate md:text-3xl">
+                      {t(`categories.${category}`)}
+                    </h2>
+                    <span className="text-sm font-medium text-slate/50">
+                      {filteredItems.length} {t('items_count')}
+                    </span>
                   </span>
-                </div>
+                  <ChevronDown
+                    size={28}
+                    className={`shrink-0 text-pastel transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
 
-                {category === 'brunch' && (
-                  <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
-                    {t('brunch.customization_note')}
-                  </p>
-                )}
-                {category === 'dulces' && (
-                  <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
-                    {t('dulces.note')}
-                  </p>
-                )}
-                {category === 'burgers' && (
-                  <p className="mb-4 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium text-amber-700">
-                    <Clock size={16} />
-                    {t('burgers_note')}
-                  </p>
-                )}
-
-                <div className="grid gap-3 md:grid-cols-2">
-                  {filteredItems.map((itemKey, itemIndex) => {
-                    const item = t.raw(`${category}.${itemKey}`)
-                    const isFirstSaladas = category === 'dulces' && itemKey.startsWith('saladas_') && !filteredItems.slice(0, itemIndex).some((key) => key.startsWith('saladas_'))
-                    const isFirstMini = category === 'dulces' && itemKey.startsWith('mini_') && !filteredItems.slice(0, itemIndex).some((key) => key.startsWith('mini_'))
-
-                    return (
-                      <div key={itemKey} className={isFirstSaladas || isFirstMini ? 'md:col-span-2' : undefined}>
-                        {isFirstSaladas && (
-                          <h3 className="mb-3 mt-2 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
-                            {t('dulces.saladas_title')}
-                          </h3>
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      id={`panel-${category}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-slate/10 px-5 pb-5 pt-4">
+                        {category === 'brunch' && (
+                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
+                            {t('brunch.customization_note')}
+                          </p>
                         )}
-                        {isFirstMini && (
-                          <h3 className="mb-3 mt-2 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
-                            {t('dulces.mini_title')}
-                          </h3>
+                        {category === 'dulces' && (
+                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
+                            {t('dulces.note')}
+                          </p>
                         )}
-                        <article className="flex h-full items-start justify-between gap-4 rounded-xl bg-slate/5 p-4 transition-colors hover:bg-pastel/5">
-                          <div className="min-w-0 flex-1">
-                            <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-start">
-                              <h3 className="text-base font-bold leading-tight text-slate">
-                                {t(`${category}.${itemKey}.name`)}
-                              </h3>
-                              {getDietaryBadges(category, itemKey)}
-                            </div>
-                            {item.desc && (
-                              <p className="text-sm leading-relaxed text-slate/60">
-                                {t(`${category}.${itemKey}.desc`)}
-                              </p>
-                            )}
-                          </div>
-                          {item.price && (
-                            <span className="shrink-0 whitespace-nowrap text-lg font-bold text-pastel">
-                              €{item.price}
-                            </span>
-                          )}
-                        </article>
+                        {category === 'burgers' && (
+                          <p className="mb-4 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium text-amber-700">
+                            <Clock size={16} />
+                            {t('burgers_note')}
+                          </p>
+                        )}
+
+                        <div className="space-y-3">
+                          {filteredItems.map((itemKey, itemIndex) => {
+                            const item = t.raw(`${category}.${itemKey}`)
+                            const isFirstSaladas = category === 'dulces' && itemKey.startsWith('saladas_') && !filteredItems.slice(0, itemIndex).some((key) => key.startsWith('saladas_'))
+                            const isFirstMini = category === 'dulces' && itemKey.startsWith('mini_') && !filteredItems.slice(0, itemIndex).some((key) => key.startsWith('mini_'))
+
+                            return (
+                              <div key={itemKey}>
+                                {isFirstSaladas && (
+                                  <h3 className="mb-3 mt-4 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
+                                    {t('dulces.saladas_title')}
+                                  </h3>
+                                )}
+                                {isFirstMini && (
+                                  <h3 className="mb-3 mt-4 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
+                                    {t('dulces.mini_title')}
+                                  </h3>
+                                )}
+                                <article className="flex items-start justify-between gap-4 rounded-xl bg-slate/5 p-4 transition-colors hover:bg-pastel/5">
+                                  <div className="min-w-0 flex-1">
+                                    <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-start">
+                                      <h3 className="text-base font-bold leading-tight text-slate">
+                                        {t(`${category}.${itemKey}.name`)}
+                                      </h3>
+                                      {getDietaryBadges(category, itemKey)}
+                                    </div>
+                                    {item.desc && (
+                                      <p className="text-sm leading-relaxed text-slate/60">
+                                        {t(`${category}.${itemKey}.desc`)}
+                                      </p>
+                                    )}
+                                  </div>
+                                  {item.price && (
+                                    <span className="shrink-0 whitespace-nowrap text-lg font-bold text-pastel">
+                                      €{item.price}
+                                    </span>
+                                  )}
+                                </article>
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
-                    )
-                  })}
-                </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.section>
             )
           })}
