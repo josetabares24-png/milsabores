@@ -28,6 +28,9 @@ export default function Navigation() {
             <Link href="/menu" className="text-slate hover:text-pastel transition-colors font-medium">
               {t('menu')}
             </Link>
+            <Link href="/galeria" className="text-slate hover:text-pastel transition-colors font-medium">
+              {t('gallery')}
+            </Link>
             <Link
               href="/reservas"
               className="px-6 py-2.5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
@@ -68,6 +71,13 @@ export default function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('menu')}
+              </Link>
+              <Link
+                href="/galeria"
+                className="text-slate hover:text-pastel transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('gallery')}
               </Link>
               <Link
                 href="/reservas"
