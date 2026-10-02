@@ -114,6 +114,45 @@ No convertir el feed en una cuadrícula de flyers.
 
 ---
 
+## 2026-10-02 — Logo oficial de referencia
+
+**Estado:** LOCKED
+
+Se confirma como identidad oficial el logo con:
+
+- elefante sosteniendo un helado;
+- texto “Mil Sabores”;
+- descriptor “Gelateria Artesanal”.
+
+Versiones aceptadas actualmente:
+
+- fondo sage / logo blanco;
+- fondo blanco / logo sage.
+
+Para redes, el logo debe funcionar como firma pequeña. No debe dominar el producto.
+
+**Pendiente operativo:** retirar el fondo en Canva y preparar PNG transparente, versión clara y versión sage.
+
+---
+
+## 2026-10-02 — Dominio oficial de reservas
+
+**Estado:** LOCKED
+
+**URL:** `www.brunchmilsabores.com`
+
+Este dominio será la referencia oficial para CTAs de reserva en:
+
+- posts comerciales;
+- Stories;
+- portadas o piezas de campaña;
+- materiales impresos;
+- futuras plantillas sociales.
+
+No es obligatorio ponerlo en cada publicación; sí debe usarse cuando el objetivo sea convertir a reserva.
+
+---
+
 ## Próximas decisiones a registrar
 
 - primera plantilla aprobada de feed 4:5;
