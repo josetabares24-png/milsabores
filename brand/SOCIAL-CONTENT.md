@@ -168,7 +168,28 @@ Incluir de forma natural cuando corresponda:
 
 La prioridad es que el texto siga sonando humano.
 
-## 9. Checklist antes de publicar
+## 9. Reservas / CTA — LOCKED
+
+**URL oficial de reservas:** `www.brunchmilsabores.com`
+
+Cuando el objetivo del contenido sea reservar mesa, usar este dominio como CTA principal.
+
+Ejemplos:
+
+- “Reservas em brunchmilsabores.com”
+- “Reserve a sua mesa: brunchmilsabores.com”
+- “Brunch na Baixa — reservas em brunchmilsabores.com”
+
+No hace falta añadir la URL en todos los posts. Debe aparecer cuando la intención comercial o de reserva lo justifique.
+
+En piezas gráficas:
+
+- mantener la URL legible;
+- evitar tamaños excesivos;
+- preferir footer limpio;
+- no competir con el producto ni con el titular.
+
+## 10. Checklist antes de publicar
 
 - ¿Es producto/imagen real?
 - ¿Se entiende en 2 segundos?
@@ -176,12 +197,13 @@ La prioridad es que el texto siga sonando humano.
 - ¿El texto suena humano?
 - ¿El plato, precio y condiciones son correctos?
 - ¿El CTA tiene sentido?
+- Si busca reservas, ¿usa `brunchmilsabores.com`?
 - ¿La ubicación está bien cuando aplica?
 - ¿Hay algo que parezca plantilla genérica?
 - ¿La pieza mantiene la paleta y jerarquía?
 - ¿Vale la pena publicarla o solo estamos llenando el feed?
 
-## 10. Biblioteca futura
+## 11. Biblioteca futura
 
 Cada vez que el usuario diga que un post “sí representa la marca”, registrar:
 
@@ -196,7 +218,7 @@ Cada vez que el usuario diga que un post “sí representa la marca”, registra
 
 Cada rechazo relevante también debe documentarse para no repetir errores.
 
-## 11. Fotografía — TEST
+## 12. Fotografía — TEST
 
 Dirección:
 
