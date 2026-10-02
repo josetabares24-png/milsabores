@@ -163,3 +163,31 @@ No es obligatorio ponerlo en cada publicación; sí debe usarse cuando el objeti
 - ejemplos aprobados;
 - ejemplos rechazados;
 - frecuencia y pilares de contenido.
+
+
+---
+
+## 2026-10-02 — Base visual social aprobada — v1
+
+**Estado:** LOCKED
+
+Se aprueba como referencia visual base para futuros posts de Mil Sabores la pieza:
+
+**“Depois de andar pela Baixa, isto sabe ainda melhor.”**
+
+### Rasgos que quedan fijados
+
+- formato vertical 4:5;
+- fondo cream / pastel natural;
+- formas orgánicas sage suaves;
+- fotografía de producto protagonista;
+- sombra realista y suave bajo el plato;
+- tipografía principal Quicksand;
+- jerarquía de titular con contraste charcoal + sage;
+- logo oficial pequeño en esquina inferior derecha;
+- información práctica mínima en esquina inferior izquierda;
+- sin fondos turísticos ni elementos decorativos ajenos al producto;
+- diseño limpio, humano y editorial;
+- evitar aspecto de flyer genérico.
+
+Esta pieza será la referencia para mantener consistencia entre futuras publicaciones, no una plantilla rígida que deba repetirse exactamente.
