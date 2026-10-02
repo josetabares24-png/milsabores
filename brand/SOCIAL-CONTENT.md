@@ -239,3 +239,24 @@ Para cada plato nuevo intentar capturar:
 5. acción;
 6. persona interactuando;
 7. clip vertical.
+
+
+## 13. Regla creativa — LOCKED 2026-10-02
+
+Cada post debe tener una **idea de comunicación real**, no limitarse a nombrar el plato.
+
+Antes de diseñar, definir una frase/ángulo que responda a una de estas preguntas:
+
+- ¿qué tiene de especial este producto?
+- ¿qué problema o indecisión resuelve?
+- ¿qué precio/oferta lo vuelve interesante?
+- ¿qué experiencia concreta vende?
+- ¿qué detalle visual merece ser contado?
+
+Ejemplo aprobado de lógica:
+- NO: “Brunch completo”
+- SÍ: “Doce ou salgado? Aqui não tens de escolher.”
+
+La fotografía debe demostrar la idea del texto. El diseño solo la ordena.
+
+Evitar titulares genéricos que podrían servir para cualquier brunch de Lisboa.
