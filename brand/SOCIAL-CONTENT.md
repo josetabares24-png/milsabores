@@ -57,18 +57,46 @@ Quem vinha provar?”
 
 No copiar esta fórmula literalmente en todas las publicaciones.
 
-## 4. Diseño de feed — PENDING / a construir
+## 4. Diseño de feed — TEST 2026-10-02
 
-Hasta aprobar plantillas definitivas:
+Dirección completa: `INSTAGRAM-AUDIT-2026-10-02.md`.
+
+### Mezcla de contenido
+
+- 45% HERO FOOD;
+- 30% EXPERIENCE: personas, equipo, terraza;
+- 25% EDITORIAL / SALES.
+
+No usar checkerboard rígido.
+
+### Paleta social propuesta
+
+Prioridad social distinta a la web:
+
+1. Sage `#9FAF7F` — señal principal;
+2. Cream `#FFF9F0` — fondo;
+3. Charcoal `#1F1F1F` — texto;
+4. Pastel Blue `#A8C5D9` — secundario / puente con web;
+5. Mango `#F2B705` — acento;
+6. Peach `#F5D5C8` — acento puntual.
+
+No utilizar todos los colores en una misma pieza.
+
+### Tipografía
+
+- Quicksand como tipografía principal;
+- Pacifico solo como acento puntual;
+- máximo dos familias tipográficas por pieza.
+
+### Feed
 
 - usar fotografías reales como base;
-- mantener azul pastel como señal de marca;
-- preferir poco texto sobre fotografía;
-- no llenar espacios por miedo al vacío;
+- preferir formato 4:5 para posts;
+- poco texto sobre fotografía;
 - una pieza = una idea principal;
-- no usar más de dos familias tipográficas;
 - evitar bordes, stickers y recursos gratuitos si no aportan;
-- no crear una estética distinta en cada publicación.
+- el logo confirma la marca, no debe cargar con toda la identidad;
+- verde real del local + cream + fotografía luminosa deben crear reconocimiento.
 
 ## 5. Promociones y precios
 
@@ -89,7 +117,9 @@ La portada debe:
 - tener una sola idea;
 - evitar títulos largos;
 - mantener cara/plato protagonista cuando aplique;
-- no colocar texto crítico en zonas tapadas por UI.
+- no colocar texto crítico en zonas tapadas por UI;
+- utilizar título de 2–5 palabras;
+- incluir como máximo un pequeño elemento Sage / Cream de firma.
 
 El Reel debe priorizar movimiento real del local y comida:
 
@@ -165,3 +195,25 @@ Cada vez que el usuario diga que un post “sí representa la marca”, registra
 - CTA.
 
 Cada rechazo relevante también debe documentarse para no repetir errores.
+
+## 11. Fotografía — TEST
+
+Dirección:
+
+- luminosa;
+- real;
+- ligeramente cálida;
+- piel natural;
+- verdes controlados;
+- comida vibrante sin saturación falsa;
+- evitar HDR.
+
+Para cada plato nuevo intentar capturar:
+
+1. plano general;
+2. 45 grados;
+3. cenital;
+4. macro;
+5. acción;
+6. persona interactuando;
+7. clip vertical.
