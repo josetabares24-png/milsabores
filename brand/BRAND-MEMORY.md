@@ -49,15 +49,32 @@ Pesos implementados: 300, 400, 500, 600, 700.
 **Script / acento:** Pacifico  
 Usarla como recurso puntual, no como tipografía para bloques largos.
 
-### Logo — CURRENT
+### Logo — LOCKED
 
-El componente oficial de la web usa:
+El logo oficial de referencia para la marca es el que combina:
+
+- elefante sosteniendo un helado;
+- lettering “Mil Sabores”;
+- descriptor “Gelateria Artesanal”.
+
+Versiones visuales confirmadas en esta conversación:
+
+1. fondo sage / logo blanco;
+2. fondo blanco / logo sage.
+
+El componente actual de la web usa:
 
 `/public/images/Mil Sabores/sellomilsabores.png`
 
-El favicon alternativo utiliza un sello circular con “MS / Mil Sabores”.
+**Reglas:**
 
-**Regla:** no redibujar, deformar, estirar ni sustituir el logo por una tipografía improvisada.
+- no redibujar, deformar ni sustituir el logo;
+- usarlo como firma de marca, no como protagonista;
+- mantenerlo pequeño y limpio en posts;
+- preparar en Canva una versión PNG con fondo transparente para uso social;
+- mantener variantes clara y sage para adaptarse a fondos distintos.
+
+El favicon alternativo puede seguir usando una versión simplificada cuando el tamaño lo exija.
 
 ### Formas y lenguaje visual observados — CURRENT
 
@@ -140,7 +157,24 @@ Frases ya presentes en la web que ayudan a fijar territorio:
 
 **SEO no debe comerse la voz de marca.** “Brunch Lisboa”, “Baixa de Lisboa” y “Rua da Prata” pueden aparecer de forma natural, no repetitiva.
 
-## 6. Jerarquía para futuras piezas
+## 6. Reservas y CTA — LOCKED
+
+**Web oficial de reservas:** `www.brunchmilsabores.com`
+
+Cuando una pieza tenga intención de reserva, este es el dominio que debe aparecer.
+
+Usos recomendados:
+
+- “Reservas: brunchmilsabores.com”
+- “Reserve a sua mesa em brunchmilsabores.com”
+- footer de piezas promocionales;
+- Stories con CTA;
+- bio / enlaces cuando corresponda;
+- materiales impresos de reserva.
+
+No sustituirlo por otro dominio en piezas futuras sin una decisión explícita.
+
+## 7. Jerarquía para futuras piezas
 
 Cuando haya que decidir qué mostrar primero:
 
@@ -150,7 +184,7 @@ Cuando haya que decidir qué mostrar primero:
 4. información práctica / CTA;
 5. elementos decorativos.
 
-## 7. Reglas de consistencia
+## 8. Reglas de consistencia
 
 - El azul pastel es el ancla visual principal.
 - Cream/blanco puede dominar el fondo.
@@ -163,7 +197,7 @@ Cuando haya que decidir qué mostrar primero:
 - El logo debe respirar.
 - Evitar plantillas visuales que parezcan genéricas de Canva sin adaptación a Mil Sabores.
 
-## 8. Pendientes de branding
+## 9. Pendientes de branding
 
 ### PENDING
 
@@ -179,7 +213,7 @@ Cuando haya que decidir qué mostrar primero:
 - fijar estilo de promociones, precios y lanzamientos;
 - fijar tono para respuestas a comentarios y reseñas.
 
-## 9. Fuente de verdad
+## 10. Fuente de verdad
 
 Cuando exista conflicto entre una decisión antigua de chat y una decisión marcada **LOCKED** en esta carpeta, prevalece GitHub.
 
