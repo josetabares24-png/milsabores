@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { Heart, Award, Users } from 'lucide-react'
 import Image from 'next/image'
 
 export default function About() {
@@ -72,46 +71,20 @@ export default function About() {
         </div>
 
         {/* Features */}
-        <motion.div
+        <motion.ul
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-x-10 border-t-2 border-slate/30"
         >
-          {/* Feature 1 */}
-          <div className="text-center p-8 bg-gradient-to-br from-pastel/5 to-peach/5 rounded-3xl border-2 border-pastel/10 hover:border-pastel/30 transition-all">
-            <div className="w-16 h-16 bg-pastel/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Heart size={32} className="text-pastel" />
-            </div>
-            <h3 className="text-xl font-bold text-slate mb-3">{t('feature1_title')}</h3>
-            <p className="text-slate">
-              {t('feature1_desc')}
-            </p>
-          </div>
-
-          {/* Feature 2 */}
-          <div className="text-center p-8 bg-gradient-to-br from-sage/5 to-steel/5 rounded-3xl border-2 border-sage/10 hover:border-sage/30 transition-all">
-            <div className="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Award size={32} className="text-sage" />
-            </div>
-            <h3 className="text-xl font-bold text-slate mb-3">{t('feature2_title')}</h3>
-            <p className="text-slate">
-              {t('feature2_desc')}
-            </p>
-          </div>
-
-          {/* Feature 3 */}
-          <div className="text-center p-8 bg-gradient-to-br from-steel/5 to-peach/5 rounded-3xl border-2 border-steel/10 hover:border-steel/30 transition-all">
-            <div className="w-16 h-16 bg-steel/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users size={32} className="text-steel" />
-            </div>
-            <h3 className="text-xl font-bold text-slate mb-3">{t('feature3_title')}</h3>
-            <p className="text-slate">
-              {t('feature3_desc')}
-            </p>
-          </div>
-        </motion.div>
+          {([1, 2, 3] as const).map((n) => (
+            <li key={n} className="py-6 border-b border-dashed border-slate/30">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{t(`feature${n}_title`)}</h3>
+              <p className="text-gray-600 leading-relaxed">{t(`feature${n}_desc`)}</p>
+            </li>
+          ))}
+        </motion.ul>
       </div>
     </section>
   )

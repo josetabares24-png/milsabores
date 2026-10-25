@@ -8,7 +8,6 @@ import {
   ChefHat,
   ChevronDown,
   Clock,
-  IceCream,
   Leaf,
   MapPin,
   Phone,
@@ -103,8 +102,6 @@ const dietaryTags: Record<string, ('vegetarian' | 'vegan' | 'glutenFree')[]> = {
   extras_queso: ['vegetarian', 'glutenFree'],
 }
 
-const gelatoFlavors = ['acai', 'mango', 'pistacho', 'fresa', 'oreo', 'vainilla', 'chocolate', 'pastel_de_nata']
-const veganGelatoFlavors = ['acai', 'mango', 'fresa']
 
 // Ofertas confirmadas pelo José. 'timed' = só das 13:00 às 18:00; 'daily' = todos os dias, sem horário definido.
 const promotions = [
@@ -370,51 +367,46 @@ export default function MenuPage() {
         </div>
 
         <section id="gelados" className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-cream p-5 md:p-8" aria-labelledby="gelados-heading">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-pastel-ink">
-                <IceCream size={18} />
-                {tGelados('eyebrow')}
-              </div>
-              <h2 id="gelados-heading" className="mb-4 text-3xl font-bold text-slate md:text-4xl">
+              <h2 id="gelados-heading" className="text-3xl font-bold text-gray-800 md:text-4xl">
                 {tGelados('title')}
               </h2>
-              <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-2xl border-4 border-white shadow-xl">
-                <Image
-                  src="/images/Mil Sabores/Copos Helado.webp"
-                  alt="Gelato Artesanal Mil Sabores"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-bottom"
+              <svg
+                className="mt-2 h-3 w-28 text-mango"
+                viewBox="0 0 120 12"
+                fill="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M2 8.5c14-4.5 26-5 39-2.5s23 3.5 37 0.5S104 2.5 118 5"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
                 />
-              </div>
-              <div className="grid gap-3 sm:grid-cols-3">
+              </svg>
+              <ul className="mt-6 divide-y divide-dashed divide-slate/20 border-t border-slate/30">
                 {(['single', 'double', 'triple'] as const).map((size) => (
-                  <article key={size} className="rounded-2xl bg-white p-4 text-center shadow-sm">
-                    <h3 className="font-bold text-slate">{tGelados(`sizes.${size}.name`)}</h3>
-                    <p className="text-xs text-slate">{tGelados(`sizes.${size}.description`)}</p>
-                    <p className="mt-2 text-2xl font-bold text-pastel-ink">{tGelados(`sizes.${size}.price`)}</p>
-                  </article>
+                  <li key={size} className="py-4">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="text-lg font-bold text-gray-800">{tGelados(`sizes.${size}.name`)}</h3>
+                      <span className="mb-1 hidden min-w-[1.5rem] flex-1 self-end border-b-2 border-dotted border-slate/30 sm:block" aria-hidden="true" />
+                      <span className="whitespace-nowrap text-lg font-bold text-gray-800">{tGelados(`sizes.${size}.price`)}</span>
+                    </div>
+                    <p className="mt-1 text-sm text-gray-600">{tGelados(`sizes.${size}.description`)}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-            <div>
-              <h3 className="mb-4 text-2xl font-bold text-slate">{tGelados('flavors.title')}</h3>
-              <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-                {gelatoFlavors.map((flavor) => (
-                  <article key={flavor} className="rounded-2xl border-2 border-white bg-white p-4 text-center shadow-sm">
-                    <h4 className="font-bold text-slate">{tGelados(`flavors.items.${flavor}.name`)}</h4>
-                    <p className="mt-1 text-xs text-slate">{tGelados(`flavors.items.${flavor}.description`)}</p>
-                    {veganGelatoFlavors.includes(flavor) && (
-                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
-                        <Leaf size={10} />
-                        {tGelados('vegan_label')}
-                      </span>
-                    )}
-                  </article>
-                ))}
-              </div>
-              <p className="mt-5 text-center text-sm italic text-slate">{tGelados('flavors.note')}</p>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+              <Image
+                src="/images/Mil Sabores/Copos Helado.webp"
+                alt="Gelato Artesanal Mil Sabores"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-bottom"
+              />
             </div>
           </div>
         </section>

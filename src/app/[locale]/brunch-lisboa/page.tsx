@@ -1,11 +1,9 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { ChefHat, Coffee, IceCream, MapPin, Utensils } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { INTENT_KEYS, INTENT_PAGES } from '@/lib/intent-pages'
-
-const productIcons = [ChefHat, Utensils, Coffee, IceCream]
 
 export default async function BrunchLisboaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -97,20 +95,14 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
             </h2>
             <p className="text-lg text-slate">{t('products.subtitle')}</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {productItems.map((item, index) => {
-              const Icon = productIcons[index]
-              return (
-                <article key={item} className="bg-cream rounded-2xl p-6 border-2 border-pastel/10">
-                  <div className="w-12 h-12 bg-pastel/20 rounded-xl flex items-center justify-center mb-5">
-                    <Icon className="text-pastel-ink" size={24} />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate mb-3">{t(`products.items.${item}.title`)}</h3>
-                  <p className="text-slate leading-relaxed">{t(`products.items.${item}.text`)}</p>
-                </article>
-              )
-            })}
-          </div>
+          <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 border-t-2 border-slate/30">
+            {productItems.map((item) => (
+              <li key={item} className="py-6 border-b border-dashed border-slate/30">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{t(`products.items.${item}.title`)}</h3>
+                <p className="text-gray-600 leading-relaxed">{t(`products.items.${item}.text`)}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
