@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react'
+import { RESTAURANT } from '@/config/restaurant'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
 
@@ -32,7 +33,7 @@ export default function Footer() {
                 <Instagram size={18} className="text-slate hover:text-pastel-ink" />
               </a>
               <a
-                href="https://www.facebook.com/MilSaboreslx"
+                href={RESTAURANT.social.facebook.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white hover:bg-pastel/20 border-2 border-slate/10 hover:border-pastel rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"

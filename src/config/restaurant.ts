@@ -52,6 +52,9 @@ export const RESTAURANT = {
     google: {
       url: 'https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A',
     },
+    facebook: {
+      url: 'https://www.facebook.com/MilSaboreslx',
+    },
   },
 
   // Cuisine types

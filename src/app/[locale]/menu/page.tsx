@@ -16,37 +16,11 @@ import {
 } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
+import { MENU_CATEGORIES, type MenuCategory } from '@/lib/menu'
 
-type Category =
-  | 'brunch'
-  | 'dulces'
-  | 'bowls'
-  | 'coffee'
-  | 'drinks'
-  | 'bagels'
-  | 'toasts'
-  | 'eggs'
-  | 'salads'
-  | 'burgers'
-  | 'wraps'
-  | 'cocktails'
-  | 'extras'
+type Category = MenuCategory
 
-const categories: Category[] = [
-  'brunch',
-  'dulces',
-  'bowls',
-  'coffee',
-  'drinks',
-  'bagels',
-  'toasts',
-  'eggs',
-  'salads',
-  'burgers',
-  'wraps',
-  'cocktails',
-  'extras',
-]
+const categories: readonly Category[] = MENU_CATEGORIES
 
 const dietaryTags: Record<string, ('vegetarian' | 'vegan' | 'glutenFree')[]> = {
   brunch_mil_sabores: [],

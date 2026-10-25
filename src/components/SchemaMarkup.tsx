@@ -1,6 +1,8 @@
+import { getTranslations } from 'next-intl/server'
 import { RESTAURANT } from '@/config/restaurant'
 import { type Locale } from '@/i18n/config'
 import { localizedUrl } from '@/lib/seo'
+import { GELATO_SIZES, MENU_CATEGORIES } from '@/lib/menu'
 
 type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery'
 
@@ -71,13 +73,76 @@ const descriptions: Record<Locale, string> = {
   it: 'Brunch, pancake, crêpe, waffle, bowl, caffè e gelato artigianale in Rua da Prata, nella Baixa di Lisbona.',
 }
 
-const menuSections = ['Bagels', 'Tostas', 'Brunch', 'Saladas', 'Bowls', 'Panquecas', 'Crepes', 'Waffles', 'Café', 'Gelados artesanais', 'Promoções']
+type RawMenuItem = { name?: string; desc?: string; price?: string }
+
+/** URL absoluta de um ficheiro em /public, com espaços e acentos codificados (URL válida). */
+function assetUrl(path: string) {
+  return localizedUrl('pt', encodeURI(path))
+}
+
+function toPrice(value: string | undefined) {
+  if (!value) return null
+  const n = Number(String(value).replace('€', '').replace(',', '.').trim())
+  return Number.isFinite(n) && n > 0 ? n.toFixed(2) : null
+}
+
+/** Secções e pratos do JSON-LD Menu, gerados a partir das mesmas mensagens que a página /menu mostra. */
+async function buildMenuSections(locale: string) {
+  const t = await getTranslations({ locale, namespace: 'fullMenu' })
+  const tGelados = await getTranslations({ locale, namespace: 'gelados' })
+  const prices: number[] = []
+
+  const sections = MENU_CATEGORIES.map((category) => {
+    const raw = (t.raw(category) ?? {}) as Record<string, RawMenuItem | string>
+    const items = Object.values(raw)
+      .filter((item): item is RawMenuItem => typeof item === 'object' && item !== null && Boolean(item.name))
+      .map((item) => {
+        const price = toPrice(item.price)
+        if (price && category !== 'extras') prices.push(Number(price))
+        return {
+          '@type': 'MenuItem',
+          name: item.name,
+          ...(item.desc ? { description: item.desc } : {}),
+          ...(price
+            ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR' } }
+            : {}),
+        }
+      })
+    return {
+      '@type': 'MenuSection',
+      name: t(`categories.${category}`),
+      hasMenuItem: items,
+    }
+  }).filter((section) => section.hasMenuItem.length > 0)
+
+  sections.push({
+    '@type': 'MenuSection',
+    name: tGelados('title'),
+    hasMenuItem: GELATO_SIZES.map((size) => {
+      const price = toPrice(tGelados(`sizes.${size}.price`))
+      return {
+        '@type': 'MenuItem',
+        name: `${tGelados('title')} – ${tGelados(`sizes.${size}.name`)}`,
+        description: tGelados(`sizes.${size}.description`),
+        ...(price ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR' } } : {}),
+      }
+    }),
+  })
+
+  return { sections, prices }
+}
+
+/** Intervalo de preços real da carta (sem a secção Extras), ex.: "€0.50–€29.95". */
+function priceRangeFrom(prices: number[]) {
+  if (prices.length === 0) return undefined
+  return `€${Math.min(...prices).toFixed(2)}–€${Math.max(...prices).toFixed(2)}`
+}
 
 function safeJson(data: unknown) {
   return JSON.stringify(data).replace(/</g, '\\u003c')
 }
 
-export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupProps) {
+export default async function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupProps) {
   const l = locale as Locale
   const inLanguage = inLanguageMap[l] ?? inLanguageMap.pt
   const pageUrl = localizedUrl(locale, path)
@@ -88,6 +153,8 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
   const logoId = 'https://www.milsaboresbrunch.com/#logo'
   const websiteId = 'https://www.milsaboresbrunch.com/#website'
   const webpageId = `${pageUrl}#webpage`
+  const { sections: menuSections, prices } = await buildMenuSections(locale)
+  const priceRange = priceRangeFrom(prices)
 
   const restaurant = {
     '@type': ['Restaurant', 'CafeOrCoffeeShop'],
@@ -107,9 +174,9 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
     },
     image: [
       logoUrl,
-      localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
-      localizedUrl('pt', '/images/Mil Sabores/Crepe Limon.webp'),
-      localizedUrl('pt', '/images/Mil Sabores/Copos Helado.webp'),
+      assetUrl('/images/Mil Sabores/Brunch Americano.webp'),
+      assetUrl('/images/Mil Sabores/Crepe Limon.webp'),
+      assetUrl('/images/Mil Sabores/Copos Helado.webp'),
     ],
     telephone: RESTAURANT.phoneClean,
     email: RESTAURANT.email,
@@ -144,10 +211,12 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
       '@id': `${menuUrl}#menu`,
     },
     acceptsReservations: true,
+    ...(priceRange ? { priceRange } : {}),
     sameAs: [
       RESTAURANT.social.instagram.url,
       RESTAURANT.social.tripadvisor.url,
       RESTAURANT.social.google.url,
+      RESTAURANT.social.facebook.url,
     ],
   }
 
@@ -177,7 +246,7 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
     },
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: localizedUrl('pt', '/images/Mil Sabores/Brunch Americano.webp'),
+      url: assetUrl('/images/Mil Sabores/Brunch Americano.webp'),
     },
   }
 
@@ -194,10 +263,7 @@ export default function SchemaMarkup({ locale, page, path = '' }: SchemaMarkupPr
       name: pageNames.menu[l] ?? pageNames.menu.pt,
       url: menuUrl,
       inLanguage,
-      hasMenuSection: menuSections.map((name) => ({
-        '@type': 'MenuSection',
-        name,
-      })),
+      hasMenuSection: menuSections,
       provider: {
         '@id': restaurantId,
       },
