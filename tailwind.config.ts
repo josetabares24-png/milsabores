@@ -21,7 +21,6 @@ const config: Config = {
       },
       fontFamily: {
         'quicksand': ['var(--font-quicksand)', 'system-ui', 'sans-serif'],
-        'script': ['var(--font-pacifico)', 'cursive'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

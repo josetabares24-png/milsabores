@@ -30,7 +30,7 @@ export default function CookiesPage() {
     <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center gap-4 mb-6">
-          <Logo size="xl" colorFilter="pastel" />
+          <Logo size="xl" />
           <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
             <Cookie className="text-pastel" size={20} aria-hidden="true" />
             <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">{t('label')}</span>

@@ -180,7 +180,7 @@ export default function MenuPage() {
           className="text-center mb-8"
         >
           <div className="flex flex-col items-center gap-4 mb-4">
-            <Logo size="xl" colorFilter="pastel" />
+            <Logo size="xl" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-4 py-2 rounded-full">
               <ChefHat className="text-pastel" size={18} />
               <span className="text-pastel-ink text-xs font-bold tracking-widest uppercase">Menu</span>

@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { Metadata, Viewport } from 'next'
-import { Quicksand, Pacifico } from 'next/font/google'
+import { Quicksand } from 'next/font/google'
 import { routing } from '@/i18n/routing'
 import { locales, type Locale } from '@/i18n/config'
 import Navigation from '@/components/Navigation'
@@ -18,13 +18,6 @@ const quicksand = Quicksand({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-quicksand',
-  display: 'swap',
-})
-
-const pacifico = Pacifico({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-pacifico',
   display: 'swap',
 })
 
@@ -48,7 +41,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#A8C5D9',
+  themeColor: '#FFF9F0',
 }
 
 export function generateStaticParams() {
@@ -71,7 +64,7 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${quicksand.variable} ${pacifico.variable}`}>
+    <html lang={locale} className={`${quicksand.variable}`}>
       <body className="font-quicksand">
         <NextIntlClientProvider messages={messages}>
           <Navigation />

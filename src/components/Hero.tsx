@@ -53,7 +53,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="flex justify-center mt-6"
             >
-              <Logo size="xl" showText={false} colorFilter="pastel" />
+              <Logo size="xl" />
             </motion.div>
             {/* Subtitle */}
             <p className="text-slate text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">

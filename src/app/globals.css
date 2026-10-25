@@ -13,7 +13,7 @@
 
   body {
     background-color: #FFF9F0;
-    color: #6B7280;
+    color: #5F6673;
   }
 
   html,
@@ -36,9 +36,23 @@
     line-height: 1.65;
   }
 
-  /* Script font needs more breathing room */
-  .font-script {
-    letter-spacing: 0.05em !important;
-    line-height: 1.4 !important;
+}
+
+/* Elementos de marca (carta de café: papel creme, tinta, sublinhado à mão) */
+@layer components {
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-pastel-ink;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-pastel-ink px-7 py-3 font-bold text-white transition-colors hover:bg-[#335C78] focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-800 px-7 py-[0.625rem] font-bold text-gray-800 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/50;
+  }
+  .link-ink {
+    @apply font-bold text-gray-800 underline decoration-mango decoration-2 underline-offset-4 transition-colors hover:text-pastel-ink;
+  }
+  .rule-dashed {
+    @apply border-t border-dashed border-slate/30;
   }
 }

@@ -211,7 +211,7 @@ export default function ReservationsPage() {
           className="text-center mb-16"
         >
           <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="xl" colorFilter="pastel" />
+            <Logo size="xl" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Calendar className="text-pastel" size={20} />
               <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">

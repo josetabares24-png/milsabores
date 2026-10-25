@@ -17,7 +17,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="group">
-            <Logo size="md" className="transition-transform group-hover:scale-105" />
+            <Logo size="md" priority />
           </Link>
 
           {/* Desktop Menu */}
