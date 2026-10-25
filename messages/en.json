@@ -1234,9 +1234,9 @@
         "terms": "Price per couple. Available every day."
       },
       "burger_combo": {
-        "title": "Burger + sweet potato fries",
+        "title": "Burger + fries",
         "badge": "Combo",
-        "description": "Burger served with sweet potato fries",
+        "description": "Burger served with fries",
         "price": "€10",
         "price_with_drink": "€12",
         "with_drink": "with a drink",

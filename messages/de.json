@@ -1233,9 +1233,9 @@
         "terms": "Preis pro Paar. Täglich verfügbar."
       },
       "burger_combo": {
-        "title": "Burger + Süßkartoffelpommes",
+        "title": "Burger + Pommes",
         "badge": "Combo",
-        "description": "Burger mit Süßkartoffelpommes",
+        "description": "Burger mit Pommes",
         "price": "€10",
         "price_with_drink": "€12",
         "with_drink": "mit Getränk",

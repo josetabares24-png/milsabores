@@ -1234,9 +1234,9 @@
         "terms": "Preço por casal. Disponível todos os dias."
       },
       "burger_combo": {
-        "title": "Hambúrguer + batatas doces",
+        "title": "Hambúrguer + batatas fritas",
         "badge": "Combo",
-        "description": "Hambúrguer acompanhado de batatas doces",
+        "description": "Hambúrguer acompanhado de batatas fritas",
         "price": "€10",
         "price_with_drink": "€12",
         "with_drink": "com bebida",

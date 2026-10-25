@@ -1233,9 +1233,9 @@
         "terms": "Prezzo per coppia. Disponibile tutti i giorni."
       },
       "burger_combo": {
-        "title": "Burger + patatine di patata dolce",
+        "title": "Hamburger + patatine fritte",
         "badge": "Combo",
-        "description": "Burger servito con patatine di patata dolce",
+        "description": "Hamburger servito con patatine fritte",
         "price": "€10",
         "price_with_drink": "€12",
         "with_drink": "con bevanda",

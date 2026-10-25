@@ -1233,9 +1233,9 @@
         "terms": "Prix pour deux personnes. Disponible tous les jours."
       },
       "burger_combo": {
-        "title": "Burger + frites de patate douce",
+        "title": "Burger + frites",
         "badge": "Combo",
-        "description": "Burger accompagné de frites de patate douce",
+        "description": "Burger accompagné de frites",
         "price": "€10",
         "price_with_drink": "€12",
         "with_drink": "avec boisson",
