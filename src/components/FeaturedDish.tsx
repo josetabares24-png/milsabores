@@ -10,14 +10,7 @@ export default function FeaturedDish() {
   const t = useTranslations('featuredDish')
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-slate via-slate/95 to-slate/90">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
+    <section className="relative py-20 overflow-hidden bg-cream">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -36,30 +29,30 @@ export default function FeaturedDish() {
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
               {t('title')}
             </h2>
 
-            <p className="text-white/70 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+            <p className="text-slate text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
               {t('description')}
             </p>
 
             {/* Features */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
-                <Leaf className="w-4 h-4 text-green-400" />
-                <span className="text-white/90 text-sm font-medium">{t('feature1')}</span>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate/10 rounded-full">
+                <Leaf className="w-4 h-4 text-sage" />
+                <span className="text-slate text-sm font-medium">{t('feature1')}</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate/10 rounded-full">
                 <Star className="w-4 h-4 text-pastel" fill="currentColor" />
-                <span className="text-white/90 text-sm font-medium">{t('feature2')}</span>
+                <span className="text-slate text-sm font-medium">{t('feature2')}</span>
               </div>
             </div>
 
             {/* Price & CTA */}
             <div className="flex flex-wrap items-center gap-6">
               <div>
-                <span className="text-white/60 text-sm">{t('from')}</span>
+                <span className="text-slate text-sm">{t('from')}</span>
                 <div className="text-4xl font-bold text-pastel-ink">{t('price')}</div>
               </div>
               <Link
@@ -84,7 +77,7 @@ export default function FeaturedDish() {
             <div className="absolute inset-0 bg-pastel/30 rounded-[3rem] blur-3xl transform -rotate-6" />
 
             {/* Main image container */}
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/20">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
               <Image
                 src="/images/Mil Sabores/Brunch Americano.webp"
                 alt={t('image_alt')}
