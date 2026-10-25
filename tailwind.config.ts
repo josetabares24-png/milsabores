@@ -10,11 +10,13 @@ const config: Config = {
         'pastel': '#A8C5D9',      // Azul pastel de marca (color principal)
         'pastel-dark': '#7BA3BD', // Azul más oscuro para hover
         'pastel-light': '#D4E4EE', // Azul más claro para fondos
+        'pastel-ink': '#3E6D8E',   // Mismo tono que pastel, oscuro para TEXTO (≥5:1 sobre blanco/crema, WCAG AA)
         'mango': '#F2B705',        // Amarillo (acento secundario)
         'sage': '#9FAF7F',         // Verde oliva de marca
+        'sage-ink': '#606E45',     // Mismo tono que sage, oscuro para TEXTO (≥4.9:1, WCAG AA)
         'peach': '#F5D5C8',        // Melocotón de marca
         'steel': '#7FA1C3',
-        'slate': '#6B7280',
+        'slate': '#5F6673',        // Antes #6B7280: oscurecido para ≥5.2:1 sobre crema (WCAG AA)
         'cream': '#FFF9F0',
       },
       fontFamily: {

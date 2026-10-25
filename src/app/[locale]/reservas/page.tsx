@@ -177,7 +177,7 @@ export default function ReservationsPage() {
           <h1 className="text-5xl md:text-6xl font-bold text-slate mb-6">
             {t('success.title')}
           </h1>
-          <p className="text-slate/60 text-xl mb-12">
+          <p className="text-slate text-xl mb-12">
             {t('success.message')}
           </p>
           <button
@@ -186,7 +186,7 @@ export default function ReservationsPage() {
               setShowSpecialRequests(false)
               setFormData({ name: '', email: '', phone: '', date: '', time: '', guests: '2', specialRequests: '' })
             }}
-            className="inline-block px-10 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
+            className="inline-block px-10 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
           >
             {t('success.back')}
           </button>
@@ -209,7 +209,7 @@ export default function ReservationsPage() {
             <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Calendar className="text-pastel" size={20} />
-              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
                 {t('eyebrow')}
               </span>
             </div>
@@ -217,7 +217,7 @@ export default function ReservationsPage() {
           <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
             {t('title')}
           </h1>
-          <p className="text-slate/60 text-xl max-w-2xl mx-auto">
+          <p className="text-slate text-xl max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -301,7 +301,7 @@ export default function ReservationsPage() {
                         onClick={() => handleDateChange(today)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === today
-                            ? 'bg-pastel text-white'
+                            ? 'bg-pastel text-gray-800'
                             : 'bg-slate/5 text-slate hover:bg-slate/10'
                         }`}
                       >
@@ -312,7 +312,7 @@ export default function ReservationsPage() {
                         onClick={() => handleDateChange(tomorrow)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === tomorrow
-                            ? 'bg-pastel text-white'
+                            ? 'bg-pastel text-gray-800'
                             : 'bg-slate/5 text-slate hover:bg-slate/10'
                         }`}
                       >
@@ -384,7 +384,7 @@ export default function ReservationsPage() {
                           onClick={() => updateGuests(1)}
                           disabled={guestsCount >= 20}
                           aria-label="+"
-                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel text-white hover:bg-pastel-dark disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel text-gray-800 hover:bg-pastel-dark disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                         >
                           <Plus size={18} />
                         </button>
@@ -398,7 +398,7 @@ export default function ReservationsPage() {
                       <>
                         <label htmlFor="specialRequests" className="block text-slate font-bold mb-2">
                           {t('form.special_requests')}{' '}
-                          <span className="text-slate/40 font-normal">({t('form.optional')})</span>
+                          <span className="text-slate font-normal">({t('form.optional')})</span>
                         </label>
                         <div className="relative">
                           <MessageSquare className="absolute left-5 top-5 text-slate/30" size={20} />
@@ -418,7 +418,7 @@ export default function ReservationsPage() {
                       <button
                         type="button"
                         onClick={() => setShowSpecialRequests(true)}
-                        className="text-pastel font-bold text-sm hover:underline"
+                        className="text-pastel-ink font-bold text-sm hover:underline"
                       >
                         + {t('form.special_requests')} ({t('form.optional')})
                       </button>
@@ -438,7 +438,7 @@ export default function ReservationsPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>
@@ -459,13 +459,13 @@ export default function ReservationsPage() {
               <h3 className="text-xl font-bold text-slate mb-2">
                 {t('quick_actions.title')}
               </h3>
-              <p className="text-slate/60 mb-6">
+              <p className="text-slate mb-6">
                 {t('quick_actions.subtitle')}
               </p>
               <div className="space-y-3">
                 <a
                   href="tel:+351213470214"
-                  className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
+                  className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
                 >
                   <Phone size={20} />
                   {t('quick_actions.call')}
@@ -482,11 +482,11 @@ export default function ReservationsPage() {
               <div className="space-y-4">
                 <div>
                   <h4 className="font-bold text-slate text-sm mb-1">{t('info.punctuality.title')}</h4>
-                  <p className="text-slate/70 text-sm leading-relaxed">{t('info.punctuality.text')}</p>
+                  <p className="text-slate text-sm leading-relaxed">{t('info.punctuality.text')}</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate text-sm mb-1">{t('info.seating.title')}</h4>
-                  <p className="text-slate/70 text-sm leading-relaxed">{t('info.seating.text')}</p>
+                  <p className="text-slate text-sm leading-relaxed">{t('info.seating.text')}</p>
                 </div>
               </div>
             </div>
@@ -500,7 +500,7 @@ export default function ReservationsPage() {
                 {[1, 2, 3, 4].map((num) => (
                   <li key={num} className="flex items-start gap-3">
                     <CheckCircle2 className="text-sage flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-slate/80 text-sm leading-relaxed">
+                    <span className="text-slate text-sm leading-relaxed">
                       {t(`policy.items.${num}`)}
                     </span>
                   </li>
@@ -518,13 +518,13 @@ export default function ReservationsPage() {
             <article className="rounded-2xl border-2 border-pastel/20 bg-pastel/5 p-6">
               <Clock className="text-pastel mb-4" size={28} />
               <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.hours.title')}</h3>
-              <p className="text-slate/70 text-sm">{tContact('info.hours.weekday')}</p>
-              <p className="text-slate/70 text-sm">{tContact('info.hours.weekend')}</p>
+              <p className="text-slate text-sm">{tContact('info.hours.weekday')}</p>
+              <p className="text-slate text-sm">{tContact('info.hours.weekend')}</p>
             </article>
             <article className="rounded-2xl border-2 border-sage/20 bg-sage/5 p-6">
               <MapPin className="text-sage mb-4" size={28} />
               <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.address.title')}</h3>
-              <p className="text-slate/70 text-sm">
+              <p className="text-slate text-sm">
                 {tContact('info.address.line1')}
                 <br />
                 {tContact('info.address.line2')}
@@ -533,7 +533,7 @@ export default function ReservationsPage() {
                 href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex text-sm font-bold text-sage hover:underline"
+                className="mt-4 inline-flex text-sm font-bold text-sage-ink hover:underline"
               >
                 {tContact('info.maps_cta')}
               </a>
@@ -541,10 +541,10 @@ export default function ReservationsPage() {
             <article className="rounded-2xl border-2 border-steel/20 bg-steel/5 p-6">
               <Phone className="text-steel mb-4" size={28} />
               <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.contact_info.title')}</h3>
-              <a href={`tel:${RESTAURANT.phoneClean}`} className="block text-slate/70 text-sm hover:text-steel">
+              <a href={`tel:${RESTAURANT.phoneClean}`} className="block text-slate text-sm hover:text-steel">
                 {RESTAURANT.phone}
               </a>
-              <a href={`mailto:${RESTAURANT.email}`} className="block text-slate/70 text-sm hover:text-steel">
+              <a href={`mailto:${RESTAURANT.email}`} className="block text-slate text-sm hover:text-steel">
                 {RESTAURANT.email}
               </a>
             </article>
@@ -555,7 +555,7 @@ export default function ReservationsPage() {
                 href={RESTAURANT.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-slate/70 text-sm hover:text-purple-700"
+                className="block text-slate text-sm hover:text-purple-700"
               >
                 {tContact('info.social.instagram')}
               </a>
@@ -563,7 +563,7 @@ export default function ReservationsPage() {
                 href={RESTAURANT.social.tripadvisor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-slate/70 text-sm hover:text-purple-700"
+                className="mt-2 inline-flex items-center gap-1 text-slate text-sm hover:text-purple-700"
               >
                 <Star size={14} />
                 {tContact('info.social.tripadvisor')}
@@ -578,10 +578,10 @@ export default function ReservationsPage() {
               <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold text-slate mb-4">
                 {tContact('title')}
               </h2>
-              <p className="text-slate/70 leading-relaxed">
+              <p className="text-slate leading-relaxed">
                 {tContact('subtitle')}
               </p>
-              <div className="mt-6 space-y-3 text-sm text-slate/70">
+              <div className="mt-6 space-y-3 text-sm text-slate">
                 <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-steel">
                   <Phone size={18} />
                   {RESTAURANT.phone}
@@ -597,7 +597,7 @@ export default function ReservationsPage() {
                 <div className="text-center py-8">
                   <CheckCircle2 className="mx-auto mb-4 text-sage" size={44} />
                   <h3 className="text-2xl font-bold text-slate mb-3">{tContact('success.title')}</h3>
-                  <p className="text-slate/70">{tContact('success.message')}</p>
+                  <p className="text-slate">{tContact('success.message')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="space-y-5">
@@ -655,7 +655,7 @@ export default function ReservationsPage() {
                   <button
                     type="submit"
                     disabled={isContactSubmitting}
-                    className="w-full px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-all shadow-xl shadow-pastel/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-all shadow-xl shadow-pastel/30 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isContactSubmitting ? tContact('form.submitting') : tContact('form.submit')}
                   </button>
@@ -687,7 +687,7 @@ export default function ReservationsPage() {
                 <h3 className="text-xl font-bold text-slate mb-3">
                   {t(`faq.items.${num}.q`)}
                 </h3>
-                <p className="text-slate/70 leading-relaxed">
+                <p className="text-slate leading-relaxed">
                   {t(`faq.items.${num}.a`)}
                 </p>
               </motion.div>

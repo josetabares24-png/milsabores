@@ -63,7 +63,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Home size={20} />
             {t('common.404.home', { default: 'Voltar ao Início' })}
@@ -71,7 +71,7 @@ export default function NotFound() {
 
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel-ink border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
           >
             <MenuIcon size={20} />
             {t('common.404.menu', { default: 'Ver Menu' })}

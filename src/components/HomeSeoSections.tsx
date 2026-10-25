@@ -14,7 +14,7 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
     return (
       <section className="px-6 py-16 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-lg md:text-xl leading-relaxed text-slate/70">
+          <p className="text-lg md:text-xl leading-relaxed text-slate">
             {t('intro')}
           </p>
         </div>
@@ -27,7 +27,7 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
       <section className="px-6 py-20 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-3xl">
-            <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+            <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
               {t('brunch.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate mt-4 mb-6">
@@ -35,18 +35,18 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
             </h2>
           </div>
           <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] items-start">
-            <div className="space-y-5 text-slate/70 text-lg leading-relaxed">
+            <div className="space-y-5 text-slate text-lg leading-relaxed">
               <p>{t('brunch.p1')}</p>
               <p>{t('brunch.p2')}</p>
               <p>{t('brunch.p3')}</p>
             </div>
             <div className="bg-cream border-2 border-pastel/20 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-slate mb-4">{t('location.title')}</h3>
-              <p className="text-slate/70 leading-relaxed mb-5">{t('location.text')}</p>
+              <p className="text-slate leading-relaxed mb-5">{t('location.text')}</p>
               <div className="flex flex-col gap-3">
                 <Link
                   href="/menu"
-                  className="inline-flex justify-center px-6 py-3 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-colors"
+                  className="inline-flex justify-center px-6 py-3 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors"
                 >
                   {t('ctas.menu')}
                 </Link>
@@ -72,7 +72,7 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
     <section className="px-6 py-20 bg-cream">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
             {t('faq.eyebrow')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate mt-4">
@@ -83,7 +83,7 @@ export default async function HomeSeoSections({ variant }: HomeSeoSectionsProps)
           {faqItems.map((item) => (
             <article key={item} className="bg-white rounded-2xl p-6 border-2 border-slate/10">
               <h3 className="text-lg font-bold text-slate mb-2">{t(`faq.items.${item}.q`)}</h3>
-              <p className="text-slate/70 leading-relaxed">{t(`faq.items.${item}.a`)}</p>
+              <p className="text-slate leading-relaxed">{t(`faq.items.${item}.a`)}</p>
             </article>
           ))}
         </div>

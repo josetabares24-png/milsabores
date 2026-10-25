@@ -54,13 +54,13 @@ export default function MenuSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
             {t('title')}
           </h2>
-          <p className="text-slate/60 text-lg max-w-2xl mx-auto">
+          <p className="text-slate text-lg max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ export default function MenuSection() {
 
                 {/* Price Badge */}
                 <div className="absolute top-4 right-4 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
-                  <span className="text-pastel font-bold text-lg">{item.price}</span>
+                  <span className="text-pastel-ink font-bold text-lg">{item.price}</span>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function MenuSection() {
                 <h3 className="text-xl font-bold text-slate mb-2">
                   {t(`items.${item.key}.name`)}
                 </h3>
-                <p className="text-slate/60 text-sm leading-relaxed">
+                <p className="text-slate text-sm leading-relaxed">
                   {t(`items.${item.key}.desc`)}
                 </p>
               </div>
@@ -128,7 +128,7 @@ export default function MenuSection() {
         >
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-pastel/40 hover:scale-105"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-pastel/40 hover:scale-105"
           >
             {t('view_full')}
           </Link>

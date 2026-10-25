@@ -18,7 +18,7 @@ export default function CookiesPage() {
             <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <Cookie className="text-pastel" size={20} />
-              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
                 Legal
               </span>
             </div>
@@ -27,8 +27,8 @@ export default function CookiesPage() {
             Política de Cookies
           </h1>
 
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border-2 border-slate/10 space-y-8 text-slate/80 leading-relaxed">
-            <p className="text-sm text-slate/50">Última actualización: febrero 2026</p>
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border-2 border-slate/10 space-y-8 text-slate leading-relaxed">
+            <p className="text-sm text-slate">Última actualización: febrero 2026</p>
 
             <section>
               <h2 className="text-2xl font-bold text-slate mb-4">1. ¿Qué son las Cookies?</h2>
@@ -100,13 +100,13 @@ export default function CookiesPage() {
               <h2 className="text-2xl font-bold text-slate mb-4">5. Más Información</h2>
               <p>
                 Para más información sobre cómo tratamos tus datos personales, consulta nuestra{' '}
-                <Link href="/privacidad" className="text-pastel font-bold hover:underline">
+                <Link href="/privacidad" className="text-pastel-ink font-bold hover:underline">
                   Política de Privacidad
                 </Link>.
               </p>
               <p className="mt-3">
                 Si tienes preguntas, contacta con nosotros en{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel font-bold hover:underline">
+                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel-ink font-bold hover:underline">
                   milsaboreslx@gmail.com
                 </a>.
               </p>

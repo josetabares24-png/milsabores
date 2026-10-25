@@ -79,7 +79,7 @@ export default function Error({
         >
           <button
             onClick={reset}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <RotateCcw size={20} />
             {t('error.retry', { default: 'Tentar Novamente' })}
@@ -87,7 +87,7 @@ export default function Error({
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel-ink border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
           >
             <Home size={20} />
             {t('error.home', { default: 'Voltar ao Início' })}
@@ -105,7 +105,7 @@ export default function Error({
             {t('error.support', { default: 'Se o problema persistir, entre em contacto connosco:' })}{' '}
             <a
               href="mailto:milsaboreslx@gmail.com"
-              className="text-pastel hover:underline font-semibold"
+              className="text-pastel-ink hover:underline font-semibold"
             >
               milsaboreslx@gmail.com
             </a>

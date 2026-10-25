@@ -178,7 +178,7 @@ export default function MenuPage() {
     return (
       <div className="flex flex-wrap gap-2">
         {tags.includes('vegetarian') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage text-xs font-bold rounded-lg border border-sage/30" title={t('filters.vegetarian')}>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage-ink text-xs font-bold rounded-lg border border-sage/30" title={t('filters.vegetarian')}>
             <Leaf size={12} /> V
           </span>
         )}
@@ -209,24 +209,24 @@ export default function MenuPage() {
             <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-4 py-2 rounded-full">
               <ChefHat className="text-pastel" size={18} />
-              <span className="text-pastel text-xs font-bold tracking-widest uppercase">Menu</span>
+              <span className="text-pastel-ink text-xs font-bold tracking-widest uppercase">Menu</span>
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate mb-4">{t('title')}</h1>
-          <p className="text-slate/70 text-lg max-w-2xl mx-auto mb-4 italic">{t('subtitle')}</p>
-          <p className="text-slate/60 text-base max-w-3xl mx-auto leading-relaxed">{t('intro')}</p>
+          <p className="text-slate text-lg max-w-2xl mx-auto mb-4 italic">{t('subtitle')}</p>
+          <p className="text-slate text-base max-w-3xl mx-auto leading-relaxed">{t('intro')}</p>
         </motion.header>
 
         <section aria-label="Informação prática" className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
-          <div className="flex items-center gap-2 text-slate/70">
+          <div className="flex items-center gap-2 text-slate">
             <Clock size={16} className="text-pastel" />
             <span>{t('info_hours')}</span>
           </div>
-          <div className="flex items-center gap-2 text-slate/70">
+          <div className="flex items-center gap-2 text-slate">
             <MapPin size={16} className="text-sage" />
             <span>Rua da Prata 152, Baixa</span>
           </div>
-          <div className="flex items-center gap-2 text-slate/70">
+          <div className="flex items-center gap-2 text-slate">
             <Phone size={16} className="text-steel" />
             <span>+351 21 347 0214</span>
           </div>
@@ -254,7 +254,7 @@ export default function MenuPage() {
         </nav>
 
         <section aria-labelledby="dietary-filters" className="mb-10">
-          <h2 id="dietary-filters" className="text-sm font-bold text-slate/60 uppercase tracking-wider mb-3 text-center">
+          <h2 id="dietary-filters" className="text-sm font-bold text-slate uppercase tracking-wider mb-3 text-center">
             {t('dietary_title')}
           </h2>
           <div className="flex flex-wrap justify-center gap-2">
@@ -264,7 +264,7 @@ export default function MenuPage() {
                 type="button"
                 onClick={() => setActiveFilter(filter)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                  activeFilter === filter ? 'bg-pastel text-white shadow-md' : 'bg-slate/5 text-slate hover:bg-pastel/10'
+                  activeFilter === filter ? 'bg-pastel text-gray-800 shadow-md' : 'bg-slate/5 text-slate hover:bg-pastel/10'
                 }`}
               >
                 {filter === 'all' ? t('filters.all') : t(`filters.${filter}`)}
@@ -305,7 +305,7 @@ export default function MenuPage() {
                     <h2 id={`heading-${category}`} className="text-2xl font-bold text-slate md:text-3xl">
                       {t(`categories.${category}`)}
                     </h2>
-                    <span className="text-sm font-medium text-slate/50">
+                    <span className="text-sm font-medium text-slate">
                       {filteredItems.length} {t('items_count')}
                     </span>
                   </span>
@@ -328,12 +328,12 @@ export default function MenuPage() {
                     >
                       <div className="border-t border-slate/10 px-5 pb-5 pt-4">
                         {category === 'brunch' && (
-                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
+                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate">
                             {t('brunch.customization_note')}
                           </p>
                         )}
                         {category === 'dulces' && (
-                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate/80">
+                          <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate">
                             {t('dulces.note')}
                           </p>
                         )}
@@ -371,13 +371,13 @@ export default function MenuPage() {
                                       {getDietaryBadges(category, itemKey)}
                                     </div>
                                     {item.desc && (
-                                      <p className="text-sm leading-relaxed text-slate/60">
+                                      <p className="text-sm leading-relaxed text-slate">
                                         {t(`${category}.${itemKey}.desc`)}
                                       </p>
                                     )}
                                   </div>
                                   {item.price && (
-                                    <span className="shrink-0 whitespace-nowrap text-lg font-bold text-pastel">
+                                    <span className="shrink-0 whitespace-nowrap text-lg font-bold text-pastel-ink">
                                       €{item.price}
                                     </span>
                                   )}
@@ -398,7 +398,7 @@ export default function MenuPage() {
         <section id="gelados" className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-cream p-5 md:p-8" aria-labelledby="gelados-heading">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-pastel">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-pastel-ink">
                 <IceCream size={18} />
                 {tGelados('eyebrow')}
               </div>
@@ -418,8 +418,8 @@ export default function MenuPage() {
                 {(['single', 'double', 'triple'] as const).map((size) => (
                   <article key={size} className="rounded-2xl bg-white p-4 text-center shadow-sm">
                     <h3 className="font-bold text-slate">{tGelados(`sizes.${size}.name`)}</h3>
-                    <p className="text-xs text-slate/60">{tGelados(`sizes.${size}.description`)}</p>
-                    <p className="mt-2 text-2xl font-bold text-pastel">{tGelados(`sizes.${size}.price`)}</p>
+                    <p className="text-xs text-slate">{tGelados(`sizes.${size}.description`)}</p>
+                    <p className="mt-2 text-2xl font-bold text-pastel-ink">{tGelados(`sizes.${size}.price`)}</p>
                   </article>
                 ))}
               </div>
@@ -430,7 +430,7 @@ export default function MenuPage() {
                 {gelatoFlavors.map((flavor) => (
                   <article key={flavor} className="rounded-2xl border-2 border-white bg-white p-4 text-center shadow-sm">
                     <h4 className="font-bold text-slate">{tGelados(`flavors.items.${flavor}.name`)}</h4>
-                    <p className="mt-1 text-xs text-slate/60">{tGelados(`flavors.items.${flavor}.description`)}</p>
+                    <p className="mt-1 text-xs text-slate">{tGelados(`flavors.items.${flavor}.description`)}</p>
                     {veganGelatoFlavors.includes(flavor) && (
                       <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
                         <Leaf size={10} />
@@ -440,7 +440,7 @@ export default function MenuPage() {
                   </article>
                 ))}
               </div>
-              <p className="mt-5 text-center text-sm italic text-slate/50">{tGelados('flavors.note')}</p>
+              <p className="mt-5 text-center text-sm italic text-slate">{tGelados('flavors.note')}</p>
             </div>
           </div>
         </section>
@@ -517,19 +517,19 @@ export default function MenuPage() {
         </section>
 
         <section className="mt-12 rounded-2xl border-2 border-slate/10 bg-slate/5 p-6">
-          <h2 className="mb-5 text-sm font-bold uppercase tracking-wider text-slate/60">{t('legend_title')}</h2>
+          <h2 className="mb-5 text-sm font-bold uppercase tracking-wider text-slate">{t('legend_title')}</h2>
           <div className="grid grid-cols-1 gap-4 text-sm sm:grid-cols-3">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1 rounded-lg border border-sage/30 bg-sage/20 px-2.5 py-1 text-xs font-bold text-sage"><Leaf size={12} /> V</span>
-              <span className="font-medium text-slate/70">{t('filters.vegetarian')}</span>
+              <span className="inline-flex items-center gap-1 rounded-lg border border-sage/30 bg-sage/20 px-2.5 py-1 text-xs font-bold text-sage-ink"><Leaf size={12} /> V</span>
+              <span className="font-medium text-slate">{t('filters.vegetarian')}</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center rounded-lg border border-green-200 bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700">VG</span>
-              <span className="font-medium text-slate/70">{t('filters.vegan')}</span>
+              <span className="font-medium text-slate">{t('filters.vegan')}</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 rounded-lg border border-amber-200 bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-700"><Wheat size={12} /> GF</span>
-              <span className="font-medium text-slate/70">{t('filters.glutenFree')}</span>
+              <span className="font-medium text-slate">{t('filters.glutenFree')}</span>
             </div>
           </div>
         </section>
@@ -539,14 +539,14 @@ export default function MenuPage() {
             <Link href="/brunch-lisboa" className="rounded-full border-2 border-pastel/30 bg-white px-8 py-3 font-bold text-slate transition-all hover:bg-pastel hover:text-white">
               {t('brunch_landing_cta')}
             </Link>
-            <Link href="/reservas" className="rounded-full bg-pastel px-8 py-3 font-bold text-white transition-all hover:bg-pastel-dark">
+            <Link href="/reservas" className="rounded-full bg-pastel px-8 py-3 font-bold text-gray-800 transition-all hover:bg-pastel-dark">
               {t('reserve_cta')}
             </Link>
             <a href="tel:+351213470214" className="rounded-full border-2 border-slate/10 bg-white px-8 py-3 font-bold text-slate transition-all hover:border-pastel hover:bg-slate/5">
               {t('call_cta')}
             </a>
           </div>
-          <p className="mt-4 text-xs italic text-slate/50">{t('allergy_note')}</p>
+          <p className="mt-4 text-xs italic text-slate">{t('allergy_note')}</p>
         </section>
       </div>
     </main>

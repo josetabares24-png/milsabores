@@ -47,11 +47,11 @@ export default function CookieConsent() {
             <p className="flex-1 text-xs leading-snug text-slate sm:text-sm">
               <span className="sr-only">{t('title')}. </span>
               {t('text')}{' '}
-              <Link href="/cookies" className="font-semibold text-sky-800 underline underline-offset-2">
+              <Link href="/cookies" className="font-semibold text-pastel-ink underline underline-offset-2">
                 {t('cookies')}
               </Link>{' '}
               {t('and')}{' '}
-              <Link href="/privacidad" className="font-semibold text-sky-800 underline underline-offset-2">
+              <Link href="/privacidad" className="font-semibold text-pastel-ink underline underline-offset-2">
                 {t('privacy')}
               </Link>.
             </p>
@@ -66,7 +66,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={acceptCookies}
-                className="rounded-full bg-sky-800 px-4 py-2 text-sm font-bold text-white hover:bg-sky-900"
+                className="rounded-full bg-pastel-ink px-4 py-2 text-sm font-bold text-white hover:opacity-90"
               >
                 {t('accept')}
               </button>

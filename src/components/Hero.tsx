@@ -39,10 +39,10 @@ export default function Hero() {
             {/* SEO-friendly H1 with visual styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl text-pastel font-bold tracking-wide drop-shadow-sm mt-2">
+              <span className="block text-xl md:text-2xl lg:text-3xl text-pastel-ink font-bold tracking-wide drop-shadow-sm mt-2">
                 {t('tagline')}
               </span>
-              <span className="block text-sm md:text-base text-slate/50 font-medium tracking-[0.3em] uppercase mt-4">
+              <span className="block text-sm md:text-base text-slate font-medium tracking-[0.3em] uppercase mt-4">
                 {t('city')}
               </span>
             </h1>
@@ -56,7 +56,7 @@ export default function Hero() {
               <Logo size="xl" showText={false} colorFilter="pastel" />
             </motion.div>
             {/* Subtitle */}
-            <p className="text-slate/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-slate text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               {t('subtitle')}
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function Hero() {
           >
             <Link
               href="/menu"
-              className="group relative px-10 py-5 bg-pastel text-white font-bold rounded-full shadow-xl shadow-pastel/40 hover:bg-pastel-dark hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
+              className="group relative px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full shadow-xl shadow-pastel/40 hover:bg-pastel-dark hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
             >
               <span className="relative z-10">{t('cta_menu')}</span>
               <ArrowRight size={22} className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -90,7 +90,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-6 pt-12 text-slate/70 text-base font-medium"
+            className="flex flex-wrap justify-center gap-6 pt-12 text-slate text-base font-medium"
           >
             <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
               <Clock className="text-pastel" size={20} />
@@ -116,7 +116,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-slate/40 text-xs uppercase tracking-wider font-semibold">{t('scroll')}</span>
+          <span className="text-slate text-xs uppercase tracking-wider font-semibold">{t('scroll')}</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
