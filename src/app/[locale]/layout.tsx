@@ -10,6 +10,8 @@ import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import FloatingActionButton from '@/components/FloatingActionButton'
 import CookieConsent from '@/components/CookieConsent'
+import AnalyticsEvents from '@/components/AnalyticsEvents'
+import { Analytics } from '@vercel/analytics/next'
 import '../globals.css'
 
 const quicksand = Quicksand({
@@ -78,6 +80,8 @@ export default async function LocaleLayout({
           <BackToTop />
           <FloatingActionButton />
           <CookieConsent />
+          <AnalyticsEvents />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

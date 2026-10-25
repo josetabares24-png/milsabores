@@ -7,6 +7,7 @@ import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare,
 import Logo from '@/components/Logo'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
+import { track } from '@vercel/analytics'
 
 function generateTimeSlots(open: string, close: string, stepMinutes = 30): string[] {
   const toMinutes = (value: string) => {
@@ -114,6 +115,7 @@ export default function ReservationsPage() {
         throw new Error(data.error || 'No se pudo procesar la reserva.')
       }
 
+      track('reservation_submitted', { guests: formData.guests })
       setIsSubmitted(true)
     } catch (err) {
       console.error('Error submitting reservation:', err)
