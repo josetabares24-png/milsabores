@@ -181,7 +181,7 @@ export default async function SchemaMarkup({ locale, page, path = '' }: SchemaMa
   const priceRange = priceRangeFrom(prices)
 
   const restaurant = {
-    '@type': ['Restaurant', 'CafeOrCoffeeShop'],
+    '@type': ['Restaurant', 'CafeOrCoffeeShop', 'IceCreamShop'],
     '@id': restaurantId,
     name: 'Mil Sabores Lisboa',
     alternateName: 'Mil Sabores',
@@ -230,7 +230,8 @@ export default async function SchemaMarkup({ locale, page, path = '' }: SchemaMa
         closes: '20:00',
       },
     ],
-    servesCuisine: ['Brunch', 'Coffee', 'Gelato', 'International'],
+    servesCuisine: ['Brunch', 'Breakfast', 'Coffee', 'Burgers', 'Gelato', 'International'],
+    hasMap: RESTAURANT.social.google.url,
     hasMenu: {
       '@id': `${menuUrl}#menu`,
     },
@@ -279,6 +280,23 @@ export default async function SchemaMarkup({ locale, page, path = '' }: SchemaMa
   }
 
   const graph: unknown[] = [restaurant, website, webpage]
+
+  // FAQ visível na própria página (home e /brunch-lisboa): mesmo texto, sem acrescentar nada.
+  const faqSource = page === 'home' ? 'homeSeo.faq' : page === 'brunch' ? 'brunchLanding.faq' : null
+  if (faqSource) {
+    const tFaq = await getTranslations({ locale, namespace: faqSource })
+    const items = Object.keys((tFaq.raw('items') ?? {}) as Record<string, unknown>)
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      inLanguage,
+      mainEntity: items.map((key) => ({
+        '@type': 'Question',
+        name: tFaq(`items.${key}.q`),
+        acceptedAnswer: { '@type': 'Answer', text: tFaq(`items.${key}.a`) },
+      })),
+    })
+  }
 
   if (page === 'menu') {
     graph.push({
