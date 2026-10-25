@@ -10,7 +10,7 @@ export default function FeaturedDish() {
   const t = useTranslations('featuredDish')
 
   return (
-    <section className="relative py-20 overflow-hidden bg-cream">
+    <section className="relative py-20 overflow-hidden bg-pastel-light/50">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -22,7 +22,7 @@ export default function FeaturedDish() {
             className="order-2 lg:order-1"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-pastel/20 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-pastel" />
               <span className="text-pastel-ink font-bold text-sm uppercase tracking-wider">
                 {t('badge')}
