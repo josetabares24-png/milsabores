@@ -1199,6 +1199,7 @@
     "subtitle": "Aprovecha nuestras ofertas exclusivas de 13:00 a 18:00",
     "time_badge": "13:00 - 18:00",
     "time_note": "Ofertas válidas todos los días de 13:00 a 18:00",
+    "every_day": "Todos los días",
     "limited": "Tiempo Limitado",
     "new": "Nuevo",
     "popular": "Popular",
@@ -1208,7 +1209,7 @@
     "valid_until": "Válido hasta",
     "offers": {
       "beer_promo": {
-        "title": "Cerveza €1.50",
+        "title": "Cerveza de barril",
         "badge": "Promo",
         "description": "Refresca tu tarde",
         "price": "€1.50",
@@ -1216,7 +1217,7 @@
         "terms": "Cerveza de barril. De 13:00 a 18:00 todos los días."
       },
       "cocktails": {
-        "title": "Cocktails €5",
+        "title": "Cócteles",
         "badge": "Especial",
         "description": "Aperol · Cuba Libre · Gin Tonic",
         "price": "€5.00",
@@ -1228,49 +1229,9 @@
         "badge": "Brunch",
         "description": "La experiencia completa",
         "price": "€29.95",
+        "unit": "por pareja",
         "details": "2 mini tostadas de aguacate, 2 de banana con mantequilla de cacahuete, huevos revueltos, champiñones, 2 mini pancakes, 2 ensaladas de fruta, 2 yogures con granola, 2 zumos y 2 cafés.",
         "terms": "Precio por pareja. Disponible todos los días."
-      },
-      "instagram": {
-        "title": "Foto Instagram",
-        "badge": "Gratis",
-        "description": "Comparte y gana",
-        "discount": "CAFÉ GRATIS",
-        "details": "Sube una foto de tu plato a Instagram mencionando @milsaboreslx y te regalamos un café espresso o té.",
-        "terms": "Mostrar publicación al camarero. Cuenta pública. Un café por mesa."
-      }
-    },
-    "weekly": {
-      "title": "Nuestras Ofertas",
-      "monday": {
-        "day": "Cerveza",
-        "offer": "€1.50",
-        "desc": "Todos los días"
-      },
-      "tuesday": {
-        "day": "Cocktails",
-        "offer": "€5.00",
-        "desc": "Aperol, Cuba Libre, Gin Tonic"
-      },
-      "wednesday": {
-        "day": "Brunch Duo",
-        "offer": "€29.95",
-        "desc": "La experiencia completa para dos"
-      },
-      "thursday": {
-        "day": "Instagram",
-        "offer": "Café Gratis",
-        "desc": "Comparte tu foto @milsaboreslx"
-      },
-      "friday": {
-        "day": "WiFi",
-        "offer": "Gratis",
-        "desc": "Trabaja mientras disfrutas"
-      },
-      "weekend": {
-        "day": "Gelato",
-        "offer": "Artesanal",
-        "desc": "8 sabores únicos"
       }
     },
     "newsletter": {

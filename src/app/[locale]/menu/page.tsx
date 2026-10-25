@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import {
   Beer,
-  Camera,
+  CalendarDays,
   ChefHat,
   ChevronDown,
   Clock,
@@ -138,11 +138,31 @@ const gelatoFlavors = ['acai', 'mango', 'pistacho', 'fresa', 'oreo', 'vainilla',
 const veganGelatoFlavors = ['acai', 'mango', 'fresa']
 
 const promotions = [
-  { key: 'beer_promo', icon: Beer, color: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200', showPrice: true },
-  { key: 'cocktails', icon: Wine, color: 'text-rose-600', bg: 'bg-rose-50', border: 'border-rose-200', showPrice: true },
-  { key: 'brunch_duo', icon: Users, color: 'text-pastel', bg: 'bg-pastel/10', border: 'border-pastel/30', showPrice: true },
-  { key: 'instagram', icon: Camera, color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', showPrice: false },
-]
+  {
+    key: 'beer_promo',
+    icon: Beer,
+    schedule: 'time',
+    accent: 'bg-amber-400',
+    iconWrap: 'bg-amber-50 text-amber-600 ring-amber-200',
+    badge: 'bg-amber-100 text-amber-800',
+  },
+  {
+    key: 'cocktails',
+    icon: Wine,
+    schedule: 'time',
+    accent: 'bg-rose-400',
+    iconWrap: 'bg-rose-50 text-rose-600 ring-rose-200',
+    badge: 'bg-rose-100 text-rose-800',
+  },
+  {
+    key: 'brunch_duo',
+    icon: Users,
+    schedule: 'daily',
+    accent: 'bg-pastel',
+    iconWrap: 'bg-pastel-light/60 text-sky-700 ring-pastel/40',
+    badge: 'bg-pastel-light text-sky-900',
+  },
+] as const
 
 export default function MenuPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'vegetarian' | 'vegan' | 'glutenFree'>('all')
@@ -449,35 +469,76 @@ export default function MenuPage() {
           </div>
         </section>
 
-        <section id="promocoes" className="scroll-mt-32 mt-10 rounded-3xl border-2 border-slate/10 bg-white p-5 md:p-8" aria-labelledby="promocoes-heading">
-          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <section
+          id="promocoes"
+          className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-gradient-to-b from-cream to-white p-5 md:p-8"
+          aria-labelledby="promocoes-heading"
+        >
+          <div className="mb-8">
             <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-pastel">
-                <Gift size={18} />
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-sky-800">
+                <Gift size={18} aria-hidden="true" />
                 {tPromotions('eyebrow')}
               </div>
-              <h2 id="promocoes-heading" className="text-3xl font-bold text-slate md:text-4xl">
+              <h2 id="promocoes-heading" className="text-3xl font-bold text-gray-800 md:text-4xl">
                 {tPromotions('title')}
               </h2>
             </div>
-            <p className="text-sm font-medium text-slate/60">{tPromotions('time_note')}</p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-5 md:grid-cols-3" role="list">
             {promotions.map((promotion) => {
               const Icon = promotion.icon
+              const isTimed = promotion.schedule === 'time'
+              const ScheduleIcon = isTimed ? Clock : CalendarDays
               return (
-                <article key={promotion.key} className={`rounded-2xl border-2 ${promotion.border} ${promotion.bg} p-5`}>
-                  <Icon className={promotion.color} size={28} />
-                  <h3 className="mt-4 text-lg font-bold text-slate">{tPromotions(`offers.${promotion.key}.title`)}</h3>
-                  <p className="mt-1 text-sm text-slate/60">{tPromotions(`offers.${promotion.key}.description`)}</p>
-                  <p className="mt-3 text-2xl font-bold text-pastel">
-                    {promotion.showPrice ? tPromotions(`offers.${promotion.key}.price`) : tPromotions(`offers.${promotion.key}.discount`)}
-                  </p>
-                  <p className="mt-3 text-xs leading-relaxed text-slate/60">{tPromotions(`offers.${promotion.key}.terms`)}</p>
-                </article>
+                <li key={promotion.key} className="h-full">
+                  <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate/10 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
+                    <span className={`absolute inset-x-0 top-0 h-1.5 ${promotion.accent}`} aria-hidden="true" />
+                    <div className="flex items-start justify-between gap-3">
+                      <span className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ring-1 ${promotion.iconWrap}`}>
+                        <Icon size={24} aria-hidden="true" />
+                      </span>
+                      <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${promotion.badge}`}>
+                        {tPromotions(`offers.${promotion.key}.badge`)}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-xl font-bold text-gray-800">{tPromotions(`offers.${promotion.key}.title`)}</h3>
+                    <p className="mt-1 text-sm text-gray-600">{tPromotions(`offers.${promotion.key}.description`)}</p>
+                    <p className="mt-5 flex items-baseline gap-2">
+                      <span className="text-4xl font-bold tracking-tight text-gray-900">
+                        {tPromotions(`offers.${promotion.key}.price`)}
+                      </span>
+                      {promotion.key === 'brunch_duo' && (
+                        <span className="text-sm font-medium text-gray-600">{tPromotions('offers.brunch_duo.unit')}</span>
+                      )}
+                    </p>
+                    <div className="mt-4">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-sm font-semibold text-gray-700">
+                        <ScheduleIcon size={16} aria-hidden="true" />
+                        {isTimed ? (
+                          <>
+                            <span>{tPromotions('time_badge')}</span>
+                            <span aria-hidden="true">·</span>
+                            <span>{tPromotions('every_day')}</span>
+                          </>
+                        ) : (
+                          <span>{tPromotions('every_day')}</span>
+                        )}
+                      </span>
+                    </div>
+                    {promotion.key === 'brunch_duo' && (
+                      <p className="mt-4 text-sm leading-relaxed text-gray-600">{tPromotions('offers.brunch_duo.details')}</p>
+                    )}
+                    <div className="mt-auto pt-5">
+                      <p className="border-t border-slate/10 pt-4 text-xs leading-relaxed text-gray-500">
+                        {tPromotions(`offers.${promotion.key}.terms`)}
+                      </p>
+                    </div>
+                  </article>
+                </li>
               )
             })}
-          </div>
+          </ul>
         </section>
 
         <section className="mt-12 rounded-2xl border-2 border-slate/10 bg-slate/5 p-6">

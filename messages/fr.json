@@ -1198,6 +1198,7 @@
     "subtitle": "Profitez de nos offres exclusives de 13h00 à 18h00",
     "time_badge": "13h00 - 18h00",
     "time_note": "Offres valables tous les jours de 13h00 à 18h00",
+    "every_day": "Tous les jours",
     "limited": "Durée Limitée",
     "new": "Nouveau",
     "popular": "Populaire",
@@ -1207,7 +1208,7 @@
     "valid_until": "Valable jusqu'au",
     "offers": {
       "beer_promo": {
-        "title": "Bière à €1.50",
+        "title": "Bière pression",
         "badge": "Promo",
         "description": "Rafraîchissez votre après-midi",
         "price": "€1.50",
@@ -1215,7 +1216,7 @@
         "terms": "Bière à la pression. De 13h00 à 18h00 tous les jours."
       },
       "cocktails": {
-        "title": "Cocktails à €5",
+        "title": "Cocktails",
         "badge": "Spécial",
         "description": "Aperol · Cuba Libre · Gin Tonic",
         "price": "€5.00",
@@ -1227,49 +1228,9 @@
         "badge": "Brunch",
         "description": "L'expérience complète",
         "price": "€29.95",
+        "unit": "pour deux",
         "details": "2 mini toasts à l'avocat, 2 mini toasts banane et beurre de cacahuète, œufs brouillés, champignons, 2 mini pancakes, 2 salades de fruits, 2 yaourts au granola, 2 jus et 2 cafés.",
         "terms": "Prix pour deux personnes. Disponible tous les jours."
-      },
-      "instagram": {
-        "title": "Photo Instagram",
-        "badge": "Gratuit",
-        "description": "Partagez et gagnez",
-        "discount": "CAFÉ GRATUIT",
-        "details": "Publiez une photo de votre plat sur Instagram en mentionnant @milsaboreslx et nous vous offrons un espresso ou un thé.",
-        "terms": "Montrez la publication au serveur. Compte public. Un café offert par table."
-      }
-    },
-    "weekly": {
-      "title": "Nos Offres",
-      "monday": {
-        "day": "Bière",
-        "offer": "€1.50",
-        "desc": "Tous les jours"
-      },
-      "tuesday": {
-        "day": "Cocktails",
-        "offer": "€5.00",
-        "desc": "Aperol, Cuba Libre, Gin Tonic"
-      },
-      "wednesday": {
-        "day": "Brunch Duo",
-        "offer": "€29.95",
-        "desc": "L'expérience complète pour deux"
-      },
-      "thursday": {
-        "day": "Instagram",
-        "offer": "Café Gratuit",
-        "desc": "Partagez votre photo @milsaboreslx"
-      },
-      "friday": {
-        "day": "WiFi",
-        "offer": "Gratuit",
-        "desc": "Travaillez tout en profitant"
-      },
-      "weekend": {
-        "day": "Gelato",
-        "offer": "Artisanal",
-        "desc": "8 parfums uniques"
       }
     },
     "newsletter": {
