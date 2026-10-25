@@ -1,95 +1,47 @@
-'use client'
-
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
-import { motion } from 'framer-motion'
-import { CakeSlice, Coffee, Home, IceCream, Menu as MenuIcon, Utensils } from 'lucide-react'
+import { Home, Menu as MenuIcon, Phone } from 'lucide-react'
+import { RESTAURANT } from '@/config/restaurant'
 
 export default function NotFound() {
-  const t = useTranslations()
+  const t = useTranslations('common.404')
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-peach/20 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-2xl"
-      >
-        {/* 404 Number */}
-        <motion.div
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8"
-        >
-          <h1 className="text-[150px] md:text-[200px] font-bold text-pastel/20 leading-none">
-            404
-          </h1>
-        </motion.div>
+    <div className="flex min-h-[70vh] items-center justify-center bg-cream px-6 pb-20 pt-36">
+      {/* React 19 eleva <title>/<meta> para o <head> */}
+      <title>{`${t('title')} | Mil Sabores Lisboa`}</title>
+      <meta name="robots" content="noindex" />
+      <div className="max-w-xl text-center">
+        <p className="text-sm font-bold uppercase tracking-widest text-pastel-ink">404</p>
+        <h1 className="mt-2 text-3xl font-bold text-gray-800 md:text-4xl">{t('title')}</h1>
+        <p className="mt-4 text-lg text-slate">{t('message')}</p>
 
-        {/* Icon */}
-        <motion.div
-          initial={{ rotate: -10 }}
-          animate={{ rotate: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-6"
-        >
-          <Utensils className="text-pastel mx-auto" size={88} />
-        </motion.div>
-
-        {/* Text */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            {t('common.404.title', { default: 'Oops! Página Não Encontrada' })}
-          </h2>
-          <p className="text-lg text-slate-600 mb-8 max-w-md mx-auto">
-            {t('common.404.message', {
-              default: 'Parece que esta página saiu para um brunch. Vamos levá-lo de volta ao menu principal!'
-            })}
-          </p>
-        </motion.div>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 rounded-full bg-pastel px-7 py-3 font-semibold text-gray-800 transition-colors hover:bg-pastel-dark"
           >
-            <Home size={20} />
-            {t('common.404.home', { default: 'Voltar ao Início' })}
+            <Home size={18} aria-hidden="true" />
+            {t('home')}
           </Link>
-
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-pastel-ink border-2 border-pastel rounded-full font-semibold hover:bg-pastel/5 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-pastel bg-white px-7 py-3 font-semibold text-pastel-ink transition-colors hover:bg-pastel/10"
           >
-            <MenuIcon size={20} />
-            {t('common.404.menu', { default: 'Ver Menu' })}
+            <MenuIcon size={18} aria-hidden="true" />
+            {t('menu')}
           </Link>
-        </motion.div>
+        </div>
 
-        {/* Decorative Elements */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-16 flex justify-center gap-8 text-4xl opacity-20"
-        >
-          <CakeSlice className="animate-bounce" style={{ animationDelay: '0s' }} size={40} />
-          <IceCream className="animate-bounce" style={{ animationDelay: '0.2s' }} size={40} />
-          <Coffee className="animate-bounce" style={{ animationDelay: '0.4s' }} size={40} />
-        </motion.div>
-      </motion.div>
+        <p className="mt-8 text-sm text-slate">
+          <a href={`tel:${RESTAURANT.phoneClean}`} className="inline-flex items-center gap-1.5 font-semibold text-pastel-ink hover:underline">
+            <Phone size={14} aria-hidden="true" />
+            {RESTAURANT.phone}
+          </a>
+          {' · '}
+          {RESTAURANT.address.full}
+        </p>
+      </div>
     </div>
   )
 }

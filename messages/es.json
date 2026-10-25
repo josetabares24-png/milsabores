@@ -128,8 +128,8 @@
   },
   "common": {
     "404": {
-      "title": "¡Oops! Página No Encontrada",
-      "message": "Parece que esta página salió a desayunar. ¡Volvamos al menú principal!",
+      "title": "Página no encontrada",
+      "message": "Esta página no existe o ha cambiado de dirección.",
       "home": "Volver al Inicio",
       "menu": "Ver Menú"
     },

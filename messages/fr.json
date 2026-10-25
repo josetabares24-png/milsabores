@@ -128,8 +128,8 @@
   },
   "common": {
     "404": {
-      "title": "Oups ! Page Introuvable",
-      "message": "Il semble que cette page soit partie prendre son petit-déjeuner. Retournons au menu principal !",
+      "title": "Page introuvable",
+      "message": "Cette page n'existe pas ou a changé d'adresse.",
       "home": "Retour à l'Accueil",
       "menu": "Voir le Menu"
     },

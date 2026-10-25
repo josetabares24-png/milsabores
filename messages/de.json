@@ -128,8 +128,8 @@
   },
   "common": {
     "404": {
-      "title": "Hoppla! Seite Nicht Gefunden",
-      "message": "Es sieht so aus, als wäre diese Seite zum Frühstück gegangen. Zurück zur Hauptspeisekarte!",
+      "title": "Seite nicht gefunden",
+      "message": "Diese Seite gibt es nicht oder sie ist umgezogen.",
       "home": "Zurück zur Startseite",
       "menu": "Speisekarte ansehen"
     },

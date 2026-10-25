@@ -128,8 +128,8 @@
   },
   "common": {
     "404": {
-      "title": "Oops! Page Not Found",
-      "message": "Looks like this page went out for breakfast. Let's head back to the main menu!",
+      "title": "Page not found",
+      "message": "This page doesn't exist or has moved.",
       "home": "Back to Home",
       "menu": "View Menu"
     },
