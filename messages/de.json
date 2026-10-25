@@ -384,6 +384,21 @@
       "title": "Brunch in Lissabons Baixa | Mil Sabores",
       "description": "Suchen Sie Brunch im Zentrum von Lissabon? Entdecken Sie Mil Sabores mit Pancakes, Crêpes, Waffeln, Bowls, Kaffee und Gelato.",
       "imageAlt": "Brunch in Lissabons Baixa bei Mil Sabores"
+    },
+    "breakfast": {
+      "title": "Frühstück in der Baixa, Lissabon, ab 7 Uhr | Mil Sabores",
+      "description": "Eier, Bagels, Toasts, Bowls, Orangensaft und Kaffee in der Rua da Prata 152. Täglich ab 7:00 Uhr geöffnet, mitten in Lissabons Baixa.",
+      "imageAlt": "Avocado-Toast mit Kirschtomaten und Saaten bei Mil Sabores"
+    },
+    "burgers": {
+      "title": "Burger in der Baixa, Lissabon | Mil Sabores",
+      "description": "Burger mit Rindfleisch, Hähnchen, Beyond Meat oder Portobello in der Rua da Prata 152. Täglich: Burger mit Pommes für €10, mit Getränk €12.",
+      "imageAlt": "Portobello-Burger bei Mil Sabores"
+    },
+    "gelato": {
+      "title": "Hausgemachtes Eis in der Baixa, Lissabon | Mil Sabores",
+      "description": "Hausgemachtes Gelato in der Rua da Prata 152: Pistazie, Pastel de Nata, Mango, Açaí und mehr, im Becher mit 1 bis 3 Kugeln oder zu Pancakes und Waffeln.",
+      "imageAlt": "Becher mit hausgemachtem Eis bei Mil Sabores"
     }
   },
   "fullMenu": {
@@ -1527,6 +1542,33 @@
       "s5_title": "5. Weitere Informationen",
       "s5_text": "Wie wir mit Ihren personenbezogenen Daten umgehen, lesen Sie in unserer <link>Datenschutzerklärung</link>.",
       "s5_contact": "Bei Fragen erreichen Sie uns unter <email>milsaboreslx@gmail.com</email>."
+    }
+  },
+  "intentPages": {
+    "seeAlso": "Auch bei Mil Sabores",
+    "breakfast": {
+      "breadcrumb": "Frühstück",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Frühstück in der Baixa von Lissabon",
+      "intro": "Wir öffnen jeden Tag um 7:00 Uhr in der Rua da Prata. Zum Frühstück gibt es Eier nach Wahl, Bagels, Toasts, Açaí- oder Joghurt-Bowls, Orangensaft und Kaffee, vom Espresso bis zum Flat White.",
+      "menuTitle": "Für den Start in den Tag",
+      "imageAlt": "Avocado-Toast mit Kirschtomaten und Saaten bei Mil Sabores"
+    },
+    "burgers": {
+      "breadcrumb": "Burger",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Burger in der Baixa von Lissabon",
+      "intro": "Neben Brunch gibt es bei uns Burger im Brioche-, Spinat- oder Rote-Bete-Brötchen: mit Rindfleisch, Hähnchen, Beyond Meat oder Portobello. Jeden Tag gibt es Burger mit Pommes für €10, mit Getränk für €12.",
+      "menuTitle": "Unsere Burger",
+      "imageAlt": "Portobello-Burger bei Mil Sabores"
+    },
+    "gelato": {
+      "breadcrumb": "Eis",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Hausgemachtes Eis in der Baixa von Lissabon",
+      "intro": "Im Becher mit 1, 2 oder 3 Kugeln, als Affogato mit Espresso oder zu unseren süßen Pancakes, Crêpes und Waffeln, zu denen immer ein Eis nach Wahl gehört.",
+      "menuTitle": "Größen und Sorten",
+      "imageAlt": "Becher mit hausgemachtem Eis bei Mil Sabores"
     }
   }
 }

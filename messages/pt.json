@@ -384,6 +384,21 @@
       "title": "Brunch em Lisboa na Baixa | Mil Sabores",
       "description": "Procura brunch na Baixa de Lisboa? Conheça o menu do Mil Sabores, com panquecas, crepes, waffles, bowls, café e gelados artesanais.",
       "imageAlt": "Brunch em Lisboa na Baixa no Mil Sabores"
+    },
+    "breakfast": {
+      "title": "Pequeno-almoço na Baixa, desde as 7:00 | Mil Sabores",
+      "description": "Ovos, bagels, tostas, bowls, sumo de laranja e café na Rua da Prata 152. Abrimos todos os dias às 7:00, no centro da Baixa de Lisboa.",
+      "imageAlt": "Tosta de abacate com tomate cherry e sementes no Mil Sabores"
+    },
+    "burgers": {
+      "title": "Hambúrgueres na Baixa de Lisboa | Mil Sabores",
+      "description": "Hambúrgueres de carne, frango, Beyond Meat e portobello na Rua da Prata 152. Todos os dias: hambúrguer com batatas fritas a €10, €12 com bebida.",
+      "imageAlt": "Hambúrguer de portobello no Mil Sabores"
+    },
+    "gelato": {
+      "title": "Gelados artesanais na Baixa de Lisboa | Mil Sabores",
+      "description": "Gelado artesanal na Rua da Prata 152: pistácio, pastel de nata, manga, açaí e outros sabores, em copo de 1 a 3 bolas ou com panquecas e waffles.",
+      "imageAlt": "Copos de gelado artesanal no Mil Sabores"
     }
   },
   "fullMenu": {
@@ -1527,6 +1542,33 @@
       "s5_title": "5. Mais Informações",
       "s5_text": "Para mais informações sobre a forma como tratamos os seus dados pessoais, consulte a nossa <link>Política de Privacidade</link>.",
       "s5_contact": "Se tiver dúvidas, contacte-nos através de <email>milsaboreslx@gmail.com</email>."
+    }
+  },
+  "intentPages": {
+    "seeAlso": "Também no Mil Sabores",
+    "breakfast": {
+      "breadcrumb": "Pequeno-almoço",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Pequeno-almoço na Baixa de Lisboa",
+      "intro": "Abrimos às 7:00 todos os dias, na Rua da Prata. Ao pequeno-almoço há ovos como preferir, bagels, tostas, bowls de açaí ou iogurte, sumo de laranja e café, do espresso ao flat white.",
+      "menuTitle": "Para começar o dia",
+      "imageAlt": "Tosta de abacate com tomate cherry e sementes no Mil Sabores"
+    },
+    "burgers": {
+      "breadcrumb": "Hambúrgueres",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Hambúrgueres na Baixa de Lisboa",
+      "intro": "Além do brunch, temos hambúrgueres em pão de brioche, de espinafres ou de beterraba: de carne, frango, Beyond Meat ou portobello. Todos os dias há hambúrguer com batatas fritas por €10, ou €12 com bebida.",
+      "menuTitle": "Os hambúrgueres da carta",
+      "imageAlt": "Hambúrguer de portobello no Mil Sabores"
+    },
+    "gelato": {
+      "breadcrumb": "Gelados",
+      "eyebrow": "Rua da Prata 152 · Baixa",
+      "title": "Gelados artesanais na Baixa de Lisboa",
+      "intro": "Pode pedir em copo de 1, 2 ou 3 bolas, num affogato com espresso, ou com as panquecas, crepes e waffles doces, que incluem sempre gelado à escolha.",
+      "menuTitle": "Tamanhos e sabores",
+      "imageAlt": "Copos de gelado artesanal no Mil Sabores"
     }
   }
 }

@@ -4,7 +4,7 @@ import { type Locale } from '@/i18n/config'
 import { localizedUrl } from '@/lib/seo'
 import { GELATO_SIZES, MENU_CATEGORIES } from '@/lib/menu'
 
-type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery'
+type SchemaPage = 'home' | 'brunch' | 'menu' | 'reservations' | 'gallery' | 'breakfast' | 'burgers' | 'gelato'
 
 interface SchemaMarkupProps {
   locale: string
@@ -61,6 +61,30 @@ const pageNames: Record<SchemaPage, Record<Locale, string>> = {
     fr: 'Galerie Mil Sabores',
     de: 'Mil Sabores Galerie',
     it: 'Galleria Mil Sabores',
+  },
+  breakfast: {
+    pt: 'Pequeno-almoço na Baixa de Lisboa',
+    en: 'Breakfast in Lisbon’s Baixa',
+    es: 'Desayunar en la Baixa de Lisboa',
+    fr: 'Petit-déjeuner dans la Baixa de Lisbonne',
+    de: 'Frühstück in der Baixa von Lissabon',
+    it: 'Colazione nella Baixa di Lisbona',
+  },
+  burgers: {
+    pt: 'Hambúrgueres na Baixa de Lisboa',
+    en: 'Burgers in Lisbon’s Baixa',
+    es: 'Hamburguesas en la Baixa de Lisboa',
+    fr: 'Burgers dans la Baixa de Lisbonne',
+    de: 'Burger in der Baixa von Lissabon',
+    it: 'Hamburger nella Baixa di Lisbona',
+  },
+  gelato: {
+    pt: 'Gelados artesanais na Baixa de Lisboa',
+    en: 'Artisanal gelato in Lisbon’s Baixa',
+    es: 'Helado artesanal en la Baixa de Lisboa',
+    fr: 'Glaces artisanales dans la Baixa de Lisbonne',
+    de: 'Hausgemachtes Eis in der Baixa von Lissabon',
+    it: 'Gelato artigianale nella Baixa di Lisbona',
   },
 }
 

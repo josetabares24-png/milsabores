@@ -3,12 +3,14 @@ import Image from 'next/image'
 import { ChefHat, Coffee, IceCream, MapPin, Utensils } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import SchemaMarkup from '@/components/SchemaMarkup'
+import { INTENT_KEYS, INTENT_PAGES } from '@/lib/intent-pages'
 
 const productIcons = [ChefHat, Utensils, Coffee, IceCream]
 
 export default async function BrunchLisboaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const t = await getTranslations('brunchLanding')
+  const tIntent = await getTranslations('intentPages')
   const paragraphs = [1, 2, 3, 4, 5, 6] as const
   const productItems = [1, 2, 3, 4] as const
   const faqItems = [1, 2, 3, 4, 5] as const
@@ -149,6 +151,24 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="px-6 pt-16 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-slate mb-4">{tIntent('seeAlso')}</h2>
+          <ul className="flex flex-wrap gap-3">
+            {INTENT_KEYS.map((key) => (
+              <li key={key}>
+                <Link
+                  href={`/${INTENT_PAGES[key].path}`}
+                  className="inline-flex px-5 py-2.5 rounded-full border-2 border-slate/10 font-semibold text-slate hover:border-pastel transition-colors"
+                >
+                  {tIntent(`${key}.title`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

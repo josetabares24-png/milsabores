@@ -7,6 +7,9 @@ const pages = [
   { path: 'brunch-lisboa', changeFrequency: 'weekly', priority: 0.9 },
   { path: 'menu', changeFrequency: 'weekly', priority: 0.9 },
   { path: 'reservas', changeFrequency: 'monthly', priority: 0.8 },
+  { path: 'pequeno-almoco-lisboa', changeFrequency: 'monthly', priority: 0.8 },
+  { path: 'hamburgueres-lisboa', changeFrequency: 'monthly', priority: 0.8 },
+  { path: 'gelados-lisboa', changeFrequency: 'monthly', priority: 0.8 },
   { path: 'galeria', changeFrequency: 'monthly', priority: 0.7 },
 ] as const
 

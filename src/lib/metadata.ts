@@ -13,6 +13,9 @@ export const pagePaths = {
   gallery: 'galeria',
   privacy: 'privacidad',
   cookies: 'cookies',
+  breakfast: 'pequeno-almoco-lisboa',
+  burgers: 'hamburgueres-lisboa',
+  gelato: 'gelados-lisboa',
 } as const
 
 export type MetaPage = keyof typeof pagePaths
@@ -25,13 +28,16 @@ const pageImages: Record<MetaPage, string> = {
   gallery: defaultImage,
   privacy: defaultImage,
   cookies: defaultImage,
+  breakfast: '/images/Mil Sabores/Tosta de Agucate.webp',
+  burgers: '/images/Mil Sabores/Hamburguesa Portobello.webp',
+  gelato: '/images/Mil Sabores/Copos Helado.webp',
 }
 
 export async function buildPageMetadata(locale: string, page: MetaPage): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: `meta.${page}` })
   const path = pagePaths[page]
   const image = pageImages[page]
-  const imageUrl = localizedUrl('pt', image)
+  const imageUrl = localizedUrl('pt', encodeURI(image))
   const title = t('title')
   const description = t('description')
   const imageAlt = t('imageAlt')
