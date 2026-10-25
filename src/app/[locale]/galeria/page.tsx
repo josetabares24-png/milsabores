@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { X, ChevronLeft, ChevronRight, Instagram, Image as ImageIcon } from 'lucide-react'
-import Logo from '@/components/Logo'
+import { X, ChevronLeft, ChevronRight, Instagram } from 'lucide-react'
+import SectionHeading from '@/components/brand/SectionHeading'
+import { PHOTO_DIMS } from '@/lib/photo-dims'
 import Image from 'next/image'
 
 type Category = 'all' | 'food' | 'drinks' | 'interior' | 'events'
@@ -87,47 +88,26 @@ export default function GalleryPage() {
   const selectedImageData = filteredImages.find(img => img.id === selectedImage)
 
   return (
-    <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="xl" />
-            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
-              <ImageIcon className="text-pastel" size={20} />
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-                {t('eyebrow')}
-              </span>
-            </div>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
-            {t('title')}
-          </h1>
-          <p className="text-slate text-xl max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-cream pt-28 pb-24 px-6 md:pt-36">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading as="h1" eyebrow={t('eyebrow')} title={t('title')} intro={t('subtitle')} className="mb-10" />
 
         {/* Category Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
           {(['all', 'food', 'drinks', 'interior', 'events'] as Category[]).map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-8 py-4 rounded-full font-bold transition-all ${
+              aria-pressed={activeCategory === category}
+              className={`rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
                 activeCategory === category
-                  ? 'bg-pastel text-gray-800 shadow-xl shadow-pastel/40 scale-105'
-                  : 'bg-white text-slate hover:bg-white/80 hover:scale-105'
+                  ? 'bg-gray-800 text-white'
+                  : 'border border-gray-800/25 text-gray-800 hover:border-gray-800'
               }`}
             >
               {t(`categories.${category}`)}
@@ -135,71 +115,46 @@ export default function GalleryPage() {
           ))}
         </motion.div>
 
-        {/* Gallery Grid */}
+        {/* Gallery: folha de contactos com as proporções reais de cada foto */}
         <motion.div
           key={activeCategory}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          transition={{ duration: 0.3 }}
+          className="columns-2 gap-3 lg:columns-3"
         >
-          {filteredImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              onClick={() => setSelectedImage(image.id)}
-              className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white hover:border-pastel/30 shadow-lg hover:shadow-2xl transition-all"
-              style={{
-                gridRow: index % 7 === 0 ? 'span 2' : 'span 1',
-              }}
-            >
-              <Image
-                src={image.url}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl">
-                  <ImageIcon size={32} className="text-pastel" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {filteredImages.map((image) => {
+            const [w, h] = PHOTO_DIMS[image.url] || [1200, 1200]
+            return (
+              <button
+                key={image.id}
+                type="button"
+                onClick={() => setSelectedImage(image.id)}
+                className="group mb-3 block w-full break-inside-avoid bg-white p-1.5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/50"
+                aria-label={image.alt}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  width={w}
+                  height={h}
+                  sizes="(max-width: 1024px) 50vw, 33vw"
+                  className="h-auto w-full transition-opacity duration-300 group-hover:opacity-90"
+                />
+              </button>
+            )
+          })}
         </motion.div>
 
         {/* Instagram CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl p-12 border-2 border-purple-500/20"
-        >
-          <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl shadow-purple-500/40">
-              <Instagram size={40} className="text-white" />
-            </div>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate mb-4">
-            {t('follow_us')}
-          </h2>
-          <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
-            {t('share_cta')}
-          </p>
-          <a
-            href="https://instagram.com/milsaboreslx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-xl shadow-purple-500/40"
-          >
-            <Instagram size={24} />
+        <section className="mx-auto mt-16 max-w-2xl border-2 border-dashed border-slate/25 bg-white px-6 py-10 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">{t('follow_us')}</h2>
+          <p className="mx-auto mt-3 max-w-xl text-slate">{t('share_cta')}</p>
+          <a href="https://instagram.com/milsaboreslx" target="_blank" rel="noopener noreferrer" className="btn-secondary mt-6">
+            <Instagram size={20} aria-hidden="true" />
             {t('view_on_instagram')}
           </a>
-        </motion.div>
+        </section>
       </div>
 
       {/* Lightbox Modal */}
@@ -210,7 +165,7 @@ export default function GalleryPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             {/* Close Button */}
@@ -219,7 +174,8 @@ export default function GalleryPage() {
                 e.stopPropagation()
                 setSelectedImage(null)
               }}
-              className="absolute top-8 right-8 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-colors z-10"
+              aria-label={t('close')}
+              className="absolute top-8 right-8 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-10"
             >
               <X size={24} className="text-white" />
             </button>
@@ -230,7 +186,7 @@ export default function GalleryPage() {
                 e.stopPropagation()
                 handlePrevious()
               }}
-              className="absolute left-4 md:left-8 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-colors z-10"
+              className="absolute left-4 md:left-8 w-14 h-14 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-10"
             >
               <ChevronLeft size={32} className="text-white" />
             </button>
@@ -241,7 +197,7 @@ export default function GalleryPage() {
                 e.stopPropagation()
                 handleNext()
               }}
-              className="absolute right-4 md:right-8 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-colors z-10"
+              className="absolute right-4 md:right-8 w-14 h-14 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-10"
             >
               <ChevronRight size={32} className="text-white" />
             </button>
@@ -253,7 +209,7 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-5xl h-[85vh] rounded-3xl overflow-hidden shadow-2xl"
+              className="relative w-full max-w-5xl h-[85vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -266,7 +222,7 @@ export default function GalleryPage() {
             </motion.div>
 
             {/* Image Counter */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/10 rounded-full">
               <span className="text-white font-semibold">
                 {filteredImages.findIndex(img => img.id === selectedImage) + 1} / {filteredImages.length}
               </span>
