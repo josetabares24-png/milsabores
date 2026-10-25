@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-slate font-bold text-lg mb-6">{t('links_title')}</h4>
+            <h2 className="text-slate font-bold text-lg mb-6">{t('links_title')}</h2>
             <ul className="space-y-3">
               <li>
                 <Link href="/brunch-lisboa" className="text-slate hover:text-pastel-ink transition-colors text-sm font-medium">
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-slate font-bold text-lg mb-6">{t('contact_title')}</h4>
+            <h2 className="text-slate font-bold text-lg mb-6">{t('contact_title')}</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-sage mt-0.5 flex-shrink-0" />
@@ -99,7 +99,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-steel flex-shrink-0" />
-                <a href="tel:+351213470214" className="text-slate hover:text-steel transition-colors text-sm font-medium">
+                <a href="tel:+351213470214" className="text-slate hover:text-pastel-ink transition-colors text-sm font-medium">
                   +351 21 347 0214
                 </a>
               </li>
@@ -114,7 +114,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="text-slate font-bold text-lg mb-6">{t('hours_title')}</h4>
+            <h2 className="text-slate font-bold text-lg mb-6">{t('hours_title')}</h2>
             <ul className="space-y-3">
               <li className="text-slate text-sm">
                 <span className="font-semibold text-slate block mb-1">{t('hours_weekday')}</span>
