@@ -15,14 +15,14 @@ export default function FloatingActionButton() {
       icon: Calendar,
       label: t('reserve'),
       href: '/reservas',
-      color: 'bg-pastel',
+      color: 'bg-pastel-ink text-white',
       delay: 0.1,
     },
     {
       icon: Phone,
       label: t('call'),
       href: 'tel:+351213470214',
-      color: 'bg-steel',
+      color: 'bg-cream text-gray-800 border-2 border-gray-800',
       delay: 0.15,
       external: true,
     },
@@ -49,9 +49,7 @@ export default function FloatingActionButton() {
                 {action.external ? (
                   <a
                     href={action.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} rounded-full shadow-md`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">
@@ -62,7 +60,7 @@ export default function FloatingActionButton() {
                 ) : (
                   <Link
                     href={action.href}
-                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} rounded-full shadow-md`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">
@@ -80,17 +78,12 @@ export default function FloatingActionButton() {
       {/* Main FAB Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full bg-pastel text-gray-800 shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
-          isOpen ? 'rotate-45' : ''
-        }`}
-        whileHover={{ scale: 1.1 }}
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-pastel-ink text-white shadow-md"
         whileTap={{ scale: 0.95 }}
-        animate={{ rotate: isOpen ? 45 : 0 }}
-        transition={{ duration: 0.2 }}
         aria-label={isOpen ? t('close_actions') : t('open_actions')}
         aria-expanded={isOpen}
       >
-        {isOpen ? <X size={28} /> : <Calendar size={28} />}
+        {isOpen ? <X size={26} /> : <Calendar size={26} />}
       </motion.button>
 
       {/* Backdrop */}
@@ -100,7 +93,7 @@ export default function FloatingActionButton() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm -z-10"
+            className="fixed inset-0 bg-black/20 -z-10"
             onClick={() => setIsOpen(false)}
           />
         )}

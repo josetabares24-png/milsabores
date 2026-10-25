@@ -12,7 +12,7 @@ export default function Navigation() {
   const t = useTranslations('nav')
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-2xl shadow-black/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate/15 bg-cream/95">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -22,18 +22,18 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-slate hover:text-pastel-ink transition-colors font-medium">
+            <Link href="/" className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink">
               {t('home')}
             </Link>
-            <Link href="/menu" className="text-slate hover:text-pastel-ink transition-colors font-medium">
+            <Link href="/menu" className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink">
               {t('menu')}
             </Link>
-            <Link href="/galeria" className="text-slate hover:text-pastel-ink transition-colors font-medium">
+            <Link href="/galeria" className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink">
               {t('gallery')}
             </Link>
             <Link
               href="/reservas"
-              className="px-6 py-2.5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="btn-primary px-6 py-2.5"
             >
               {t('reservations')}
             </Link>
@@ -53,35 +53,35 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-pastel/10 animate-fade-in">
+          <div className="md:hidden py-6 border-t border-dashed border-slate/30 animate-fade-in">
             <div className="flex flex-col gap-4">
               <div className="self-start">
                 <LanguageSwitcher />
               </div>
               <Link
                 href="/"
-                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
+                className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('home')}
               </Link>
               <Link
                 href="/menu"
-                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
+                className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('menu')}
               </Link>
               <Link
                 href="/galeria"
-                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
+                className="font-semibold text-gray-700 transition-colors hover:text-pastel-ink py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('gallery')}
               </Link>
               <Link
                 href="/reservas"
-                className="mt-2 px-6 py-3 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all text-center"
+                className="btn-primary mt-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('reservations')}

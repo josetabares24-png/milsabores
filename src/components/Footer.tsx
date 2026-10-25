@@ -1,7 +1,8 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react'
+import Image from 'next/image'
+import { Instagram, Facebook } from 'lucide-react'
 import { RESTAURANT } from '@/config/restaurant'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
@@ -11,13 +12,20 @@ export default function Footer() {
   const tNav = useTranslations('nav')
 
   return (
-    <footer className="bg-slate/5 border-t border-slate/10">
+    <footer className="border-t-2 border-gray-800 bg-cream">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="mb-6">
-              <Logo size="md" />
+            <div className="mb-6 flex items-center gap-3">
+              <Logo size="lg" />
+              <Image
+                src="/images/Mil Sabores/sellobrunchgelados.png"
+                alt="Brunch & Gelados"
+                width={80}
+                height={77}
+                className="h-20 w-auto -rotate-6"
+              />
             </div>
             <p className="text-slate text-sm leading-relaxed mb-6">
               {t('description')}
@@ -27,26 +35,26 @@ export default function Footer() {
                 href="https://instagram.com/milsaboreslx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white hover:bg-pastel/20 border-2 border-slate/10 hover:border-pastel rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-800 text-gray-800 transition-colors hover:bg-gray-800 hover:text-white"
                 aria-label="Instagram"
               >
-                <Instagram size={18} className="text-slate hover:text-pastel-ink" />
+                <Instagram size={18} aria-hidden="true" />
               </a>
               <a
                 href={RESTAURANT.social.facebook.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white hover:bg-pastel/20 border-2 border-slate/10 hover:border-pastel rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-800 text-gray-800 transition-colors hover:bg-gray-800 hover:text-white"
                 aria-label="Facebook"
               >
-                <Facebook size={18} className="text-slate hover:text-pastel-ink" />
+                <Facebook size={18} aria-hidden="true" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h2 className="text-slate font-bold text-lg mb-6">{t('links_title')}</h2>
+            <h2 className="eyebrow mb-5">{t('links_title')}</h2>
             <ul className="space-y-3">
               <li>
                 <Link href="/brunch-lisboa" className="text-slate hover:text-pastel-ink transition-colors text-sm font-medium">
@@ -88,24 +96,21 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="text-slate font-bold text-lg mb-6">{t('contact_title')}</h2>
+            <h2 className="eyebrow mb-5">{t('contact_title')}</h2>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-sage mt-0.5 flex-shrink-0" />
+              <li>
                 <span className="text-slate text-sm">
                   Rua da Prata 152<br />
                   1100-619 Lisboa
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={18} className="text-steel flex-shrink-0" />
+              <li>
                 <a href="tel:+351213470214" className="text-slate hover:text-pastel-ink transition-colors text-sm font-medium">
                   +351 21 347 0214
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={18} className="text-rose-600 flex-shrink-0" />
-                <a href="mailto:milsaboreslx@gmail.com" className="text-slate hover:text-rose-600 transition-colors text-sm font-medium">
+              <li>
+                <a href="mailto:milsaboreslx@gmail.com" className="text-slate hover:text-pastel-ink transition-colors text-sm font-medium break-all">
                   milsaboreslx@gmail.com
                 </a>
               </li>
@@ -114,7 +119,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h2 className="text-slate font-bold text-lg mb-6">{t('hours_title')}</h2>
+            <h2 className="eyebrow mb-5">{t('hours_title')}</h2>
             <ul className="space-y-3">
               <li className="text-slate text-sm">
                 <span className="font-semibold text-slate block mb-1">{t('hours_weekday')}</span>
@@ -127,7 +132,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate/10 pt-8">
+        <div className="border-t border-dashed border-slate/30 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate text-sm">
               © {new Date().getFullYear()} Mil Sabores Lisboa. {t('rights')}
