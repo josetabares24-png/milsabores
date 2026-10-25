@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Cookie, X } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 
@@ -35,42 +36,65 @@ export default function CookieConsent() {
     <AnimatePresence>
       {showBanner && (
         <motion.div
-          initial={{ y: 40, opacity: 0 }}
+          initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 40, opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           role="region"
           aria-label={t('title')}
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-slate/15 bg-white/95 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur"
+          className="fixed bottom-0 left-0 right-0 z-50 p-3 md:p-4"
         >
-          <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
-            <p className="flex-1 text-xs leading-snug text-slate sm:text-sm">
-              <span className="sr-only">{t('title')}. </span>
-              {t('text')}{' '}
-              <Link href="/cookies" className="font-semibold text-pastel-ink underline underline-offset-2">
-                {t('cookies')}
-              </Link>{' '}
-              {t('and')}{' '}
-              <Link href="/privacidad" className="font-semibold text-pastel-ink underline underline-offset-2">
-                {t('privacy')}
-              </Link>.
-            </p>
-            <div className="flex shrink-0 items-center justify-end gap-2">
-              <button
-                type="button"
-                onClick={declineCookies}
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate hover:text-gray-900"
-              >
-                {t('decline')}
-              </button>
-              <button
-                type="button"
-                onClick={acceptCookies}
-                className="rounded-full bg-pastel-ink px-4 py-2 text-sm font-bold text-white hover:opacity-90"
-              >
-                {t('accept')}
-              </button>
+          {/* Mesmo cartão de antes (branco, arredondado, ícone, botões), só mais compacto */}
+          <div className="relative max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border-2 border-slate/10 px-4 py-3 md:px-5 md:py-4">
+            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5">
+              <div className="flex items-start gap-3 flex-1 pr-8 md:pr-0">
+                {/* Icon */}
+                <div className="flex-shrink-0 w-9 h-9 bg-pastel/20 rounded-lg flex items-center justify-center">
+                  <Cookie className="text-pastel" size={18} aria-hidden="true" />
+                </div>
+
+                {/* Content */}
+                <p className="text-slate text-xs md:text-sm leading-snug">
+                  <span className="block font-bold text-sm md:text-base text-gray-800 mb-0.5">{t('title')}</span>
+                  {t('text')}{' '}
+                  <Link href="/cookies" className="text-pastel-ink font-semibold hover:underline">
+                    {t('cookies')}
+                  </Link>{' '}
+                  {t('and')}{' '}
+                  <Link href="/privacidad" className="text-pastel-ink font-semibold hover:underline">
+                    {t('privacy')}
+                  </Link>.
+                </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex items-center justify-end gap-2 md:w-auto">
+                <button
+                  type="button"
+                  onClick={declineCookies}
+                  className="px-4 py-2 text-slate font-medium hover:text-gray-800 transition-colors text-sm"
+                >
+                  {t('decline')}
+                </button>
+                <button
+                  type="button"
+                  onClick={acceptCookies}
+                  className="px-5 py-2 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-all shadow-md shadow-pastel/30 text-sm"
+                >
+                  {t('accept')}
+                </button>
+              </div>
             </div>
+
+            {/* Close button (mobile) */}
+            <button
+              type="button"
+              onClick={declineCookies}
+              className="absolute top-2 right-2 md:hidden p-2 text-slate hover:text-gray-800 transition-colors"
+              aria-label={t('close')}
+            >
+              <X size={18} />
+            </button>
           </div>
         </motion.div>
       )}
