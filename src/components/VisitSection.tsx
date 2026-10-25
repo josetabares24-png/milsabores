@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { MapPin, Clock, Phone, Mail } from 'lucide-react'
 import { Link } from '@/i18n/routing'
+import { RESTAURANT } from '@/config/restaurant'
 
 export default function VisitSection() {
   const t = useTranslations('visit')
@@ -41,7 +42,9 @@ export default function VisitSection() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-pastel/10 to-transparent z-10 pointer-events-none" />
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9867347!2d-9.1368835!3d38.7117777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19347f4e7b6ebd%3A0x9c7e5f3e5e5e5e5e!2sR.%20da%20Prata%20152%2C%201100-419%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1234567890"
+              // Embed por pesquisa de morada (não precisa de API key); a morada vem de config/restaurant.ts
+              src={`https://www.google.com/maps?q=${encodeURIComponent(RESTAURANT.address.full)}&z=17&output=embed`}
+              title={t('map_title')}
               width="100%"
               height="100%"
               style={{ border: 0 }}
