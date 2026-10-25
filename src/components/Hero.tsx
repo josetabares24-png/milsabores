@@ -19,9 +19,12 @@ export default function Hero() {
           alt={t('image_alt')}
           fill
           className="object-cover"
-          priority
+          // Fundo decorativo (fica por trás de um véu branco a ~90%): não é o LCP,
+          // por isso não compete com o título nem precisa de qualidade alta.
+          loading="eager"
+          fetchPriority="low"
           sizes="100vw"
-          quality={90}
+          quality={60}
         />
         {/* Gradient overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-cream/90 to-white/85 backdrop-blur-[2px]" />
@@ -29,19 +32,10 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 py-24 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8"
-        >
+        {/* Sem animação de entrada no bloco do título: o H1 é o elemento LCP e tem de pintar logo. */}
+        <div className="space-y-8">
           {/* Main Heading - SEO Optimized */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             {/* SEO-friendly H1 with visual styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
               <span className="block">{t('title')}</span>
@@ -65,7 +59,7 @@ export default function Hero() {
             <p className="text-slate/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               {t('subtitle')}
             </p>
-          </motion.div>
+          </div>
 
           {/* CTAs - Enhanced */}
           <motion.div
@@ -111,7 +105,7 @@ export default function Hero() {
               <span>{t('phone_label')}</span>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
