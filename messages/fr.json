@@ -301,6 +301,16 @@
     }
   },
   "meta": {
+    "cookies": {
+      "title": "Politique de cookies | Mil Sabores Lisbonne",
+      "description": "Quels cookies le site de Mil Sabores Lisbonne utilise, à quoi ils servent et comment les gérer dans votre navigateur.",
+      "imageAlt": "Mil Sabores Lisbonne"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité | Mil Sabores Lisbonne",
+      "description": "Comment Mil Sabores Lisbonne traite les données personnelles des réservations et des demandes : finalités, durées de conservation et vos droits (RGPD).",
+      "imageAlt": "Mil Sabores Lisbonne"
+    },
     "home": {
       "title": "Mil Sabores | Brunch dans la Baixa de Lisbonne",
       "description": "Visitez Mil Sabores sur la Rua da Prata pour brunch, pancakes, crêpes, gaufres, bowls, café et gelato artisanal au centre de Lisbonne.",
@@ -1396,5 +1406,100 @@
     "decline": "Refuser",
     "accept": "Accepter",
     "close": "Fermer le bandeau cookies"
+  },
+  "legal": {
+    "label": "Mentions légales",
+    "updated": "Dernière mise à jour : février 2026",
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "s1_title": "1. Responsable du traitement",
+      "phone_label": "Téléphone",
+      "s2_title": "2. Données que nous collectons",
+      "s2_intro": "Nous collectons les données personnelles suivantes lorsque vous utilisez nos services :",
+      "s2_items": {
+        "reservations": {
+          "label": "Réservations :",
+          "text": "nom, email, téléphone, date, heure et nombre de personnes."
+        },
+        "contact": {
+          "label": "Formulaire de contact :",
+          "text": "nom, email et contenu de votre message."
+        },
+        "browsing": {
+          "label": "Navigation :",
+          "text": "données techniques telles que l'adresse IP, le type de navigateur et les pages visitées (au moyen de cookies)."
+        }
+      },
+      "s3_title": "3. Finalités du traitement",
+      "s3_intro": "Nous utilisons vos données pour :",
+      "s3_items": {
+        "a": "Gérer et confirmer les réservations de table.",
+        "b": "Répondre aux demandes d'information et de contact.",
+        "c": "Améliorer l'expérience de navigation sur notre site.",
+        "d": "Respecter les obligations légales applicables."
+      },
+      "s4_title": "4. Base juridique",
+      "s4_text": "Le traitement des données repose sur votre consentement explicite lors de l'envoi de formulaires, sur l'exécution d'un contrat (gestion des réservations) et sur notre intérêt légitime à améliorer nos services. Nous respectons le Règlement général sur la protection des données (RGPD) de l'Union européenne.",
+      "s5_title": "5. Conservation des données",
+      "s5_text": "Les données de réservation sont conservées au maximum 12 mois à compter de la date de réservation. Les données de contact sont conservées jusqu'au traitement de la demande, puis au maximum 6 mois. Vous pouvez demander la suppression de vos données à tout moment.",
+      "s6_title": "6. Partage des données",
+      "s6_text": "Nous ne vendons ni ne partageons vos données personnelles avec des tiers à des fins commerciales. Nous ne les partageons qu'avec les prestataires nécessaires au fonctionnement du site (hébergement, envoi des emails de confirmation) et lorsque la loi l'exige.",
+      "s7_title": "7. Vos droits",
+      "s7_intro": "Conformément au RGPD, vous avez le droit de :",
+      "s7_items": {
+        "access": {
+          "label": "Accès :",
+          "text": "demander une copie de vos données personnelles."
+        },
+        "rectification": {
+          "label": "Rectification :",
+          "text": "corriger des données inexactes ou incomplètes."
+        },
+        "erasure": {
+          "label": "Effacement :",
+          "text": "demander la suppression de vos données."
+        },
+        "objection": {
+          "label": "Opposition :",
+          "text": "vous opposer au traitement de vos données."
+        },
+        "portability": {
+          "label": "Portabilité :",
+          "text": "recevoir vos données dans un format structuré."
+        }
+      },
+      "s7_contact": "Pour exercer l'un de ces droits, écrivez-nous à <email>milsaboreslx@gmail.com</email>.",
+      "s8_title": "8. Sécurité",
+      "s8_text": "Nous appliquons des mesures techniques et organisationnelles pour protéger vos données personnelles contre l'accès non autorisé, la perte ou la destruction. Notre site utilise une connexion sécurisée HTTPS.",
+      "s9_title": "9. Cookies",
+      "s9_text": "Nous utilisons des cookies pour améliorer votre expérience. Consultez notre <link>Politique de cookies</link> pour en savoir plus.",
+      "s10_title": "10. Contact",
+      "s10_text": "Pour toute question sur cette politique de confidentialité, contactez-nous à <email>milsaboreslx@gmail.com</email> ou au <phone>+351 21 347 0214</phone>."
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "s1_title": "1. Qu'est-ce qu'un cookie ?",
+      "s1_text": "Les cookies sont de petits fichiers texte enregistrés sur votre appareil lorsque vous visitez un site web. Ils permettent au site de se souvenir de vos actions et préférences pendant un certain temps, pour que vous n'ayez pas à les régler à chaque visite.",
+      "s2_title": "2. Cookies que nous utilisons",
+      "essential_title": "Cookies essentiels",
+      "essential_text": "Nécessaires au fonctionnement de base du site. Ils comprennent les cookies de session et de préférence de langue. Ils ne peuvent pas être désactivés.",
+      "performance_title": "Cookies de performance",
+      "performance_text": "Ils nous aident à comprendre comment les visiteurs utilisent notre site en recueillant des informations de façon anonyme. Cela nous permet d'améliorer l'expérience de navigation.",
+      "third_title": "Cookies tiers",
+      "third_text": "Nous utilisons des services tiers comme Google Maps (pour afficher notre emplacement), qui peuvent déposer leurs propres cookies. Ces cookies sont soumis aux politiques de confidentialité de ces tiers.",
+      "s3_title": "3. Gestion des cookies",
+      "s3_text": "Vous pouvez contrôler et gérer les cookies dans les paramètres de votre navigateur. Notez que la désactivation de certains cookies peut affecter le fonctionnement du site.",
+      "browsers": {
+        "chrome": "Paramètres → Confidentialité et sécurité → Cookies",
+        "firefox": "Paramètres → Vie privée et sécurité → Cookies",
+        "safari": "Préférences → Confidentialité → Cookies",
+        "edge": "Paramètres → Cookies et autorisations de site"
+      },
+      "s4_title": "4. Durée des cookies",
+      "s4_text": "Les cookies de session sont supprimés à la fermeture du navigateur. Les cookies persistants restent sur votre appareil pendant une durée déterminée ou jusqu'à ce que vous les supprimiez. Les cookies de préférence de langue sont conservés 30 jours.",
+      "s5_title": "5. En savoir plus",
+      "s5_text": "Pour en savoir plus sur la façon dont nous traitons vos données personnelles, consultez notre <link>Politique de confidentialité</link>.",
+      "s5_contact": "Pour toute question, contactez-nous à <email>milsaboreslx@gmail.com</email>."
+    }
   }
 }

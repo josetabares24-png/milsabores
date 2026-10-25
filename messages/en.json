@@ -301,6 +301,16 @@
     }
   },
   "meta": {
+    "cookies": {
+      "title": "Cookie Policy | Mil Sabores Lisbon",
+      "description": "Which cookies the Mil Sabores Lisbon website uses, what they are for and how to manage them in your browser.",
+      "imageAlt": "Mil Sabores Lisbon"
+    },
+    "privacy": {
+      "title": "Privacy Policy | Mil Sabores Lisbon",
+      "description": "How Mil Sabores Lisbon handles personal data from reservations and enquiries: purposes, retention periods and your GDPR rights.",
+      "imageAlt": "Mil Sabores Lisbon"
+    },
     "home": {
       "title": "Mil Sabores | Brunch in Lisbon’s Baixa",
       "description": "Visit Mil Sabores on Rua da Prata for brunch, pancakes, crepes, waffles, bowls, coffee and artisanal gelato in central Lisbon.",
@@ -1396,5 +1406,100 @@
     "decline": "Decline",
     "accept": "Accept",
     "close": "Close cookie banner"
+  },
+  "legal": {
+    "label": "Legal",
+    "updated": "Last updated: February 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "s1_title": "1. Data Controller",
+      "phone_label": "Phone",
+      "s2_title": "2. Data We Collect",
+      "s2_intro": "We collect the following personal data when you use our services:",
+      "s2_items": {
+        "reservations": {
+          "label": "Reservations:",
+          "text": "name, email, phone number, date, time and number of guests."
+        },
+        "contact": {
+          "label": "Contact form:",
+          "text": "name, email and the content of your message."
+        },
+        "browsing": {
+          "label": "Browsing:",
+          "text": "technical data such as IP address, browser type and pages visited (through cookies)."
+        }
+      },
+      "s3_title": "3. Purpose of Processing",
+      "s3_intro": "We use your data to:",
+      "s3_items": {
+        "a": "Manage and confirm table reservations.",
+        "b": "Answer enquiries and contact requests.",
+        "c": "Improve the browsing experience on our website.",
+        "d": "Comply with applicable legal obligations."
+      },
+      "s4_title": "4. Legal Basis",
+      "s4_text": "Data processing is based on your explicit consent when you submit forms, on the performance of a contract (handling reservations) and on our legitimate interest in improving our services. We comply with the European Union General Data Protection Regulation (GDPR).",
+      "s5_title": "5. Data Retention",
+      "s5_text": "Reservation data is kept for a maximum of 12 months from the reservation date. Contact data is kept until the enquiry is resolved and for a maximum of 6 months afterwards. You can ask us to delete your data at any time.",
+      "s6_title": "6. Data Sharing",
+      "s6_text": "We do not sell or share your personal data with third parties for commercial purposes. We only share data with service providers needed to run the website (hosting, sending confirmation emails) and when required by law.",
+      "s7_title": "7. Your Rights",
+      "s7_intro": "Under the GDPR, you have the right to:",
+      "s7_items": {
+        "access": {
+          "label": "Access:",
+          "text": "request a copy of your personal data."
+        },
+        "rectification": {
+          "label": "Rectification:",
+          "text": "correct inaccurate or incomplete data."
+        },
+        "erasure": {
+          "label": "Erasure:",
+          "text": "request the deletion of your data."
+        },
+        "objection": {
+          "label": "Objection:",
+          "text": "object to the processing of your data."
+        },
+        "portability": {
+          "label": "Portability:",
+          "text": "receive your data in a structured format."
+        }
+      },
+      "s7_contact": "To exercise any of these rights, write to us at <email>milsaboreslx@gmail.com</email>.",
+      "s8_title": "8. Security",
+      "s8_text": "We apply technical and organisational measures to protect your personal data against unauthorised access, loss or destruction. Our website uses a secure HTTPS connection.",
+      "s9_title": "9. Cookies",
+      "s9_text": "We use cookies to improve your experience. See our <link>Cookie Policy</link> for more information.",
+      "s10_title": "10. Contact",
+      "s10_text": "If you have questions about this privacy policy, contact us at <email>milsaboreslx@gmail.com</email> or call <phone>+351 21 347 0214</phone>."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "s1_title": "1. What Are Cookies?",
+      "s1_text": "Cookies are small text files stored on your device when you visit a website. They let the site remember your actions and preferences for a period of time, so you don't have to set them again every time you come back.",
+      "s2_title": "2. Cookies We Use",
+      "essential_title": "Essential Cookies",
+      "essential_text": "Needed for the basic operation of the website. They include session and language-preference cookies. They cannot be disabled.",
+      "performance_title": "Performance Cookies",
+      "performance_text": "They help us understand how visitors use our website by collecting information anonymously. This lets us improve the browsing experience.",
+      "third_title": "Third-Party Cookies",
+      "third_text": "We use third-party services such as Google Maps (to show our location), which may set their own cookies. These cookies are subject to those third parties' privacy policies.",
+      "s3_title": "3. Managing Cookies",
+      "s3_text": "You can control and manage cookies in your browser settings. Please note that disabling certain cookies may affect how the website works.",
+      "browsers": {
+        "chrome": "Settings → Privacy and security → Cookies",
+        "firefox": "Settings → Privacy & Security → Cookies",
+        "safari": "Preferences → Privacy → Cookies",
+        "edge": "Settings → Cookies and site permissions"
+      },
+      "s4_title": "4. How Long Cookies Last",
+      "s4_text": "Session cookies are deleted when you close your browser. Persistent cookies stay on your device for a set period or until you delete them manually. Language-preference cookies are kept for 30 days.",
+      "s5_title": "5. More Information",
+      "s5_text": "For more information on how we handle your personal data, see our <link>Privacy Policy</link>.",
+      "s5_contact": "If you have questions, contact us at <email>milsaboreslx@gmail.com</email>."
+    }
   }
 }
