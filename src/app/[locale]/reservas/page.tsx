@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
-import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus, MapPin, Instagram, Star } from 'lucide-react'
-import Logo from '@/components/Logo'
+import { CheckCircle2, AlertCircle, Minus, Plus } from 'lucide-react'
+import SectionHeading from '@/components/brand/SectionHeading'
+import Scribble from '@/components/brand/Scribble'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
 import { track } from '@vercel/analytics'
@@ -176,10 +177,10 @@ export default function ReservationsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <div className="w-24 h-24 bg-sage rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-sage/40">
-            <CheckCircle2 size={48} className="text-white" />
+          <div className="w-20 h-20 border-2 border-gray-800 rounded-full flex items-center justify-center mx-auto mb-8">
+            <CheckCircle2 size={40} className="text-sage-ink" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             {t('success.title')}
           </h1>
           <p className="text-slate text-xl mb-12">
@@ -191,7 +192,7 @@ export default function ReservationsPage() {
               setShowSpecialRequests(false)
               setFormData({ name: '', email: '', phone: '', date: '', time: '', guests: '2', specialRequests: '' })
             }}
-            className="inline-block px-10 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
+            className="btn-primary"
           >
             {t('success.back')}
           </button>
@@ -201,31 +202,9 @@ export default function ReservationsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-cream pt-28 pb-24 px-6 md:pt-36">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="xl" />
-            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
-              <Calendar className="text-pastel" size={20} />
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-                {t('eyebrow')}
-              </span>
-            </div>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
-            {t('title')}
-          </h1>
-          <p className="text-slate text-xl max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+        <SectionHeading as="h1" eyebrow={t('eyebrow')} title={t('title')} intro={t('subtitle')} className="mb-14" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Reservation Form */}
@@ -235,12 +214,12 @@ export default function ReservationsPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-2"
           >
-            <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
+            <div className="relative border-2 border-dashed border-slate/25 bg-white p-6 md:p-10">
               <form onSubmit={handleSubmit} className="relative space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="md:col-span-2">
-                    <label htmlFor="name" className="block text-slate font-bold mb-2">
+                    <label htmlFor="name" className="block text-gray-800 font-bold mb-2">
                       {t('form.name')} *
                     </label>
                     <input
@@ -251,17 +230,16 @@ export default function ReservationsPage() {
                       onChange={handleChange}
                       required
                       placeholder={t('form.name_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                      className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-slate font-bold mb-2">
+                    <label htmlFor="email" className="block text-gray-800 font-bold mb-2">
                       {t('form.email')} *
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
                       <input
                         type="email"
                         id="email"
@@ -270,18 +248,17 @@ export default function ReservationsPage() {
                         onChange={handleChange}
                         required
                         placeholder={t('form.email_placeholder')}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                        className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70"
                       />
                     </div>
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label htmlFor="phone" className="block text-slate font-bold mb-2">
+                    <label htmlFor="phone" className="block text-gray-800 font-bold mb-2">
                       {t('form.phone')} *
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
                       <input
                         type="tel"
                         id="phone"
@@ -290,14 +267,14 @@ export default function ReservationsPage() {
                         onChange={handleChange}
                         required
                         placeholder={t('form.phone_placeholder')}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                        className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70"
                       />
                     </div>
                   </div>
 
                   {/* Date */}
                   <div>
-                    <label htmlFor="date" className="block text-slate font-bold mb-2">
+                    <label htmlFor="date" className="block text-gray-800 font-bold mb-2">
                       {t('form.date')} *
                     </label>
                     <div className="flex gap-2 mb-2">
@@ -306,8 +283,8 @@ export default function ReservationsPage() {
                         onClick={() => handleDateChange(today)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === today
-                            ? 'bg-pastel text-gray-800'
-                            : 'bg-slate/5 text-slate hover:bg-slate/10'
+                            ? 'bg-gray-800 text-white'
+                            : 'border border-gray-800/25 text-gray-800 hover:border-gray-800'
                         }`}
                       >
                         {t('form.today')}
@@ -317,15 +294,14 @@ export default function ReservationsPage() {
                         onClick={() => handleDateChange(tomorrow)}
                         className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
                           formData.date === tomorrow
-                            ? 'bg-pastel text-gray-800'
-                            : 'bg-slate/5 text-slate hover:bg-slate/10'
+                            ? 'bg-gray-800 text-white'
+                            : 'border border-gray-800/25 text-gray-800 hover:border-gray-800'
                         }`}
                       >
                         {t('form.tomorrow')}
                       </button>
                     </div>
                     <div className="relative">
-                      <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
                       <input
                         type="date"
                         id="date"
@@ -334,25 +310,24 @@ export default function ReservationsPage() {
                         onChange={(event) => handleDateChange(event.target.value)}
                         required
                         min={today}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate"
+                        className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800"
                       />
                     </div>
                   </div>
 
                   {/* Time */}
                   <div>
-                    <label htmlFor="time" className="block text-slate font-bold mb-2">
+                    <label htmlFor="time" className="block text-gray-800 font-bold mb-2">
                       {t('form.time')} *
                     </label>
                     <div className="relative">
-                      <Clock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30 pointer-events-none" size={20} />
                       <select
                         id="time"
                         name="time"
                         value={formData.time}
                         onChange={handleChange}
                         required
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate bg-white appearance-none"
+                        className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800"
                       >
                         <option value="" disabled>{t('form.time_placeholder')}</option>
                         {timeSlots.map((slot) => (
@@ -364,13 +339,12 @@ export default function ReservationsPage() {
 
                   {/* Guests */}
                   <div className="md:col-span-2">
-                    <label className="block text-slate font-bold mb-2">
+                    <label className="block text-gray-800 font-bold mb-2">
                       {t('form.guests')} *
                     </label>
-                    <div className="flex items-center justify-between gap-4 px-6 py-3 rounded-2xl border-2 border-slate/20">
-                      <div className="flex items-center gap-3 text-slate">
-                        <Users size={20} className="text-slate/30" />
-                        <span className="font-semibold">
+                    <div className="flex items-center justify-between gap-4 rounded-md border border-gray-800/30 bg-white px-4 py-2.5">
+                      <div className="flex items-center gap-3 text-gray-800">
+                                                <span className="font-semibold">
                           {guestsCount} {guestsCount === 1 ? t('form.person') : t('form.people')}
                         </span>
                       </div>
@@ -380,7 +354,7 @@ export default function ReservationsPage() {
                           onClick={() => updateGuests(-1)}
                           disabled={guestsCount <= 1}
                           aria-label="-"
-                          className="w-10 h-10 flex items-center justify-center rounded-full bg-slate/5 text-slate hover:bg-slate/10 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-800/40 text-gray-800 hover:border-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                         >
                           <Minus size={18} />
                         </button>
@@ -389,7 +363,7 @@ export default function ReservationsPage() {
                           onClick={() => updateGuests(1)}
                           disabled={guestsCount >= 20}
                           aria-label="+"
-                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel text-gray-800 hover:bg-pastel-dark disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel-ink text-white hover:bg-[#335C78] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                         >
                           <Plus size={18} />
                         </button>
@@ -401,12 +375,11 @@ export default function ReservationsPage() {
                   <div className="md:col-span-2">
                     {showSpecialRequests ? (
                       <>
-                        <label htmlFor="specialRequests" className="block text-slate font-bold mb-2">
+                        <label htmlFor="specialRequests" className="block text-gray-800 font-bold mb-2">
                           {t('form.special_requests')}{' '}
                           <span className="text-slate font-normal">({t('form.optional')})</span>
                         </label>
                         <div className="relative">
-                          <MessageSquare className="absolute left-5 top-5 text-slate/30" size={20} />
                           <textarea
                             id="specialRequests"
                             name="specialRequests"
@@ -415,7 +388,7 @@ export default function ReservationsPage() {
                             rows={3}
                             autoFocus
                             placeholder={t('form.special_requests_placeholder')}
-                            className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                            className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70 resize-none"
                           />
                         </div>
                       </>
@@ -423,7 +396,7 @@ export default function ReservationsPage() {
                       <button
                         type="button"
                         onClick={() => setShowSpecialRequests(true)}
-                        className="text-pastel-ink font-bold text-sm hover:underline"
+                        className="link-ink text-sm"
                       >
                         + {t('form.special_requests')} ({t('form.optional')})
                       </button>
@@ -433,7 +406,7 @@ export default function ReservationsPage() {
 
                 {/* Error Message */}
                 {error && (
-                  <div className="flex items-center gap-3 p-4 bg-red-50 border-2 border-red-200 rounded-2xl">
+                  <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-300 rounded-md">
                     <AlertCircle className="text-red-500 flex-shrink-0" size={20} />
                     <p className="text-red-700 text-sm">{error}</p>
                   </div>
@@ -443,7 +416,7 @@ export default function ReservationsPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>
@@ -462,11 +435,11 @@ export default function ReservationsPage() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-10"
           >
             {/* Quick Actions */}
-            <div className="bg-gradient-to-br from-pastel/10 to-peach/10 rounded-3xl p-8 border-2 border-pastel/20">
-              <h2 className="text-xl font-bold text-slate mb-2">
+            <div className="border-t-2 border-gray-800 pt-5">
+              <h2 className="text-xl font-bold text-gray-800 mb-2">
                 {t('quick_actions.title')}
               </h2>
               <p className="text-slate mb-6">
@@ -475,41 +448,38 @@ export default function ReservationsPage() {
               <div className="space-y-3">
                 <a
                   href="tel:+351213470214"
-                  className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
+                  className="btn-secondary w-full"
                 >
-                  <Phone size={20} />
                   {t('quick_actions.call')}
                 </a>
               </div>
             </div>
 
             {/* Good to Know */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h2 className="text-xl font-bold text-slate mb-4 flex items-center gap-2">
-                <Info size={20} className="text-pastel" />
+            <div className="border-t-2 border-gray-800 pt-5">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">
                 {t('info.title')}
               </h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.punctuality.title')}</h3>
+                  <h3 className="font-bold text-gray-800 text-sm mb-1">{t('info.punctuality.title')}</h3>
                   <p className="text-slate text-sm leading-relaxed">{t('info.punctuality.text')}</p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.seating.title')}</h3>
+                  <h3 className="font-bold text-gray-800 text-sm mb-1">{t('info.seating.title')}</h3>
                   <p className="text-slate text-sm leading-relaxed">{t('info.seating.text')}</p>
                 </div>
               </div>
             </div>
 
             {/* Cancellation Policy */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h2 className="text-xl font-bold text-slate mb-4">
+            <div className="border-t-2 border-gray-800 pt-5">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">
                 {t('policy.title')}
               </h2>
-              <ul className="space-y-3">
+              <ul className="list-disc space-y-2 pl-5 marker:text-mango">
                 {[1, 2, 3, 4].map((num) => (
-                  <li key={num} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-sage flex-shrink-0 mt-0.5" size={20} />
+                  <li key={num}>
                     <span className="text-slate text-sm leading-relaxed">
                       {t(`policy.items.${num}`)}
                     </span>
@@ -520,99 +490,84 @@ export default function ReservationsPage() {
           </motion.div>
         </div>
 
-        <section className="mt-20 rounded-3xl bg-white p-8 shadow-lg border-2 border-slate/10" aria-labelledby="visit-info-title">
-          <h2 id="visit-info-title" className="text-3xl md:text-4xl font-bold text-slate text-center mb-10">
+        <section className="mt-24 border-t-2 border-gray-800 pt-10" aria-labelledby="visit-info-title">
+          <h2 id="visit-info-title" className="text-3xl md:text-4xl font-bold text-gray-800">
             {tContact('title')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <article className="rounded-2xl border-2 border-pastel/20 bg-pastel/5 p-6">
-              <Clock className="text-pastel mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.hours.title')}</h3>
-              <p className="text-slate text-sm">{tContact('info.hours.weekday')}</p>
-              <p className="text-slate text-sm">{tContact('info.hours.weekend')}</p>
-            </article>
-            <article className="rounded-2xl border-2 border-sage/20 bg-sage/5 p-6">
-              <MapPin className="text-sage mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.address.title')}</h3>
-              <p className="text-slate text-sm">
+          <Scribble className="mt-2 h-3 w-28 text-mango" />
+          <dl className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <dt className="eyebrow">{tContact('info.hours.title')}</dt>
+              <dd className="mt-2 text-gray-800">
+                <span className="block">{tContact('info.hours.weekday')}</span>
+                <span className="block">{tContact('info.hours.weekend')}</span>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow">{tContact('info.address.title')}</dt>
+              <dd className="mt-2 text-gray-800">
                 {tContact('info.address.line1')}
                 <br />
                 {tContact('info.address.line2')}
-              </p>
-              <a
-                href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex text-sm font-bold text-sage-ink hover:underline"
-              >
-                {tContact('info.maps_cta')}
-              </a>
-            </article>
-            <article className="rounded-2xl border-2 border-steel/20 bg-steel/5 p-6">
-              <Phone className="text-steel mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.contact_info.title')}</h3>
-              <a href={`tel:${RESTAURANT.phoneClean}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
-                {RESTAURANT.phone}
-              </a>
-              <a href={`mailto:${RESTAURANT.email}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
-                {RESTAURANT.email}
-              </a>
-            </article>
-            <article className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-6">
-              <Instagram className="text-purple-600 mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.social.title')}</h3>
-              <a
-                href={RESTAURANT.social.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-slate text-sm hover:text-purple-700"
-              >
-                {tContact('info.social.instagram')}
-              </a>
-              <a
-                href={RESTAURANT.social.tripadvisor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-slate text-sm hover:text-purple-700"
-              >
-                <Star size={14} />
-                {tContact('info.social.tripadvisor')}
-              </a>
-            </article>
-          </div>
+                <a href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A" target="_blank" rel="noopener noreferrer" className="link-ink mt-2 block w-fit text-sm">
+                  {tContact('info.maps_cta')}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow">{tContact('info.contact_info.title')}</dt>
+              <dd className="mt-2 text-gray-800">
+                <a href={`tel:${RESTAURANT.phoneClean}`} className="block py-1 hover:text-pastel-ink">
+                  {RESTAURANT.phone}
+                </a>
+                <a href={`mailto:${RESTAURANT.email}`} className="block break-all py-1 hover:text-pastel-ink">
+                  {RESTAURANT.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow">{tContact('info.social.title')}</dt>
+              <dd className="mt-2 text-gray-800">
+                <a href={RESTAURANT.social.instagram.url} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-pastel-ink">
+                  {tContact('info.social.instagram')}
+                </a>
+                <a href={RESTAURANT.social.tripadvisor.url} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-pastel-ink">
+                  {tContact('info.social.tripadvisor')}
+                </a>
+              </dd>
+            </div>
+          </dl>
         </section>
 
         <section id="contacto" className="scroll-mt-32 mt-20" aria-labelledby="contacto-title">
           <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
             <div>
-              <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold text-slate mb-4">
+              <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                 {tContact('title')}
               </h2>
               <p className="text-slate leading-relaxed">
                 {tContact('subtitle')}
               </p>
               <div className="mt-6 space-y-3 text-sm text-slate">
-                <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-pastel-ink">
-                  <Phone size={18} />
+                <a href={`tel:${RESTAURANT.phoneClean}`} className="block py-1 hover:text-pastel-ink">
                   {RESTAURANT.phone}
                 </a>
-                <a href={`mailto:${RESTAURANT.email}`} className="flex items-center gap-2 hover:text-pastel-ink">
-                  <Mail size={18} />
+                <a href={`mailto:${RESTAURANT.email}`} className="block py-1 hover:text-pastel-ink">
                   {RESTAURANT.email}
                 </a>
               </div>
             </div>
-            <div className="bg-white rounded-3xl shadow-lg p-8 border-2 border-slate/10">
+            <div className="border-2 border-dashed border-slate/25 bg-white p-6 md:p-8">
               {isContactSubmitted ? (
                 <div className="text-center py-8">
-                  <CheckCircle2 className="mx-auto mb-4 text-sage" size={44} />
-                  <h3 className="text-2xl font-bold text-slate mb-3">{tContact('success.title')}</h3>
+                  <CheckCircle2 className="mx-auto mb-4 text-sage-ink" size={44} />
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">{tContact('success.title')}</h3>
                   <p className="text-slate">{tContact('success.message')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="relative space-y-5">
                   <div>
-                    <label htmlFor="contact-name" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-name" className="block text-gray-800 font-bold mb-2">
                       {tContact('form.name')} *
                     </label>
                     <input
@@ -623,11 +578,11 @@ export default function ReservationsPage() {
                       onChange={handleContactChange}
                       required
                       placeholder={tContact('form.name_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                      className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70"
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-email" className="block text-gray-800 font-bold mb-2">
                       {tContact('form.email')} *
                     </label>
                     <input
@@ -638,11 +593,11 @@ export default function ReservationsPage() {
                       onChange={handleContactChange}
                       required
                       placeholder={tContact('form.email_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                      className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70"
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-message" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-message" className="block text-gray-800 font-bold mb-2">
                       {tContact('form.message')} *
                     </label>
                     <textarea
@@ -653,11 +608,11 @@ export default function ReservationsPage() {
                       required
                       rows={5}
                       placeholder={tContact('form.message_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                      className="w-full px-4 py-3.5 rounded-md border border-gray-800/30 bg-white focus:border-gray-800 focus:ring-2 focus:ring-pastel/50 outline-none transition-colors text-gray-800 placeholder:text-slate/70 resize-none"
                     />
                   </div>
                   {contactError && (
-                    <div className="flex items-center gap-3 p-4 bg-red-50 border-2 border-red-200 rounded-2xl">
+                    <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-300 rounded-md">
                       <AlertCircle className="text-red-500 flex-shrink-0" size={20} />
                       <p className="text-red-700 text-sm">{contactError}</p>
                     </div>
@@ -665,7 +620,7 @@ export default function ReservationsPage() {
                   <button
                     type="submit"
                     disabled={isContactSubmitting}
-                    className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-all shadow-xl shadow-pastel/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isContactSubmitting ? tContact('form.submitting') : tContact('form.submit')}
                   </button>
@@ -681,34 +636,17 @@ export default function ReservationsPage() {
         </section>
 
         {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20"
-        >
-          <h2 className="text-4xl font-bold text-slate text-center mb-12">
-            {t('faq.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((num, index) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10 hover:border-pastel/30 hover:shadow-xl transition-all"
-              >
-                <h3 className="text-xl font-bold text-slate mb-3">
-                  {t(`faq.items.${num}.q`)}
-                </h3>
-                <p className="text-slate leading-relaxed">
-                  {t(`faq.items.${num}.a`)}
-                </p>
-              </motion.div>
+        <section className="mt-24" aria-labelledby="reservas-faq-title">
+          <SectionHeading id="reservas-faq-title" title={t('faq.title')} />
+          <dl className="mt-10 grid grid-cols-1 gap-x-14 md:grid-cols-2">
+            {[1, 2, 3, 4].map((num) => (
+              <div key={num} className="border-t border-dashed border-slate/30 py-6">
+                <dt className="text-lg font-bold text-gray-800">{t(`faq.items.${num}.q`)}</dt>
+                <dd className="mt-2 leading-relaxed text-slate">{t(`faq.items.${num}.a`)}</dd>
+              </div>
             ))}
-          </div>
-        </motion.div>
+          </dl>
+        </section>
       </div>
     </div>
   )
