@@ -1,6 +1,5 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { MapPin } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { RESTAURANT } from '@/config/restaurant'
@@ -28,7 +27,6 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
     return { category, title: tMenu(`categories.${category}`), items: entries }
   })
 
-  const flavorKeys = Object.keys((tGelados.raw('flavors.items') ?? {}) as Record<string, unknown>)
   const others = INTENT_KEYS.filter((key) => key !== page)
 
   return (
@@ -89,66 +87,84 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
         </div>
       </section>
 
-      <section className="px-6 py-16 bg-cream">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate mb-10">{t(`${page}.menuTitle`)}</h2>
+      <section className="px-6 py-16 bg-cream" aria-labelledby="carta-heading">
+        <div className="max-w-2xl mx-auto">
+          <header className="mb-10 text-center">
+            <h2 id="carta-heading" className="text-3xl md:text-4xl font-bold text-gray-800">
+              {t(`${page}.menuTitle`)}
+            </h2>
+            <svg
+              className="mx-auto mt-2 h-3 w-28 text-mango"
+              viewBox="0 0 120 12"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M2 8.5c14-4.5 26-5 39-2.5s23 3.5 37 0.5S104 2.5 118 5"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </header>
 
           {config.showGelato && (
-            <div className="mb-10 grid gap-6 md:grid-cols-2">
-              <div className="bg-white rounded-2xl p-6 border-2 border-slate/10">
-                <h3 className="text-xl font-bold text-slate mb-4">{tGelados('sizes.title')}</h3>
-                <ul className="divide-y divide-slate/10">
-                  {GELATO_SIZES.map((size) => (
-                    <li key={size} className="flex items-baseline justify-between gap-4 py-3">
-                      <span className="text-slate">
-                        <span className="font-semibold">{tGelados(`sizes.${size}.name`)}</span> · {tGelados(`sizes.${size}.description`)}
-                      </span>
-                      <span className="font-bold text-pastel-ink whitespace-nowrap">{tGelados(`sizes.${size}.price`)}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white rounded-2xl p-6 border-2 border-slate/10">
-                <h3 className="text-xl font-bold text-slate mb-4">{tGelados('flavors.title')}</h3>
-                <ul className="flex flex-wrap gap-2">
-                  {flavorKeys.map((key) => (
-                    <li key={key} className="rounded-full bg-cream px-3 py-1.5 text-sm font-medium text-slate">
-                      {tGelados(`flavors.items.${key}.name`)}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm italic text-slate">{tGelados('flavors.note')}</p>
-                <p className="mt-2 text-sm text-slate">{tMenu('dulces.note')}</p>
-              </div>
+            <div className="mb-12">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-slate border-b border-slate/30 pb-2 mb-2">
+                {tGelados('sizes.title')}
+              </h3>
+              <ul className="divide-y divide-dashed divide-slate/20">
+                {GELATO_SIZES.map((size) => (
+                  <li key={size} className="py-4">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <p className="text-lg font-bold text-gray-800">{tGelados(`sizes.${size}.name`)}</p>
+                      <span className="mb-1 hidden min-w-[1.5rem] flex-1 self-end border-b-2 border-dotted border-slate/30 sm:block" aria-hidden="true" />
+                      <span className="text-lg font-bold text-gray-800 whitespace-nowrap">{tGelados(`sizes.${size}.price`)}</span>
+                    </div>
+                    <p className="mt-1 text-sm text-gray-600">{tGelados(`sizes.${size}.description`)}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-sm italic text-gray-700">{tMenu('dulces.note')}</p>
             </div>
           )}
 
           {config.showBurgerPromo && (
-            <div className="mb-10 bg-white rounded-2xl p-6 border-2 border-pastel/30">
-              <p className="text-pastel-ink text-sm font-bold uppercase tracking-wider">{tPromo('title')}</p>
-              <p className="mt-2 flex flex-wrap items-baseline justify-between gap-3 text-xl font-bold text-slate">
-                <span>{tPromo('offers.burger_combo.title')}</span>
-                <span className="whitespace-nowrap">{tPromo('offers.burger_combo.price')}</span>
-              </p>
-              <p className="mt-1 text-slate">
+            <div className="mb-12 border-y-2 border-double border-slate/30 py-5">
+              <p className="text-sm font-bold uppercase tracking-wider text-slate">{tPromo('title')}</p>
+              <div className="mt-2 flex items-baseline justify-between gap-3">
+                <p className="text-lg md:text-xl font-bold text-gray-800">{tPromo('offers.burger_combo.title')}</p>
+                <span className="mb-1 hidden min-w-[1.5rem] flex-1 self-end border-b-2 border-dotted border-slate/30 sm:block" aria-hidden="true" />
+                <span className="text-lg md:text-xl font-bold text-gray-800 whitespace-nowrap">{tPromo('offers.burger_combo.price')}</span>
+              </div>
+              <p className="mt-1 text-sm text-gray-700">
                 <span className="font-bold text-gray-800">{tPromo('offers.burger_combo.price_with_drink')}</span>{' '}
-                {tPromo('offers.burger_combo.with_drink')} · {tPromo('every_day')}
+                {tPromo('offers.burger_combo.with_drink')}
               </p>
+              <p className="mt-2 text-sm italic text-sky-800">{tPromo('every_day')}</p>
             </div>
           )}
 
-          <div className="space-y-10">
+          <div className="space-y-12">
             {groups.map((group) => (
               <div key={group.category}>
-                <h3 className="text-xl font-bold text-slate mb-4">{group.title}</h3>
-                <ul className="bg-white rounded-2xl border-2 border-slate/10 divide-y divide-slate/10">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-slate border-b border-slate/30 pb-2 mb-2">
+                  {group.title}
+                </h3>
+                <ul className="divide-y divide-dashed divide-slate/20">
                   {group.items.map((item) => (
-                    <li key={item.name} className="flex items-start justify-between gap-4 px-5 py-4">
-                      <div>
-                        <p className="font-semibold text-gray-800">{item.name}</p>
-                        {item.desc && <p className="mt-1 text-sm text-slate leading-relaxed">{item.desc}</p>}
+                    <li key={item.name} className="py-4">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <p className="font-bold text-gray-800">{item.name}</p>
+                        {item.price && (
+                          <>
+                            <span className="mb-1 hidden min-w-[1.5rem] flex-1 self-end border-b-2 border-dotted border-slate/30 sm:block" aria-hidden="true" />
+                            <span className="font-bold text-gray-800 whitespace-nowrap">€{item.price}</span>
+                          </>
+                        )}
                       </div>
-                      {item.price && <span className="font-bold text-pastel-ink whitespace-nowrap">€{item.price}</span>}
+                      {item.desc && <p className="mt-1 text-sm text-gray-600 leading-relaxed">{item.desc}</p>}
                     </li>
                   ))}
                 </ul>
@@ -160,8 +176,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
 
       <section className="px-6 py-16 bg-white">
         <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
-          <div className="bg-cream rounded-2xl p-8 border-2 border-slate/10">
-            <MapPin className="text-sage mb-4" size={28} aria-hidden="true" />
+          <div className="border-t-2 border-slate/30 pt-6">
             <h2 className="text-2xl font-bold text-slate mb-4">{tVisit('address_title')}</h2>
             <p className="text-slate mb-4">{RESTAURANT.address.full}</p>
             <h3 className="font-bold text-slate">{tFooter('hours_title')}</h3>
@@ -176,7 +191,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
               {tBrunch('ctas.maps')}
             </a>
           </div>
-          <div>
+          <div className="border-t-2 border-slate/30 pt-6">
             <h2 className="text-2xl font-bold text-slate mb-4">{t('seeAlso')}</h2>
             <ul className="space-y-3">
               <li>
