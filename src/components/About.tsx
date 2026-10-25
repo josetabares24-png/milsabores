@@ -19,13 +19,13 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
             {t('title')}
           </h2>
-          <p className="text-slate/60 text-lg max-w-2xl mx-auto">
+          <p className="text-slate text-lg max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -39,16 +39,16 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <p className="text-slate/70 text-lg leading-relaxed">
+            <p className="text-slate text-lg leading-relaxed">
               {t('para1')}{' '}
               <span className="font-semibold text-slate">{t('para1_bold1')}</span> {t('para1_mid')}{' '}
               <span className="font-semibold text-slate">{t('para1_bold2')}</span>.
             </p>
-            <p className="text-slate/70 text-lg leading-relaxed">
+            <p className="text-slate text-lg leading-relaxed">
               {t('para2')}{' '}
               <span className="font-semibold text-slate">{t('para2_bold')}</span>, {t('para2_mid')}
             </p>
-            <p className="text-slate/70 text-lg leading-relaxed">
+            <p className="text-slate text-lg leading-relaxed">
               {t('para3')}
             </p>
           </motion.div>
@@ -85,7 +85,7 @@ export default function About() {
               <Heart size={32} className="text-pastel" />
             </div>
             <h3 className="text-xl font-bold text-slate mb-3">{t('feature1_title')}</h3>
-            <p className="text-slate/60">
+            <p className="text-slate">
               {t('feature1_desc')}
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function About() {
               <Award size={32} className="text-sage" />
             </div>
             <h3 className="text-xl font-bold text-slate mb-3">{t('feature2_title')}</h3>
-            <p className="text-slate/60">
+            <p className="text-slate">
               {t('feature2_desc')}
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function About() {
               <Users size={32} className="text-steel" />
             </div>
             <h3 className="text-xl font-bold text-slate mb-3">{t('feature3_title')}</h3>
-            <p className="text-slate/60">
+            <p className="text-slate">
               {t('feature3_desc')}
             </p>
           </div>

@@ -22,18 +22,18 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-slate hover:text-pastel transition-colors font-medium">
+            <Link href="/" className="text-slate hover:text-pastel-ink transition-colors font-medium">
               {t('home')}
             </Link>
-            <Link href="/menu" className="text-slate hover:text-pastel transition-colors font-medium">
+            <Link href="/menu" className="text-slate hover:text-pastel-ink transition-colors font-medium">
               {t('menu')}
             </Link>
-            <Link href="/galeria" className="text-slate hover:text-pastel transition-colors font-medium">
+            <Link href="/galeria" className="text-slate hover:text-pastel-ink transition-colors font-medium">
               {t('gallery')}
             </Link>
             <Link
               href="/reservas"
-              className="px-6 py-2.5 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="px-6 py-2.5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
             >
               {t('reservations')}
             </Link>
@@ -60,28 +60,28 @@ export default function Navigation() {
               </div>
               <Link
                 href="/"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
+                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('home')}
               </Link>
               <Link
                 href="/menu"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
+                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('menu')}
               </Link>
               <Link
                 href="/galeria"
-                className="text-slate hover:text-pastel transition-colors font-medium py-2"
+                className="text-slate hover:text-pastel-ink transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('gallery')}
               </Link>
               <Link
                 href="/reservas"
-                className="mt-2 px-6 py-3 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all text-center"
+                className="mt-2 px-6 py-3 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('reservations')}

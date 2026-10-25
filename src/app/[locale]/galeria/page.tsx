@@ -100,7 +100,7 @@ export default function GalleryPage() {
             <Logo size="xl" colorFilter="pastel" />
             <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
               <ImageIcon className="text-pastel" size={20} />
-              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
                 {t('eyebrow')}
               </span>
             </div>
@@ -108,7 +108,7 @@ export default function GalleryPage() {
           <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
             {t('title')}
           </h1>
-          <p className="text-slate/60 text-xl max-w-2xl mx-auto">
+          <p className="text-slate text-xl max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -126,7 +126,7 @@ export default function GalleryPage() {
               onClick={() => setActiveCategory(category)}
               className={`px-8 py-4 rounded-full font-bold transition-all ${
                 activeCategory === category
-                  ? 'bg-pastel text-white shadow-xl shadow-pastel/40 scale-105'
+                  ? 'bg-pastel text-gray-800 shadow-xl shadow-pastel/40 scale-105'
                   : 'bg-white text-slate hover:bg-white/80 hover:scale-105'
               }`}
             >
@@ -187,7 +187,7 @@ export default function GalleryPage() {
           <h3 className="text-3xl md:text-4xl font-bold text-slate mb-4">
             {t('follow_us')}
           </h3>
-          <p className="text-slate/60 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
             {t('share_cta')}
           </p>
           <a

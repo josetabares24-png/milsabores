@@ -53,20 +53,20 @@ export default function InstagramGallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
             {t('title')}
           </h2>
-          <p className="text-slate/60 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-slate text-lg max-w-2xl mx-auto mb-8">
             {t('subtitle')} {t('handle')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/galeria"
-              className="inline-flex items-center justify-center px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-transform shadow-xl shadow-pastel/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/30"
+              className="inline-flex items-center justify-center px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-transform shadow-xl shadow-pastel/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/30"
             >
               {t('view_gallery')}
             </Link>
@@ -128,7 +128,7 @@ export default function InstagramGallery() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-slate/60 text-sm font-medium">
+          <p className="text-slate text-sm font-medium">
             {t('cta')}
           </p>
         </motion.div>

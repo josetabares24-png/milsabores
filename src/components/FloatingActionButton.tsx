@@ -80,7 +80,7 @@ export default function FloatingActionButton() {
       {/* Main FAB Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full bg-pastel text-white shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
+        className={`w-16 h-16 rounded-full bg-pastel text-gray-800 shadow-2xl hover:shadow-pastel/50 flex items-center justify-center transition-all ${
           isOpen ? 'rotate-45' : ''
         }`}
         whileHover={{ scale: 1.1 }}

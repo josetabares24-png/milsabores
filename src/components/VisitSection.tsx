@@ -20,13 +20,13 @@ export default function VisitSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
             {t('eyebrow')}
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
             {t('title')}
           </h2>
-          <p className="text-slate/60 text-lg max-w-2xl mx-auto">
+          <p className="text-slate text-lg max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export default function VisitSection() {
                 </div>
                 <div>
                   <h3 className="text-slate font-bold text-lg mb-2">{t('address_title')}</h3>
-                  <p className="text-slate/60 leading-relaxed">
+                  <p className="text-slate leading-relaxed">
                     {t('address')}
                   </p>
                 </div>
@@ -86,8 +86,8 @@ export default function VisitSection() {
                 <div className="flex-1">
                   <h3 className="text-slate font-bold text-lg mb-2">{t('hours_title')}</h3>
                   <div className="space-y-1">
-                    <p className="text-slate/60">{t('hours_weekday')}</p>
-                    <p className="text-slate/60">{t('hours_weekend')}</p>
+                    <p className="text-slate">{t('hours_weekday')}</p>
+                    <p className="text-slate">{t('hours_weekend')}</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function VisitSection() {
                 </div>
                 <div>
                   <h3 className="text-slate font-bold text-lg mb-2">{t('phone_title')}</h3>
-                  <a href="tel:+351213470214" className="text-slate/60 hover:text-steel transition-colors font-medium">
+                  <a href="tel:+351213470214" className="text-slate hover:text-steel transition-colors font-medium">
                     {t('phone')}
                   </a>
                 </div>
@@ -116,7 +116,7 @@ export default function VisitSection() {
                 </div>
                 <div>
                   <h3 className="text-slate font-bold text-lg mb-2">{t('email_title')}</h3>
-                  <a href="mailto:milsaboreslx@gmail.com" className="text-slate/60 hover:text-rose-600 transition-colors font-medium">
+                  <a href="mailto:milsaboreslx@gmail.com" className="text-slate hover:text-rose-600 transition-colors font-medium">
                     {t('email')}
                   </a>
                 </div>
@@ -136,13 +136,13 @@ export default function VisitSection() {
           <h3 className="text-3xl md:text-4xl font-bold text-slate mb-4">
             {t('reserve_title')}
           </h3>
-          <p className="text-slate/60 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
             {t('reserve_desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+351213470214"
-              className="px-10 py-4 bg-pastel text-white font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
+              className="px-10 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
             >
               {t('cta_call')}
             </a>

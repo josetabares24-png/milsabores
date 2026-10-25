@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 text-slate hover:text-pastel transition-all font-medium rounded-full md:rounded-lg bg-white/80 md:bg-transparent border-2 border-pastel/30 md:border-transparent hover:bg-pastel/10 hover:border-pastel/50 shadow-md md:shadow-none hover:shadow-lg"
+        className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 text-slate hover:text-pastel-ink transition-all font-medium rounded-full md:rounded-lg bg-white/80 md:bg-transparent border-2 border-pastel/30 md:border-transparent hover:bg-pastel/10 hover:border-pastel/50 shadow-md md:shadow-none hover:shadow-lg"
         aria-label="Change language"
       >
         <Globe size={22} className="md:w-5 md:h-5" />
@@ -49,7 +49,7 @@ export default function LanguageSwitcher() {
                 disabled={isPending}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
                   locale === currentLocale
-                    ? 'bg-pastel text-white font-bold'
+                    ? 'bg-pastel text-gray-800 font-bold'
                     : 'text-slate hover:bg-pastel/10'
                 } ${isPending ? 'opacity-50 cursor-wait' : ''}`}
               >

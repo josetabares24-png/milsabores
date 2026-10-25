@@ -31,7 +31,7 @@ export default function FeaturedDish() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-pastel/20 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-pastel" />
-              <span className="text-pastel font-bold text-sm uppercase tracking-wider">
+              <span className="text-pastel-ink font-bold text-sm uppercase tracking-wider">
                 {t('badge')}
               </span>
             </div>
@@ -60,11 +60,11 @@ export default function FeaturedDish() {
             <div className="flex flex-wrap items-center gap-6">
               <div>
                 <span className="text-white/60 text-sm">{t('from')}</span>
-                <div className="text-4xl font-bold text-pastel">{t('price')}</div>
+                <div className="text-4xl font-bold text-pastel-ink">{t('price')}</div>
               </div>
               <Link
                 href="/menu"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
               >
                 {t('cta')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

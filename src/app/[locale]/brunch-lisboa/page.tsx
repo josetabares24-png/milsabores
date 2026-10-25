@@ -19,10 +19,10 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
       <section className="px-6 pb-16">
         <div className="max-w-7xl mx-auto">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate/60">
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-pastel transition-colors">
+                <Link href="/" className="hover:text-pastel-ink transition-colors">
                   {t('breadcrumb.home')}
                 </Link>
               </li>
@@ -35,19 +35,19 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
             <div>
-              <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
                 {t('hero.eyebrow')}
               </span>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate leading-tight mt-4 mb-6 break-words">
                 {t('hero.title')}
               </h1>
-              <p className="text-xl text-slate/70 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-xl text-slate leading-relaxed mb-8 max-w-2xl">
                 {t('hero.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/menu"
-                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-colors shadow-lg shadow-pastel/30"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors shadow-lg shadow-pastel/30"
                 >
                   {t('ctas.menu')}
                 </Link>
@@ -77,7 +77,7 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
       </section>
 
       <section className="px-6 py-16 bg-cream">
-        <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate/75 leading-relaxed">
+        <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate leading-relaxed">
           {paragraphs.map((item) => (
             <p key={item}>{t(`story.p${item}`)}</p>
           ))}
@@ -87,13 +87,13 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
       <section className="px-6 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-12">
-            <span className="text-pastel text-sm font-bold tracking-widest uppercase">
+            <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
               {t('products.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate mt-4 mb-4">
               {t('products.title')}
             </h2>
-            <p className="text-lg text-slate/70">{t('products.subtitle')}</p>
+            <p className="text-lg text-slate">{t('products.subtitle')}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {productItems.map((item, index) => {
@@ -101,10 +101,10 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
               return (
                 <article key={item} className="bg-cream rounded-2xl p-6 border-2 border-pastel/10">
                   <div className="w-12 h-12 bg-pastel/20 rounded-xl flex items-center justify-center mb-5">
-                    <Icon className="text-pastel" size={24} />
+                    <Icon className="text-pastel-ink" size={24} />
                   </div>
                   <h3 className="text-xl font-bold text-slate mb-3">{t(`products.items.${item}.title`)}</h3>
-                  <p className="text-slate/70 leading-relaxed">{t(`products.items.${item}.text`)}</p>
+                  <p className="text-slate leading-relaxed">{t(`products.items.${item}.text`)}</p>
                 </article>
               )
             })}
@@ -117,8 +117,8 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
           <div className="bg-white rounded-2xl p-8 border-2 border-slate/10">
             <MapPin className="text-sage mb-4" size={32} />
             <h2 className="text-3xl font-bold text-slate mb-4">{t('visit.title')}</h2>
-            <p className="text-slate/70 leading-relaxed mb-6">{t('visit.text')}</p>
-            <div className="space-y-3 text-slate/70">
+            <p className="text-slate leading-relaxed mb-6">{t('visit.text')}</p>
+            <div className="space-y-3 text-slate">
               <p>
                 <strong className="text-slate">{t('visit.addressLabel')}</strong>
                 <br />
@@ -133,11 +133,11 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-5">{t('menu.title')}</h2>
-            <p className="text-lg text-slate/70 leading-relaxed mb-8">{t('menu.text')}</p>
+            <p className="text-lg text-slate leading-relaxed mb-8">{t('menu.text')}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/menu"
-                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-white font-bold rounded-full hover:bg-pastel-dark transition-colors"
+                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors"
               >
                 {t('ctas.menu')}
               </Link>
@@ -161,7 +161,7 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
             {faqItems.map((item) => (
               <article key={item} className="rounded-2xl border-2 border-slate/10 p-6">
                 <h3 className="text-xl font-bold text-slate mb-3">{t(`faq.items.${item}.q`)}</h3>
-                <p className="text-slate/70 leading-relaxed">{t(`faq.items.${item}.a`)}</p>
+                <p className="text-slate leading-relaxed">{t(`faq.items.${item}.a`)}</p>
               </article>
             ))}
           </div>
