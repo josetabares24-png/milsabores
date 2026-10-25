@@ -1,10 +1,8 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
-import Tilt from 'react-parallax-tilt'
 import Image from 'next/image'
+import SectionHeading from './brand/SectionHeading'
+import MenuLine from './brand/MenuLine'
 
 interface MenuItem {
   id: number
@@ -42,97 +40,39 @@ const menuItems: MenuItem[] = [
 
 export default function MenuSection() {
   const t = useTranslations('menu')
+  const tilt = ['rotate-[-1deg]', 'rotate-[0.8deg]', 'rotate-[-0.6deg]', 'rotate-[1deg]']
 
   return (
-    <section id="menu" className="py-24 px-6 bg-cream">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-            {t('eyebrow')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
-            {t('title')}
-          </h2>
-          <p className="text-slate text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+    <section id="menu" className="bg-cream px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} intro={t('subtitle')} />
 
-        {/* Menu Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <ul className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {menuItems.map((item, index) => (
-            <Tilt
-              key={item.id}
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              scale={1.02}
-              transitionSpeed={2000}
-              glareEnable={true}
-              glareMaxOpacity={0.2}
-              glareColor="#F2B705"
-              glarePosition="all"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative bg-white/80 backdrop-blur-lg rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-white/50 hover:border-pastel/30"
-              >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={t(`items.${item.key}.name`)}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-                {/* Price Badge */}
-                <div className="absolute top-4 right-4 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
-                  <span className="text-pastel-ink font-bold text-lg">{item.price}</span>
+            <li key={item.id}>
+              <div className={`bg-white p-2 ring-1 ring-black/5 ${tilt[index % tilt.length]}`}>
+                <div className="relative aspect-square overflow-hidden rounded-[2px]">
+                  <Image
+                    src={item.image}
+                    alt={t(`items.${item.key}.name`)}
+                    fill
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate mb-2">
-                  {t(`items.${item.key}.name`)}
-                </h3>
-                <p className="text-slate text-sm leading-relaxed">
-                  {t(`items.${item.key}.desc`)}
-                </p>
-              </div>
-              </motion.div>
-            </Tilt>
+              <MenuLine className="mt-5 text-lg" name={t(`items.${item.key}.name`)} price={item.price} />
+              <p className="mt-1 text-sm leading-relaxed text-slate">{t(`items.${item.key}.desc`)}</p>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* View Full Menu Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <Link
-            href="/menu"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-pastel/40 hover:scale-105"
-          >
+        <div className="mt-14 text-center">
+          <Link href="/menu" className="btn-primary">
             {t('view_full')}
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

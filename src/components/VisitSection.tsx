@@ -1,159 +1,78 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { MapPin, Clock, Phone, Mail } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { RESTAURANT } from '@/config/restaurant'
+import SectionHeading from './brand/SectionHeading'
 
+/** Visita como um cartão impresso: dados em linhas tracejadas ao lado do mapa emoldurado. */
 export default function VisitSection() {
   const t = useTranslations('visit')
 
   return (
-    <section id="contact" className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-            {t('eyebrow')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
-            {t('title')}
-          </h2>
-          <p className="text-slate text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+    <section id="contact" className="bg-white px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading eyebrow={t('eyebrow')} title={t('title')} intro={t('subtitle')} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative h-[400px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-pastel/10 to-transparent z-10 pointer-events-none" />
-            <iframe
-              // Embed por pesquisa de morada (não precisa de API key); a morada vem de config/restaurant.ts
-              src={`https://www.google.com/maps?q=${encodeURIComponent(RESTAURANT.address.full)}&z=17&output=embed`}
-              title={t('map_title')}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
-
-          {/* Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            {/* Address */}
-            <div className="bg-cream border-2 border-sage/30 rounded-2xl p-6 hover:border-sage hover:shadow-lg transition-all group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-sage/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-sage/30 transition-colors">
-                  <MapPin size={24} className="text-sage" />
-                </div>
-                <div>
-                  <h3 className="text-slate font-bold text-lg mb-2">{t('address_title')}</h3>
-                  <p className="text-slate leading-relaxed">
-                    {t('address')}
-                  </p>
-                </div>
+        <div className="mt-14 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <dl className="text-slate">
+              <div className="border-t border-dashed border-slate/30 py-5">
+                <dt className="eyebrow">{t('address_title')}</dt>
+                <dd className="mt-2 text-lg text-gray-800">{t('address')}</dd>
               </div>
-            </div>
-
-            {/* Hours */}
-            <div className="bg-cream border-2 border-pastel/30 rounded-2xl p-6 hover:border-pastel hover:shadow-lg transition-all group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-pastel/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-pastel/30 transition-colors">
-                  <Clock size={24} className="text-pastel" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-slate font-bold text-lg mb-2">{t('hours_title')}</h3>
-                  <div className="space-y-1">
-                    <p className="text-slate">{t('hours_weekday')}</p>
-                    <p className="text-slate">{t('hours_weekend')}</p>
-                  </div>
-                </div>
+              <div className="border-t border-dashed border-slate/30 py-5">
+                <dt className="eyebrow">{t('hours_title')}</dt>
+                <dd className="mt-2 text-lg text-gray-800">
+                  <span className="block">{t('hours_weekday')}</span>
+                  <span className="block">{t('hours_weekend')}</span>
+                </dd>
               </div>
-            </div>
-
-            {/* Phone */}
-            <div className="bg-cream border-2 border-steel/30 rounded-2xl p-6 hover:border-steel hover:shadow-lg transition-all group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-steel/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-steel/30 transition-colors">
-                  <Phone size={24} className="text-steel" />
-                </div>
-                <div>
-                  <h3 className="text-slate font-bold text-lg mb-2">{t('phone_title')}</h3>
-                  <a href="tel:+351213470214" className="text-slate hover:text-pastel-ink transition-colors font-medium">
+              <div className="border-t border-dashed border-slate/30 py-5">
+                <dt className="eyebrow">{t('phone_title')}</dt>
+                <dd className="mt-2 text-lg">
+                  <a href={`tel:${RESTAURANT.phoneClean}`} className="link-ink">
                     {t('phone')}
                   </a>
-                </div>
+                </dd>
               </div>
-            </div>
-
-            {/* Email */}
-            <div className="bg-cream border-2 border-peach/30 rounded-2xl p-6 hover:border-peach hover:shadow-lg transition-all group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-peach/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-peach/40 transition-colors">
-                  <Mail size={24} className="text-rose-600" />
-                </div>
-                <div>
-                  <h3 className="text-slate font-bold text-lg mb-2">{t('email_title')}</h3>
-                  <a href="mailto:milsaboreslx@gmail.com" className="text-slate hover:text-rose-600 transition-colors font-medium">
+              <div className="border-y border-dashed border-slate/30 py-5">
+                <dt className="eyebrow">{t('email_title')}</dt>
+                <dd className="mt-2 text-lg">
+                  <a href={`mailto:${RESTAURANT.email}`} className="link-ink break-all">
                     {t('email')}
                   </a>
-                </div>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="mt-10">
+              <h3 className="text-2xl font-bold text-gray-800">{t('reserve_title')}</h3>
+              <p className="mt-2 leading-relaxed text-slate">{t('reserve_desc')}</p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Link href="/reservas" className="btn-primary">
+                  {t('cta_reserve')}
+                </Link>
+                <a href={`tel:${RESTAURANT.phoneClean}`} className="btn-secondary">
+                  {t('cta_call')}
+                </a>
               </div>
             </div>
-          </motion.div>
-        </div>
-
-        {/* Reservation CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center bg-gradient-to-br from-pastel/10 to-peach/10 rounded-3xl p-12 border-2 border-pastel/20"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-slate mb-4">
-            {t('reserve_title')}
-          </h3>
-          <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
-            {t('reserve_desc')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+351213470214"
-              className="px-10 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
-            >
-              {t('cta_call')}
-            </a>
-            <Link
-              href="/reservas"
-              className="px-10 py-4 bg-white text-slate font-bold rounded-full border-2 border-pastel/30 hover:bg-pastel hover:text-white hover:border-pastel transition-all shadow-md"
-            >
-              {t('cta_reserve')}
-            </Link>
           </div>
-        </motion.div>
+
+          <div className="bg-white p-2 ring-1 ring-black/10 md:p-3">
+            <div className="relative h-[360px] overflow-hidden rounded-[2px] md:h-full md:min-h-[460px]">
+              <iframe
+                // Embed por pesquisa de morada (não precisa de API key); a morada vem de config/restaurant.ts
+                src={`https://www.google.com/maps?q=${encodeURIComponent(RESTAURANT.address.full)}&z=17&output=embed`}
+                title={t('map_title')}
+                className="absolute inset-0 h-full w-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

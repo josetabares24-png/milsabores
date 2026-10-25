@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 interface MenuLineProps {
   name: ReactNode
   price?: ReactNode
-  as?: 'h3' | 'h4' | 'p'
+  as?: 'h2' | 'h3' | 'h4' | 'p'
   className?: string
 }
 

@@ -1,131 +1,66 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { ArrowRight, Clock, MapPin, Phone } from 'lucide-react'
 import { Link } from '@/i18n/routing'
-import Image from 'next/image'
+import { RESTAURANT } from '@/config/restaurant'
+import Scribble from './brand/Scribble'
+import PhotoPrint from './brand/PhotoPrint'
 import Logo from './Logo'
 
+/**
+ * Hero em papel creme: título a tinta com sublinhado à mão, foto real como prova impressa
+ * sobre as formas recortadas da marca e o selo "colado" no canto. Sem véus, vidro nem animações
+ * (o H1 é o elemento LCP e pinta de imediato).
+ */
 export default function Hero() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/Mil Sabores/Brunch Americano.webp"
-          alt={t('image_alt')}
-          fill
-          className="object-cover"
-          // Fundo decorativo (fica por trás de um véu branco a ~90%): não é o LCP,
-          // por isso não compete com o título nem precisa de qualidade alta.
-          loading="eager"
-          fetchPriority="low"
-          sizes="100vw"
-          quality={60}
-        />
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-cream/90 to-white/85 backdrop-blur-[2px]" />
-      </div>
+    <section className="relative overflow-hidden bg-cream px-6 pb-16 pt-28 md:pb-24 md:pt-36">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+        <div>
+          <p className="eyebrow">
+            {t('tagline')} · {t('city')}
+          </p>
+          <h1 className="mt-3 text-[2.6rem] font-bold leading-[1.08] text-gray-800 sm:text-5xl lg:text-6xl">
+            {t('title')}
+          </h1>
+          <Scribble className="mt-3 h-4 w-40 text-mango" />
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate md:text-xl">{t('subtitle')}</p>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 py-24 max-w-6xl mx-auto">
-        {/* Sem animação de entrada no bloco do título: o H1 é o elemento LCP e tem de pintar logo. */}
-        <div className="space-y-8">
-          {/* Main Heading - SEO Optimized */}
-          <div className="space-y-4">
-            {/* SEO-friendly H1 with visual styling */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
-              <span className="block">{t('title')}</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl text-pastel-ink font-bold tracking-wide drop-shadow-sm mt-2">
-                {t('tagline')}
-              </span>
-              <span className="block text-sm md:text-base text-slate font-medium tracking-[0.3em] uppercase mt-4">
-                {t('city')}
-              </span>
-            </h1>
-            {/* Logo below title and location */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex justify-center mt-6"
-            >
-              <Logo size="xl" />
-            </motion.div>
-            {/* Subtitle */}
-            <p className="text-slate text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              {t('subtitle')}
-            </p>
-          </div>
-
-          {/* CTAs - Enhanced */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center pt-8"
-          >
-            <Link
-              href="/menu"
-              className="group relative px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full shadow-xl shadow-pastel/40 hover:bg-pastel-dark hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
-            >
-              <span className="relative z-10">{t('cta_menu')}</span>
-              <ArrowRight size={22} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-              {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/menu" className="btn-primary text-lg">
+              {t('cta_menu')}
             </Link>
-            <Link
-              href="/reservas"
-              className="px-10 py-5 bg-white/90 backdrop-blur-xl text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel hover:bg-pastel hover:text-white hover:scale-105 transition-all duration-300 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-pastel/30 flex items-center justify-center text-lg"
-            >
+            <Link href="/reservas" className="btn-secondary text-lg">
               {t('cta_reserve')}
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Info Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-6 pt-12 text-slate text-base font-medium"
-          >
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <Clock className="text-pastel" size={20} />
-              <span>{t('hours_label')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <MapPin className="text-sage" size={20} />
-              <span>{t('location_label')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <Phone className="text-steel" size={20} />
-              <span>{t('phone_label')}</span>
-            </div>
-          </motion.div>
+          <ul className="rule-dashed mt-10 grid gap-2 pt-5 text-sm text-slate sm:grid-cols-[1.5fr_1fr_1fr] sm:gap-4">
+            <li>{t('hours_label')}</li>
+            <li>{t('location_label')}</li>
+            <li>
+              <a href={`tel:${RESTAURANT.phoneClean}`} className="inline-block py-0.5 hover:text-pastel-ink">
+                {t('phone_label')}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-sm md:max-w-none">
+          <PhotoPrint
+            src="/images/Mil Sabores/Brunch Americano.webp"
+            alt={t('image_alt')}
+            ratio="portrait"
+            shapes="a"
+            priority
+            sizes="(max-width: 768px) 80vw, 40vw"
+            className="rotate-[1.5deg]"
+          />
+          <div className="absolute -bottom-6 -left-6 rotate-[-10deg] rounded-full bg-white p-1.5 shadow-[0_1px_0_rgba(0,0,0,0.06)] md:-left-10">
+            <Logo size="lg" />
+          </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-slate text-xs uppercase tracking-wider font-semibold">{t('scroll')}</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 border-2 border-pastel/40 rounded-full flex items-start justify-center p-2 bg-white/50 backdrop-blur-sm"
-          >
-            <div className="w-1.5 h-1.5 bg-pastel rounded-full" />
-          </motion.div>
-        </div>
-      </motion.div>
     </section>
   )
 }

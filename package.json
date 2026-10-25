@@ -16,7 +16,6 @@
     "next-intl": "^4.7.0",
     "react": "^19",
     "react-dom": "^19",
-    "react-parallax-tilt": "^1.7.317",
     "resend": "^6.9.1"
   },
   "devDependencies": {
