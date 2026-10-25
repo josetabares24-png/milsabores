@@ -5,19 +5,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import {
-  Beer,
-  Camera,
   ChefHat,
   ChevronDown,
   Clock,
-  Gift,
   IceCream,
   Leaf,
   MapPin,
   Phone,
-  Users,
   Wheat,
-  Wine,
 } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
@@ -137,12 +132,13 @@ const dietaryTags: Record<string, ('vegetarian' | 'vegan' | 'glutenFree')[]> = {
 const gelatoFlavors = ['acai', 'mango', 'pistacho', 'fresa', 'oreo', 'vainilla', 'chocolate', 'pastel_de_nata']
 const veganGelatoFlavors = ['acai', 'mango', 'fresa']
 
+// Ofertas confirmadas pelo José. 'timed' = só das 13:00 às 18:00; 'daily' = todos os dias, sem horário definido.
 const promotions = [
-  { key: 'beer_promo', icon: Beer, color: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200', showPrice: true },
-  { key: 'cocktails', icon: Wine, color: 'text-rose-600', bg: 'bg-rose-50', border: 'border-rose-200', showPrice: true },
-  { key: 'brunch_duo', icon: Users, color: 'text-pastel', bg: 'bg-pastel/10', border: 'border-pastel/30', showPrice: true },
-  { key: 'instagram', icon: Camera, color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', showPrice: false },
-]
+  { key: 'beer_promo', schedule: 'timed' },
+  { key: 'cocktails', schedule: 'timed' },
+  { key: 'brunch_duo', schedule: 'daily' },
+  { key: 'burger_combo', schedule: 'daily' },
+] as const
 
 export default function MenuPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'vegetarian' | 'vegan' | 'glutenFree'>('all')
@@ -449,34 +445,74 @@ export default function MenuPage() {
           </div>
         </section>
 
-        <section id="promocoes" className="scroll-mt-32 mt-10 rounded-3xl border-2 border-slate/10 bg-white p-5 md:p-8" aria-labelledby="promocoes-heading">
-          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pastel/10 px-4 py-2 text-sm font-bold uppercase tracking-wider text-pastel">
-                <Gift size={18} />
-                {tPromotions('eyebrow')}
-              </div>
-              <h2 id="promocoes-heading" className="text-3xl font-bold text-slate md:text-4xl">
+        <section
+          id="promocoes"
+          className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-cream px-5 py-8 md:px-12 md:py-12"
+          aria-labelledby="promocoes-heading"
+        >
+          <div className="mx-auto max-w-2xl">
+            <header className="mb-8 text-center md:mb-10">
+              <p className="text-sm font-bold uppercase tracking-wider text-slate">{tPromotions('eyebrow')}</p>
+              <h2 id="promocoes-heading" className="mt-1 text-3xl font-bold text-gray-800 md:text-4xl">
                 {tPromotions('title')}
               </h2>
-            </div>
-            <p className="text-sm font-medium text-slate/60">{tPromotions('time_note')}</p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {promotions.map((promotion) => {
-              const Icon = promotion.icon
-              return (
-                <article key={promotion.key} className={`rounded-2xl border-2 ${promotion.border} ${promotion.bg} p-5`}>
-                  <Icon className={promotion.color} size={28} />
-                  <h3 className="mt-4 text-lg font-bold text-slate">{tPromotions(`offers.${promotion.key}.title`)}</h3>
-                  <p className="mt-1 text-sm text-slate/60">{tPromotions(`offers.${promotion.key}.description`)}</p>
-                  <p className="mt-3 text-2xl font-bold text-pastel">
-                    {promotion.showPrice ? tPromotions(`offers.${promotion.key}.price`) : tPromotions(`offers.${promotion.key}.discount`)}
-                  </p>
-                  <p className="mt-3 text-xs leading-relaxed text-slate/60">{tPromotions(`offers.${promotion.key}.terms`)}</p>
-                </article>
-              )
-            })}
+              <svg
+                className="mx-auto mt-2 h-3 w-28 text-mango"
+                viewBox="0 0 120 12"
+                fill="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M2 8.5c14-4.5 26-5 39-2.5s23 3.5 37 0.5S104 2.5 118 5"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </header>
+
+            <ul className="divide-y divide-dashed divide-slate/20">
+              {promotions.map((promotion) => {
+                const key = promotion.key
+                const when =
+                  promotion.schedule === 'timed'
+                    ? `${tPromotions('time_badge')} · ${tPromotions('every_day')}`
+                    : tPromotions('every_day')
+                return (
+                  <li key={key} className="py-5 first:pt-0 last:pb-0">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="text-lg font-bold leading-snug text-gray-800 md:text-xl">
+                        {tPromotions(`offers.${key}.title`)}
+                      </h3>
+                      <span
+                        className="mb-1 hidden min-w-[1.5rem] flex-1 self-end border-b-2 border-dotted border-slate/30 sm:block"
+                        aria-hidden="true"
+                      />
+                      <p className="flex shrink-0 flex-col items-end text-lg font-bold text-gray-800 sm:flex-row sm:items-baseline sm:gap-1 md:text-xl">
+                        <span className="whitespace-nowrap">{tPromotions(`offers.${key}.price`)}</span>
+                        {key === 'brunch_duo' && (
+                          <span className="whitespace-nowrap text-sm font-medium text-slate">{tPromotions('offers.brunch_duo.unit')}</span>
+                        )}
+                      </p>
+                    </div>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      {tPromotions(`offers.${key}.description`)}
+                    </p>
+                    {key === 'burger_combo' && (
+                      <p className="mt-1 text-sm text-gray-700">
+                        <span className="font-bold text-gray-800">{tPromotions('offers.burger_combo.price_with_drink')}</span>{' '}
+                        {tPromotions('offers.burger_combo.with_drink')}
+                      </p>
+                    )}
+                    {key === 'brunch_duo' && (
+                      <p className="mt-1 text-sm leading-relaxed text-gray-500">{tPromotions('offers.brunch_duo.details')}</p>
+                    )}
+                    <p className="mt-2 text-sm italic text-sky-800">{when}</p>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </section>
 

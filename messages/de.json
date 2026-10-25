@@ -1198,6 +1198,7 @@
     "subtitle": "Nutzen Sie unsere exklusiven Angebote von 13:00 bis 18:00 Uhr",
     "time_badge": "13:00 - 18:00",
     "time_note": "Angebote täglich gültig von 13:00 bis 18:00 Uhr",
+    "every_day": "Täglich",
     "limited": "Begrenzte Zeit",
     "new": "Neu",
     "popular": "Beliebt",
@@ -1207,7 +1208,7 @@
     "valid_until": "Gültig bis",
     "offers": {
       "beer_promo": {
-        "title": "Bier €1.50",
+        "title": "Fassbier",
         "badge": "Aktion",
         "description": "Erfrischen Sie Ihren Nachmittag",
         "price": "€1.50",
@@ -1215,7 +1216,7 @@
         "terms": "Fassbier. Täglich von 13:00 bis 18:00 Uhr."
       },
       "cocktails": {
-        "title": "Cocktails €5",
+        "title": "Cocktails",
         "badge": "Spezial",
         "description": "Aperol · Cuba Libre · Gin Tonic",
         "price": "€5.00",
@@ -1227,49 +1228,18 @@
         "badge": "Brunch",
         "description": "Das komplette Erlebnis",
         "price": "€29.95",
+        "unit": "pro Paar",
         "details": "2 Mini-Avocado-Toasts, 2 mit Banane und Erdnussbutter, Rührei, Champignons, 2 Mini-Pancakes, 2 Obstsalate, 2 Joghurts mit Granola, 2 Säfte und 2 Kaffee.",
         "terms": "Preis pro Paar. Täglich verfügbar."
       },
-      "instagram": {
-        "title": "Instagram-Foto",
-        "badge": "Kostenlos",
-        "description": "Teilen und gewinnen",
-        "discount": "KOSTENLOSER KAFFEE",
-        "details": "Laden Sie ein Foto Ihres Gerichts auf Instagram hoch und markieren Sie @milsaboreslx – wir schenken Ihnen einen Espresso oder Tee.",
-        "terms": "Beitrag dem Kellner zeigen. Öffentliches Profil. Ein Kaffee pro Tisch."
-      }
-    },
-    "weekly": {
-      "title": "Unsere Angebote",
-      "monday": {
-        "day": "Bier",
-        "offer": "€1.50",
-        "desc": "Jeden Tag"
-      },
-      "tuesday": {
-        "day": "Cocktails",
-        "offer": "€5.00",
-        "desc": "Aperol, Cuba Libre, Gin Tonic"
-      },
-      "wednesday": {
-        "day": "Brunch Duo",
-        "offer": "€29.95",
-        "desc": "Das komplette Erlebnis für zwei"
-      },
-      "thursday": {
-        "day": "Instagram",
-        "offer": "Kostenloser Kaffee",
-        "desc": "Teilen Sie Ihr Foto @milsaboreslx"
-      },
-      "friday": {
-        "day": "WLAN",
-        "offer": "Kostenlos",
-        "desc": "Arbeiten Sie, während Sie genießen"
-      },
-      "weekend": {
-        "day": "Gelato",
-        "offer": "Hausgemacht",
-        "desc": "8 einzigartige Sorten"
+      "burger_combo": {
+        "title": "Burger + Pommes",
+        "badge": "Combo",
+        "description": "Burger mit Pommes",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "mit Getränk",
+        "terms": "€10 ohne Getränk · €12 inklusive Getränk."
       }
     },
     "newsletter": {
