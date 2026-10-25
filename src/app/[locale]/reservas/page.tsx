@@ -86,8 +86,9 @@ export default function ReservationsPage() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const website = String(new FormData(e.currentTarget).get('website') || '')
     setError('')
 
     if (!isValidEmail(formData.email)) {
@@ -106,7 +107,7 @@ export default function ReservationsPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, locale }),
+        body: JSON.stringify({ ...formData, locale, website }),
       })
 
       const data = await response.json()
@@ -125,8 +126,9 @@ export default function ReservationsPage() {
     }
   }
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const website = String(new FormData(e.currentTarget).get('website') || '')
     setContactError('')
 
     if (!isValidEmail(contactData.email)) {
@@ -145,6 +147,7 @@ export default function ReservationsPage() {
           ...contactData,
           subject: 'other',
           locale,
+          website,
         }),
       })
 
@@ -233,7 +236,12 @@ export default function ReservationsPage() {
             className="lg:col-span-2"
           >
             <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="relative space-y-6">
+                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                  <label htmlFor="reservation-website">Website</label>
+                  <input id="reservation-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="md:col-span-2">
@@ -602,7 +610,12 @@ export default function ReservationsPage() {
                   <p className="text-slate">{tContact('success.message')}</p>
                 </div>
               ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-5">
+                <form onSubmit={handleContactSubmit} className="relative space-y-5">
+                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                  <label htmlFor="contact-website">Website</label>
+                  <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
                   <div>
                     <label htmlFor="contact-name" className="block text-slate font-bold mb-2">
                       {tContact('form.name')} *

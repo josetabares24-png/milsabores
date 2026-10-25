@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { isValidEmail, isValidPhone } from '@/lib/validation'
+import { cleanString, escapeHtml, isHoneypotFilled, isRateLimited, oneLine } from '@/lib/form-guard'
 
 // Resend free tier uses onboarding@resend.dev as sender
 // Once you verify your domain in Resend, set RESEND_FROM_EMAIL=reservas@milsaboresbrunch.com
@@ -11,17 +12,37 @@ const RESTAURANT_EMAIL = process.env.RESTAURANT_EMAIL || 'josetabarespt@gmail.co
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, date, time, guests, specialRequests, locale } = body
+
+    // Bots: responder como sucesso sem enviar nada
+    if (body && typeof body === 'object' && isHoneypotFilled(body)) {
+      return NextResponse.json({ success: true, message: 'Reservation confirmed' })
+    }
+
+    if (isRateLimited(request, 'reservations')) {
+      return NextResponse.json(
+        { error: 'Demasiados pedidos. Tente de novo mais tarde ou ligue para +351 21 347 0214.' },
+        { status: 429 }
+      )
+    }
+
+    const rawName = cleanString(body?.name, 100)
+    const email = cleanString(body?.email, 254)
+    const phone = cleanString(body?.phone, 30)
+    const date = cleanString(body?.date, 10)
+    const time = cleanString(body?.time, 5)
+    const guestsNumber = Number(body?.guests)
+    const rawRequests = cleanString(body?.specialRequests, 1000, { required: false })
+    const locale = typeof body?.locale === 'string' ? body.locale : 'pt'
 
     // Validate required fields
-    if (!name || !email || !phone || !date || !time || !guests) {
+    if (!rawName || !email || !phone || !date || !time || rawRequests === null) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       )
     }
 
-    if (!isValidEmail(email)) {
+    if (!isValidEmail(email) || /[<>"'`]/.test(email)) {
       return NextResponse.json(
         { error: 'Invalid email' },
         { status: 400 }
@@ -34,6 +55,26 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(`${date}T00:00:00Z`))) {
+      return NextResponse.json({ error: 'Invalid date' }, { status: 400 })
+    }
+    const dayMs = 86400000
+    const requested = Date.parse(`${date}T00:00:00Z`)
+    if (requested < Date.now() - 2 * dayMs || requested > Date.now() + 366 * dayMs) {
+      return NextResponse.json({ error: 'Invalid date' }, { status: 400 })
+    }
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) {
+      return NextResponse.json({ error: 'Invalid time' }, { status: 400 })
+    }
+    if (!Number.isInteger(guestsNumber) || guestsNumber < 1 || guestsNumber > 20) {
+      return NextResponse.json({ error: 'Invalid guests' }, { status: 400 })
+    }
+
+    // Texto do cliente escapado antes de entrar no HTML dos emails
+    const name = escapeHtml(oneLine(rawName, 100))
+    const guests = String(guestsNumber)
+    const specialRequests = rawRequests ? escapeHtml(rawRequests).replace(/\r?\n/g, '<br>') : ''
 
     const dateLocaleMap: Record<string, string> = {
       pt: 'pt-PT',

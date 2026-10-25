@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { isValidEmail } from '@/lib/validation'
+import { cleanString, escapeHtml, isHoneypotFilled, isRateLimited, oneLine } from '@/lib/form-guard'
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
 const RESTAURANT_EMAIL = process.env.RESTAURANT_EMAIL || 'milsaboreslx@gmail.com'
@@ -8,22 +9,44 @@ const RESTAURANT_EMAIL = process.env.RESTAURANT_EMAIL || 'milsaboreslx@gmail.com
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, subject, message, locale } = body
+
+    // Bots: responder como sucesso sem enviar nada
+    if (body && typeof body === 'object' && isHoneypotFilled(body)) {
+      return NextResponse.json({ success: true })
+    }
+
+    if (isRateLimited(request, 'contact')) {
+      return NextResponse.json(
+        { error: 'Demasiados pedidos. Tente de novo mais tarde ou ligue para +351 21 347 0214.' },
+        { status: 429 }
+      )
+    }
+
+    const rawName = cleanString(body?.name, 100)
+    const email = cleanString(body?.email, 254)
+    const rawSubject = cleanString(body?.subject, 150)
+    const rawMessage = cleanString(body?.message, 3000)
+    const locale = typeof body?.locale === 'string' ? body.locale : 'pt'
 
     // Validate required fields
-    if (!name || !email || !subject || !message) {
+    if (!rawName || !email || !rawSubject || !rawMessage) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       )
     }
 
-    if (!isValidEmail(email)) {
+    if (!isValidEmail(email) || /[<>"'`]/.test(email)) {
       return NextResponse.json(
         { error: 'Invalid email' },
         { status: 400 }
       )
     }
+
+    // Texto do cliente escapado antes de entrar no HTML dos emails
+    const name = escapeHtml(oneLine(rawName, 100))
+    const subject = escapeHtml(oneLine(rawSubject, 150))
+    const message = escapeHtml(rawMessage).replace(/\r?\n/g, '<br>')
 
     // Translation texts based on locale
     const translations: Record<string, Record<string, string>> = {
