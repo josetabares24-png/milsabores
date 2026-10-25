@@ -1,6 +1,6 @@
 export default function GalleryLoading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-peach/20 py-24 px-4">
+    <div className="min-h-screen bg-cream py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Skeleton */}
         <div className="text-center mb-16 animate-pulse">

@@ -41,7 +41,7 @@ export default function CookieConsent() {
           transition={{ duration: 0.2 }}
           role="region"
           aria-label={t('title')}
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-slate/15 bg-white/95 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] backdrop-blur"
+          className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-gray-800 bg-cream"
         >
           <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
             <p className="flex-1 text-xs leading-snug text-slate sm:text-sm">

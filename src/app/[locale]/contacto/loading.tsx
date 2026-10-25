@@ -1,6 +1,6 @@
 export default function ContactLoading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-peach/20 py-24 px-4">
+    <div className="min-h-screen bg-cream py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Skeleton */}
         <div className="text-center mb-16 animate-pulse">
@@ -11,7 +11,7 @@ export default function ContactLoading() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form Skeleton */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 animate-pulse">
+          <div className="bg-white border-2 border-dashed border-slate/20 p-8 animate-pulse">
             <div className="space-y-6">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i}>
@@ -39,7 +39,7 @@ export default function ContactLoading() {
         </div>
 
         {/* Map Skeleton */}
-        <div className="mt-16 h-96 bg-slate-200 rounded-3xl animate-pulse"></div>
+        <div className="mt-16 h-96 bg-slate-200 animate-pulse"></div>
       </div>
     </div>
   )

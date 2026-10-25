@@ -21,7 +21,7 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-peach/20 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-cream px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function Error({
         >
           <button
             onClick={reset}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 rounded-full font-semibold hover:bg-pastel/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            className="btn-primary"
           >
             <RotateCcw size={20} />
             {t('error.retry', { default: 'Tentar Novamente' })}

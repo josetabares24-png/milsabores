@@ -1,6 +1,6 @@
 export default function ReservationsLoading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-peach/20 py-24 px-4">
+    <div className="min-h-screen bg-cream py-24 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header Skeleton */}
         <div className="text-center mb-16 animate-pulse">
@@ -10,7 +10,7 @@ export default function ReservationsLoading() {
         </div>
 
         {/* Form Skeleton */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 mb-12 animate-pulse">
+        <div className="bg-white border-2 border-dashed border-slate/20 p-8 mb-12 animate-pulse">
           <div className="space-y-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i}>

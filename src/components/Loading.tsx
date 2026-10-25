@@ -2,7 +2,7 @@ import { CakeSlice, Coffee, IceCream, Utensils } from 'lucide-react'
 
 export default function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-peach/20">
+    <div className="min-h-screen flex items-center justify-center bg-cream">
       <div className="text-center">
         {/* Animated Logo/Icon */}
         <div className="relative mb-8">
