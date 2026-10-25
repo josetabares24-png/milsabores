@@ -279,8 +279,7 @@
       "hours": {
         "title": "Hours",
         "weekday": "Monday to Thursday: 7:00 AM - 7:00 PM",
-        "weekend": "Friday to Sunday: 7:00 AM - 8:00 PM",
-        "weekend": ""
+        "weekend": "Friday to Sunday: 7:00 AM - 8:00 PM"
       },
       "contact_info": {
         "title": "Contact Information",

@@ -279,8 +279,7 @@
       "hours": {
         "title": "Horário",
         "weekday": "Segunda a Quinta: 7:00 - 19:00",
-        "weekend": "Sexta a Domingo: 7:00 - 20:00",
-        "weekend": ""
+        "weekend": "Sexta a Domingo: 7:00 - 20:00"
       },
       "contact_info": {
         "title": "Informações de Contacto",

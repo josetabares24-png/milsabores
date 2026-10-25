@@ -279,8 +279,7 @@
       "hours": {
         "title": "Horario",
         "weekday": "Lunes a Jueves: 7:00 - 19:00",
-        "weekend": "Viernes a Domingo: 7:00 - 20:00",
-        "weekend": ""
+        "weekend": "Viernes a Domingo: 7:00 - 20:00"
       },
       "contact_info": {
         "title": "Información de Contacto",
