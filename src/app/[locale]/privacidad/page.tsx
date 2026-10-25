@@ -1,149 +1,109 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
+import { useTranslations } from 'next-intl'
 import { Shield } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
+import { RESTAURANT } from '@/config/restaurant'
+
+const linkClass = 'text-pastel-ink font-bold hover:underline'
+const s2Items = ['reservations', 'contact', 'browsing'] as const
+const s3Items = ['a', 'b', 'c', 'd'] as const
+const s7Items = ['access', 'rectification', 'erasure', 'objection', 'portability'] as const
 
 export default function PrivacyPage() {
+  const t = useTranslations('legal')
+  const rich = {
+    email: (chunks: ReactNode) => (
+      <a href={`mailto:${RESTAURANT.email}`} className={linkClass}>{chunks}</a>
+    ),
+    phone: (chunks: ReactNode) => (
+      <a href={`tel:${RESTAURANT.phoneClean}`} className={linkClass}>{chunks}</a>
+    ),
+    link: (chunks: ReactNode) => (
+      <Link href="/cookies" className={linkClass}>{chunks}</Link>
+    ),
+  }
+
   return (
     <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="xl" colorFilter="pastel" />
-            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
-              <Shield className="text-pastel" size={20} />
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-                Legal
-              </span>
-            </div>
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <Logo size="xl" colorFilter="pastel" />
+          <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
+            <Shield className="text-pastel" size={20} aria-hidden="true" />
+            <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">{t('label')}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate mb-8">
-            Política de Privacidad
-          </h1>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold text-slate mb-8">{t('privacy.title')}</h1>
 
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border-2 border-slate/10 space-y-8 text-slate leading-relaxed">
-            <p className="text-sm text-slate">Última actualización: febrero 2026</p>
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border-2 border-slate/10 space-y-8 text-slate leading-relaxed">
+          <p className="text-sm text-slate">{t('updated')}</p>
 
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">1. Responsable del Tratamiento</h2>
-              <p>
-                <strong>Mil Sabores Lisboa</strong><br />
-                Rua da Prata 152, 1100-619 Lisboa, Portugal<br />
-                Email: milsaboreslx@gmail.com<br />
-                Teléfono: +351 21 347 0214
-              </p>
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s1_title')}</h2>
+            <p>
+              <strong>Mil Sabores Lisboa</strong><br />
+              {RESTAURANT.address.full}<br />
+              Email: {RESTAURANT.email}<br />
+              {t('privacy.phone_label')}: {RESTAURANT.phone}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s2_title')}</h2>
+            <p>{t('privacy.s2_intro')}</p>
+            <ul className="list-disc pl-6 mt-3 space-y-2">
+              {s2Items.map((k) => (
+                <li key={k}><strong>{t(`privacy.s2_items.${k}.label`)}</strong> {t(`privacy.s2_items.${k}.text`)}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s3_title')}</h2>
+            <p>{t('privacy.s3_intro')}</p>
+            <ul className="list-disc pl-6 mt-3 space-y-2">
+              {s3Items.map((k) => (
+                <li key={k}>{t(`privacy.s3_items.${k}`)}</li>
+              ))}
+            </ul>
+          </section>
+
+          {(['s4', 's5', 's6'] as const).map((s) => (
+            <section key={s}>
+              <h2 className="text-2xl font-bold text-slate mb-4">{t(`privacy.${s}_title`)}</h2>
+              <p>{t(`privacy.${s}_text`)}</p>
             </section>
+          ))}
 
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">2. Datos que Recopilamos</h2>
-              <p>Recopilamos los siguientes datos personales cuando utilizas nuestros servicios:</p>
-              <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li><strong>Reservas:</strong> nombre, email, teléfono, fecha, hora y número de personas.</li>
-                <li><strong>Formulario de contacto:</strong> nombre, email y el contenido de tu mensaje.</li>
-                <li><strong>Navegación:</strong> datos técnicos como dirección IP, tipo de navegador y páginas visitadas (a través de cookies).</li>
-              </ul>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s7_title')}</h2>
+            <p>{t('privacy.s7_intro')}</p>
+            <ul className="list-disc pl-6 mt-3 space-y-2">
+              {s7Items.map((k) => (
+                <li key={k}><strong>{t(`privacy.s7_items.${k}.label`)}</strong> {t(`privacy.s7_items.${k}.text`)}</li>
+              ))}
+            </ul>
+            <p className="mt-3">{t.rich('privacy.s7_contact', rich)}</p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">3. Finalidad del Tratamiento</h2>
-              <p>Utilizamos tus datos para:</p>
-              <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li>Gestionar y confirmar reservas de mesa.</li>
-                <li>Responder a consultas y solicitudes de contacto.</li>
-                <li>Mejorar la experiencia de navegación en nuestro sitio web.</li>
-                <li>Cumplir con obligaciones legales aplicables.</li>
-              </ul>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s8_title')}</h2>
+            <p>{t('privacy.s8_text')}</p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">4. Base Legal</h2>
-              <p>
-                El tratamiento de datos se basa en tu consentimiento expreso al enviar formularios,
-                en la ejecución de un contrato (gestión de reservas) y en nuestro interés legítimo
-                de mejorar nuestros servicios. Cumplimos con el Reglamento General de Protección
-                de Datos (RGPD) de la Unión Europea.
-              </p>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s9_title')}</h2>
+            <p>{t.rich('privacy.s9_text', rich)}</p>
+          </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">5. Conservación de Datos</h2>
-              <p>
-                Los datos de reservas se conservan durante un máximo de 12 meses desde la fecha
-                de la reserva. Los datos de contacto se mantienen hasta resolver la consulta y
-                un máximo de 6 meses después. Puedes solicitar la eliminación de tus datos en
-                cualquier momento.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">6. Compartición de Datos</h2>
-              <p>
-                No vendemos ni compartimos tus datos personales con terceros con fines comerciales.
-                Solo compartimos datos con proveedores de servicios necesarios para el funcionamiento
-                del sitio web (alojamiento, envío de emails de confirmación) y cuando sea requerido
-                por ley.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">7. Tus Derechos</h2>
-              <p>De acuerdo con el RGPD, tienes derecho a:</p>
-              <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li><strong>Acceso:</strong> solicitar una copia de tus datos personales.</li>
-                <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
-                <li><strong>Eliminación:</strong> solicitar la eliminación de tus datos.</li>
-                <li><strong>Oposición:</strong> oponerte al tratamiento de tus datos.</li>
-                <li><strong>Portabilidad:</strong> recibir tus datos en un formato estructurado.</li>
-              </ul>
-              <p className="mt-3">
-                Para ejercer cualquiera de estos derechos, escríbenos a{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel-ink font-bold hover:underline">
-                  milsaboreslx@gmail.com
-                </a>.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">8. Seguridad</h2>
-              <p>
-                Implementamos medidas técnicas y organizativas para proteger tus datos personales
-                contra acceso no autorizado, pérdida o destrucción. Nuestro sitio web utiliza
-                conexión segura HTTPS.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">9. Cookies</h2>
-              <p>
-                Utilizamos cookies para mejorar tu experiencia. Puedes consultar nuestra{' '}
-                <Link href="/cookies" className="text-pastel-ink font-bold hover:underline">
-                  Política de Cookies
-                </Link>{' '}
-                para más información.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-slate mb-4">10. Contacto</h2>
-              <p>
-                Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en{' '}
-                <a href="mailto:milsaboreslx@gmail.com" className="text-pastel-ink font-bold hover:underline">
-                  milsaboreslx@gmail.com
-                </a>{' '}
-                o llamando al{' '}
-                <a href="tel:+351213470214" className="text-pastel-ink font-bold hover:underline">
-                  +351 21 347 0214
-                </a>.
-              </p>
-            </section>
-          </div>
-        </motion.div>
+          <section>
+            <h2 className="text-2xl font-bold text-slate mb-4">{t('privacy.s10_title')}</h2>
+            <p>{t.rich('privacy.s10_text', rich)}</p>
+          </section>
+        </div>
       </div>
     </div>
   )

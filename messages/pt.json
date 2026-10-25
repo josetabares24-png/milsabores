@@ -301,6 +301,16 @@
     }
   },
   "meta": {
+    "cookies": {
+      "title": "Política de Cookies | Mil Sabores Lisboa",
+      "description": "Que cookies o site do Mil Sabores Lisboa utiliza, para que servem e como os pode gerir no seu navegador.",
+      "imageAlt": "Mil Sabores Lisboa"
+    },
+    "privacy": {
+      "title": "Política de Privacidade | Mil Sabores Lisboa",
+      "description": "Como o Mil Sabores Lisboa trata os dados pessoais de reservas e contactos: finalidades, prazos de conservação e os seus direitos (RGPD).",
+      "imageAlt": "Mil Sabores Lisboa"
+    },
     "home": {
       "title": "Mil Sabores | Brunch na Baixa de Lisboa",
       "description": "Descubra o Mil Sabores na Rua da Prata: brunch, panquecas, crepes, waffles, bowls, café e gelados artesanais no centro de Lisboa.",
@@ -1396,5 +1406,100 @@
     "decline": "Recusar",
     "accept": "Aceitar",
     "close": "Fechar banner de cookies"
+  },
+  "legal": {
+    "label": "Legal",
+    "updated": "Última atualização: fevereiro de 2026",
+    "privacy": {
+      "title": "Política de Privacidade",
+      "s1_title": "1. Responsável pelo Tratamento",
+      "phone_label": "Telefone",
+      "s2_title": "2. Dados que Recolhemos",
+      "s2_intro": "Recolhemos os seguintes dados pessoais quando utiliza os nossos serviços:",
+      "s2_items": {
+        "reservations": {
+          "label": "Reservas:",
+          "text": "nome, email, telefone, data, hora e número de pessoas."
+        },
+        "contact": {
+          "label": "Formulário de contacto:",
+          "text": "nome, email e o conteúdo da sua mensagem."
+        },
+        "browsing": {
+          "label": "Navegação:",
+          "text": "dados técnicos como endereço IP, tipo de navegador e páginas visitadas (através de cookies)."
+        }
+      },
+      "s3_title": "3. Finalidade do Tratamento",
+      "s3_intro": "Utilizamos os seus dados para:",
+      "s3_items": {
+        "a": "Gerir e confirmar reservas de mesa.",
+        "b": "Responder a pedidos de informação e de contacto.",
+        "c": "Melhorar a experiência de navegação no nosso site.",
+        "d": "Cumprir as obrigações legais aplicáveis."
+      },
+      "s4_title": "4. Fundamento Jurídico",
+      "s4_text": "O tratamento de dados baseia-se no seu consentimento expresso ao enviar formulários, na execução de um contrato (gestão de reservas) e no nosso interesse legítimo em melhorar os nossos serviços. Cumprimos o Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia.",
+      "s5_title": "5. Conservação dos Dados",
+      "s5_text": "Os dados das reservas são conservados durante um máximo de 12 meses a contar da data da reserva. Os dados de contacto são mantidos até à resolução do pedido e, no máximo, durante 6 meses depois. Pode pedir a eliminação dos seus dados a qualquer momento.",
+      "s6_title": "6. Partilha de Dados",
+      "s6_text": "Não vendemos nem partilhamos os seus dados pessoais com terceiros para fins comerciais. Só partilhamos dados com prestadores de serviços necessários ao funcionamento do site (alojamento, envio de emails de confirmação) e quando a lei o exigir.",
+      "s7_title": "7. Os Seus Direitos",
+      "s7_intro": "Nos termos do RGPD, tem direito a:",
+      "s7_items": {
+        "access": {
+          "label": "Acesso:",
+          "text": "pedir uma cópia dos seus dados pessoais."
+        },
+        "rectification": {
+          "label": "Retificação:",
+          "text": "corrigir dados inexatos ou incompletos."
+        },
+        "erasure": {
+          "label": "Apagamento:",
+          "text": "pedir a eliminação dos seus dados."
+        },
+        "objection": {
+          "label": "Oposição:",
+          "text": "opor-se ao tratamento dos seus dados."
+        },
+        "portability": {
+          "label": "Portabilidade:",
+          "text": "receber os seus dados num formato estruturado."
+        }
+      },
+      "s7_contact": "Para exercer qualquer destes direitos, escreva-nos para <email>milsaboreslx@gmail.com</email>.",
+      "s8_title": "8. Segurança",
+      "s8_text": "Aplicamos medidas técnicas e organizativas para proteger os seus dados pessoais contra acesso não autorizado, perda ou destruição. O nosso site utiliza ligação segura HTTPS.",
+      "s9_title": "9. Cookies",
+      "s9_text": "Utilizamos cookies para melhorar a sua experiência. Pode consultar a nossa <link>Política de Cookies</link> para mais informações.",
+      "s10_title": "10. Contacto",
+      "s10_text": "Se tiver dúvidas sobre esta política de privacidade, pode contactar-nos através de <email>milsaboreslx@gmail.com</email> ou pelo telefone <phone>+351 21 347 0214</phone>."
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "s1_title": "1. O que são Cookies?",
+      "s1_text": "Os cookies são pequenos ficheiros de texto guardados no seu dispositivo quando visita um site. Permitem que o site se lembre das suas ações e preferências durante um certo período, para que não tenha de as configurar sempre que volta a visitá-lo.",
+      "s2_title": "2. Cookies que Utilizamos",
+      "essential_title": "Cookies Essenciais",
+      "essential_text": "Necessários ao funcionamento básico do site. Incluem cookies de sessão e de preferência de idioma. Não podem ser desativados.",
+      "performance_title": "Cookies de Desempenho",
+      "performance_text": "Ajudam-nos a perceber como os visitantes interagem com o nosso site, recolhendo informação de forma anónima. Isto permite-nos melhorar a experiência de navegação.",
+      "third_title": "Cookies de Terceiros",
+      "third_text": "Utilizamos serviços de terceiros, como o Google Maps (para mostrar a nossa localização), que podem definir os seus próprios cookies. Estes cookies estão sujeitos às políticas de privacidade desses terceiros.",
+      "s3_title": "3. Gestão de Cookies",
+      "s3_text": "Pode controlar e gerir os cookies nas definições do seu navegador. Tenha em conta que desativar certos cookies pode afetar o funcionamento do site.",
+      "browsers": {
+        "chrome": "Definições → Privacidade e segurança → Cookies",
+        "firefox": "Definições → Privacidade e segurança → Cookies",
+        "safari": "Preferências → Privacidade → Cookies",
+        "edge": "Definições → Cookies e permissões do site"
+      },
+      "s4_title": "4. Duração dos Cookies",
+      "s4_text": "Os cookies de sessão são eliminados quando fecha o navegador. Os cookies persistentes ficam no seu dispositivo durante um período determinado ou até os eliminar manualmente. Os cookies de preferência de idioma são mantidos durante 30 dias.",
+      "s5_title": "5. Mais Informações",
+      "s5_text": "Para mais informações sobre a forma como tratamos os seus dados pessoais, consulte a nossa <link>Política de Privacidade</link>.",
+      "s5_contact": "Se tiver dúvidas, contacte-nos através de <email>milsaboreslx@gmail.com</email>."
+    }
   }
 }

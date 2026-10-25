@@ -11,6 +11,8 @@ export const pagePaths = {
   menu: 'menu',
   reservations: 'reservas',
   gallery: 'galeria',
+  privacy: 'privacidad',
+  cookies: 'cookies',
 } as const
 
 export type MetaPage = keyof typeof pagePaths
@@ -21,6 +23,8 @@ const pageImages: Record<MetaPage, string> = {
   menu: defaultImage,
   reservations: defaultImage,
   gallery: defaultImage,
+  privacy: defaultImage,
+  cookies: defaultImage,
 }
 
 export async function buildPageMetadata(locale: string, page: MetaPage): Promise<Metadata> {
