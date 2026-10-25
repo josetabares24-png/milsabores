@@ -237,11 +237,6 @@ export default function ReservationsPage() {
           >
             <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
               <form onSubmit={handleSubmit} className="relative space-y-6">
-                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
-                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-                  <label htmlFor="reservation-website">Website</label>
-                  <input id="reservation-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
-                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="md:col-span-2">
@@ -453,6 +448,11 @@ export default function ReservationsPage() {
                   {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </button>
 
+                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                  <label htmlFor="reservation-website">Website</label>
+                  <input id="reservation-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
               </form>
             </div>
           </motion.div>
@@ -611,11 +611,6 @@ export default function ReservationsPage() {
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="relative space-y-5">
-                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
-                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-                  <label htmlFor="contact-website">Website</label>
-                  <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
-                </div>
                   <div>
                     <label htmlFor="contact-name" className="block text-slate font-bold mb-2">
                       {tContact('form.name')} *
@@ -674,6 +669,11 @@ export default function ReservationsPage() {
                   >
                     {isContactSubmitting ? tContact('form.submitting') : tContact('form.submit')}
                   </button>
+                  {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
+                  <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                    <label htmlFor="contact-website">Website</label>
+                    <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                  </div>
                 </form>
               )}
             </div>
