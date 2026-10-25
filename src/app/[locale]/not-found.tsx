@@ -10,6 +10,8 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-white to-peach/20 px-4">
+      {/* React 19 eleva <title> para o <head>; sem impacto visual */}
+      <title>{`${t('common.404.title', { default: 'Oops! Página Não Encontrada' })} | Mil Sabores Lisboa`}</title>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
