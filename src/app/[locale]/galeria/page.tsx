@@ -157,7 +157,7 @@ export default function GalleryPage() {
             >
               <Image
                 src={image.url}
-                alt={image.alt}
+                alt={t(`alts.${image.id}`)}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -258,7 +258,7 @@ export default function GalleryPage() {
             >
               <Image
                 src={selectedImageData.url}
-                alt={selectedImageData.alt}
+                alt={t(`alts.${selectedImageData.id}`)}
                 fill
                 sizes="100vw"
                 className="object-contain"
