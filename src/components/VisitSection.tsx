@@ -101,7 +101,7 @@ export default function VisitSection() {
                 </div>
                 <div>
                   <h3 className="text-slate font-bold text-lg mb-2">{t('phone_title')}</h3>
-                  <a href="tel:+351213470214" className="text-slate hover:text-steel transition-colors font-medium">
+                  <a href="tel:+351213470214" className="text-slate hover:text-pastel-ink transition-colors font-medium">
                     {t('phone')}
                   </a>
                 </div>

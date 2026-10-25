@@ -466,9 +466,9 @@ export default function ReservationsPage() {
           >
             {/* Quick Actions */}
             <div className="bg-gradient-to-br from-pastel/10 to-peach/10 rounded-3xl p-8 border-2 border-pastel/20">
-              <h3 className="text-xl font-bold text-slate mb-2">
+              <h2 className="text-xl font-bold text-slate mb-2">
                 {t('quick_actions.title')}
-              </h3>
+              </h2>
               <p className="text-slate mb-6">
                 {t('quick_actions.subtitle')}
               </p>
@@ -485,17 +485,17 @@ export default function ReservationsPage() {
 
             {/* Good to Know */}
             <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h3 className="text-xl font-bold text-slate mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-slate mb-4 flex items-center gap-2">
                 <Info size={20} className="text-pastel" />
                 {t('info.title')}
-              </h3>
+              </h2>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-bold text-slate text-sm mb-1">{t('info.punctuality.title')}</h4>
+                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.punctuality.title')}</h3>
                   <p className="text-slate text-sm leading-relaxed">{t('info.punctuality.text')}</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate text-sm mb-1">{t('info.seating.title')}</h4>
+                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.seating.title')}</h3>
                   <p className="text-slate text-sm leading-relaxed">{t('info.seating.text')}</p>
                 </div>
               </div>
@@ -503,9 +503,9 @@ export default function ReservationsPage() {
 
             {/* Cancellation Policy */}
             <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h3 className="text-xl font-bold text-slate mb-4">
+              <h2 className="text-xl font-bold text-slate mb-4">
                 {t('policy.title')}
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {[1, 2, 3, 4].map((num) => (
                   <li key={num} className="flex items-start gap-3">
@@ -551,10 +551,10 @@ export default function ReservationsPage() {
             <article className="rounded-2xl border-2 border-steel/20 bg-steel/5 p-6">
               <Phone className="text-steel mb-4" size={28} />
               <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.contact_info.title')}</h3>
-              <a href={`tel:${RESTAURANT.phoneClean}`} className="block text-slate text-sm hover:text-steel">
+              <a href={`tel:${RESTAURANT.phoneClean}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
                 {RESTAURANT.phone}
               </a>
-              <a href={`mailto:${RESTAURANT.email}`} className="block text-slate text-sm hover:text-steel">
+              <a href={`mailto:${RESTAURANT.email}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
                 {RESTAURANT.email}
               </a>
             </article>
@@ -592,11 +592,11 @@ export default function ReservationsPage() {
                 {tContact('subtitle')}
               </p>
               <div className="mt-6 space-y-3 text-sm text-slate">
-                <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-steel">
+                <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-pastel-ink">
                   <Phone size={18} />
                   {RESTAURANT.phone}
                 </a>
-                <a href={`mailto:${RESTAURANT.email}`} className="flex items-center gap-2 hover:text-steel">
+                <a href={`mailto:${RESTAURANT.email}`} className="flex items-center gap-2 hover:text-pastel-ink">
                   <Mail size={18} />
                   {RESTAURANT.email}
                 </a>

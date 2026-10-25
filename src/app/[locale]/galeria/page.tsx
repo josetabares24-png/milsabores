@@ -184,9 +184,9 @@ export default function GalleryPage() {
               <Instagram size={40} className="text-white" />
             </div>
           </div>
-          <h3 className="text-3xl md:text-4xl font-bold text-slate mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate mb-4">
             {t('follow_us')}
-          </h3>
+          </h2>
           <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
             {t('share_cta')}
           </p>
