@@ -1232,6 +1232,15 @@
         "unit": "per couple",
         "details": "2 mini avocado toasts, 2 mini banana toasts with peanut butter, scrambled eggs, mushrooms, 2 mini pancakes, 2 fruit salads, 2 yogurts with granola, 2 juices and 2 coffees.",
         "terms": "Price per couple. Available every day."
+      },
+      "burger_combo": {
+        "title": "Burger + sweet potato fries",
+        "badge": "Combo",
+        "description": "Burger served with sweet potato fries",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "with a drink",
+        "terms": "€10 without a drink · €12 with a drink included."
       }
     },
     "newsletter": {

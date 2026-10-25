@@ -15,6 +15,7 @@ import {
   Leaf,
   MapPin,
   Phone,
+  Sandwich,
   Users,
   Wheat,
   Wine,
@@ -161,6 +162,14 @@ const promotions = [
     accent: 'bg-pastel',
     iconWrap: 'bg-pastel-light/60 text-sky-700 ring-pastel/40',
     badge: 'bg-pastel-light text-sky-900',
+  },
+  {
+    key: 'burger_combo',
+    icon: Sandwich,
+    schedule: 'daily',
+    accent: 'bg-sage',
+    iconWrap: 'bg-sage/15 text-green-800 ring-sage/40',
+    badge: 'bg-sage/20 text-green-900',
   },
 ] as const
 
@@ -485,7 +494,7 @@ export default function MenuPage() {
               </h2>
             </div>
           </div>
-          <ul className="grid gap-5 md:grid-cols-3" role="list">
+          <ul className="grid gap-5 md:grid-cols-2" role="list">
             {promotions.map((promotion) => {
               const Icon = promotion.icon
               const isTimed = promotion.schedule === 'time'
@@ -512,12 +521,18 @@ export default function MenuPage() {
                         <span className="text-sm font-medium text-gray-600">{tPromotions('offers.brunch_duo.unit')}</span>
                       )}
                     </p>
+                    {promotion.key === 'burger_combo' && (
+                      <p className="mt-1 text-sm font-medium text-gray-700">
+                        <span className="text-lg font-bold text-gray-900">{tPromotions('offers.burger_combo.price_with_drink')}</span>{' '}
+                        {tPromotions('offers.burger_combo.with_drink')}
+                      </p>
+                    )}
                     <div className="mt-4">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-sm font-semibold text-gray-700">
                         <ScheduleIcon size={16} aria-hidden="true" />
                         {isTimed ? (
                           <>
-                            <span>{tPromotions('time_badge')}</span>
+                            <span className="whitespace-nowrap">{tPromotions('time_badge')}</span>
                             <span aria-hidden="true">·</span>
                             <span>{tPromotions('every_day')}</span>
                           </>

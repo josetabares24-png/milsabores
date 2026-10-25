@@ -1231,6 +1231,15 @@
         "unit": "pour deux",
         "details": "2 mini toasts à l'avocat, 2 mini toasts banane et beurre de cacahuète, œufs brouillés, champignons, 2 mini pancakes, 2 salades de fruits, 2 yaourts au granola, 2 jus et 2 cafés.",
         "terms": "Prix pour deux personnes. Disponible tous les jours."
+      },
+      "burger_combo": {
+        "title": "Burger + frites de patate douce",
+        "badge": "Combo",
+        "description": "Burger accompagné de frites de patate douce",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "avec boisson",
+        "terms": "€10 sans boisson · €12 avec boisson incluse."
       }
     },
     "newsletter": {

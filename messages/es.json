@@ -1232,6 +1232,15 @@
         "unit": "por pareja",
         "details": "2 mini tostadas de aguacate, 2 de banana con mantequilla de cacahuete, huevos revueltos, champiñones, 2 mini pancakes, 2 ensaladas de fruta, 2 yogures con granola, 2 zumos y 2 cafés.",
         "terms": "Precio por pareja. Disponible todos los días."
+      },
+      "burger_combo": {
+        "title": "Hamburguesa + boniato frito",
+        "badge": "Combo",
+        "description": "Hamburguesa acompañada de boniato frito",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "con bebida",
+        "terms": "€10 sin bebida · €12 con bebida incluida."
       }
     },
     "newsletter": {

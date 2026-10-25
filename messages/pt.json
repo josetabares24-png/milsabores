@@ -1232,6 +1232,15 @@
         "unit": "por casal",
         "details": "2 mini-tostas de abacate, 2 de banana com manteiga de amendoim, ovos mexidos, cogumelos, 2 mini-panquecas, 2 saladas de fruta, 2 iogurtes com granola, 2 sumos e 2 cafés.",
         "terms": "Preço por casal. Disponível todos os dias."
+      },
+      "burger_combo": {
+        "title": "Hambúrguer + batatas doces",
+        "badge": "Combo",
+        "description": "Hambúrguer acompanhado de batatas doces",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "com bebida",
+        "terms": "€10 sem bebida · €12 com bebida incluída."
       }
     },
     "newsletter": {

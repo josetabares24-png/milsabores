@@ -1231,6 +1231,15 @@
         "unit": "per coppia",
         "details": "2 mini toast di avocado, 2 di banana con burro di arachidi, uova strapazzate, funghi, 2 mini pancake, 2 macedonie, 2 yogurt con granola, 2 succhi e 2 caffè.",
         "terms": "Prezzo per coppia. Disponibile tutti i giorni."
+      },
+      "burger_combo": {
+        "title": "Burger + patatine di patata dolce",
+        "badge": "Combo",
+        "description": "Burger servito con patatine di patata dolce",
+        "price": "€10",
+        "price_with_drink": "€12",
+        "with_drink": "con bevanda",
+        "terms": "€10 senza bevanda · €12 con bevanda inclusa."
       }
     },
     "newsletter": {
