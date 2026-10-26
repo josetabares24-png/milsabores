@@ -32,7 +32,7 @@
     "seo_h2": "Brunch in Lisbon on Rua da Prata, Baixa",
     "cta_menu": "View Full Menu",
     "cta_reserve": "Make a Reservation",
-    "hours_label": "Mon-Thu · 7:00-19:00 / Fri-Sun · 7:00-20:00",
+    "hours_label": "Every day · 7:00-19:00",
     "location_label": "Rua da Prata 152, Lisbon",
     "phone_label": "+351 21 347 0214",
     "scroll": "Scroll",
@@ -101,8 +101,7 @@
     "address_title": "Address",
     "address": "Rua da Prata 152, 1100-619 Lisbon, Portugal",
     "hours_title": "Hours",
-    "hours_weekday": "Monday to Thursday: 7:00 AM - 7:00 PM",
-    "hours_weekend": "Friday to Sunday: 7:00 AM - 8:00 PM",
+    "hours_weekday": "Every day: 7:00 AM - 7:00 PM",
     "phone_title": "Phone",
     "phone": "+351 21 347 0214",
     "email_title": "Email",
@@ -118,8 +117,7 @@
     "links_title": "Quick Links",
     "contact_title": "Contact",
     "hours_title": "Hours",
-    "hours_weekday": "Mon-Thu: 7:00 AM - 7:00 PM",
-    "hours_weekend": "Fri-Sun: 7:00 AM - 8:00 PM",
+    "hours_weekday": "Every day: 7:00 AM - 7:00 PM",
     "legal_privacy": "Privacy",
     "legal_cookies": "Cookies",
     "legal_reclamaciones": "Complaints Book",
@@ -312,8 +310,7 @@
       },
       "hours": {
         "title": "Hours",
-        "weekday": "Monday to Thursday: 7:00 AM - 7:00 PM",
-        "weekend": "Friday to Sunday: 7:00 AM - 8:00 PM"
+        "weekday": "Every day: 7:00 AM - 7:00 PM"
       },
       "contact_info": {
         "title": "Contact Information",
@@ -1158,7 +1155,7 @@
       }
     },
     "brunch_landing_cta": "Brunch in Lisbon",
-    "info_hours": "Mon-Thu · 7:00-19:00 / Fri-Sun · 7:00-20:00",
+    "info_hours": "Every day · 7:00-19:00",
     "dietary_title": "Filter by diet",
     "jump_title": "Jump to category",
     "items_count": "items",
@@ -1347,7 +1344,7 @@
         },
         "4": {
           "q": "What are the opening hours?",
-          "a": "The hours shown on the site are Monday to Thursday 7:00-19:00 and Friday to Sunday 7:00-20:00."
+          "a": "The hours shown on the site are every day 7:00-19:00."
         },
         "5": {
           "q": "Do I need a reservation?",
@@ -1378,7 +1375,7 @@
       "p3": "This page brings together the essential information for people searching for brunch Lisbon, brunch in Lisbon, breakfast Lisbon, brunch Baixa Lisbon or pancakes Lisbon. It speaks only about Mil Sabores, because the aim is to help you decide whether this restaurant fits what you want.",
       "p4": "For a fuller choice, the online menu is the best starting point. It shows brunch categories, sweet options, bowls, drinks, coffee and gelato. Some items are marked by diet in the menu, but any allergy or dietary restriction should be confirmed directly with the team.",
       "p5": "Rua da Prata places Mil Sabores in a central, easy-to-find part of the city. The website includes contact details, phone, email, a reservations page and a Google Maps link so you can confirm practical details before you visit.",
-      "p6": "The hours shown on the website are Monday to Thursday from 7:00 to 19:00 and Friday to Sunday from 7:00 to 20:00. Operational details can change, so it is sensible to confirm directly if your visit depends on a specific time."
+      "p6": "The hours shown on the website are every day from 7:00 to 19:00. Operational details can change, so it is sensible to confirm directly if your visit depends on a specific time."
     },
     "products": {
       "eyebrow": "What to expect",
@@ -1408,7 +1405,7 @@
       "text": "The restaurant is in Lisbon’s Baixa. Use the map or contact page to get directions and confirm details before visiting.",
       "addressLabel": "Address",
       "hoursLabel": "Hours",
-      "hours": "Mon-Thu 7:00-19:00; Fri-Sun 7:00-20:00"
+      "hours": "Every day 7:00-19:00"
     },
     "menu": {
       "title": "Check the menu before you visit",

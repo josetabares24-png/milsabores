@@ -207,7 +207,6 @@ export default function ReservationsPage() {
               <Clock className="text-pastel mb-4" size={28} />
               <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.hours.title')}</h3>
               <p className="text-slate text-sm">{tContact('info.hours.weekday')}</p>
-              <p className="text-slate text-sm">{tContact('info.hours.weekend')}</p>
             </article>
             <article className="rounded-2xl border-2 border-sage/20 bg-sage/5 p-6">
               <MapPin className="text-sage mb-4" size={28} />

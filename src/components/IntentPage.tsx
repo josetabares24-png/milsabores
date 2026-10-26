@@ -180,8 +180,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
             <h2 className="text-2xl font-bold text-slate mb-4">{tVisit('address_title')}</h2>
             <p className="text-slate mb-4">{RESTAURANT.address.full}</p>
             <h3 className="font-bold text-slate">{tFooter('hours_title')}</h3>
-            <p className="text-slate">{tFooter('hours_weekday')}</p>
-            <p className="text-slate mb-6">{tFooter('hours_weekend')}</p>
+            <p className="text-slate mb-6">{tFooter('hours_weekday')}</p>
             <a
               href={RESTAURANT.social.google.url}
               target="_blank"

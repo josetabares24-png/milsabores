@@ -119,9 +119,6 @@ export default function Footer() {
               <li className="text-slate text-sm">
                 <span className="font-semibold text-slate block mb-1">{t('hours_weekday')}</span>
               </li>
-              <li className="text-slate text-sm">
-                <span className="font-semibold text-slate block mb-1">{t('hours_weekend')}</span>
-              </li>
             </ul>
           </div>
         </div>

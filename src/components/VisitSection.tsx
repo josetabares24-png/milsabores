@@ -87,7 +87,6 @@ export default function VisitSection() {
                   <h3 className="text-slate font-bold text-lg mb-2">{t('hours_title')}</h3>
                   <div className="space-y-1">
                     <p className="text-slate">{t('hours_weekday')}</p>
-                    <p className="text-slate">{t('hours_weekend')}</p>
                   </div>
                 </div>
               </div>
