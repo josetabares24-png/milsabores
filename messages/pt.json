@@ -227,6 +227,12 @@
       "title": "Reserva Confirmada!",
       "message": "Vai receber um email de confirmação em breve. Esperamos a sua visita!",
       "back": "Voltar ao Início"
+    },
+    "widget": {
+      "title": "Reserva online",
+      "note": "A reserva online é feita através da resmio, o nosso sistema de reservas.",
+      "fallback": "Se o calendário não aparecer, <link>abra a reserva numa página nova</link> ou ligue para o <phone>+351 21 347 0214</phone>.",
+      "iframe_title": "Reserva de mesa no Mil Sabores (resmio)"
     }
   },
   "gallery": {

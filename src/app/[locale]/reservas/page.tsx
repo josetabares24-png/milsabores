@@ -3,56 +3,17 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
-import { Calendar, Users, Phone, CheckCircle2, Info, Mail, Clock, MessageSquare, AlertCircle, Minus, Plus, MapPin, Instagram, Star } from 'lucide-react'
+import { Calendar, Phone, CheckCircle2, Info, Mail, Clock, AlertCircle, MapPin, Instagram, Star } from 'lucide-react'
 import Logo from '@/components/Logo'
-import { isValidEmail, isValidPhone } from '@/lib/validation'
+import ResmioWidget, { RESMIO_BOOKING_URL } from '@/components/ResmioWidget'
+import { isValidEmail } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
-import { track } from '@vercel/analytics'
-
-function generateTimeSlots(open: string, close: string, stepMinutes = 30): string[] {
-  const toMinutes = (value: string) => {
-    const [h, m] = value.split(':').map(Number)
-    return h * 60 + m
-  }
-  const toTime = (mins: number) => {
-    const h = Math.floor(mins / 60).toString().padStart(2, '0')
-    const m = (mins % 60).toString().padStart(2, '0')
-    return `${h}:${m}`
-  }
-
-  const slots: string[] = []
-  for (let m = toMinutes(open); m <= toMinutes(close); m += stepMinutes) {
-    slots.push(toTime(m))
-  }
-  return slots
-}
-
-function getCloseTimeForDate(date: string) {
-  if (!date) return RESTAURANT.hours.weekdayCloseTime
-  const day = new Date(`${date}T00:00:00`).getDay()
-  return day === 5 || day === 6 || day === 0
-    ? RESTAURANT.hours.weekendCloseTime
-    : RESTAURANT.hours.weekdayCloseTime
-}
 
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
   const tContact = useTranslations('contact')
   const locale = useLocale()
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    date: '',
-    time: '',
-    guests: '2',
-    specialRequests: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState('')
-  const [showSpecialRequests, setShowSpecialRequests] = useState(false)
   const [contactData, setContactData] = useState({
     name: '',
     email: '',
@@ -62,68 +23,9 @@ export default function ReservationsPage() {
   const [isContactSubmitted, setIsContactSubmitted] = useState(false)
   const [contactError, setContactError] = useState('')
 
-  const today = new Date().toISOString().split('T')[0]
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0]
-  const guestsCount = parseInt(formData.guests, 10) || 1
-  const timeSlots = generateTimeSlots(RESTAURANT.hours.openTime, getCloseTimeForDate(formData.date))
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleDateChange = (date: string) => {
-    setFormData({ ...formData, date, time: '' })
-  }
 
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setContactData({ ...contactData, [e.target.name]: e.target.value })
-  }
-
-  const updateGuests = (delta: number) => {
-    setFormData((prev) => {
-      const next = Math.min(20, Math.max(1, (parseInt(prev.guests, 10) || 1) + delta))
-      return { ...prev, guests: String(next) }
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const website = String(new FormData(e.currentTarget).get('website') || '')
-    setError('')
-
-    if (!isValidEmail(formData.email)) {
-      setError(t('form.invalid_email'))
-      return
-    }
-    if (!isValidPhone(formData.phone)) {
-      setError(t('form.invalid_phone'))
-      return
-    }
-
-    setIsSubmitting(true)
-    try {
-      const response = await fetch('/api/reservations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...formData, locale, website }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'No se pudo procesar la reserva.')
-      }
-
-      track('reservation_submitted', { guests: formData.guests })
-      setIsSubmitted(true)
-    } catch (err) {
-      console.error('Error submitting reservation:', err)
-      setError(err instanceof Error ? err.message : 'No se pudo procesar la reserva. Llama al +351 21 347 0214.')
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -167,39 +69,6 @@ export default function ReservationsPage() {
     }
   }
 
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-cream flex items-center justify-center px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <div className="w-24 h-24 bg-sage rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-sage/40">
-            <CheckCircle2 size={48} className="text-white" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate mb-6">
-            {t('success.title')}
-          </h1>
-          <p className="text-slate text-xl mb-12">
-            {t('success.message')}
-          </p>
-          <button
-            onClick={() => {
-              setIsSubmitted(false)
-              setShowSpecialRequests(false)
-              setFormData({ name: '', email: '', phone: '', date: '', time: '', guests: '2', specialRequests: '' })
-            }}
-            className="inline-block px-10 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
-          >
-            {t('success.back')}
-          </button>
-        </motion.div>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -228,233 +97,42 @@ export default function ReservationsPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Reservation Form */}
+          {/* Reserva online (resmio) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-2"
           >
-            <div className="bg-gradient-to-br from-white via-white to-pastel/5 rounded-3xl shadow-2xl p-8 md:p-12 border-4 border-white relative overflow-hidden">
-              <form onSubmit={handleSubmit} className="relative space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Name */}
-                  <div className="md:col-span-2">
-                    <label htmlFor="name" className="block text-slate font-bold mb-2">
-                      {t('form.name')} *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder={t('form.name_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-slate font-bold mb-2">
-                      {t('form.email')} *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder={t('form.email_placeholder')}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="phone" className="block text-slate font-bold mb-2">
-                      {t('form.phone')} *
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        placeholder={t('form.phone_placeholder')}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Date */}
-                  <div>
-                    <label htmlFor="date" className="block text-slate font-bold mb-2">
-                      {t('form.date')} *
-                    </label>
-                    <div className="flex gap-2 mb-2">
-                      <button
-                        type="button"
-                        onClick={() => handleDateChange(today)}
-                        className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
-                          formData.date === today
-                            ? 'bg-pastel text-gray-800'
-                            : 'bg-slate/5 text-slate hover:bg-slate/10'
-                        }`}
-                      >
-                        {t('form.today')}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleDateChange(tomorrow)}
-                        className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${
-                          formData.date === tomorrow
-                            ? 'bg-pastel text-gray-800'
-                            : 'bg-slate/5 text-slate hover:bg-slate/10'
-                        }`}
-                      >
-                        {t('form.tomorrow')}
-                      </button>
-                    </div>
-                    <div className="relative">
-                      <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30" size={20} />
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={(event) => handleDateChange(event.target.value)}
-                        required
-                        min={today}
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Time */}
-                  <div>
-                    <label htmlFor="time" className="block text-slate font-bold mb-2">
-                      {t('form.time')} *
-                    </label>
-                    <div className="relative">
-                      <Clock className="absolute left-5 top-1/2 -translate-y-1/2 text-slate/30 pointer-events-none" size={20} />
-                      <select
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        required
-                        className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate bg-white appearance-none"
-                      >
-                        <option value="" disabled>{t('form.time_placeholder')}</option>
-                        {timeSlots.map((slot) => (
-                          <option key={slot} value={slot}>{slot}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Guests */}
-                  <div className="md:col-span-2">
-                    <label className="block text-slate font-bold mb-2">
-                      {t('form.guests')} *
-                    </label>
-                    <div className="flex items-center justify-between gap-4 px-6 py-3 rounded-2xl border-2 border-slate/20">
-                      <div className="flex items-center gap-3 text-slate">
-                        <Users size={20} className="text-slate/30" />
-                        <span className="font-semibold">
-                          {guestsCount} {guestsCount === 1 ? t('form.person') : t('form.people')}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <button
-                          type="button"
-                          onClick={() => updateGuests(-1)}
-                          disabled={guestsCount <= 1}
-                          aria-label="-"
-                          className="w-10 h-10 flex items-center justify-center rounded-full bg-slate/5 text-slate hover:bg-slate/10 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                        >
-                          <Minus size={18} />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => updateGuests(1)}
-                          disabled={guestsCount >= 20}
-                          aria-label="+"
-                          className="w-10 h-10 flex items-center justify-center rounded-full bg-pastel text-gray-800 hover:bg-pastel-dark disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                        >
-                          <Plus size={18} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Special Requests */}
-                  <div className="md:col-span-2">
-                    {showSpecialRequests ? (
-                      <>
-                        <label htmlFor="specialRequests" className="block text-slate font-bold mb-2">
-                          {t('form.special_requests')}{' '}
-                          <span className="text-slate font-normal">({t('form.optional')})</span>
-                        </label>
-                        <div className="relative">
-                          <MessageSquare className="absolute left-5 top-5 text-slate/30" size={20} />
-                          <textarea
-                            id="specialRequests"
-                            name="specialRequests"
-                            value={formData.specialRequests}
-                            onChange={handleChange}
-                            rows={3}
-                            autoFocus
-                            placeholder={t('form.special_requests_placeholder')}
-                            className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setShowSpecialRequests(true)}
-                        className="text-pastel-ink font-bold text-sm hover:underline"
-                      >
-                        + {t('form.special_requests')} ({t('form.optional')})
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Error Message */}
-                {error && (
-                  <div className="flex items-center gap-3 p-4 bg-red-50 border-2 border-red-200 rounded-2xl">
-                    <AlertCircle className="text-red-500 flex-shrink-0" size={20} />
-                    <p className="text-red-700 text-sm">{error}</p>
-                  </div>
-                )}
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                >
-                  {isSubmitting ? t('form.submitting') : t('form.submit')}
-                </button>
-
-                {/* Campo-armadilha anti-spam: invisível para pessoas e leitores de ecrã */}
-                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-                  <label htmlFor="reservation-website">Website</label>
-                  <input id="reservation-website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
-                </div>
-              </form>
-            </div>
+            <section
+              className="bg-white rounded-3xl shadow-lg p-4 sm:p-8 md:p-10 border-2 border-slate/10"
+              aria-labelledby="reserva-online-title"
+            >
+              <h2 id="reserva-online-title" className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+                {t('widget.title')}
+              </h2>
+              <p className="text-gray-700 mb-6">{t('widget.note')}</p>
+              <ResmioWidget iframeTitle={t('widget.iframe_title')} />
+              <p className="mt-6 border-t border-dashed border-slate/30 pt-4 text-sm text-gray-700 leading-relaxed">
+                {t.rich('widget.fallback', {
+                  link: (chunks) => (
+                    <a
+                      href={RESMIO_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800"
+                    >
+                      {chunks}
+                    </a>
+                  ),
+                  phone: (chunks) => (
+                    <a href={`tel:${RESTAURANT.phoneClean}`} className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800">
+                      {chunks}
+                    </a>
+                  ),
+                })}
+              </p>
+            </section>
           </motion.div>
 
           {/* Sidebar */}

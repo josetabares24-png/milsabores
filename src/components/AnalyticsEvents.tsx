@@ -21,6 +21,9 @@ export default function AnalyticsEvents() {
         track('directions_click', { from })
       } else if (/^(\/[a-z]{2})?\/reservas$/.test(new URL(link.href, window.location.href).pathname)) {
         track('reserve_click', { from, target: href })
+      } else if (/^https:\/\/app\.resmio\.com\//.test(href)) {
+        // Link direto para a página de reserva da resmio (alternativa ao widget em /reservas).
+        track('reserve_click', { from, target: 'resmio' })
       }
     }
     document.addEventListener('click', onClick, { capture: true })

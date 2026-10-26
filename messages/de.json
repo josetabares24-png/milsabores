@@ -227,6 +227,12 @@
       "title": "Reservierung Bestätigt!",
       "message": "Sie erhalten in Kürze eine Bestätigungs-E-Mail. Wir freuen uns auf Ihren Besuch!",
       "back": "Zurück zur Startseite"
+    },
+    "widget": {
+      "title": "Online reservieren",
+      "note": "Online-Reservierungen laufen über resmio, unser Reservierungssystem.",
+      "fallback": "Falls der Kalender nicht erscheint, <link>öffnen Sie die Reservierung in einem neuen Tab</link> oder rufen Sie uns an: <phone>+351 21 347 0214</phone>.",
+      "iframe_title": "Tischreservierung bei Mil Sabores (resmio)"
     }
   },
   "gallery": {

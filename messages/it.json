@@ -227,6 +227,12 @@
       "title": "Prenotazione Confermata!",
       "message": "Riceverai a breve un'email di conferma. Ti aspettiamo!",
       "back": "Torna alla Home"
+    },
+    "widget": {
+      "title": "Prenota online",
+      "note": "Le prenotazioni online passano da resmio, il nostro sistema di prenotazione.",
+      "fallback": "Se il calendario non compare, <link>apri la prenotazione in una nuova scheda</link> oppure chiama il <phone>+351 21 347 0214</phone>.",
+      "iframe_title": "Prenotazione tavolo da Mil Sabores (resmio)"
     }
   },
   "gallery": {
