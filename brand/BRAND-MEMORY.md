@@ -159,14 +159,14 @@ Frases ya presentes en la web que ayudan a fijar territorio:
 
 ## 6. Reservas y CTA — LOCKED
 
-**Web oficial de reservas:** `www.brunchmilsabores.com`
+**Web oficial de reservas:** `www.milsaboresbrunch.com`
 
 Cuando una pieza tenga intención de reserva, este es el dominio que debe aparecer.
 
 Usos recomendados:
 
-- “Reservas: brunchmilsabores.com”
-- “Reserve a sua mesa em brunchmilsabores.com”
+- “Reservas: milsaboresbrunch.com”
+- “Reserve a sua mesa em milsaboresbrunch.com”
 - footer de piezas promocionales;
 - Stories con CTA;
 - bio / enlaces cuando corresponda;

@@ -15,21 +15,21 @@ export default function FloatingActionButton() {
       icon: Calendar,
       label: t('reserve'),
       href: '/reservas',
-      color: 'bg-pastel',
+      color: 'bg-pastel text-gray-900',
       delay: 0.1,
     },
     {
       icon: Phone,
       label: t('call'),
       href: 'tel:+351213470214',
-      color: 'bg-steel',
+      color: 'bg-pastel-ink text-white',
       delay: 0.15,
       external: true,
     },
   ]
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 md:hidden">
+    <div className="fab-root fixed bottom-6 right-6 z-50 md:hidden">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -51,7 +51,7 @@ export default function FloatingActionButton() {
                     href={action.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} rounded-full shadow-2xl hover:scale-105 transition-transform`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">
@@ -62,7 +62,7 @@ export default function FloatingActionButton() {
                 ) : (
                   <Link
                     href={action.href}
-                    className={`flex items-center gap-3 px-4 py-3 ${action.color} text-white rounded-full shadow-2xl hover:scale-105 transition-transform`}
+                    className={`flex items-center gap-3 px-4 py-3 ${action.color} rounded-full shadow-2xl hover:scale-105 transition-transform`}
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="text-sm font-bold whitespace-nowrap">

@@ -1,10 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
-import { Calendar, Phone, CheckCircle2, Info, Mail, Clock, AlertCircle, MapPin, Instagram, Star } from 'lucide-react'
-import Logo from '@/components/Logo'
+import { CheckCircle2, AlertCircle } from 'lucide-react'
+import Image from 'next/image'
 import ResmioWidget, { RESMIO_BOOKING_URL } from '@/components/ResmioWidget'
 import { isValidEmail } from '@/lib/validation'
 import { RESTAURANT } from '@/config/restaurant'
@@ -12,6 +11,8 @@ import { RESTAURANT } from '@/config/restaurant'
 export default function ReservationsPage() {
   const t = useTranslations('reservations')
   const tContact = useTranslations('contact')
+  const tAbout = useTranslations('about')
+  const tGallery = useTranslations('gallery')
   const locale = useLocale()
 
   const [contactData, setContactData] = useState({
@@ -69,227 +70,131 @@ export default function ReservationsPage() {
     }
   }
 
+  const infoRows: { label: string; value: React.ReactNode }[] = [
+    { label: tContact('info.address.title'), value: (
+      <>
+        {tContact('info.address.line1')}, {tContact('info.address.line2')}
+        <br />
+        <a href={RESTAURANT.social.google.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-pastel-ink underline underline-offset-2">
+          {tContact('info.maps_cta')}
+        </a>
+      </>
+    ) },
+    { label: tContact('info.hours.title'), value: tContact('info.hours.weekday') },
+    { label: t('form.phone'), value: (
+      <a href={`tel:${RESTAURANT.phoneClean}`} className="hover:text-pastel-ink hover:underline">{RESTAURANT.phone}</a>
+    ) },
+    { label: tContact('form.email'), value: (
+      <a href={`mailto:${RESTAURANT.email}`} className="hover:text-pastel-ink hover:underline">{RESTAURANT.email}</a>
+    ) },
+    { label: tContact('info.social.title'), value: (
+      <>
+        <a href={RESTAURANT.social.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-pastel-ink hover:underline">{RESTAURANT.social.instagram.handle}</a>
+        {' · '}
+        <a href={RESTAURANT.social.tripadvisor.url} target="_blank" rel="noopener noreferrer" className="hover:text-pastel-ink hover:underline">{tContact('info.social.tripadvisor')}</a>
+      </>
+    ) },
+  ]
+
   return (
-    <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-cream pt-28 md:pt-32 pb-16 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="flex flex-col items-center gap-4 mb-6">
-            <Logo size="xl" colorFilter="pastel" />
-            <div className="inline-flex items-center gap-2 bg-pastel/10 px-6 py-3 rounded-full">
-              <Calendar className="text-pastel" size={20} />
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-                {t('eyebrow')}
-              </span>
+        <header className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="font-script text-3xl text-pastel-ink">Mil Sabores</p>
+            <h1 className="mt-1 text-4xl md:text-6xl font-bold tracking-tight text-gray-900">{t('title')}</h1>
+            <p className="mt-4 text-lg md:text-xl text-slate">{t('subtitle')}</p>
+            <p className="mt-5 inline-flex flex-wrap gap-x-4 gap-y-1 rounded-2xl bg-white px-4 py-3 text-sm text-gray-800">
+              <span>{tContact('info.hours.weekday')}</span>
+              <span>{tContact('info.address.line1')}</span>
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative h-40 overflow-hidden rounded-3xl md:h-64">
+              <Image src="/images/Mil Sabores/IMG_3818.webp" alt={tAbout('image_alt')} fill priority sizes="(max-width: 1024px) 50vw, 22vw" className="object-cover" />
+            </div>
+            <div className="relative mt-8 h-40 overflow-hidden rounded-3xl md:h-64">
+              <Image src="/images/Mil Sabores/Brunch Americano.webp" alt={tGallery('alts.1')} fill priority sizes="(max-width: 1024px) 50vw, 22vw" className="object-cover" />
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
-            {t('title')}
-          </h1>
-          <p className="text-slate text-xl max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Reserva online (resmio) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2"
-          >
-            <section
-              className="bg-white rounded-3xl shadow-lg p-4 sm:p-8 md:p-10 border-2 border-slate/10"
-              aria-labelledby="reserva-online-title"
-            >
-              <h2 id="reserva-online-title" className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                {t('widget.title')}
-              </h2>
-              <p className="text-gray-700 mb-6">{t('widget.note')}</p>
-              <ResmioWidget iframeTitle={t('widget.iframe_title')} />
-              <p className="mt-6 border-t border-dashed border-slate/30 pt-4 text-sm text-gray-700 leading-relaxed">
-                {t.rich('widget.fallback', {
-                  link: (chunks) => (
-                    <a
-                      href={RESMIO_BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800"
-                    >
-                      {chunks}
-                    </a>
-                  ),
-                  phone: (chunks) => (
-                    <a href={`tel:${RESTAURANT.phoneClean}`} className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800">
-                      {chunks}
-                    </a>
-                  ),
-                })}
-              </p>
-            </section>
-          </motion.div>
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <section className="lg:col-span-2 rounded-2xl bg-white p-4 sm:p-8 border border-slate/15" aria-labelledby="reserva-online-title">
+            <h2 id="reserva-online-title" className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 mb-2">
+              {t('widget.title')}
+            </h2>
+            <p className="text-gray-700 mb-6">{t('widget.note')}</p>
+            <ResmioWidget iframeTitle={t('widget.iframe_title')} />
+            <p className="mt-6 border-t border-slate/15 pt-4 text-sm text-gray-700 leading-relaxed">
+              {t.rich('widget.fallback', {
+                link: (chunks) => (
+                  <a href={RESMIO_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800">
+                    {chunks}
+                  </a>
+                ),
+                phone: (chunks) => (
+                  <a href={`tel:${RESTAURANT.phoneClean}`} className="font-bold text-pastel-ink underline underline-offset-2 hover:text-gray-800">
+                    {chunks}
+                  </a>
+                ),
+              })}
+            </p>
+          </section>
 
-          {/* Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
-            {/* Quick Actions */}
-            <div className="bg-gradient-to-br from-pastel/10 to-peach/10 rounded-3xl p-8 border-2 border-pastel/20">
-              <h2 className="text-xl font-bold text-slate mb-2">
-                {t('quick_actions.title')}
-              </h2>
-              <p className="text-slate mb-6">
-                {t('quick_actions.subtitle')}
-              </p>
-              <div className="space-y-3">
-                <a
-                  href="tel:+351213470214"
-                  className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-lg shadow-pastel/30 hover:scale-105"
-                >
-                  <Phone size={20} />
-                  {t('quick_actions.call')}
-                </a>
-              </div>
+          <aside className="space-y-8 text-sm">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">{t('quick_actions.title')}</h2>
+              <p className="mt-1 text-slate">{t('quick_actions.subtitle')}</p>
+              <a href={`tel:${RESTAURANT.phoneClean}`} className="mt-4 inline-flex rounded-full bg-pastel px-6 py-3 font-bold text-gray-900 hover:bg-pastel-dark transition-colors">
+                {t('quick_actions.call')}
+              </a>
             </div>
-
-            {/* Good to Know */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h2 className="text-xl font-bold text-slate mb-4 flex items-center gap-2">
-                <Info size={20} className="text-pastel" />
-                {t('info.title')}
-              </h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.punctuality.title')}</h3>
-                  <p className="text-slate text-sm leading-relaxed">{t('info.punctuality.text')}</p>
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate text-sm mb-1">{t('info.seating.title')}</h3>
-                  <p className="text-slate text-sm leading-relaxed">{t('info.seating.text')}</p>
-                </div>
-              </div>
+            <div className="border-t border-slate/15 pt-6">
+              <h2 className="text-lg font-bold text-gray-900">{t('info.title')}</h2>
+              <h3 className="mt-3 font-bold text-gray-900">{t('info.punctuality.title')}</h3>
+              <p className="mt-1 text-slate leading-relaxed">{t('info.punctuality.text')}</p>
+              <h3 className="mt-3 font-bold text-gray-900">{t('info.seating.title')}</h3>
+              <p className="mt-1 text-slate leading-relaxed">{t('info.seating.text')}</p>
             </div>
-
-            {/* Cancellation Policy */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10">
-              <h2 className="text-xl font-bold text-slate mb-4">
-                {t('policy.title')}
-              </h2>
-              <ul className="space-y-3">
+            <div className="border-t border-slate/15 pt-6">
+              <h2 className="text-lg font-bold text-gray-900">{t('policy.title')}</h2>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-slate marker:text-pastel-dark">
                 {[1, 2, 3, 4].map((num) => (
-                  <li key={num} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-sage flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-slate text-sm leading-relaxed">
-                      {t(`policy.items.${num}`)}
-                    </span>
-                  </li>
+                  <li key={num}>{t(`policy.items.${num}`)}</li>
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </aside>
         </div>
 
-        <section className="mt-20 rounded-3xl bg-white p-8 shadow-lg border-2 border-slate/10" aria-labelledby="visit-info-title">
-          <h2 id="visit-info-title" className="text-3xl md:text-4xl font-bold text-slate text-center mb-10">
-            {tContact('title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <article className="rounded-2xl border-2 border-pastel/20 bg-pastel/5 p-6">
-              <Clock className="text-pastel mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.hours.title')}</h3>
-              <p className="text-slate text-sm">{tContact('info.hours.weekday')}</p>
-            </article>
-            <article className="rounded-2xl border-2 border-sage/20 bg-sage/5 p-6">
-              <MapPin className="text-sage mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.address.title')}</h3>
-              <p className="text-slate text-sm">
-                {tContact('info.address.line1')}
-                <br />
-                {tContact('info.address.line2')}
-              </p>
-              <a
-                href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex text-sm font-bold text-sage-ink hover:underline"
-              >
-                {tContact('info.maps_cta')}
-              </a>
-            </article>
-            <article className="rounded-2xl border-2 border-steel/20 bg-steel/5 p-6">
-              <Phone className="text-steel mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.contact_info.title')}</h3>
-              <a href={`tel:${RESTAURANT.phoneClean}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
-                {RESTAURANT.phone}
-              </a>
-              <a href={`mailto:${RESTAURANT.email}`} className="block py-1 text-slate text-sm hover:text-pastel-ink">
-                {RESTAURANT.email}
-              </a>
-            </article>
-            <article className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-6">
-              <Instagram className="text-purple-600 mb-4" size={28} />
-              <h3 className="text-lg font-bold text-slate mb-3">{tContact('info.social.title')}</h3>
-              <a
-                href={RESTAURANT.social.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-slate text-sm hover:text-purple-700"
-              >
-                {tContact('info.social.instagram')}
-              </a>
-              <a
-                href={RESTAURANT.social.tripadvisor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-slate text-sm hover:text-purple-700"
-              >
-                <Star size={14} />
-                {tContact('info.social.tripadvisor')}
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <section id="contacto" className="scroll-mt-32 mt-20" aria-labelledby="contacto-title">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
+        <section id="contacto" className="scroll-mt-32 mt-16 border-t border-slate/15 pt-12" aria-labelledby="contacto-title">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 items-start">
             <div>
-              <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold text-slate mb-4">
+              <h2 id="contacto-title" className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
                 {tContact('title')}
               </h2>
-              <p className="text-slate leading-relaxed">
-                {tContact('subtitle')}
-              </p>
-              <div className="mt-6 space-y-3 text-sm text-slate">
-                <a href={`tel:${RESTAURANT.phoneClean}`} className="flex items-center gap-2 hover:text-pastel-ink">
-                  <Phone size={18} />
-                  {RESTAURANT.phone}
-                </a>
-                <a href={`mailto:${RESTAURANT.email}`} className="flex items-center gap-2 hover:text-pastel-ink">
-                  <Mail size={18} />
-                  {RESTAURANT.email}
-                </a>
-              </div>
+              <p className="mt-3 text-slate leading-relaxed">{tContact('subtitle')}</p>
+              <dl className="mt-6 divide-y divide-slate/15 border-y border-slate/15">
+                {infoRows.map((row) => (
+                  <div key={row.label} className="grid grid-cols-[7.5rem_1fr] gap-4 py-3 text-sm">
+                    <dt className="font-bold text-gray-900">{row.label}</dt>
+                    <dd className="text-slate">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-            <div className="bg-white rounded-3xl shadow-lg p-8 border-2 border-slate/10">
+            <div className="rounded-2xl bg-white p-6 sm:p-8 border border-slate/15">
               {isContactSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle2 className="mx-auto mb-4 text-sage" size={44} />
-                  <h3 className="text-2xl font-bold text-slate mb-3">{tContact('success.title')}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{tContact('success.title')}</h3>
                   <p className="text-slate">{tContact('success.message')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="relative space-y-5">
                   <div>
-                    <label htmlFor="contact-name" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-name" className="block text-gray-900 font-bold mb-1.5 text-sm">
                       {tContact('form.name')} *
                     </label>
                     <input
@@ -300,11 +205,11 @@ export default function ReservationsPage() {
                       onChange={handleContactChange}
                       required
                       placeholder={tContact('form.name_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                      className="w-full px-4 py-3 rounded-xl border border-slate/25 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-email" className="block text-gray-900 font-bold mb-1.5 text-sm">
                       {tContact('form.email')} *
                     </label>
                     <input
@@ -315,11 +220,11 @@ export default function ReservationsPage() {
                       onChange={handleContactChange}
                       required
                       placeholder={tContact('form.email_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
+                      className="w-full px-4 py-3 rounded-xl border border-slate/25 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40"
                     />
                   </div>
                   <div>
-                    <label htmlFor="contact-message" className="block text-slate font-bold mb-2">
+                    <label htmlFor="contact-message" className="block text-gray-900 font-bold mb-1.5 text-sm">
                       {tContact('form.message')} *
                     </label>
                     <textarea
@@ -330,7 +235,7 @@ export default function ReservationsPage() {
                       required
                       rows={5}
                       placeholder={tContact('form.message_placeholder')}
-                      className="w-full px-6 py-4 rounded-2xl border-2 border-slate/20 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate/25 focus:border-pastel outline-none transition-colors text-slate placeholder:text-slate/40 resize-none"
                     />
                   </div>
                   {contactError && (
@@ -342,7 +247,7 @@ export default function ReservationsPage() {
                   <button
                     type="submit"
                     disabled={isContactSubmitting}
-                    className="w-full px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-all shadow-xl shadow-pastel/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-8 py-3.5 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isContactSubmitting ? tContact('form.submitting') : tContact('form.submit')}
                   </button>
@@ -357,35 +262,17 @@ export default function ReservationsPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20"
-        >
-          <h2 className="text-4xl font-bold text-slate text-center mb-12">
-            {t('faq.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((num, index) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg border-2 border-slate/10 hover:border-pastel/30 hover:shadow-xl transition-all"
-              >
-                <h3 className="text-xl font-bold text-slate mb-3">
-                  {t(`faq.items.${num}.q`)}
-                </h3>
-                <p className="text-slate leading-relaxed">
-                  {t(`faq.items.${num}.a`)}
-                </p>
-              </motion.div>
+        <section className="mt-16 grid gap-8 border-t border-slate/15 pt-12 lg:grid-cols-[1fr_2fr]">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">{t('faq.title')}</h2>
+          <dl className="divide-y divide-slate/15 border-y border-slate/15">
+            {[1, 2, 3, 4].map((num) => (
+              <div key={num} className="py-4">
+                <dt className="font-bold text-gray-900">{t(`faq.items.${num}.q`)}</dt>
+                <dd className="mt-1 text-slate leading-relaxed">{t(`faq.items.${num}.a`)}</dd>
+              </div>
             ))}
-          </div>
-        </motion.div>
+          </dl>
+        </section>
       </div>
     </div>
   )

@@ -51,29 +51,29 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
 
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
             <div>
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">{t(`${page}.eyebrow`)}</span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate leading-tight mt-4 mb-6 break-words">
+              <p className="text-sm font-semibold text-slate">{t(`${page}.eyebrow`)}</p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight mt-2 mb-6 break-words">
                 {t(`${page}.title`)}
               </h1>
               {page === 'gelato' && <p className="text-xl text-slate leading-relaxed mb-4 max-w-2xl">{tGelados('subtitle')}</p>}
               <p className="text-xl text-slate leading-relaxed mb-8 max-w-2xl">{t(`${page}.intro`)}</p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div data-primary-cta className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/menu"
-                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors shadow-lg shadow-pastel/30"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-colors"
                 >
                   {tHero('cta_menu')}
                 </Link>
                 <Link
                   href="/reservas"
-                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel transition-colors"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-gray-900 font-bold rounded-full border border-slate/25 hover:border-pastel-dark transition-colors"
                 >
                   {tBrunch('ctas.reserve')}
                 </Link>
               </div>
             </div>
 
-            <div className="relative min-h-[360px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+            <div className="relative min-h-[360px] rounded-2xl overflow-hidden">
               <Image
                 src={config.image}
                 alt={t(`${page}.imageAlt`)}
@@ -90,7 +90,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
       <section className="px-6 py-16 bg-cream" aria-labelledby="carta-heading">
         <div className="max-w-2xl mx-auto">
           <header className="mb-10 text-center">
-            <h2 id="carta-heading" className="text-3xl md:text-4xl font-bold text-gray-800">
+            <h2 id="carta-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
               {t(`${page}.menuTitle`)}
             </h2>
             <svg
@@ -142,7 +142,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
                 <span className="font-bold text-gray-800">{tPromo('offers.burger_combo.price_with_drink')}</span>{' '}
                 {tPromo('offers.burger_combo.with_drink')}
               </p>
-              <p className="mt-2 text-sm italic text-sky-800">{tPromo('every_day')}</p>
+              <p className="mt-2 text-sm italic text-pastel-ink">{tPromo('every_day')}</p>
             </div>
           )}
 
@@ -177,7 +177,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
       <section className="px-6 py-16 bg-white">
         <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
           <div className="border-t-2 border-slate/30 pt-6">
-            <h2 className="text-2xl font-bold text-slate mb-4">{tVisit('address_title')}</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">{tVisit('address_title')}</h2>
             <p className="text-slate mb-4">{RESTAURANT.address.full}</p>
             <h3 className="font-bold text-slate">{tFooter('hours_title')}</h3>
             <p className="text-slate mb-6">{tFooter('hours_weekday')}</p>
@@ -191,7 +191,7 @@ export default async function IntentPage({ locale, page }: { locale: string; pag
             </a>
           </div>
           <div className="border-t-2 border-slate/30 pt-6">
-            <h2 className="text-2xl font-bold text-slate mb-4">{t('seeAlso')}</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('seeAlso')}</h2>
             <ul className="space-y-3">
               <li>
                 <Link href="/brunch-lisboa" className="font-semibold text-pastel-ink hover:underline">

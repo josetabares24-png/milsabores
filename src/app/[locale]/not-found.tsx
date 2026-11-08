@@ -46,7 +46,7 @@ export default function NotFound() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">
             {t('common.404.title', { default: 'Oops! Página Não Encontrada' })}
           </h2>
           <p className="text-lg text-slate-600 mb-8 max-w-md mx-auto">

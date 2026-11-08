@@ -139,7 +139,7 @@ Para redes, el logo debe funcionar como firma pequeña. No debe dominar el produ
 
 **Estado:** LOCKED
 
-**URL:** `www.brunchmilsabores.com`
+**URL:** `www.milsaboresbrunch.com`
 
 Este dominio será la referencia oficial para CTAs de reserva en:
 

@@ -39,10 +39,10 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-pastel text-gray-800 rounded-full shadow-xl shadow-pastel/40 hover:bg-amber-500 hover:scale-110 transition-all flex items-center justify-center group"
+          className="back-to-top fixed bottom-6 right-6 z-30 w-10 h-10 bg-white text-gray-900 border border-slate/20 rounded-full shadow-sm hover:bg-pastel transition-colors flex items-center justify-center"
           aria-label="Voltar ao topo"
         >
-          <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />
+          <ArrowUp size={18} />
         </motion.button>
       )}
     </AnimatePresence>

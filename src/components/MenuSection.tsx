@@ -1,10 +1,7 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
-import Tilt from 'react-parallax-tilt'
 import Image from 'next/image'
+import Reveal from '@/components/Reveal'
 
 interface MenuItem {
   id: number
@@ -44,95 +41,39 @@ export default function MenuSection() {
   const t = useTranslations('menu')
 
   return (
-    <section id="menu" className="py-24 px-6 bg-cream">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-            {t('eyebrow')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
-            {t('title')}
-          </h2>
-          <p className="text-slate text-lg max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
+    <section id="menu" className="bg-cream py-16 md:py-24">
+      <Reveal className="mx-auto max-w-3xl px-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">{t('title')}</h2>
+        <p className="mt-3 text-lg text-slate">{t('subtitle')}</p>
+      </Reveal>
 
-        {/* Menu Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {menuItems.map((item, index) => (
-            <Tilt
-              key={item.id}
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              scale={1.02}
-              transitionSpeed={2000}
-              glareEnable={true}
-              glareMaxOpacity={0.2}
-              glareColor="#F2B705"
-              glarePosition="all"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative bg-white/80 backdrop-blur-lg rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-white/50 hover:border-pastel/30"
-              >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+      {/* Móvel: carrossel horizontal com snap; desktop: grelha de 4 */}
+      <ul className="mx-auto mt-10 flex max-w-6xl snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:pb-0">
+        {menuItems.map((item) => (
+          <li key={item.id} className="group w-[78%] shrink-0 snap-start sm:w-[45%] lg:w-auto">
+            <Link href="/menu" className="block">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-white">
                 <Image
                   src={item.image}
                   alt={t(`items.${item.key}.name`)}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-                {/* Price Badge */}
-                <div className="absolute top-4 right-4 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full shadow-xl">
-                  <span className="text-pastel-ink font-bold text-lg">{item.price}</span>
-                </div>
+                <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-sm font-bold text-gray-900">{item.price}</span>
               </div>
+              <h3 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-pastel-ink">{t(`items.${item.key}.name`)}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate">{t(`items.${item.key}.desc`)}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate mb-2">
-                  {t(`items.${item.key}.name`)}
-                </h3>
-                <p className="text-slate text-sm leading-relaxed">
-                  {t(`items.${item.key}.desc`)}
-                </p>
-              </div>
-              </motion.div>
-            </Tilt>
-          ))}
-        </div>
-
-        {/* View Full Menu Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <Link
-            href="/menu"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all shadow-xl shadow-pastel/40 hover:scale-105"
-          >
-            {t('view_full')}
-          </Link>
-        </motion.div>
+      <div className="mt-10 text-center">
+        <Link href="/menu" className="inline-flex rounded-full bg-pastel px-8 py-3.5 font-bold text-gray-900 transition-colors hover:bg-pastel-dark">
+          {t('view_full')}
+        </Link>
       </div>
     </section>
   )

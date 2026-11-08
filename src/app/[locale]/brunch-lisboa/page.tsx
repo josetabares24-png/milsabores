@@ -1,9 +1,15 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { MapPin } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { INTENT_KEYS, INTENT_PAGES } from '@/lib/intent-pages'
+
+const productPhotos = [
+  '/images/Mil Sabores/Panqueca Queso Crema y Compota.webp',
+  '/images/Mil Sabores/Bagel Salmon 2.webp',
+  '/images/Mil Sabores/milshakes.webp',
+  '/images/Mil Sabores/Copos Helado.webp',
+]
 
 export default async function BrunchLisboaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -35,19 +41,16 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
             <div>
-              <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-                {t('hero.eyebrow')}
-              </span>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate leading-tight mt-4 mb-6 break-words">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6 break-words">
                 {t('hero.title')}
               </h1>
               <p className="text-xl text-slate leading-relaxed mb-8 max-w-2xl">
                 {t('hero.subtitle')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div data-primary-cta className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/menu"
-                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors shadow-lg shadow-pastel/30"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-colors"
                 >
                   {t('ctas.menu')}
                 </Link>
@@ -55,14 +58,14 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
                   href="https://maps.app.goo.gl/5QmYkV2uUZrYCLT9A"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel transition-colors"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-gray-900 font-bold rounded-full border border-slate/25 hover:border-pastel-dark transition-colors"
                 >
                   {t('ctas.maps')}
                 </a>
               </div>
             </div>
 
-            <div className="relative min-h-[420px] rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+            <div className="relative min-h-[420px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/Mil Sabores/Brunch Americano.webp"
                 alt={t('hero.imageAlt')}
@@ -76,30 +79,37 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
         </div>
       </section>
 
-      <section className="px-6 py-16 bg-cream">
-        <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate leading-relaxed">
+      <section className="px-6 py-16 md:py-20 bg-pastel-light">
+        <div className="max-w-6xl mx-auto"><div className="max-w-3xl mx-auto space-y-5 text-center text-lg md:text-xl text-gray-800 leading-relaxed">
           {paragraphs.map((item) => (
             <p key={item}>{t(`story.p${item}`)}</p>
           ))}
-        </div>
+        </div></div>
       </section>
 
       <section className="px-6 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-12">
-            <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-              {t('products.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate mt-4 mb-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
               {t('products.title')}
             </h2>
             <p className="text-lg text-slate">{t('products.subtitle')}</p>
           </div>
-          <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 border-t-2 border-slate/30">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {productItems.map((item) => (
-              <li key={item} className="py-6 border-b border-dashed border-slate/30">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{t(`products.items.${item}.title`)}</h3>
-                <p className="text-gray-600 leading-relaxed">{t(`products.items.${item}.text`)}</p>
+              <li key={item} className="group">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+                  <Image
+                    src={productPhotos[item - 1]}
+                    alt={t(`products.items.${item}.title`)}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="mt-4 text-xl font-bold text-gray-900">{t(`products.items.${item}.title`)}</h3>
+                <p className="mt-1 text-slate leading-relaxed">{t(`products.items.${item}.text`)}</p>
               </li>
             ))}
           </ul>
@@ -108,36 +118,35 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
       <section className="px-6 py-20 bg-cream">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
-          <div className="bg-white rounded-2xl p-8 border-2 border-slate/10">
-            <MapPin className="text-sage mb-4" size={32} />
-            <h2 className="text-3xl font-bold text-slate mb-4">{t('visit.title')}</h2>
+          <div className="border-t-2 border-gray-900 pt-5">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">{t('visit.title')}</h2>
             <p className="text-slate leading-relaxed mb-6">{t('visit.text')}</p>
             <div className="space-y-3 text-slate">
               <p>
-                <strong className="text-slate">{t('visit.addressLabel')}</strong>
+                <strong className="text-gray-900">{t('visit.addressLabel')}</strong>
                 <br />
                 Rua da Prata 152, 1100-619 Lisboa, Portugal
               </p>
               <p>
-                <strong className="text-slate">{t('visit.hoursLabel')}</strong>
+                <strong className="text-gray-900">{t('visit.hoursLabel')}</strong>
                 <br />
                 {t('visit.hours')}
               </p>
             </div>
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate mb-5">{t('menu.title')}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-5">{t('menu.title')}</h2>
             <p className="text-lg text-slate leading-relaxed mb-8">{t('menu.text')}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/menu"
-                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-colors"
+                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-colors"
               >
                 {t('ctas.menu')}
               </Link>
               <Link
                 href="/reservas"
-                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel transition-colors"
+                className="inline-flex w-full sm:w-auto justify-center px-6 sm:px-8 py-4 bg-white text-gray-900 font-bold rounded-full border border-slate/25 hover:border-pastel-dark transition-colors"
               >
                 {t('ctas.reserve')}
               </Link>
@@ -148,13 +157,13 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
       <section className="px-6 pt-16 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate mb-4">{tIntent('seeAlso')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{tIntent('seeAlso')}</h2>
           <ul className="flex flex-wrap gap-3">
             {INTENT_KEYS.map((key) => (
               <li key={key}>
                 <Link
                   href={`/${INTENT_PAGES[key].path}`}
-                  className="inline-flex px-5 py-2.5 rounded-full border-2 border-slate/10 font-semibold text-slate hover:border-pastel transition-colors"
+                  className="inline-flex px-5 py-2.5 rounded-full border border-slate/25 font-semibold text-gray-900 hover:border-pastel-dark transition-colors"
                 >
                   {tIntent(`${key}.title`)}
                 </Link>
@@ -166,17 +175,17 @@ export default async function BrunchLisboaPage({ params }: { params: Promise<{ l
 
       <section className="px-6 py-20 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-6">
             {t('faq.title')}
           </h2>
-          <div className="grid md:grid-cols-2 gap-5">
+          <dl className="divide-y divide-slate/15 border-y border-slate/15">
             {faqItems.map((item) => (
-              <article key={item} className="rounded-2xl border-2 border-slate/10 p-6">
-                <h3 className="text-xl font-bold text-slate mb-3">{t(`faq.items.${item}.q`)}</h3>
-                <p className="text-slate leading-relaxed">{t(`faq.items.${item}.a`)}</p>
-              </article>
+              <div key={item} className="py-4">
+                <dt className="font-bold text-gray-900">{t(`faq.items.${item}.q`)}</dt>
+                <dd className="mt-1 text-slate leading-relaxed">{t(`faq.items.${item}.a`)}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
     </main>

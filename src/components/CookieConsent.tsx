@@ -1,103 +1,65 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Cookie, X } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 
 const COOKIE_CONSENT_KEY = 'mil-sabores-cookie-consent'
 
+// Faixa compacta (1-2 linhas). Enquanto está visível marca <html data-cookie-banner="open">,
+// para esconder a barra de reserva móvel e o "voltar ao topo" (ver globals.css).
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
   const t = useTranslations('cookieConsent')
 
   useEffect(() => {
-    // Check if user has already consented
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY)
-    if (!consent) {
-      // Delay showing banner for better UX
-      const timer = setTimeout(() => setShowBanner(true), 2000)
+    if (!localStorage.getItem(COOKIE_CONSENT_KEY)) {
+      const timer = setTimeout(() => setShowBanner(true), 1500)
       return () => clearTimeout(timer)
     }
   }, [])
 
-  const acceptCookies = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted')
+  useEffect(() => {
+    const root = document.documentElement
+    if (showBanner) root.dataset.cookieBanner = 'open'
+    else delete root.dataset.cookieBanner
+  }, [showBanner])
+
+  const choose = (value: 'accepted' | 'declined') => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, value)
     setShowBanner(false)
   }
 
-  const declineCookies = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, 'declined')
-    setShowBanner(false)
-  }
+  if (!showBanner) return null
 
   return (
-    <AnimatePresence>
-      {showBanner && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          role="region"
-          aria-label={t('title')}
-          className="fixed bottom-0 left-0 right-0 z-50 p-3 md:p-4"
+    <div
+      role="region"
+      aria-label={t('title')}
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-slate/15 bg-white pb-[env(safe-area-inset-bottom)]"
+    >
+      <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-2.5">
+        <p className="flex-1 text-[13px] leading-snug text-gray-800">
+          {t('short')}{' '}
+          <Link href="/cookies" className="font-semibold text-pastel-ink underline underline-offset-2">
+            {t('more')}
+          </Link>
+        </p>
+        <button
+          type="button"
+          onClick={() => choose('declined')}
+          className="px-2 py-1.5 text-[13px] font-medium text-slate hover:text-gray-900"
         >
-          {/* Mesmo cartão de antes (branco, arredondado, ícone, botões), só mais compacto */}
-          <div className="relative max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border-2 border-slate/10 px-4 py-3 md:px-5 md:py-4">
-            <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5">
-              <div className="flex items-start gap-3 flex-1 pr-8 md:pr-0">
-                {/* Icon */}
-                <div className="flex-shrink-0 w-9 h-9 bg-pastel/20 rounded-lg flex items-center justify-center">
-                  <Cookie className="text-pastel" size={18} aria-hidden="true" />
-                </div>
-
-                {/* Content */}
-                <p className="text-slate text-xs md:text-sm leading-snug">
-                  <span className="block font-bold text-sm md:text-base text-gray-800 mb-0.5">{t('title')}</span>
-                  {t('text')}{' '}
-                  <Link href="/cookies" className="text-pastel-ink font-semibold hover:underline">
-                    {t('cookies')}
-                  </Link>{' '}
-                  {t('and')}{' '}
-                  <Link href="/privacidad" className="text-pastel-ink font-semibold hover:underline">
-                    {t('privacy')}
-                  </Link>.
-                </p>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex items-center justify-end gap-2 md:w-auto">
-                <button
-                  type="button"
-                  onClick={declineCookies}
-                  className="px-4 py-2 text-slate font-medium hover:text-gray-800 transition-colors text-sm"
-                >
-                  {t('decline')}
-                </button>
-                <button
-                  type="button"
-                  onClick={acceptCookies}
-                  className="px-5 py-2 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark transition-all shadow-md shadow-pastel/30 text-sm"
-                >
-                  {t('accept')}
-                </button>
-              </div>
-            </div>
-
-            {/* Close button (mobile) */}
-            <button
-              type="button"
-              onClick={declineCookies}
-              className="absolute top-2 right-2 md:hidden p-2 text-slate hover:text-gray-800 transition-colors"
-              aria-label={t('close')}
-            >
-              <X size={18} />
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          {t('decline')}
+        </button>
+        <button
+          type="button"
+          onClick={() => choose('accepted')}
+          className="rounded-full bg-pastel px-4 py-1.5 text-[13px] font-bold text-gray-900 hover:bg-pastel-dark"
+        >
+          {t('accept')}
+        </button>
+      </div>
+    </div>
   )
 }

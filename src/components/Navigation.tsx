@@ -12,7 +12,7 @@ export default function Navigation() {
   const t = useTranslations('nav')
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-2xl shadow-black/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-black/5 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -33,7 +33,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="/reservas"
-              className="px-6 py-2.5 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/50 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              className="px-6 py-2.5 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-all duration-300"
             >
               {t('reservations')}
             </Link>
@@ -81,7 +81,7 @@ export default function Navigation() {
               </Link>
               <Link
                 href="/reservas"
-                className="mt-2 px-6 py-3 bg-pastel text-gray-800 font-bold rounded-full hover:bg-amber-500 transition-all text-center"
+                className="mt-2 px-6 py-3 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark transition-all text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('reservations')}

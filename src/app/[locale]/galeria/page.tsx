@@ -49,6 +49,26 @@ const galleryImages: GalleryImage[] = [
   { id: 25, url: '/images/Mil Sabores/Cliente 3.webp', category: 'events', alt: 'Experiencia gastronómica' },
 ]
 
+// Rejilla sem buracos: em ecrã grande são 6 colunas (cada foto ocupa 2). A primeira foto é grande
+// (4×2) quando há fotos suficientes e as últimas alargam-se para fechar a última linha.
+// Em tablet (2 colunas) a última foto alarga-se se o número for ímpar. Em móvel, 1 coluna.
+function tileClass(index: number, total: number) {
+  const big = total >= 7
+  const slots = big ? total + 3 : total
+  const rest = slots % 3
+  const smLast = total % 2 === 1 && index === total - 1
+  const sm = smLast ? 'sm:col-span-2 sm:aspect-[2/1]' : 'sm:aspect-square'
+  if (big && index === 0) return 'aspect-square sm:aspect-square lg:col-span-4 lg:row-span-2 lg:aspect-auto'
+  if (total === 1) return `${sm} aspect-square lg:col-span-6 lg:aspect-[3/1]`
+  if (rest === 2 && index >= total - 2) return `aspect-square ${sm} lg:col-span-3 lg:aspect-[3/2]`
+  if (rest === 1 && index >= total - 4) return `aspect-square ${sm} lg:col-span-3 lg:aspect-[3/2]`
+  return `aspect-square ${sm} lg:col-span-2 lg:aspect-square`
+}
+
+const categoriesWithPhotos = (['all', 'food', 'drinks', 'interior', 'events'] as Category[]).filter(
+  (c) => c === 'all' || galleryImages.some((img) => img.category === c),
+)
+
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState<Category>('all')
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
@@ -87,11 +107,11 @@ export default function GalleryPage() {
   const selectedImageData = filteredImages.find(img => img.id === selectedImage)
 
   return (
-    <div className="min-h-screen bg-cream pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-cream pt-32 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -105,7 +125,7 @@ export default function GalleryPage() {
               </span>
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-slate mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
             {t('title')}
           </h1>
           <p className="text-slate text-xl max-w-2xl mx-auto">
@@ -115,12 +135,12 @@ export default function GalleryPage() {
 
         {/* Category Filters */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
-          {(['all', 'food', 'drinks', 'interior', 'events'] as Category[]).map((category) => (
+          {categoriesWithPhotos.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -138,28 +158,26 @@ export default function GalleryPage() {
         {/* Gallery Grid */}
         <motion.div
           key={activeCategory}
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4"
         >
           {filteredImages.map((image, index) => (
             <motion.div
               key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               onClick={() => setSelectedImage(image.id)}
-              className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white hover:border-pastel/30 shadow-lg hover:shadow-2xl transition-all"
-              style={{
-                gridRow: index % 7 === 0 ? 'span 2' : 'span 1',
-              }}
+              className={`group relative ${tileClass(index, filteredImages.length)} overflow-hidden rounded-3xl cursor-pointer border-4 border-white bg-pastel-light hover:border-pastel/30 shadow-lg hover:shadow-2xl transition-all`}
             >
               <Image
                 src={image.url}
                 alt={t(`alts.${image.id}`)}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes={index === 0 && filteredImages.length >= 7 ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 66vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'}
+                priority={index < 6}
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -174,27 +192,27 @@ export default function GalleryPage() {
 
         {/* Instagram CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl p-12 border-2 border-purple-500/20"
+          className="mt-10 text-center bg-pastel/10 rounded-3xl px-6 py-8 md:p-10 border-2 border-pastel/30"
         >
-          <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl shadow-purple-500/40">
-              <Instagram size={40} className="text-white" />
+          <div className="flex justify-center mb-4">
+            <div className="w-16 h-16 bg-pastel rounded-full flex items-center justify-center shadow-xl shadow-pastel/40">
+              <Instagram size={32} className="text-gray-900" />
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">
             {t('follow_us')}
           </h2>
-          <p className="text-slate text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-slate text-lg mb-6 max-w-2xl mx-auto">
             {t('share_cta')}
           </p>
           <a
             href="https://instagram.com/milsaboreslx"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-xl shadow-purple-500/40"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-pastel text-gray-900 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-all shadow-xl shadow-pastel/40"
           >
             <Instagram size={24} />
             {t('view_on_instagram')}

@@ -17,7 +17,17 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders }]
+    return [
+      { source: '/:path*', headers: securityHeaders },
+      // PROPUESTA (quitar antes de fusionar): noindex en cualquier dominio que NO sea el de producción.
+      // Así el preview (*.vercel.app) no se indexa y, si esto se fusiona por error,
+      // www.milsaboresbrunch.com sigue indexable. Ver docs/propuesta-captador/POSIBLE-MEJORA.md
+      {
+        source: '/:path*',
+        missing: [{ type: 'host', value: '(www\\.)?milsaboresbrunch\\.com' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ]
   },
   images: {
     // Imágenes propias desde public/images (no se usan dominios externos)

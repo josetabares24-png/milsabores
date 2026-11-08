@@ -5,16 +5,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import {
-  ChefHat,
   ChevronDown,
   Clock,
   Leaf,
-  MapPin,
-  Phone,
   Wheat,
 } from 'lucide-react'
 import { Link } from '@/i18n/routing'
-import Logo from '@/components/Logo'
 import { MENU_CATEGORIES, type MenuCategory } from '@/lib/menu'
 
 type Category = MenuCategory
@@ -103,6 +99,13 @@ const dietaryTags: Record<string, ('vegetarian' | 'vegan' | 'glutenFree')[]> = {
 }
 
 
+// Três fotos reais no topo do menu (alt = traduções da galeria)
+const headerPhotos = [
+  { url: '/images/Mil Sabores/Brunch Salmon.webp', alt: 14 },
+  { url: '/images/Mil Sabores/Crepe Limon.webp', alt: 2 },
+  { url: '/images/Mil Sabores/Bagel Mozarella 2.webp', alt: 8 },
+]
+
 // Ofertas confirmadas pelo José. 'timed' = só das 13:00 às 18:00; 'daily' = todos os dias, sem horário definido.
 const promotions = [
   { key: 'beer_promo', schedule: 'timed' },
@@ -117,6 +120,8 @@ export default function MenuPage() {
   const t = useTranslations('fullMenu')
   const tGelados = useTranslations('gelados')
   const tPromotions = useTranslations('promotions')
+  const tIntent = useTranslations('intentPages')
+  const tGallery = useTranslations('gallery')
 
   const toggleCategory = (category: Category) => {
     setExpandedCategories((prev) => {
@@ -154,12 +159,12 @@ export default function MenuPage() {
           </span>
         )}
         {tags.includes('vegan') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg border border-green-200" title={t('filters.vegan')}>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-sage/20 text-sage-ink text-xs font-bold rounded-lg border border-sage/40" title={t('filters.vegan')}>
             VG
           </span>
         )}
         {tags.includes('glutenFree') && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-lg border border-amber-200" title={t('filters.glutenFree')}>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-mango/15 text-gray-800 text-xs font-bold rounded-lg border border-mango/40" title={t('filters.glutenFree')}>
             <Wheat size={12} /> GF
           </span>
         )}
@@ -168,83 +173,77 @@ export default function MenuPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white pt-28 pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
-        >
-          <div className="flex flex-col items-center gap-4 mb-4">
-            <Logo size="xl" colorFilter="pastel" />
-            <div className="inline-flex items-center gap-2 bg-pastel/10 px-4 py-2 rounded-full">
-              <ChefHat className="text-pastel" size={18} />
-              <span className="text-pastel-ink text-xs font-bold tracking-widest uppercase">Menu</span>
-            </div>
+    <main className="min-h-screen bg-cream pt-20 pb-12">
+      <header className="bg-pastel-light">
+        <div className="mx-auto grid max-w-6xl items-center gap-5 px-4 py-6 sm:px-6 md:grid-cols-[1fr_1.1fr] md:gap-10 md:py-10">
+          <div>
+            <p className="font-script text-xl text-pastel-ink md:text-2xl">Mil Sabores</p>
+            <h1 className="mt-1 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">{t('title')}</h1>
+            <p className="mt-2 text-base text-slate md:text-lg">{t('subtitle')}</p>
+            <p className="mt-3 text-sm text-slate">
+              {t('info_hours')} · Rua da Prata 152 ·{' '}
+              <a href="tel:+351213470214" className="whitespace-nowrap font-semibold text-gray-900 hover:text-pastel-ink">+351 21 347 0214</a>
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate mb-4">{t('title')}</h1>
-          <p className="text-slate text-lg max-w-2xl mx-auto mb-4 italic">{t('subtitle')}</p>
-          <p className="text-slate text-base max-w-3xl mx-auto leading-relaxed">{t('intro')}</p>
-        </motion.header>
-
-        <section aria-label="Informação prática" className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
-          <div className="flex items-center gap-2 text-slate">
-            <Clock size={16} className="text-pastel" />
-            <span>{t('info_hours')}</span>
-          </div>
-          <div className="flex items-center gap-2 text-slate">
-            <MapPin size={16} className="text-sage" />
-            <span>Rua da Prata 152, Baixa</span>
-          </div>
-          <div className="flex items-center gap-2 text-slate">
-            <Phone size={16} className="text-steel" />
-            <span>+351 21 347 0214</span>
-          </div>
-        </section>
-
-        <nav aria-label={t('jump_title')} className="sticky top-20 z-30 mb-8 rounded-2xl border-2 border-slate/10 bg-white/95 p-3 shadow-lg backdrop-blur">
-          <div className="flex gap-2 overflow-x-auto pb-1">
-            {categories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => openAndScrollToCategory(category)}
-                className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5"
-              >
-                {t(`categories.${category}`)}
-              </button>
+          <ul className="grid h-28 grid-cols-3 gap-2 sm:h-36 md:h-52 md:gap-3">
+            {headerPhotos.map((photo, i) => (
+              <li key={photo.url} className={`relative overflow-hidden rounded-2xl ${i === 1 ? 'md:translate-y-3' : ''}`}>
+                <Image
+                  src={photo.url}
+                  alt={tGallery(`alts.${photo.alt}`)}
+                  fill
+                  sizes="(max-width: 768px) 33vw, 200px"
+                  priority
+                  className="object-cover"
+                />
+              </li>
             ))}
-            <a href="#gelados" className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5">
-              {tGelados('title')}
-            </a>
-            <a href="#promocoes" className="whitespace-nowrap rounded-full border-2 border-slate/10 px-4 py-2 text-sm font-bold text-slate transition-colors hover:border-pastel hover:bg-pastel/5">
-              {tPromotions('title')}
-            </a>
-          </div>
-        </nav>
+          </ul>
+        </div>
+      </header>
 
-        <section aria-labelledby="dietary-filters" className="mb-10">
-          <h2 id="dietary-filters" className="text-sm font-bold text-slate uppercase tracking-wider mb-3 text-center">
+      <nav aria-label={t('jump_title')} className="sticky top-20 z-30 border-b border-slate/10 bg-cream/95 backdrop-blur md:top-20">
+        <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-2.5 sm:px-6">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => openAndScrollToCategory(category)}
+              className="whitespace-nowrap rounded-full border border-slate/15 bg-white px-3.5 py-1.5 text-sm font-semibold text-slate transition-colors hover:border-pastel hover:text-gray-900"
+            >
+              {t(`categories.${category}`)}
+            </button>
+          ))}
+          <a href="#gelados" className="whitespace-nowrap rounded-full border border-peach bg-peach/60 px-3.5 py-1.5 text-sm font-semibold text-gray-900 transition-colors hover:bg-peach">
+            {tGelados('title')}
+          </a>
+          <a href="#promocoes" className="whitespace-nowrap rounded-full border border-mango/50 bg-mango/15 px-3.5 py-1.5 text-sm font-semibold text-gray-900 transition-colors hover:bg-mango/30">
+            {tPromotions('title')}
+          </a>
+        </div>
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section aria-labelledby="dietary-filters" className="mb-4 mt-5 flex flex-wrap items-center gap-2">
+          <h2 id="dietary-filters" className="mr-1 text-xs font-bold uppercase tracking-wider text-slate">
             {t('dietary_title')}
           </h2>
-          <div className="flex flex-wrap justify-center gap-2">
-            {(['all', 'vegetarian', 'vegan', 'glutenFree'] as const).map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                  activeFilter === filter ? 'bg-pastel text-gray-800 shadow-md' : 'bg-slate/5 text-slate hover:bg-pastel/10'
-                }`}
-              >
-                {filter === 'all' ? t('filters.all') : t(`filters.${filter}`)}
-              </button>
-            ))}
-          </div>
+          {(['all', 'vegetarian', 'vegan', 'glutenFree'] as const).map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
+              aria-pressed={activeFilter === filter}
+              className={`rounded-full px-3 py-1 text-sm font-semibold transition-colors ${
+                activeFilter === filter ? 'bg-pastel text-gray-900' : 'bg-slate/5 text-slate hover:bg-pastel/15'
+              }`}
+            >
+              {filter === 'all' ? t('filters.all') : t(`filters.${filter}`)}
+            </button>
+          ))}
         </section>
 
-        <div id="menu" className="space-y-4">
+        <div id="menu" className="border-b border-slate/15">
           {categories.map((category, catIndex) => {
             const rawCategory = t.raw(category) || {}
             const filteredItems = Object.keys(rawCategory).filter((itemKey) => {
@@ -259,10 +258,10 @@ export default function MenuPage() {
               <motion.section
                 key={category}
                 id={`category-${category}`}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: catIndex * 0.03 }}
-                className="scroll-mt-32 overflow-hidden rounded-2xl border-2 border-slate/10 bg-white shadow-sm transition-shadow hover:shadow-md"
+                className="scroll-mt-36 border-t border-slate/15"
                 aria-labelledby={`heading-${category}`}
               >
                 <button
@@ -270,19 +269,19 @@ export default function MenuPage() {
                   onClick={() => toggleCategory(category)}
                   aria-expanded={isExpanded}
                   aria-controls={`panel-${category}`}
-                  className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-slate/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/20"
+                  className="group flex w-full items-center justify-between gap-4 py-4 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/20 md:py-5"
                 >
-                  <span className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
-                    <h2 id={`heading-${category}`} className="text-2xl font-bold text-slate md:text-3xl">
+                  <span className="flex min-w-0 items-baseline gap-3">
+                    <h2 id={`heading-${category}`} className="text-xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-pastel-ink md:text-2xl">
                       {t(`categories.${category}`)}
                     </h2>
-                    <span className="text-sm font-medium text-slate">
+                    <span className="shrink-0 text-sm text-slate/80">
                       {filteredItems.length} {t('items_count')}
                     </span>
                   </span>
                   <ChevronDown
-                    size={28}
-                    className={`shrink-0 text-pastel transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                    size={22}
+                    className={`shrink-0 text-pastel-ink transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -297,7 +296,7 @@ export default function MenuPage() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-slate/10 px-5 pb-5 pt-4">
+                      <div className="pb-5">
                         {category === 'brunch' && (
                           <p className="mb-4 rounded-xl border border-pastel/20 bg-pastel/10 p-4 text-sm font-medium text-slate">
                             {t('brunch.customization_note')}
@@ -309,13 +308,13 @@ export default function MenuPage() {
                           </p>
                         )}
                         {category === 'burgers' && (
-                          <p className="mb-4 flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium text-amber-700">
+                          <p className="mb-4 flex items-center gap-2 rounded-xl border border-mango/40 bg-mango/10 p-4 text-sm font-medium text-gray-800">
                             <Clock size={16} />
                             {t('burgers_note')}
                           </p>
                         )}
 
-                        <div className="space-y-3">
+                        <div className="divide-y divide-slate/10 rounded-2xl bg-white px-4 md:px-6">
                           {filteredItems.map((itemKey, itemIndex) => {
                             const item = t.raw(`${category}.${itemKey}`)
                             const isFirstSaladas = category === 'dulces' && itemKey.startsWith('saladas_') && !filteredItems.slice(0, itemIndex).some((key) => key.startsWith('saladas_'))
@@ -324,16 +323,16 @@ export default function MenuPage() {
                             return (
                               <div key={itemKey}>
                                 {isFirstSaladas && (
-                                  <h3 className="mb-3 mt-4 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
+                                  <h3 className="pb-2 pt-5 text-sm font-bold uppercase tracking-wider text-pastel-ink">
                                     {t('dulces.saladas_title')}
                                   </h3>
                                 )}
                                 {isFirstMini && (
-                                  <h3 className="mb-3 mt-4 border-t-2 border-pastel/10 pt-4 text-lg font-bold text-slate">
+                                  <h3 className="pb-2 pt-5 text-sm font-bold uppercase tracking-wider text-pastel-ink">
                                     {t('dulces.mini_title')}
                                   </h3>
                                 )}
-                                <article className="flex items-start justify-between gap-4 rounded-xl bg-slate/5 p-4 transition-colors hover:bg-pastel/5">
+                                <article className="flex items-start justify-between gap-4 py-3.5">
                                   <div className="min-w-0 flex-1">
                                     <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-start">
                                       <h3 className="text-base font-bold leading-tight text-slate">
@@ -366,10 +365,10 @@ export default function MenuPage() {
           })}
         </div>
 
-        <section id="gelados" className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-cream p-5 md:p-8" aria-labelledby="gelados-heading">
+        <section id="gelados" className="scroll-mt-32 mt-10 rounded-2xl border border-slate/15 bg-cream p-5 md:p-8" aria-labelledby="gelados-heading">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 id="gelados-heading" className="text-3xl font-bold text-gray-800 md:text-4xl">
+              <h2 id="gelados-heading" className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 {tGelados('title')}
               </h2>
               <svg
@@ -399,10 +398,10 @@ export default function MenuPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 border-white shadow-xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src="/images/Mil Sabores/Copos Helado.webp"
-                alt="Gelato Artesanal Mil Sabores"
+                alt={tIntent('gelato.imageAlt')}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-bottom"
@@ -413,13 +412,13 @@ export default function MenuPage() {
 
         <section
           id="promocoes"
-          className="scroll-mt-32 mt-10 rounded-3xl border-2 border-pastel/20 bg-cream px-5 py-8 md:px-12 md:py-12"
+          className="scroll-mt-32 mt-10 rounded-2xl border border-slate/15 bg-cream px-5 py-8 md:px-12 md:py-12"
           aria-labelledby="promocoes-heading"
         >
           <div className="mx-auto max-w-2xl">
             <header className="mb-8 text-center md:mb-10">
               <p className="text-sm font-bold uppercase tracking-wider text-slate">{tPromotions('eyebrow')}</p>
-              <h2 id="promocoes-heading" className="mt-1 text-3xl font-bold text-gray-800 md:text-4xl">
+              <h2 id="promocoes-heading" className="mt-1 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
                 {tPromotions('title')}
               </h2>
               <svg
@@ -474,7 +473,7 @@ export default function MenuPage() {
                     {key === 'brunch_duo' && (
                       <p className="mt-1 text-sm leading-relaxed text-gray-500">{tPromotions('offers.brunch_duo.details')}</p>
                     )}
-                    <p className="mt-2 text-sm italic text-sky-800">{when}</p>
+                    <p className="mt-2 text-sm italic text-pastel-ink">{when}</p>
                   </li>
                 )
               })}
@@ -482,33 +481,33 @@ export default function MenuPage() {
           </div>
         </section>
 
-        <section className="mt-12 rounded-2xl border-2 border-slate/10 bg-slate/5 p-6">
-          <h2 className="mb-5 text-sm font-bold uppercase tracking-wider text-slate">{t('legend_title')}</h2>
-          <div className="grid grid-cols-1 gap-4 text-sm sm:grid-cols-3">
+        <section className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-slate/15 pt-5">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900">{t('legend_title')}</h2>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 rounded-lg border border-sage/30 bg-sage/20 px-2.5 py-1 text-xs font-bold text-sage-ink"><Leaf size={12} /> V</span>
               <span className="font-medium text-slate">{t('filters.vegetarian')}</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-lg border border-green-200 bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700">VG</span>
+              <span className="inline-flex items-center rounded-lg border border-sage/40 bg-sage/20 px-2.5 py-1 text-xs font-bold text-sage-ink">VG</span>
               <span className="font-medium text-slate">{t('filters.vegan')}</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1 rounded-lg border border-amber-200 bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-700"><Wheat size={12} /> GF</span>
+              <span className="inline-flex items-center gap-1 rounded-lg border border-mango/40 bg-mango/15 px-2.5 py-1 text-xs font-bold text-gray-800"><Wheat size={12} /> GF</span>
               <span className="font-medium text-slate">{t('filters.glutenFree')}</span>
             </div>
           </div>
         </section>
 
-        <section className="mt-12 text-center">
+        <section className="mt-8 text-center">
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href="/brunch-lisboa" className="rounded-full border-2 border-pastel/30 bg-white px-8 py-3 font-bold text-slate transition-all hover:bg-pastel hover:text-white">
+            <Link href="/brunch-lisboa" className="rounded-full border border-slate/25 bg-white px-8 py-3 font-bold text-slate transition-all hover:bg-pastel hover:text-gray-900">
               {t('brunch_landing_cta')}
             </Link>
             <Link href="/reservas" className="rounded-full bg-pastel px-8 py-3 font-bold text-gray-800 transition-all hover:bg-pastel-dark">
               {t('reserve_cta')}
             </Link>
-            <a href="tel:+351213470214" className="rounded-full border-2 border-slate/10 bg-white px-8 py-3 font-bold text-slate transition-all hover:border-pastel hover:bg-slate/5">
+            <a href="tel:+351213470214" className="rounded-full border border-slate/20 bg-white px-8 py-3 font-bold text-slate transition-all hover:border-pastel hover:bg-slate/5">
               {t('call_cta')}
             </a>
           </div>

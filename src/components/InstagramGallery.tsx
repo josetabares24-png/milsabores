@@ -1,137 +1,62 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { Instagram } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import Reveal from '@/components/Reveal'
 
-const instagramImages = [
-  {
-    id: 1,
-    url: '/images/Mil Sabores/Mini Hamburguer.webp',
-    alt: 'Mini hamburguesas artesanales',
-  },
-  {
-    id: 2,
-    url: '/images/Mil Sabores/Crepe Limon.webp',
-    alt: 'Crepe con limón',
-  },
-  {
-    id: 3,
-    url: '/images/Mil Sabores/Poke Vegan.webp',
-    alt: 'Poke bowl vegano',
-  },
-  {
-    id: 4,
-    url: '/images/Mil Sabores/Brunch Americano.webp',
-    alt: 'Brunch americano completo',
-  },
-  {
-    id: 5,
-    url: '/images/Mil Sabores/Tosta de Agucate.webp',
-    alt: 'Tostada de aguacate',
-  },
-  {
-    id: 6,
-    url: '/images/Mil Sabores/Ensalada Italiana.webp',
-    alt: 'Ensalada italiana fresca',
-  },
+// Mosaico de fotos reais (alt das traduções da /galeria). A primeira ocupa 2x2.
+const photos = [
+  { url: '/images/Mil Sabores/Crepe Limon.webp', alt: 2 },
+  { url: '/images/Mil Sabores/Brunch Salmon.webp', alt: 14 },
+  { url: '/images/Mil Sabores/Cliente 2.webp', alt: 23 },
+  { url: '/images/Mil Sabores/Poke Vegan.webp', alt: 4 },
+  { url: '/images/Mil Sabores/milshakes.webp', alt: 20 },
+  { url: '/images/Mil Sabores/Bagel Salmon 2.webp', alt: 9 },
+  { url: '/images/Mil Sabores/Mini Hamburguer.webp', alt: 10 },
+  { url: '/images/Mil Sabores/Panqueca Salgada.webp', alt: 3 },
+  { url: '/images/Mil Sabores/Ensalada Italiana.webp', alt: 12 },
 ]
 
 export default function InstagramGallery() {
   const t = useTranslations('instagram')
+  const tGallery = useTranslations('gallery')
 
   return (
-    <section id="gallery" className="py-24 px-6 bg-cream">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-pastel-ink text-sm font-bold tracking-widest uppercase">
-            {t('eyebrow')}
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-slate mt-4 mb-6">
-            {t('title')}
-          </h2>
-          <p className="text-slate text-lg max-w-2xl mx-auto mb-8">
-            {t('subtitle')} {t('handle')}
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/galeria"
-              className="inline-flex items-center justify-center px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:scale-105 transition-transform shadow-xl shadow-pastel/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pastel/30"
-            >
-              {t('view_gallery')}
-            </Link>
-            <a
-              href="https://instagram.com/milsaboreslx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-xl shadow-purple-500/40 focus:outline-none focus-visible:ring-4 focus-visible:ring-pink-300/40"
-            >
-              <Instagram size={22} />
-              <span>{t('handle')}</span>
+    <section id="gallery" className="bg-sage/20 px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">{t('title')}</h2>
+          <p className="mt-3 text-lg text-gray-800">
+            {t('subtitle')}{' '}
+            <a href="https://instagram.com/milsaboreslx" target="_blank" rel="noopener noreferrer" className="font-bold text-sage-ink underline underline-offset-2">
+              {t('handle')}
             </a>
-          </div>
-        </motion.div>
+          </p>
+        </Reveal>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {instagramImages.map((image, index) => (
-            <motion.a
-              key={image.id}
-              href="https://instagram.com/milsaboreslx"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden rounded-3xl cursor-pointer border-4 border-white shadow-lg hover:shadow-2xl"
-              aria-label={`Ver ${image.alt} en Instagram`}
+        <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+          {photos.map((photo, i) => (
+            <div
+              key={photo.url}
+              className={`relative overflow-hidden rounded-2xl ${i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'}`}
             >
-              {/* Image */}
               <Image
-                src={image.url}
-                alt={image.alt}
+                src={photo.url}
+                alt={tGallery(`alts.${photo.alt}`)}
                 fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes={i === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
+                className="object-cover"
                 loading="lazy"
               />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-pastel/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Instagram Icon */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl">
-                  <Instagram size={32} className="text-pastel" />
-                </div>
-              </div>
-            </motion.a>
+            </div>
           ))}
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
-        >
-          <p className="text-slate text-sm font-medium">
-            {t('cta')}
-          </p>
-        </motion.div>
+        <div className="mt-8 flex flex-col items-center gap-3 text-center">
+          <Link href="/galeria" className="inline-flex rounded-full bg-white px-7 py-3 font-bold text-gray-900 transition-colors hover:bg-pastel">
+            {t('view_gallery')}
+          </Link>
+          <p className="text-sm text-gray-700">{t('cta')}</p>
+        </div>
       </div>
     </section>
   )

@@ -1,97 +1,40 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
-import { Star, ArrowRight, Leaf, Sparkles } from 'lucide-react'
 import Image from 'next/image'
+import Reveal from '@/components/Reveal'
 
 export default function FeaturedDish() {
   const t = useTranslations('featuredDish')
 
   return (
-    <section className="relative py-20 overflow-hidden bg-pastel-light/50">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
-          >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-pastel" />
-              <span className="text-pastel-ink font-bold text-sm uppercase tracking-wider">
-                {t('badge')}
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-              {t('title')}
-            </h2>
-
-            <p className="text-slate text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-              {t('description')}
+    <section className="px-6 py-16 md:py-24 bg-pastel-light">
+      <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 lg:items-center">
+        <Reveal className="relative h-[340px] md:h-[520px] overflow-hidden rounded-3xl">
+          <Image
+            src="/images/Mil Sabores/Brunch Americano.webp"
+            alt={t('image_alt')}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </Reveal>
+        <Reveal>
+          <p className="text-sm font-bold uppercase tracking-wider text-pastel-ink">{t('badge')}</p>
+          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">{t('title')}</h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">{t('description')}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-6">
+            <p className="text-gray-900">
+              <span className="text-sm text-slate">{t('from')} </span>
+              <span className="text-4xl font-bold">{t('price')}</span>
             </p>
-
-            {/* Features */}
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate/10 rounded-full">
-                <Leaf className="w-4 h-4 text-sage" />
-                <span className="text-slate text-sm font-medium">{t('feature1')}</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white border border-slate/10 rounded-full">
-                <Star className="w-4 h-4 text-pastel" fill="currentColor" />
-                <span className="text-slate text-sm font-medium">{t('feature2')}</span>
-              </div>
-            </div>
-
-            {/* Price & CTA */}
-            <div className="flex flex-wrap items-center gap-6">
-              <div>
-                <span className="text-slate text-sm">{t('from')}</span>
-                <div className="text-4xl font-bold text-pastel-ink">{t('price')}</div>
-              </div>
-              <Link
-                href="/menu"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-pastel text-gray-800 font-bold rounded-full hover:bg-pastel-dark hover:shadow-xl hover:shadow-pastel/40 transition-all duration-300 hover:scale-105 group"
-              >
-                {t('cta')}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 relative"
-          >
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-pastel/30 rounded-[3rem] blur-3xl transform -rotate-6" />
-
-            {/* Main image container */}
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-              <Image
-                src="/images/Mil Sabores/Brunch Americano.webp"
-                alt={t('image_alt')}
-                width={600}
-                height={500}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="w-full h-[400px] md:h-[500px] object-cover"
-              />
-
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </div>
-          </motion.div>
-        </div>
+            <Link
+              href="/menu"
+              className="inline-flex items-center rounded-full bg-white px-7 py-3.5 font-bold text-gray-900 hover:bg-pastel transition-colors"
+            >
+              {t('cta')}
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

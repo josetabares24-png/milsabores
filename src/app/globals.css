@@ -42,3 +42,10 @@
     line-height: 1.4 !important;
   }
 }
+
+/* Propuesta: barra de reserva móvel, faixa de cookies e "voltar ao topo" nunca se sobrepõem */
+html[data-cookie-banner="open"] #mobile-reserve-bar { display: none; }
+@media (max-width: 1023px) {
+  body:has(#mobile-reserve-bar[data-visible="true"]) .back-to-top,
+  html[data-cookie-banner="open"] .back-to-top { display: none; }
+}

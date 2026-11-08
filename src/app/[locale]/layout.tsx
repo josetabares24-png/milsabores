@@ -8,7 +8,7 @@ import { locales, type Locale } from '@/i18n/config'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
-import FloatingActionButton from '@/components/FloatingActionButton'
+import MobileReserveBar from '@/components/MobileReserveBar'
 import CookieConsent from '@/components/CookieConsent'
 import AnalyticsEvents from '@/components/AnalyticsEvents'
 import { Analytics } from '@vercel/analytics/next'
@@ -78,7 +78,7 @@ export default async function LocaleLayout({
           {children}
           <Footer />
           <BackToTop />
-          <FloatingActionButton />
+          <MobileReserveBar />
           <CookieConsent />
           <AnalyticsEvents />
           <Analytics />

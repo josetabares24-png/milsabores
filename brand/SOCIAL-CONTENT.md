@@ -170,15 +170,15 @@ La prioridad es que el texto siga sonando humano.
 
 ## 9. Reservas / CTA — LOCKED
 
-**URL oficial de reservas:** `www.brunchmilsabores.com`
+**URL oficial de reservas:** `www.milsaboresbrunch.com`
 
 Cuando el objetivo del contenido sea reservar mesa, usar este dominio como CTA principal.
 
 Ejemplos:
 
-- “Reservas em brunchmilsabores.com”
-- “Reserve a sua mesa: brunchmilsabores.com”
-- “Brunch na Baixa — reservas em brunchmilsabores.com”
+- “Reservas em milsaboresbrunch.com”
+- “Reserve a sua mesa: milsaboresbrunch.com”
+- “Brunch na Baixa — reservas em milsaboresbrunch.com”
 
 No hace falta añadir la URL en todos los posts. Debe aparecer cuando la intención comercial o de reserva lo justifique.
 
@@ -197,7 +197,7 @@ En piezas gráficas:
 - ¿El texto suena humano?
 - ¿El plato, precio y condiciones son correctos?
 - ¿El CTA tiene sentido?
-- Si busca reservas, ¿usa `brunchmilsabores.com`?
+- Si busca reservas, ¿usa `milsaboresbrunch.com`?
 - ¿La ubicación está bien cuando aplica?
 - ¿Hay algo que parezca plantilla genérica?
 - ¿La pieza mantiene la paleta y jerarquía?

@@ -23,3 +23,10 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 tsconfig.tsbuildinfo
+.env*
+
+# Propuesta captador: material local que no va al repo
+shots/
+backups/
+feedback/
+scripts/*_log.json

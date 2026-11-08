@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import FeaturedDish from '@/components/FeaturedDish'
 import About from '@/components/About'
 import MenuSection from '@/components/MenuSection'
+import GelatoBand from '@/components/GelatoBand'
 import InstagramGallery from '@/components/InstagramGallery'
 import VisitSection from '@/components/VisitSection'
 import HomeSeoSections from '@/components/HomeSeoSections'
@@ -25,6 +26,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <FeaturedDish />
       <About />
       <MenuSection />
+      <GelatoBand />
       <HomeSeoSections variant="brunch" />
       <InstagramGallery />
       <VisitSection />
