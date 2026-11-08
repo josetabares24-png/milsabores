@@ -1,131 +1,71 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import { ArrowRight, Clock, MapPin, Phone } from 'lucide-react'
+import { Clock, MapPin, Phone } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
-import Logo from './Logo'
 
 export default function Hero() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/Mil Sabores/Brunch Americano.webp"
-          alt={t('image_alt')}
-          fill
-          className="object-cover"
-          // Fundo decorativo (fica por trás de um véu branco a ~90%): não é o LCP,
-          // por isso não compete com o título nem precisa de qualidade alta.
-          loading="eager"
-          fetchPriority="low"
-          sizes="100vw"
-          quality={60}
-        />
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-cream/90 to-white/85 backdrop-blur-[2px]" />
-      </div>
+    <section className="relative w-full min-h-[100svh] flex items-end overflow-hidden bg-slate-900">
+      {/* Foto real a toda a largura: vertical no telemóvel, horizontal no ecrã grande */}
+      <Image
+        src="/images/Mil Sabores/Brunch Americano.webp"
+        alt={t('image_alt')}
+        fill
+        priority
+        sizes="100vw"
+        quality={78}
+        className="object-cover object-center md:hidden"
+      />
+      <Image
+        src="/images/Mil Sabores/Tosta salmon 3.webp"
+        alt={t('image_alt')}
+        fill
+        priority
+        sizes="100vw"
+        quality={78}
+        className="hidden md:block object-cover object-center"
+      />
+      {/* Sombra só em baixo, para o texto se ler sem tapar a comida */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/10 md:bg-gradient-to-r md:from-black/85 md:via-black/55 md:to-transparent" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 py-24 max-w-6xl mx-auto">
-        {/* Sem animação de entrada no bloco do título: o H1 é o elemento LCP e tem de pintar logo. */}
-        <div className="space-y-8">
-          {/* Main Heading - SEO Optimized */}
-          <div className="space-y-4">
-            {/* SEO-friendly H1 with visual styling */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate leading-tight tracking-tight">
-              <span className="block">{t('title')}</span>
-              <span className="block text-xl md:text-2xl lg:text-3xl text-pastel-ink font-bold tracking-wide drop-shadow-sm mt-2">
-                {t('tagline')}
-              </span>
-              <span className="block text-sm md:text-base text-slate font-medium tracking-[0.3em] uppercase mt-4">
-                {t('city')}
-              </span>
-            </h1>
-            {/* Logo below title and location */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex justify-center mt-6"
-            >
-              <Logo size="xl" showText={false} colorFilter="pastel" />
-            </motion.div>
-            {/* Subtitle */}
-            <p className="text-slate text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              {t('subtitle')}
-            </p>
-          </div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pb-12 pt-40 md:pb-20">
+        <div className="max-w-2xl text-white">
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-mango">
+            {t('tagline')} · {t('city')}
+          </p>
+          <h1 className="mt-4 text-[2.6rem] leading-[1.02] md:text-7xl font-bold tracking-tight">
+            {t('title')}
+          </h1>
+          <p className="mt-5 text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
+            {t('subtitle')}
+          </p>
 
-          {/* CTAs - Enhanced */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center pt-8"
-          >
-            <Link
-              href="/menu"
-              className="group relative px-10 py-5 bg-pastel text-gray-800 font-bold rounded-full shadow-xl shadow-pastel/40 hover:bg-pastel-dark hover:shadow-2xl hover:shadow-pastel/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg overflow-hidden"
-            >
-              <span className="relative z-10">{t('cta_menu')}</span>
-              <ArrowRight size={22} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-              {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
-            </Link>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Link
               href="/reservas"
-              className="px-10 py-5 bg-white/90 backdrop-blur-xl text-slate font-bold rounded-full border-2 border-slate/10 hover:border-pastel hover:bg-pastel hover:text-white hover:scale-105 transition-all duration-300 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-pastel/30 flex items-center justify-center text-lg"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-mango px-8 text-lg font-bold text-gray-900 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               {t('cta_reserve')}
             </Link>
-          </motion.div>
+            <Link
+              href="/menu"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-full border-2 border-white/80 px-8 text-lg font-bold text-white transition-colors duration-200 hover:bg-white hover:text-gray-900 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {t('cta_menu')}
+            </Link>
+          </div>
 
-          {/* Info Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-6 pt-12 text-slate text-base font-medium"
-          >
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <Clock className="text-pastel" size={20} />
-              <span>{t('hours_label')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <MapPin className="text-sage" size={20} />
-              <span>{t('location_label')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-lg px-6 py-3 rounded-full border border-slate/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-pastel/30 transition-all duration-300">
-              <Phone className="text-steel" size={20} />
-              <span>{t('phone_label')}</span>
-            </div>
-          </motion.div>
+          <ul className="mt-8 flex flex-col gap-2 text-base text-white/90 md:flex-row md:flex-wrap md:gap-x-6">
+            <li className="flex items-center gap-2"><Clock size={18} className="text-mango" />{t('hours_label')}</li>
+            <li className="flex items-center gap-2"><MapPin size={18} className="text-mango" />{t('location_label')}</li>
+            <li className="flex items-center gap-2"><Phone size={18} className="text-mango" />{t('phone_label')}</li>
+          </ul>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-slate text-xs uppercase tracking-wider font-semibold">{t('scroll')}</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 border-2 border-pastel/40 rounded-full flex items-start justify-center p-2 bg-white/50 backdrop-blur-sm"
-          >
-            <div className="w-1.5 h-1.5 bg-pastel rounded-full" />
-          </motion.div>
-        </div>
-      </motion.div>
     </section>
   )
 }
