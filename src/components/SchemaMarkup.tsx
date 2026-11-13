@@ -219,9 +219,15 @@ export default async function SchemaMarkup({ locale, page, path = '' }: SchemaMa
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
         opens: RESTAURANT.hours.openTime,
-        closes: RESTAURANT.hours.closeTime,
+        closes: RESTAURANT.hours.weekdayCloseTime,
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Friday', 'Saturday', 'Sunday'],
+        opens: RESTAURANT.hours.openTime,
+        closes: RESTAURANT.hours.weekendCloseTime,
       },
     ],
     servesCuisine: ['Brunch', 'Breakfast', 'Coffee', 'Burgers', 'Gelato', 'International'],
