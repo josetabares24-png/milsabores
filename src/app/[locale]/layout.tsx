@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import FloatingActionButton from '@/components/FloatingActionButton'
 import CookieConsent from '@/components/CookieConsent'
+import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent'
 import AnalyticsEvents from '@/components/AnalyticsEvents'
 import { Analytics } from '@vercel/analytics/next'
 import '../globals.css'
@@ -80,6 +81,7 @@ export default async function LocaleLayout({
           <BackToTop />
           <FloatingActionButton />
           <CookieConsent />
+          <GoogleAnalyticsConsent />
           <AnalyticsEvents />
           <Analytics />
         </NextIntlClientProvider>
