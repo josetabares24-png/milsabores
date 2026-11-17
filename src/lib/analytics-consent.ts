@@ -1,4 +1,6 @@
-export const COOKIE_CONSENT_KEY = 'mil-sabores-cookie-consent'
+// Versioned key: users who accepted the older generic banner must opt in anew
+// before GA4 may run.
+export const COOKIE_CONSENT_KEY = 'mil-sabores-cookie-consent-v2'
 export const COOKIE_CONSENT_EVENT = 'mil-sabores-cookie-consent-change'
 
 export type CookieConsentChoice = 'accepted' | 'declined'
