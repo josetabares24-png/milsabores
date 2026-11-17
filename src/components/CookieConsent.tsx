@@ -4,13 +4,22 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Cookie, X } from 'lucide-react'
 import { Link } from '@/i18n/routing'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import { COOKIE_CONSENT_KEY, saveCookieConsent } from '@/lib/analytics-consent'
 
-const COOKIE_CONSENT_KEY = 'mil-sabores-cookie-consent'
+const consentCopy: Record<string, string> = {
+  pt: 'Usamos Google Analytics para medir visitas apenas se aceitar cookies de análise. Consulte a nossa',
+  es: 'Usamos Google Analytics para medir visitas solo si aceptas las cookies de análisis. Consulta nuestra',
+  en: 'We use Google Analytics to measure visits only if you accept analytics cookies. See our',
+  fr: 'Nous utilisons Google Analytics pour mesurer les visites uniquement si vous acceptez les cookies de mesure. Consultez notre',
+  de: 'Wir verwenden Google Analytics zur Besuchsmessung nur, wenn Sie Analyse-Cookies zustimmen. Lesen Sie unsere',
+  it: 'Usiamo Google Analytics per misurare le visite solo se accetti i cookie analitici. Consulta la nostra',
+}
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
   const t = useTranslations('cookieConsent')
+  const locale = useLocale()
 
   useEffect(() => {
     // Check if user has already consented
@@ -23,12 +32,12 @@ export default function CookieConsent() {
   }, [])
 
   const acceptCookies = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted')
+    saveCookieConsent('accepted')
     setShowBanner(false)
   }
 
   const declineCookies = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, 'declined')
+    saveCookieConsent('declined')
     setShowBanner(false)
   }
 
@@ -56,7 +65,7 @@ export default function CookieConsent() {
                 {/* Content */}
                 <p className="text-slate text-xs md:text-sm leading-snug">
                   <span className="block font-bold text-sm md:text-base text-gray-800 mb-0.5">{t('title')}</span>
-                  {t('text')}{' '}
+                  {consentCopy[locale] || consentCopy.pt}{' '}
                   <Link href="/cookies" className="text-pastel-ink font-semibold hover:underline">
                     {t('cookies')}
                   </Link>{' '}
