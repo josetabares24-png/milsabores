@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Cookie } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import Logo from '@/components/Logo'
+import CookiePreferenceControls from '@/components/CookiePreferenceControls'
 import { RESTAURANT } from '@/config/restaurant'
 
 const linkClass = 'text-pastel-ink font-bold hover:underline'
@@ -66,6 +67,9 @@ export default function CookiesPage() {
                 <li key={k}><strong>{name}:</strong> {t(`cookies.browsers.${k}`)}</li>
               ))}
             </ul>
+            <div className="mt-6">
+              <CookiePreferenceControls />
+            </div>
           </section>
 
           <section>
