@@ -15,7 +15,7 @@ const SCRIPT_ID = 'mil-sabores-ga4'
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][]
+    dataLayer: IArguments[]
     gtag?: (...args: unknown[]) => void
   }
 }
@@ -27,9 +27,9 @@ export default function GoogleAnalyticsConsent() {
       if (document.getElementById(SCRIPT_ID)) return
 
       window.dataLayer = window.dataLayer || []
-      window.gtag = window.gtag || ((...args: unknown[]) => {
-        window.dataLayer?.push(args)
-      })
+      window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments)
+      }
 
       // Default denial and explicit approval precede GA4 configuration.
       window.gtag('consent', 'default', {
